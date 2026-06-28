@@ -63,7 +63,7 @@ A usuária inicial é **Nícia** (candidata ao cargo de Médico Veterinário —
 | 7 | Estatísticas e pontos fracos | ✅ Concluída (implementada e validada) |
 | 8 | Simulados | ✅ Concluída (implementada e validada) |
 | 9 | Qualidade | ✅ Concluída (auditoria + correções) |
-| 10 | Deploy | ⬜ Pendente |
+| 10 | Deploy | ✅ Concluída (implementada e validada) |
 
 ---
 ---
@@ -2017,4 +2017,293 @@ A Fase 9 auditou o projeto inteiro e corrigiu **11 achados** — dois deles **bl
 
 ---
 
-> **Próxima fase:** Fase 10 — Deploy.
+---
+---
+
+# FASE 10 — Deploy
+
+## Objetivo
+
+Colocar o Nícia Track **acessível publicamente na internet**: imagem Docker de produção, PostgreSQL gerenciado no Render, variáveis de ambiente documentadas, migrations automatizadas e checklists de deploy e pós-deploy.
+
+## Problema que a fase resolve
+
+As fases anteriores construíram e validaram todas as funcionalidades localmente. Sem esta fase, o sistema existe apenas na máquina de desenvolvimento. O objetivo é torná-lo acessível para a Nícia (e futuros usuários) a qualquer hora, de qualquer dispositivo, com dados persistentes e HTTPS.
+
+## Arquivos criados
+
+```
+Dockerfile              ← imagem de produção (Python 3.12-slim + gunicorn)
+.dockerignore           ← exclui segredos e artefatos do contexto de build
+docker-compose.yml      ← desenvolvimento local com PostgreSQL via Docker
+render.yaml             ← Blueprint do Render (banco + serviço web + env vars)
+```
+
+## Arquivos modificados
+
+- `config/settings/development.py` — suporte a PostgreSQL via vars PG* (fallback para SQLite quando ausentes; retrocompatível).
+- `config/settings/production.py` — bloco `LOGGING` adicionado (WARNING+ para stdout/stderr, capturado pelo Render).
+- `.env.example` — template completo de todas as variáveis necessárias em produção.
+- `docs/PROJECT_EXPLAINED.md` — status da Fase 10 + esta seção.
+
+## Entregáveis e o que cada um faz
+
+### `Dockerfile`
+
+```
+FROM python:3.12-slim
+│
+├── apt-get: libpq-dev + libjpeg-dev + zlib1g-dev   (psycopg2 + Pillow)
+├── COPY requirements/ → pip install production.txt  (camada de cache separada)
+├── COPY . .                                          (código da aplicação)
+├── ARG SECRET_KEY + RUN collectstatic               (estáticos gerados no build)
+├── EXPOSE 8000
+└── CMD gunicorn --bind 0.0.0.0:${PORT:-8000} --workers 2
+```
+
+**Camadas de cache separadas:** copiando `requirements/` antes do código, uma mudança de código NÃO invalida a camada do `pip install` — o build fica ~60s mais rápido em cada re-deploy.
+
+**`${PORT:-8000}`:** O Render injeta a variável `$PORT` no container. O operador `:-` usa 8000 como fallback quando rodando localmente sem Docker Compose.
+
+**ARG SECRET_KEY para collectstatic:** O `CompressedManifestStaticFilesStorage` do WhiteNoise exige que os settings carreguem para gerar o manifest. A `SECRET_KEY` real não é embutida na imagem — é passada como ARG de build-time com um valor dummy; em runtime, a variável de ambiente sobrescreve.
+
+### `docker-compose.yml`
+
+Sobe dois serviços:
+- **`db`**: PostgreSQL 16-alpine com healthcheck (`pg_isready`). Volume nomeado `postgres_data` persiste os dados entre reinicializações.
+- **`web`**: constrói da imagem de produção, mas o volume `.:/app` sobrepõe o código com o local (live reload), e o `command` instala pacotes de dev + sobe o `runserver`. Aguarda o healthcheck do banco (`depends_on: db: condition: service_healthy`).
+
+O `development.py` detecta as variáveis PG* injetadas pelo compose e usa PostgreSQL automaticamente — sem SQLite em nenhuma camada do Docker.
+
+### `render.yaml` (Blueprint)
+
+Define em um único arquivo:
+- Um banco **PostgreSQL free** (`nicia-track-db`) com nome, usuário e banco configurados.
+- Um serviço web Docker (`nicia-track`) com:
+  - `runtime: docker` → Render constrói o `Dockerfile`.
+  - `preDeployCommand: python manage.py migrate --noinput` → migrations rodam ANTES do container assumir o tráfego (deploy sem downtime).
+  - `healthCheckPath: /conta/login/` → Render confirma que o container está saudável antes de finalizar o deploy.
+  - Credenciais do banco injetadas via `fromDatabase` → nunca hardcoded.
+  - `SECRET_KEY: generateValue: true` → Render gera um segredo seguro na primeira criação.
+
+## Variáveis de ambiente (produção)
+
+| Variável | Obrigatória | Valor de exemplo | De onde vem |
+|---|---|---|---|
+| `DJANGO_SETTINGS_MODULE` | ✅ | `config.settings.production` | render.yaml |
+| `SECRET_KEY` | ✅ | (gerada pelo Render) | `generateValue: true` |
+| `ALLOWED_HOSTS` | ✅ | `nicia-track.onrender.com` | render.yaml (ajustar) |
+| `CSRF_TRUSTED_ORIGINS` | ✅ | `https://nicia-track.onrender.com` | render.yaml (ajustar) |
+| `PGHOST` | ✅ | (do banco Render) | `fromDatabase` |
+| `PGPORT` | ✅ | 5432 | `fromDatabase` |
+| `PGDATABASE` | ✅ | nicia_track | `fromDatabase` |
+| `PGUSER` | ✅ | nicia_track | `fromDatabase` |
+| `PGPASSWORD` | ✅ | (do banco Render) | `fromDatabase` |
+
+## Checklist de deploy
+
+### Pré-requisitos
+
+- [ ] Repositório no GitHub com todos os arquivos da Fase 10 commitados
+- [ ] `render.yaml` na raiz do repositório
+- [ ] `.env` **não está** no repositório (está no `.gitignore`)
+- [ ] Todos os 122 testes passando localmente
+
+### No Render (primeira vez)
+
+1. Acesse [render.com](https://render.com) → **New → Blueprint**
+2. Conecte o repositório GitHub do projeto
+3. O Render detecta `render.yaml` e exibe a prévia: 1 banco + 1 serviço web
+4. Clique **Apply** → aguarde a criação do banco (≈1 min) e o primeiro build (≈3–5 min)
+5. Após o deploy, copie a URL gerada (ex.: `https://nicia-track.onrender.com`)
+6. Atualize **ALLOWED_HOSTS** e **CSRF_TRUSTED_ORIGINS** no painel do serviço com a URL real
+7. Faça um novo deploy (botão **Manual Deploy → Deploy latest commit**)
+
+### Importar as questões
+
+Após o primeiro deploy bem-sucedido:
+
+```bash
+# Via Render Shell (aba "Shell" no serviço web):
+python manage.py import_questions docs/15_BANCO_MESTRE_DE_QUESTOES.md
+```
+
+Resultado esperado: `Criadas: 800 | Atualizadas: 0 | Inalteradas: 0 | Disciplinas: 13`
+
+### Criar o superusuário (opcional, para curadoria via admin)
+
+```bash
+# Na Render Shell:
+python manage.py createsuperuser
+```
+
+## Checklist pós-deploy
+
+### Funcionalidade básica
+
+- [ ] `https://nicia-track.onrender.com` redireciona para `/conta/login/` (sem erro de CSRF)
+- [ ] Cadastro de novo usuário funciona
+- [ ] Login funciona e redireciona para o dashboard
+- [ ] Dashboard carrega sem erros
+- [ ] Banco de questões: filtrar por disciplina e iniciar um treino
+- [ ] Resultado de treino exibe gabarito comentado
+- [ ] Estatísticas carregam
+- [ ] Simulado: iniciar → cronômetro aparece → finalizar → ver resultado com breakdown
+
+### Segurança e configuração
+
+- [ ] Conexão via HTTPS (cadeado no navegador)
+- [ ] POST de login/cadastro sem erro 403 (CSRF configurado corretamente)
+- [ ] Acessar `/admin/` faz login com o superusuário criado
+
+### Performance
+
+- [ ] Primeira abertura pode ser lenta (Render free spin-down após inatividade) — normal
+- [ ] Após primeira requisição, página carrega em < 3s
+
+## Fluxo completo de uma requisição em produção
+
+```
+1. Usuário abre https://nicia-track.onrender.com
+2. Render recebe a requisição (proxy reverso → HTTPS termination)
+3. Header X-Forwarded-Proto: https → Django entende que é HTTPS
+   (SECURE_PROXY_SSL_HEADER configurado na Fase 9)
+4. WhiteNoiseMiddleware verifica se é arquivo estático
+   ├── SE SIM: serve o arquivo com hash no nome + Cache-Control: max-age=31536000
+   └── SE NÃO: passa para o Django
+5. Django processa: autenticação, view, service, ORM → PostgreSQL Render
+6. Template renderizado → resposta HTML → usuário
+```
+
+**WhiteNoise + CompressedManifestStaticFilesStorage:**
+Os arquivos estáticos são servidos diretamente pelo processo gunicorn (sem Nginx separado). O WhiteNoise adiciona cabeçalhos de cache de 1 ano e serve versões comprimidas (gzip/brotli). O manifest garante que um arquivo `app.js` alterado terá um nome novo (`app.abc123.js`) → navegadores sempre pegam a versão atualizada.
+
+## Decisões arquiteturais
+
+### Por que Docker e não deploy nativo (buildpack) no Render?
+
+**Escolhido:** Docker.
+- Paridade exata entre desenvolvimento local e produção — a mesma imagem roda em ambos os ambientes.
+- Controle total sobre a versão do Python, libs do sistema (libpq, libjpeg) e processo de boot.
+- Imagem versionada: cada commit gera uma imagem; rollback é trocar a imagem.
+
+**Alternativa:** Render nativo (detecta Python, instala `requirements.txt`). É mais simples de configurar, mas menos reproduzível — a versão do Python pode mudar no buildpack, e libs do sistema precisam ser declaradas separadamente.
+
+### Por que `preDeployCommand` em vez de migrations no `CMD`?
+
+**Escolhido:** `preDeployCommand: python manage.py migrate --noinput`.
+- As migrations rodam **antes** do novo container assumir o tráfego. Se falharem, o deploy é cancelado e a versão anterior continua servindo — sem downtime.
+- Migrations no `CMD` (no startup) fariam a aplicação tentar subir com um banco desatualizado se as migrations falhassem.
+
+**Alternativa:** Migration no startup (`sh -c "python manage.py migrate && gunicorn ..."`). Funciona para o primeiro deploy, mas não para deploys de atualizações com múltiplos workers — cada worker tentaria rodar a migration simultaneamente.
+
+### Por que `collectstatic` no Dockerfile e não no `preDeployCommand`?
+
+**Escolhido:** no `Dockerfile` (durante o build da imagem).
+- Os arquivos estáticos fazem parte da imagem — estão disponíveis imediatamente quando o container sobe.
+- Não dependem de acesso à rede ou ao banco de dados.
+- A camada de cache do Docker evita reprocessar os estáticos se o código não mudou.
+
+**Alternativa:** no `preDeployCommand` ou no `CMD`. Funciona, mas adiciona tempo de startup e falha de forma menos óbvia se a `SECRET_KEY` não estiver configurada.
+
+### Por que 2 workers no gunicorn?
+
+O Render free tier tem 0.5 CPU compartilhado. A fórmula clássica `2 × CPUs + 1` sugere 2 workers. Com 2 workers, o servidor consegue atender 2 requisições simultâneas sem bloquear — suficiente para uso individual ou pequenos grupos. Aumentar os workers em plano pago é trivial (env var ou CMD ajustado).
+
+### Por que WhiteNoise para estáticos e não S3/CDN?
+
+**Escolhido:** WhiteNoise (serve estáticos direto do processo gunicorn).
+- Zero infraestrutura extra: sem bucket S3, sem CloudFront, sem configurações de CORS.
+- Para o volume deste projeto (um usuário, arquivos estáticos pequenos e versionados), a latência extra de servir via gunicorn em vez de CDN é imperceptível.
+- O `CompressedManifestStaticFilesStorage` aplica compressão e cache de longa duração automaticamente.
+
+**Alternativa:** S3 + CloudFront. Melhor para escala, mas adiciona custo e complexidade de configuração (credenciais AWS, CORS, `django-storages`). Pode ser adicionado se o sistema crescer.
+
+### Por que PostgreSQL free do Render e não SQLite?
+
+Em desenvolvimento, SQLite é conveniente (zero configuração). Em produção:
+- SQLite não suporta múltiplos escritores simultâneos — dois usuários respondendo ao mesmo tempo causariam bloqueios de banco.
+- O arquivo SQLite estaria no filesystem efêmero do container — qualquer redeploy apagaria todos os dados.
+- PostgreSQL do Render é um serviço gerenciado com backups automáticos e alta disponibilidade.
+
+## Limitações do plano free do Render
+
+| Limitação | Impacto | Mitigação |
+|---|---|---|
+| **Spin-down após 15 min de inatividade** | Primeira requisição leva 30–60s para "acordar" | Aceitável para uso pessoal; pago não tem spin-down |
+| **Banco PostgreSQL gratuito expira em 90 dias** | Dados perdidos após 90 dias de inatividade do banco | Fazer export regular (`pg_dump`) ou migrar para plano pago |
+| **Filesystem efêmero** | Arquivos de media (avatares) são perdidos no redeploy | Migrar avatares para S3/Cloudinary se necessário no futuro |
+| **0.5 CPU / 512 MB RAM** | Consultas pesadas podem ser lentas | Adequado para 1–10 usuários simultâneos |
+
+## Explicação educacional
+
+Imagine que você nunca fez deploy de um sistema Django.
+
+**O `Dockerfile`** é como uma receita de bolo: lista cada ingrediente (libs do sistema, pacotes Python, código) e cada passo de preparo (collectstatic). O resultado é uma "imagem" — uma caixa selada com tudo que o sistema precisa para rodar. Você abre essa caixa em qualquer servidor e o sistema funciona identicamente.
+
+**O `docker-compose.yml`** é o ambiente local de desenvolvimento: levanta um banco de dados PostgreSQL e o sistema Django num único comando (`docker-compose up`). O volume `.:/app` é como um espelho — mudanças no código local aparecem instantaneamente dentro do container.
+
+**O `render.yaml`** é o "manual de montagem" para o Render. Com esse arquivo no repositório, você conecta o GitHub ao Render e ele cria tudo automaticamente: banco de dados, variáveis de ambiente, serviço web. Um time inteiro pode recriar o ambiente de produção em minutos.
+
+**O `preDeployCommand`** é como uma checagem pré-voo: antes do avião (container novo) decolar, o copiloto (Render) confere se tudo está OK (migrations). Se algo der errado, o avião antigo continua voando — nenhum passageiro percebe.
+
+**O WhiteNoise** é como uma loja de conveniência no próprio prédio: em vez de ir buscar um arquivo CSS num armazém distante (S3/CDN), ele está disponível no mesmo processo que serve o HTML. Para o tamanho deste projeto, é mais que suficiente.
+
+## Perguntas de entrevista
+
+**P1. Por que usar Docker em vez do deploy nativo do Render?**
+R: Paridade de ambiente. A mesma imagem que roda localmente roda em produção — sem surpresas de "funciona na minha máquina". Também garante uma versão específica de Python e de libs do sistema, e torna o rollback trivial (basta apontar para a imagem anterior).
+
+**P2. Por que `collectstatic` durante o build da imagem e não no startup?**
+R: Para separar o tempo de build do tempo de boot. Estáticos são gerados uma vez por commit, não a cada container que sobe. Além disso, se `collectstatic` falhar, o build falha e o deploy nunca acontece — o problema aparece cedo.
+
+**P3. O que é `preDeployCommand` e por que é melhor que rodar migrations no CMD?**
+R: É um comando que roda dentro do container antes de ele assumir o tráfego. Migrations ali garantem que o banco está atualizado antes do código novo ser exposto. No CMD, se as migrations falhassem, o container tentaria subir com esquema desatualizado; e em múltiplos workers, todos tentariam rodar a migration simultaneamente.
+
+**P4. Como o WhiteNoise serve arquivos estáticos sem Nginx?**
+R: Ele é um middleware WSGI que intercepta requisições de arquivos estáticos antes de chegarem ao Django. Serve diretamente do processo gunicorn com os headers corretos de cache (`Cache-Control: max-age=31536000`) e compressão (gzip/brotli). O `CompressedManifestStaticFilesStorage` adiciona um hash ao nome do arquivo, garantindo que o navegador sempre use a versão mais recente.
+
+**P5. Por que `SECURE_PROXY_SSL_HEADER` é essencial no Render?**
+R: Atrás do proxy do Render, a conexão interna entre o proxy e o container é HTTP. Sem este header, Django não sabe que o cliente usou HTTPS, `request.is_secure()` retorna `False`, e `SECURE_SSL_REDIRECT=True` entra em loop infinito de redirecionamento. O header `X-Forwarded-Proto` informa ao Django que o cliente original usou HTTPS.
+
+**P6. O que acontece com os arquivos de media (avatares) no redeploy?**
+R: São perdidos. O filesystem do container Render é efêmero — cada deploy cria um container novo. Para persistir media em produção, a solução correta é armazená-los externamente (S3, Cloudinary). Para o escopo atual (um usuário, avatar opcional), é uma limitação aceitável documentada.
+
+**P7. Como o `development.py` detecta se deve usar SQLite ou PostgreSQL?**
+R: Verifica a variável de ambiente `PGDATABASE` via `python-decouple`. Se estiver definida (caso do Docker Compose), configura PostgreSQL com as demais variáveis PG*. Se não estiver (desenvolvimento local sem Docker), usa SQLite — retrocompatível com o fluxo existente.
+
+## O que aprendi nesta fase
+
+**Docker:**
+- `FROM python:3.12-slim` vs `python:3.12` — slim é ~200 MB menor, sem utilitários desnecessários.
+- Ordem das camadas para maximizar cache (`requirements/` antes do código).
+- `ARG` vs `ENV` — ARG é build-time, ENV é runtime; ARG não persiste na imagem final.
+- `${VAR:-default}` em shell para fallback de variável de ambiente.
+- `.dockerignore` para excluir segredos e artefatos do contexto de build.
+
+**Render:**
+- Blueprint (`render.yaml`) para infraestrutura como código.
+- `preDeployCommand` para migrations zero-downtime.
+- `fromDatabase` para injeção automática de credenciais.
+- `generateValue: true` para secrets gerenciados pela plataforma.
+- Limitações do free tier (spin-down, banco expira em 90 dias, filesystem efêmero).
+
+**Produção Django:**
+- `SECURE_PROXY_SSL_HEADER` para proxies reversos (qualquer PaaS).
+- `CSRF_TRUSTED_ORIGINS` para POST sob HTTPS em Django 4.x.
+- `CompressedManifestStaticFilesStorage` + WhiteNoise para static files sem CDN.
+- `LOGGING` com handler `StreamHandler` para captura de logs pela plataforma.
+- `CONN_MAX_AGE=60` para connection pooling com PostgreSQL gerenciado.
+
+**Arquitetura:**
+- Separação de configuração por ambiente (dev/testing/production) como fundação do deploy.
+- `--workers 2` no gunicorn para concorrência básica no free tier.
+- Filesystem efêmero como limitação de PaaS → implicações para media.
+
+## Resumo executivo
+
+A Fase 10 entregou o sistema **pronto para produção**: um `Dockerfile` de produção com `python:3.12-slim`, camadas de cache otimizadas e `collectstatic` no build; um `docker-compose.yml` para desenvolvimento local com PostgreSQL; um `render.yaml` Blueprint que provisionando banco e serviço web com um clique; e os checklists de deploy e pós-deploy. O `development.py` foi atualizado para detectar automaticamente se deve usar SQLite ou PostgreSQL, mantendo retrocompatibilidade. O `production.py` ganhou um bloco `LOGGING` para captura de logs pelo Render. A suíte de **122 testes continua passando** após todas as mudanças. O Nícia Track está pronto para ir ao ar.
+
+---
+
+> **Projeto concluído.** Todas as 10 fases implementadas e documentadas.

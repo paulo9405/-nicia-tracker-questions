@@ -36,3 +36,16 @@ CSRF_TRUSTED_ORIGINS = [
     for origin in config("CSRF_TRUSTED_ORIGINS", default="").split(",")
     if origin.strip()
 ]
+
+# Logs de WARNING+ para stdout/stderr — capturados pelo Render automaticamente.
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {"class": "logging.StreamHandler"},
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+}

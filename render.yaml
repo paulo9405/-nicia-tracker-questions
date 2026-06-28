@@ -1,0 +1,64 @@
+# Render Blueprint — deploy completo com um clique.
+# Ajuste o valor de ALLOWED_HOSTS e CSRF_TRUSTED_ORIGINS com a URL real do serviço.
+#
+# Como usar:
+#   1. Faça push deste arquivo para o repositório GitHub.
+#   2. No Render → New → Blueprint → aponte para o repo.
+#   3. Render criará o banco e o serviço web automaticamente.
+#   4. Após o primeiro deploy, rode: python manage.py import_questions docs/15_BANCO_MESTRE_DE_QUESTOES.md
+
+databases:
+  - name: nicia-track-db
+    databaseName: nicia_track
+    user: nicia_track
+    plan: free
+
+services:
+  - type: web
+    name: nicia-track
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /conta/login/
+
+    # Roda as migrations ANTES do novo container assumir o tráfego.
+    # Garante que o banco está atualizado antes da aplicação subir (zero-downtime).
+    preDeployCommand: python manage.py migrate --noinput
+
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings.production
+
+      # Render gera um SECRET_KEY seguro automaticamente na primeira criação.
+      - key: SECRET_KEY
+        generateValue: true
+
+      # ⚠️  Atualize com a URL real após o primeiro deploy.
+      - key: ALLOWED_HOSTS
+        value: nicia-track.onrender.com
+
+      # ⚠️  Atualize com a URL real após o primeiro deploy.
+      - key: CSRF_TRUSTED_ORIGINS
+        value: https://nicia-track.onrender.com
+
+      # Credenciais do banco são injetadas automaticamente pelo Render.
+      - key: PGHOST
+        fromDatabase:
+          name: nicia-track-db
+          property: host
+      - key: PGPORT
+        fromDatabase:
+          name: nicia-track-db
+          property: port
+      - key: PGDATABASE
+        fromDatabase:
+          name: nicia-track-db
+          property: database
+      - key: PGUSER
+        fromDatabase:
+          name: nicia-track-db
+          property: user
+      - key: PGPASSWORD
+        fromDatabase:
+          name: nicia-track-db
+          property: password

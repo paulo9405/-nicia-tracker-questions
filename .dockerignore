@@ -1,0 +1,36 @@
+# Segredos — nunca devem entrar na imagem
+.env
+.env.*
+
+# Controle de versão
+.git
+.gitignore
+
+# Artefatos de desenvolvimento e teste
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ambiente virtual local
+.venv/
+venv/
+env/
+
+# Arquivos gerados em runtime — serão criados ou montados em produção
+staticfiles/
+media/
+db.sqlite3
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

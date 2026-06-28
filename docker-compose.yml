@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: nicia_track
+      POSTGRES_USER: nicia
+      POSTGRES_PASSWORD: nicia
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nicia -d nicia_track"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    build:
+      context: .
+      args:
+        SECRET_KEY: dev-dummy-key-for-collectstatic
+    # Em dev: instala pacotes extras de teste/lint, roda migrations e sobe o servidor.
+    # O volume abaixo sobrepõe o código do container com o código local (live reload).
+    command: >
+      sh -c "pip install -r requirements/development.txt -q &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.development
+      SECRET_KEY: dev-secret-key-not-for-production
+      DEBUG: "True"
+      ALLOWED_HOSTS: "localhost,127.0.0.1"
+      PGDATABASE: nicia_track
+      PGUSER: nicia
+      PGPASSWORD: nicia
+      PGHOST: db
+      PGPORT: "5432"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
