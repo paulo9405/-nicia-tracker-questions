@@ -31,11 +31,16 @@ RUN ALLOWED_HOSTS=* SECRET_KEY=${SECRET_KEY} \
 
 EXPOSE 8000
 
-# Render injeta $PORT no container; ${PORT:-8000} usa 8000 como fallback local.
-CMD ["sh", "-c", \
-     "gunicorn config.wsgi:application \
-      --bind 0.0.0.0:${PORT:-8000} \
-      --workers 2 \
-      --timeout 120 \
-      --access-logfile - \
-      --error-logfile -"]
+# No plano free do Render, preDeployCommand não é suportado.
+# Migrations, importação e criação do admin rodam aqui, antes do gunicorn.
+# Os três comandos são idempotentes: seguros de rodar em todo deploy.
+CMD ["sh", "-c", "\
+  python manage.py migrate --noinput && \
+  python manage.py import_questions docs/15_BANCO_MESTRE_DE_QUESTOES.md && \
+  python manage.py create_admin && \
+  gunicorn config.wsgi:application \
+    --bind 0.0.0.0:${PORT:-8000} \
+    --workers 2 \
+    --timeout 120 \
+    --access-logfile - \
+    --error-logfile -"]

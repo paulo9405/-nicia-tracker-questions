@@ -22,11 +22,8 @@ services:
     plan: free
     healthCheckPath: /conta/login/
 
-    # Roda ANTES do container assumir o tráfego (zero-downtime deploy).
-    # import_questions é idempotente: roda em todo deploy sem duplicar dados.
-    # create_admin só cria o usuário se ADMIN_EMAIL/ADMIN_PASSWORD estiverem definidos
-    # e o usuário ainda não existir.
-    preDeployCommand: "python manage.py migrate --noinput && python manage.py import_questions docs/15_BANCO_MESTRE_DE_QUESTOES.md && python manage.py create_admin"
+    # preDeployCommand não é suportado no plano free do Render.
+    # migrate + import_questions + create_admin rodam no CMD do Dockerfile.
 
     envVars:
       - key: DJANGO_SETTINGS_MODULE
