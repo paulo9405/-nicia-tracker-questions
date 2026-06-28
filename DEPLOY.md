@@ -25,7 +25,7 @@ No dashboard clique em **New → Blueprint**.
 ### 1.3 Conecte o repositório
 
 - Clique em **Connect account** (se ainda não autorizou o GitHub) ou selecione o GitHub
-- Na lista de repositórios, encontre **consurso-nicia** e clique em **Connect**
+- Na lista de repositórios, encontre **consurso-nicia** (ou **-nicia-tracker-questions**) e clique em **Connect**
 
 O Render vai ler o arquivo `render.yaml` e mostrar um preview com:
 
@@ -33,6 +33,9 @@ O Render vai ler o arquivo `render.yaml` e mostrar um preview com:
 ✔ nicia-track-db   (PostgreSQL — Free)
 ✔ nicia-track      (Web Service — Free)
 ```
+
+> **Observação:** se já tiver um banco PostgreSQL gratuito em outra aplicação,
+> o Render pode reclamar de limite. Nesse caso, use a Opção B no final deste guia.
 
 ---
 
@@ -76,29 +79,38 @@ O Render preenche essas automaticamente.
 
 ## PARTE 3 — Aplicar e aguardar
 
-### 3.1 Clique em Apply
+### 3.1 Dê um nome ao Blueprint e clique em Apply
+
+Coloque qualquer nome no campo **Blueprint Name** (ex: `nicia-track`) e clique em **Apply**.
 
 O Render vai executar tudo automaticamente nesta ordem:
 
 ```
-[1/4] Criando banco PostgreSQL...          (~1 min)
-[2/4] Construindo imagem Docker...         (~4 min)
+[1/3] Criando banco PostgreSQL...          (~1 min)
+[2/3] Construindo imagem Docker...         (~4 min)
       - instala dependências Python
       - gera os arquivos estáticos (collectstatic)
-[3/4] Rodando preDeployCommand...          (~1 min)
-      - migrate         → cria todas as tabelas no banco
+[3/3] Iniciando o container...             (~2 min)
+      - migrate          → cria todas as tabelas no banco
       - import_questions → importa as 800 questões do Markdown
-      - create_admin    → cria o superusuário com seu e-mail e senha
-[4/4] Subindo o servidor (gunicorn)...
+      - create_admin     → cria o superusuário com seu e-mail e senha
+      - gunicorn         → sobe o servidor web
 ```
+
+> **Importante:** no plano free do Render, `preDeployCommand` não é suportado.
+> Por isso migrate, import_questions e create_admin rodam dentro do próprio
+> container na inicialização, antes do gunicorn subir. É mais lento na primeira
+> vez (~2 min extras), mas funciona perfeitamente.
 
 ### 3.2 Acompanhe os logs
 
 Na página do serviço `nicia-track`, clique na aba **Logs**.
 
-O deploy terminou quando aparecer algo como:
+O deploy terminou com sucesso quando aparecer algo como:
 
 ```
+Criadas: 800 | Atualizadas: 0 | Inalteradas: 0 | Disciplinas: 13
+Superusuário paulo@email.com criado com sucesso.
 [INFO] Booting worker with pid: ...
 ```
 
@@ -139,12 +151,13 @@ Após salvar, o Render vai perguntar se quer redesployar. Clique em:
 
 **Manual Deploy → Deploy latest commit**
 
-Aguarde o deploy terminar (desta vez mais rápido, ~2 min, pois a imagem já está construída).
+Aguarde o deploy terminar (~2 min).
 
-> Neste segundo deploy o `preDeployCommand` roda de novo, mas é seguro:
+> Neste segundo deploy os comandos rodam de novo, mas são seguros:
 > - `migrate` → não faz nada (tabelas já existem)
 > - `import_questions` → vê que as 800 questões não mudaram, não duplica nada
 > - `create_admin` → vê que o usuário já existe, não faz nada
+> - `gunicorn` → sobe normalmente
 
 ---
 
@@ -198,17 +211,27 @@ Deve aparecer o painel com Questions, Subjects, Users, etc.
 
 ### Select de disciplinas aparece vazio
 
-**Causa:** `import_questions` pode ter falhado ou ainda não rodou.
+**Causa:** `import_questions` pode ter falhado na inicialização.
 
 **Solução:**
-1. Vá em **Logs** e procure por `import_questions`
+1. Vá em **Logs** e procure pela linha `Criadas: 800`
 2. Se não aparecer, faça um **Manual Deploy** e aguarde
+
+---
+
+### Container demora muito para subir (> 5 min)
+
+**Causa:** na primeira inicialização, migrate + import_questions rodam antes do gunicorn.
+Isso é normal e ocorre apenas no primeiro deploy ou quando o banco é recriado.
+
+**Solução:** aguarde. Acompanhe em **Logs**.
 
 ---
 
 ### Primeiro acesso demora 30–60 segundos
 
-**Normal.** O plano free do Render "dorme" o serviço após 15 minutos sem requisições. A primeira requisição acorda o servidor. Após isso, o sistema responde normalmente.
+**Normal.** O plano free do Render "dorme" o serviço após 15 minutos sem requisições.
+A primeira requisição acorda o servidor. Após isso, o sistema responde normalmente.
 
 ---
 
@@ -216,10 +239,11 @@ Deve aparecer o painel com Questions, Subjects, Users, etc.
 
 | Item | Detalhe |
 |---|---|
-| **Spin-down** | Serviço dorme após 15 min sem uso. Primeira requisição demora ~30s. |
+| **Spin-down** | Serviço dorme após 15 min sem uso. Primeira requisição demora ~30–60s. |
 | **Banco expira** | PostgreSQL gratuito é deletado após 90 dias sem atividade |
 | **Se o banco expirar** | As 800 questões são reimportadas automaticamente no próximo deploy. O superusuário também é recriado automaticamente (as env vars continuam salvas no Render). |
 | **Avatares** | Imagens de avatar enviadas pelos usuários são perdidas no redeploy (limitação do Free). |
+| **preDeployCommand** | Não suportado no free — migrate/import/create_admin rodam no CMD do container. |
 
 ---
 
@@ -230,3 +254,38 @@ Deve aparecer o painel com Questions, Subjects, Users, etc.
 | `ADMIN_EMAIL` | Tela de Blueprint (Parte 2) | paulo@email.com |
 | `ADMIN_PASSWORD` | Tela de Blueprint (Parte 2) | MinhaS3nh@Forte! |
 | `CSRF_TRUSTED_ORIGINS` | Environment após primeiro deploy (Parte 4) | https://nicia-track.onrender.com |
+
+---
+
+## Opção B — Criar na mão (se Blueprint reclamar de limite de banco gratuito)
+
+Se o Render não deixar criar um segundo banco gratuito pelo Blueprint:
+
+**1. Criar o banco** → **New → Postgres**
+- Name: `nicia-track-db`
+- Plan: Free
+- Anote: Host, Port, Database, Username, Password
+
+**2. Criar o serviço web** → **New → Web Service**
+- Repositório: selecione o repo do projeto
+- **Runtime:** Docker ← obrigatório
+- Branch: main
+- Plan: Free
+
+**3. Adicionar as variáveis de ambiente** (aba Environment do serviço):
+
+| Variável | Valor |
+|---|---|
+| `DJANGO_SETTINGS_MODULE` | `config.settings.production` |
+| `SECRET_KEY` | clique em **Generate** |
+| `ALLOWED_HOSTS` | `.onrender.com` |
+| `CSRF_TRUSTED_ORIGINS` | `https://<nome-do-servico>.onrender.com` (atualiza depois) |
+| `ADMIN_EMAIL` | seu e-mail |
+| `ADMIN_PASSWORD` | senha forte |
+| `PGHOST` | host do banco (copiado no passo 1) |
+| `PGPORT` | `5432` |
+| `PGDATABASE` | nome do banco (copiado no passo 1) |
+| `PGUSER` | usuário do banco (copiado no passo 1) |
+| `PGPASSWORD` | senha do banco (copiado no passo 1) |
+
+**4.** Salve e aguarde o deploy. Depois siga a partir da **Parte 4** deste guia.
