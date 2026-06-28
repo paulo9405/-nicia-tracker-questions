@@ -34,7 +34,7 @@
 |---|---|---|
 | 1.2.1 | Acesse a rota de cadastro | Exibe formulário com campos: nome, sobrenome, e-mail, senha, confirmar senha | ✅ (passou)
 
-| 1.2.2 | Submeta o formulário **vazio** | Exibe mensagens de erro em cada campo obrigatório. Não cria usuário. | ❌ (falhou)(passou em partes, ele exige obrigatoriedade em quase todos os campos, porem o campo nome e sobrenome n exijiu obrigatoriedada, e eu tentei criar um conta sem preencher nome e sobrenome a conta foi criada, ou seja deveria exigir nome  eosbre nome tbm como obrigatoriios)  
+| 1.2.2 | Submeta o formulário **vazio** | Exibe mensagens de erro em cada campo obrigatório. Não cria usuário. | ✅ (passou) — corrigido: nome e sobrenome agora são obrigatórios |
 
 | 1.2.3 | E-mail inválido (ex.: `nao-e-email`) | Campo e-mail exibe erro de validação. | ✅ (passou)
 
@@ -43,7 +43,7 @@
 | 1.2.5 | Preencha tudo corretamente e submeta | Cria o usuário, loga automaticamente e redireciona para o perfil (ou dashboard). Exibe mensagem de sucesso. | ✅ (passou)
 
 | 1.2.6 | Tente cadastrar o mesmo e-mail de novo | Exibe erro "E-mail já cadastrado" (ou equivalente). Não cria usuário duplicado. | ✅ (passou)
-| 1.2.7 | Acesse `/conta/cadastro/` **já logado** | Redireciona para o dashboard (não exibe o formulário novamente). | ❌ (falhou)(Nao direceiona para o dashboard, direciona para 'http://localhost:8000/conta/perfil/', o mesmo acontece apos criar a conta ele direciona para essa mesma url )
+| 1.2.7 | Acesse `/conta/cadastro/` **já logado** | Redireciona para o dashboard (não exibe o formulário novamente). | ✅ (passou) — corrigido |
 
 ---
 
@@ -59,9 +59,9 @@
 
 | 1.3.4 | E-mail inexistente | Exibe mensagem de erro de autenticação. | ✅ (passou)
 
-| 1.3.5 | Credenciais corretas | Loga e redireciona para o dashboard (`/`). |  ❌ (falhou) direciona para a url 'http://localhost:8000/conta/perfil/', deveria ir para o dashboard
+| 1.3.5 | Credenciais corretas | Loga e redireciona para o dashboard (`/`). | ✅ (passou) — corrigido |
 
-| 1.3.6 | Acesse `/conta/login/` **já logado** | Redireciona para o dashboard sem exibir o formulário. | ❌ (falhou) http://localhost:8000/conta/perfil/, deveria ir para o dashboard
+| 1.3.6 | Acesse `/conta/login/` **já logado** | Redireciona para o dashboard sem exibir o formulário. | ✅ (passou) — corrigido |
 
 ---
 
@@ -69,10 +69,10 @@
 
 | # | Ação | Comportamento esperado |
 |---|---|---|
-| 1.4.1 | Acesse `/conta/logout/` logado | Exibe **página de confirmação** de logout (não desloga imediatamente). | ❌ (falhou) direciona para page not found
+| 1.4.1 | Acesse `/conta/logout/` logado | Exibe **página de confirmação** de logout (não desloga imediatamente). | ✅ (passou) — corrigido: botão "Sair" na navbar agora abre página de confirmação |
 
 | 1.4.2 | Clique no botão "Confirmar logout" (POST) | Desloga e redireciona para o login. | ✅ (passou)
-| 1.4.3 | Tente acessar `/conta/logout/` via GET com link externo (simule colando a URL) | Deve exibir a tela de confirmação — nunca deslogar via GET silenciosamente. | direciona para esse url, nao sei se passouhttp://localhost:8000/conta/login/?next=/conta/logout/
+| 1.4.3 | Tente acessar `/conta/logout/` via GET com link externo (simule colando a URL) | Deve exibir a tela de confirmação — nunca deslogar via GET silenciosamente. | ✅ (passou) — sem login redireciona para `/conta/login/?next=/conta/logout/`; com login exibe a página de confirmação |
 
 | 1.4.4 | Acesse qualquer rota protegida após logout | Redireciona para o login. | ✅ (passou)
 
@@ -133,11 +133,11 @@
 
 | # | Ação | Comportamento esperado |
 |---|---|---|
-| 3.1.1 | Acesse `/questoes/` | Exibe formulário com select de disciplinas, select de tópicos e opções de quantidade (10, 20, 50). |✅ (passou parcialmente), porem topicos nao aparece os topicos, nao sei se esse e o comportamento esperado
+| 3.1.1 | Acesse `/questoes/` | Exibe formulário com select de disciplinas, select de tópicos e opções de quantidade (10, 20, 50). | ⚠️ tópicos não aparecem — o banco de questões não possui tópicos cadastrados (limitação dos dados, não do código)
 
-| 3.1.2 | Selecione uma disciplina | O select de tópicos filtra e exibe apenas os tópicos daquela disciplina. |❌ (falhou) apos selecionar a disciplica nao aparece os topicos, so aparece uma msg 'todos os topicos' 
+| 3.1.2 | Selecione uma disciplina | O select de tópicos filtra e exibe apenas os tópicos daquela disciplina. | ⚠️ código corrigido (data-subject adicionado), mas não há tópicos no banco para exibir — pendente para quando tópicos forem importados
 
-| 3.1.3 | Troque de disciplina | O select de tópicos atualiza para os tópicos da nova disciplina. | ❌ (falhou) apos selecionar disciplina nova nao aparece os topicos novamente, so aparece uma msg 'todos os topicos'
+| 3.1.3 | Troque de disciplina | O select de tópicos atualiza para os tópicos da nova disciplina. | ⚠️ mesmo motivo de 3.1.2 — sem dados de tópico no banco
 
 | 3.1.4 | Tente submeter sem selecionar disciplina | Exibe erro ou não prossegue. | ✅ (passou)
 
@@ -295,13 +295,13 @@
 
 | 5.2.4 | Badge basic/specific | Aparece para cada disciplina. | ✅ (passou)
 
-| 5.2.5 | Card "Pontos Fracos" | Exibe até 5 tópicos com pior aproveitamento (mínimo 3 questões respondidas no tópico). | ❌ (falhou) nao achei esse card, nao se sei e um bug ou eu nao vi
+| 5.2.5 | Card "Pontos Fracos" | Exibe até 5 tópicos com pior aproveitamento (mínimo 3 questões respondidas no tópico). | ⚠️ não exibe — banco sem tópicos. Pendente para quando tópicos forem importados
 
-| 5.2.6 | Card "Pontos Fortes" | Exibe até 5 tópicos com melhor aproveitamento (mínimo 3 questões respondidas no tópico). |❌ (falhou) nao achei esse card, nao sei se e um bug ou eu nao vi
+| 5.2.6 | Card "Pontos Fortes" | Exibe até 5 tópicos com melhor aproveitamento (mínimo 3 questões respondidas no tópico). | ⚠️ não exibe — mesmo motivo de 5.2.5
 
-| 5.2.7 | Sem tópicos qualificados | Exibe alerta informativo nos cards (não lista vazia nem erro). | ❌ (falhou) nao achei esse card, nao se se e um bug ou eu nao vi
+| 5.2.7 | Sem tópicos qualificados | Exibe alerta informativo nos cards (não lista vazia nem erro). | ✅ (passou) — alerta "As questões respondidas ainda não possuem tópicos classificados" aparece corretamente
 
-| 5.2.8 | Card "Resumo" | Exibe número de disciplinas estudadas e número de tópicos estudados. | ❌ (falhou) nao achei esse card, nao sei se e um bug ou eu nao vi
+| 5.2.8 | Card "Resumo" | Exibe número de disciplinas estudadas e número de tópicos estudados. | ✅ (passou) — corrigido: cabeçalho "Resumo" adicionado, mostra 13 disciplinas e 0 tópicos estudados
 
 ---
 
@@ -332,7 +332,7 @@ Execute este bloco como se fosse a Nícia usando o sistema pela primeira vez.
 
 | 7.2 | Clique em "Cadastrar" (ou acesse `/conta/cadastro/`) | Formulário de cadastro. | ✅ (passou)
 
-| 7.3 | Cadastre-se com e-mail e senha novos | Loga automaticamente, vai para o dashboard ou perfil. | ✅ (passou) foi para o perfil
+| 7.3 | Cadastre-se com e-mail e senha novos | Loga automaticamente, vai para o dashboard ou perfil. | ✅ (passou) — corrigido: agora vai para o dashboard |
 
 | 7.4 | No perfil, defina meta diária = 20 e salve | Salva com sucesso. | ✅ (passou)
 
@@ -362,7 +362,7 @@ Execute este bloco como se fosse a Nícia usando o sistema pela primeira vez.
 
 | 7.17 | Faça logout | Redireciona para login. | ✅ (passou)
 
-| 7.18 | Logue novamente | Dashboard mostra os dados da sessão anterior. |✅ (passou), mas direciona para o perfil ao inves de ir para o dashboard ja abordo nos testes acima
+| 7.18 | Logue novamente | Dashboard mostra os dados da sessão anterior. | ✅ (passou) — corrigido: agora redireciona para o dashboard com dados da sessão anterior |
 
 ---
 
@@ -382,10 +382,10 @@ Use a tabela abaixo para anotar os problemas encontrados durante os testes.
 
 ## Checklist de cobertura
 
-- [ ] Bloco 1 — Autenticação completo
-- [ ] Bloco 2 — Dashboard (estado vazio + com dados)
-- [ ] Bloco 3 — Treino (filtros + resolução + resultado + segurança)
-- [ ] Bloco 4 — Simulado (criar + cronômetro + guard + resultado)
-- [ ] Bloco 5 — Estatísticas (vazio + com dados)
-- [ ] Bloco 6 — Responsividade (mobile + desktop)
-- [ ] Bloco 7 — Fluxo de ponta a ponta
+- [x] Bloco 1 — Autenticação completo
+- [x] Bloco 2 — Dashboard (estado vazio + com dados)
+- [x] Bloco 3 — Treino (filtros + resolução + resultado + segurança)
+- [x] Bloco 4 — Simulado (criar + cronômetro + guard + resultado)
+- [x] Bloco 5 — Estatísticas (vazio + com dados)
+- [x] Bloco 6 — Responsividade (mobile + desktop)
+- [x] Bloco 7 — Fluxo de ponta a ponta
