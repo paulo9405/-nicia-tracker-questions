@@ -2231,7 +2231,7 @@ Em desenvolvimento, SQLite é conveniente (zero configuração). Em produção:
 | Limitação | Impacto | Mitigação |
 |---|---|---|
 | **Spin-down após 15 min de inatividade** | Primeira requisição leva 30–60s para "acordar" | Aceitável para uso pessoal; pago não tem spin-down |
-| **Banco PostgreSQL gratuito expira em 90 dias** | Dados perdidos após 90 dias de inatividade do banco | Fazer export regular (`pg_dump`) ou migrar para plano pago |
+| **Banco PostgreSQL gratuito expira em 90 dias** | Dados perdidos após 90 dias de inatividade do banco | **Resolvido:** banco migrado para Neon (neon.tech), que não expira no plano gratuito |
 | **Filesystem efêmero** | Arquivos de media (avatares) são perdidos no redeploy | Migrar avatares para S3/Cloudinary se necessário no futuro |
 | **0.5 CPU / 512 MB RAM** | Consultas pesadas podem ser lentas | Adequado para 1–10 usuários simultâneos |
 
@@ -2300,9 +2300,70 @@ R: Verifica a variável de ambiente `PGDATABASE` via `python-decouple`. Se estiv
 - `--workers 2` no gunicorn para concorrência básica no free tier.
 - Filesystem efêmero como limitação de PaaS → implicações para media.
 
+## Deploy real — como foi na prática
+
+A execução do deploy revelou quatro limitações que não eram evidentes no planejamento. Cada uma exigiu uma decisão imediata:
+
+### Problema 1 — `preDeployCommand` não suportado no plano free
+
+**O que aconteceu:** ao aplicar o `render.yaml` via Blueprint, o Render rejeitou com:
+```
+services[0] pre-deploy command is not supported for free tier services
+```
+
+**Decisão:** mover `migrate`, `import_questions` e `create_admin` para dentro do `CMD` do `Dockerfile`, encadeados com `&&`. Os três comandos são **idempotentes** — o que já existe não é duplicado nem sobrescrito, então rodar em todo deploy é seguro.
+
+**Trade-off aceito:** se qualquer comando falhar antes do gunicorn, o serviço fica offline. Com `preDeployCommand` (disponível no plano pago), o container anterior continuaria servindo durante o problema. Para o escopo atual, o trade-off é aceitável.
+
+### Problema 2 — Limite de 1 banco gratuito por conta no Render
+
+**O que aconteceu:** o Blueprint falhou porque a conta já tinha um banco gratuito de outro projeto:
+```
+Cannot have more than one active free tier database
+```
+
+**Decisão:** usar **Neon** (`neon.tech`) como provedor de PostgreSQL gratuito em vez do banco do Render.
+
+**Por que Neon:**
+- Não expira (o banco free do Render é desativado após 90 dias sem upgrade para pago)
+- Suporta múltiplos projetos no plano gratuito
+- Compatível com Django via `psycopg2` padrão
+
+**Configuração extra:** Neon exige SSL. Foi adicionado em `production.py`:
+```python
+"OPTIONS": {"sslmode": "require"}
+```
+Sem isso: `connection refused` no handshake SSL.
+
+### Problema 3 — Variável `PGUSER` com valor padrão errado
+
+**O que aconteceu:** `password authentication failed for user 'nicia'`. O `production.py` usa `default="nicia"` para `PGUSER`. Como a variável não estava salva corretamente no Render, o Django conectava com o usuário errado.
+
+**Decisão:** verificar e salvar todas as 5 variáveis `PG*` no painel **Environment** do Render com os valores exatos fornecidos pelo Neon (em especial `PGUSER=neondb_owner`), e clicar em **Save, rebuild, and deploy**.
+
+### Problema 4 — `CSRF_TRUSTED_ORIGINS` com URL placeholder
+
+**O que aconteceu:** formulários retornavam `403 Forbidden` após o login. A variável `CSRF_TRUSTED_ORIGINS` estava configurada com `https://nicia-track.onrender.com` (placeholder definido antes de saber a URL real do serviço).
+
+**Decisão:** após o primeiro deploy bem-sucedido, atualizar `CSRF_TRUSTED_ORIGINS` com a URL real e fazer um Manual Deploy.
+
+### Resultado final
+
+URL de produção: **`https://nicia-tracker-questions.onrender.com`**
+
+Banco: **Neon PostgreSQL** — gratuito, sem expiração, com SSL.
+
+A cada deploy, o container executa automaticamente (em ordem):
+1. `python manage.py migrate` — aplica migrations pendentes
+2. `python manage.py import_questions docs/15_BANCO_MESTRE_DE_QUESTOES.md` — importa/atualiza as 800 questões
+3. `python manage.py create_admin` — cria o superusuário se ainda não existir
+4. `gunicorn` — sobe o servidor
+
+---
+
 ## Resumo executivo
 
-A Fase 10 entregou o sistema **pronto para produção**: um `Dockerfile` de produção com `python:3.12-slim`, camadas de cache otimizadas e `collectstatic` no build; um `docker-compose.yml` para desenvolvimento local com PostgreSQL; um `render.yaml` Blueprint que provisionando banco e serviço web com um clique; e os checklists de deploy e pós-deploy. O `development.py` foi atualizado para detectar automaticamente se deve usar SQLite ou PostgreSQL, mantendo retrocompatibilidade. O `production.py` ganhou um bloco `LOGGING` para captura de logs pelo Render. A suíte de **122 testes continua passando** após todas as mudanças. O Nícia Track está pronto para ir ao ar.
+A Fase 10 entregou o sistema **em produção**: um `Dockerfile` de produção com `python:3.12-slim`, camadas de cache otimizadas e `collectstatic` no build; um `docker-compose.yml` para desenvolvimento local com PostgreSQL; e um `render.yaml` Blueprint de referência. O `development.py` detecta automaticamente SQLite ou PostgreSQL. O `production.py` tem HTTPS forçado, `CSRF_TRUSTED_ORIGINS`, `SECURE_PROXY_SSL_HEADER` e logging para stdout. Na execução real, `preDeployCommand` não estava disponível no free tier — a solução foi encadear todos os comandos de inicialização no `CMD` do Dockerfile, garantindo idempotência. O banco do Render tinha limite de um por conta gratuita — a solução foi usar Neon, que não expira. A suíte de **122 testes continua passando**. O Nícia Track está no ar em `https://nicia-tracker-questions.onrender.com`.
 
 ---
 
