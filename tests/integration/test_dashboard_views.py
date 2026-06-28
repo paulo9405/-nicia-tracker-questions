@@ -33,8 +33,8 @@ class TestDashboardView:
         assert b"Bem-vindo ao N\xc3\xadcia Track" in r.content
 
     def test_exibe_metricas_com_treinos(self, client_logged, user):
-        from apps.questions.models import Alternative, Question, Subject
         from apps.exams.services.quiz_service import QuizService
+        from apps.questions.models import Alternative, Question, Subject
 
         subject = Subject.objects.create(
             name="Português", slug="portugues", category="basic"
@@ -65,4 +65,5 @@ class TestDashboardView:
 
     def test_dashboard_url_reversivel(self):
         from django.urls import reverse
+
         assert reverse("dashboard:home") == "/"

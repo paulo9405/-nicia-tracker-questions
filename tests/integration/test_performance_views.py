@@ -26,8 +26,8 @@ class TestPerformanceView:
         assert b"Nenhuma estat" in r.content
 
     def test_exibe_disciplinas_com_treinos(self, client_logged, user):
-        from apps.questions.models import Alternative, Question, Subject
         from apps.exams.services.quiz_service import QuizService
+        from apps.questions.models import Alternative, Question, Subject
 
         subject = Subject.objects.create(
             name="Informática", slug="informatica", category="basic"
@@ -55,4 +55,5 @@ class TestPerformanceView:
 
     def test_url_reversivel(self):
         from django.urls import reverse
+
         assert reverse("performance:stats") == "/estatisticas/"

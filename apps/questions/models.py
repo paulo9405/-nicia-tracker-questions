@@ -12,7 +12,9 @@ class Subject(BaseModel):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
     description = models.TextField(blank=True)
-    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, default=SPECIFIC)
+    category = models.CharField(
+        max_length=10, choices=CATEGORY_CHOICES, default=SPECIFIC
+    )
     color = models.CharField(max_length=7, default="#6c757d")
     is_active = models.BooleanField(default=True)
 
@@ -31,7 +33,9 @@ class Subject(BaseModel):
 
 
 class Topic(BaseModel):
-    subject = models.ForeignKey(Subject, on_delete=models.PROTECT, related_name="topics")
+    subject = models.ForeignKey(
+        Subject, on_delete=models.PROTECT, related_name="topics"
+    )
     name = models.CharField(max_length=150)
     slug = models.SlugField(max_length=150)
     is_active = models.BooleanField(default=True)
@@ -57,7 +61,9 @@ class Question(BaseModel):
     HARD = "hard"
     DIFFICULTY_CHOICES = [(EASY, "Fácil"), (MEDIUM, "Médio"), (HARD, "Difícil")]
 
-    subject = models.ForeignKey(Subject, on_delete=models.PROTECT, related_name="questions")
+    subject = models.ForeignKey(
+        Subject, on_delete=models.PROTECT, related_name="questions"
+    )
     topic = models.ForeignKey(
         Topic, on_delete=models.PROTECT, related_name="questions", null=True, blank=True
     )
@@ -68,7 +74,9 @@ class Question(BaseModel):
     year = models.PositiveSmallIntegerField(null=True, blank=True)
     institution = models.CharField(max_length=100, blank=True)
     board = models.CharField(max_length=100, blank=True)
-    difficulty = models.CharField(max_length=10, choices=DIFFICULTY_CHOICES, default=MEDIUM)
+    difficulty = models.CharField(
+        max_length=10, choices=DIFFICULTY_CHOICES, default=MEDIUM
+    )
     explanation = models.TextField(blank=True)
     source = models.CharField(max_length=200, blank=True)
     is_active = models.BooleanField(default=True)

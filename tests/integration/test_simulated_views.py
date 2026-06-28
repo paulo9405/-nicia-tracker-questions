@@ -100,7 +100,10 @@ class TestSimulatedPlayView:
         assert len(r.context["quiz_questions"]) == 40
 
     def test_tem_time_limit_no_contexto(self, client_logged, user, full_bank):
-        from apps.exams.services.simulated_service import SimulatedService, TIME_LIMIT_MINUTES
+        from apps.exams.services.simulated_service import (
+            TIME_LIMIT_MINUTES,
+            SimulatedService,
+        )
 
         quiz = SimulatedService.create_simulated_quiz(user)
         r = client_logged.get(f"/questoes/simulado/{quiz.pk}/")

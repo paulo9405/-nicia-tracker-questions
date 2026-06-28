@@ -48,17 +48,13 @@ class TestQuestionService:
     def test_retorna_questoes_ativas(self, questions, subject):
         from apps.questions.services.question_service import QuestionService
 
-        result = list(
-            QuestionService.get_practice_questions(str(subject.pk), None, 10)
-        )
+        result = list(QuestionService.get_practice_questions(str(subject.pk), None, 10))
         assert len(result) == 10
 
     def test_respeita_quantidade_maxima_disponivel(self, questions, subject):
         from apps.questions.services.question_service import QuestionService
 
-        result = list(
-            QuestionService.get_practice_questions(str(subject.pk), None, 50)
-        )
+        result = list(QuestionService.get_practice_questions(str(subject.pk), None, 50))
         assert len(result) == 15  # só 15 disponíveis
 
     def test_count_available(self, questions, subject):
@@ -189,3 +185,40 @@ class TestQuizServiceResult:
         assert result.correct == 4
         assert result.wrong == 0
         assert result.percentage == 100.0
+
+
+# ── Regressão de performance (N+1) ───────────────────────────────────────── #
+
+
+class TestQuizServiceSubmitQueries:
+    """Garante que submit_answers não regride para N+1 queries."""
+
+    @staticmethod
+    def _answer_all(quiz):
+        return {
+            str(qq.question.pk): str(qq.question.alternatives.get(is_correct=True).pk)
+            for qq in quiz.quiz_questions.all()
+        }
+
+    def test_submit_usa_numero_constante_de_queries(self, user, questions, subject):
+        from django.db import connection
+        from django.test.utils import CaptureQueriesContext
+
+        from apps.exams.services.quiz_service import QuizService
+
+        quiz_small = QuizService.create_practice_quiz(
+            user=user, subject_id=str(subject.pk), topic_id=None, quantity=3
+        )
+        answers_small = self._answer_all(quiz_small)
+        with CaptureQueriesContext(connection) as ctx_small:
+            QuizService.submit_answers(quiz_small, answers_small)
+
+        quiz_large = QuizService.create_practice_quiz(
+            user=user, subject_id=str(subject.pk), topic_id=None, quantity=12
+        )
+        answers_large = self._answer_all(quiz_large)
+        with CaptureQueriesContext(connection) as ctx_large:
+            QuizService.submit_answers(quiz_large, answers_large)
+
+        # Sem N+1: responder 12 questões custa o mesmo nº de queries que 3.
+        assert len(ctx_small.captured_queries) == len(ctx_large.captured_queries)

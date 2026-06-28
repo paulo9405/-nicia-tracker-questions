@@ -7,7 +7,9 @@ from .models import Profile, User
 class RegisterForm(forms.ModelForm):
     password1 = forms.CharField(
         label="Senha",
-        widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Senha"}),
+        widget=forms.PasswordInput(
+            attrs={"class": "form-control", "placeholder": "Senha"}
+        ),
     )
     password2 = forms.CharField(
         label="Confirmar senha",
@@ -80,9 +82,14 @@ class ProfileForm(forms.ModelForm):
         fields = ["target_contest", "daily_goal", "study_level", "bio", "avatar"]
         widgets = {
             "target_contest": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Ex.: Médico Veterinário — Ponta Grossa 2026"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Ex.: Médico Veterinário — Ponta Grossa 2026",
+                }
             ),
-            "daily_goal": forms.NumberInput(attrs={"class": "form-control", "min": 1, "max": 200}),
+            "daily_goal": forms.NumberInput(
+                attrs={"class": "form-control", "min": 1, "max": 200}
+            ),
             "study_level": forms.Select(attrs={"class": "form-select"}),
             "bio": forms.Textarea(attrs={"class": "form-control", "rows": 3}),
             "avatar": forms.FileInput(attrs={"class": "form-control"}),

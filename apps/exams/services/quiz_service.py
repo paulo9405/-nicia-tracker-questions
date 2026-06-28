@@ -11,13 +11,12 @@ Regras de negócio:
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import timezone
 
 from django.db import transaction
 from django.utils import timezone as tz
 
 from apps.exams.models import Quiz, QuizQuestion, UserAnswer
-from apps.questions.models import Question, Subject, Topic
+from apps.questions.models import Alternative, Subject, Topic
 from apps.questions.services.question_service import QuestionService
 
 
@@ -85,9 +84,17 @@ class QuizService:
         if quiz.is_finished:
             return quiz
 
-        quiz_questions = QuizQuestion.objects.filter(quiz=quiz).select_related(
-            "question"
+        quiz_questions = list(
+            QuizQuestion.objects.filter(quiz=quiz).select_related("question")
         )
+
+        # Pré-carrega todas as alternativas das questões do quiz numa única
+        # query, em vez de uma query por questão respondida (evita N+1).
+        question_ids = [qq.question_id for qq in quiz_questions]
+        alternatives_by_id = {
+            str(alt.id): alt
+            for alt in Alternative.objects.filter(question_id__in=question_ids)
+        }
 
         answers_to_create = []
         for qq in quiz_questions:
@@ -96,15 +103,12 @@ class QuizService:
             is_correct = False
 
             if alt_id:
-                from apps.questions.models import Alternative
-
-                try:
-                    selected_alt = Alternative.objects.get(
-                        pk=alt_id, question=qq.question
-                    )
-                    is_correct = selected_alt.is_correct
-                except Alternative.DoesNotExist:
-                    pass
+                alt = alternatives_by_id.get(str(alt_id))
+                # Valida que a alternativa pertence à questão respondida —
+                # impede submeter o id de uma alternativa de outra questão.
+                if alt is not None and alt.question_id == qq.question_id:
+                    selected_alt = alt
+                    is_correct = alt.is_correct
 
             answers_to_create.append(
                 UserAnswer(

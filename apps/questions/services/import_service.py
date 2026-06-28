@@ -21,7 +21,11 @@ from dataclasses import dataclass, field
 from django.db import transaction
 
 from apps.questions.importer.mapping import mapping_for
-from apps.questions.importer.parser import BancoMestreParser, ParsedQuestion, ParseResult
+from apps.questions.importer.parser import (
+    BancoMestreParser,
+    ParsedQuestion,
+    ParseResult,
+)
 from apps.questions.models import Alternative, Question, Subject
 
 # Banca organizadora do concurso (constante para todo o banco mestre).
@@ -83,9 +87,7 @@ class QuestionImportService:
         return report
 
     def _simulate(self, result: ParseResult, report: ImportReport) -> None:
-        existing = dict(
-            Question.objects.values_list("external_id", "content_hash")
-        )
+        existing = dict(Question.objects.values_list("external_id", "content_hash"))
         for parsed in result.questions:
             report.subjects_touched.add(mapping_for(parsed.section_index).slug)
             current_hash = existing.get(parsed.external_id)

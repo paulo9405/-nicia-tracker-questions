@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView as DjangoLoginView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import FormView, UpdateView, TemplateView
+from django.views.generic import FormView, TemplateView, UpdateView
 
 from .forms import LoginForm, ProfileForm, RegisterForm
 from .services.user_service import UserService
@@ -22,7 +22,9 @@ class RegisterView(FormView):
 
     def form_valid(self, form):
         UserService.register(form, self.request)
-        messages.success(self.request, "Conta criada com sucesso! Bem-vinda ao Nícia Track.")
+        messages.success(
+            self.request, "Conta criada com sucesso! Bem-vinda ao Nícia Track."
+        )
         return super().form_valid(form)
 
 

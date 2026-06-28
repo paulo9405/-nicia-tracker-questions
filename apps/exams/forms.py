@@ -4,7 +4,11 @@ from apps.questions.models import Subject, Topic
 
 
 class QuizFilterForm(forms.Form):
-    QUANTITY_CHOICES = [("10", "10 questões"), ("20", "20 questões"), ("50", "50 questões")]
+    QUANTITY_CHOICES = [
+        ("10", "10 questões"),
+        ("20", "20 questões"),
+        ("50", "50 questões"),
+    ]
 
     subject = forms.ModelChoiceField(
         queryset=Subject.objects.filter(is_active=True).order_by("name"),
@@ -31,5 +35,7 @@ class QuizFilterForm(forms.Form):
         subject = cleaned.get("subject")
         topic = cleaned.get("topic")
         if topic and subject and topic.subject != subject:
-            raise forms.ValidationError("O tópico selecionado não pertence à disciplina.")
+            raise forms.ValidationError(
+                "O tópico selecionado não pertence à disciplina."
+            )
         return cleaned

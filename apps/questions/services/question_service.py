@@ -17,7 +17,9 @@ class QuestionService:
 
     @staticmethod
     def get_topics_for_subject(subject_id) -> QuerySet:
-        return Topic.objects.filter(subject_id=subject_id, is_active=True).order_by("name")
+        return Topic.objects.filter(subject_id=subject_id, is_active=True).order_by(
+            "name"
+        )
 
     @staticmethod
     def get_practice_questions(

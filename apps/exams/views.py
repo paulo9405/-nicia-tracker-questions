@@ -4,13 +4,15 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import FormView, TemplateView, View
 
+from apps.questions.services.question_service import QuestionService
+
 from .forms import QuizFilterForm
 from .models import Quiz
 from .services.quiz_service import QuizService
 from .services.simulated_service import (
+    TIME_LIMIT_MINUTES,
     InsufficientQuestionsError,
     SimulatedService,
-    TIME_LIMIT_MINUTES,
 )
 
 
@@ -33,9 +35,10 @@ class FilterView(LoginRequiredMixin, FormView):
         topic = form.cleaned_data.get("topic")
         quantity = int(form.cleaned_data["quantity"])
 
-        available = subject.questions.filter(is_active=True).count()
-        if topic:
-            available = topic.questions.filter(is_active=True).count()
+        available = QuestionService.count_available(
+            subject_id=str(subject.pk),
+            topic_id=str(topic.pk) if topic else None,
+        )
 
         if available == 0:
             messages.warning(
@@ -139,6 +142,7 @@ class SimulatedStartView(LoginRequiredMixin, View):
 
     def render(self, request):
         from django.shortcuts import render as django_render
+
         return django_render(
             request,
             "exams/simulated_start.html",

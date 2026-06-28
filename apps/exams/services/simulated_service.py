@@ -19,7 +19,6 @@ from apps.core.exceptions import DomainException
 from apps.exams.models import Quiz, QuizQuestion, UserAnswer
 from apps.questions.models import Question, Subject
 
-
 BASIC_PER_SUBJECT = 5
 SPECIFIC_TOTAL = 20
 SIMULATED_TOTAL = 40
@@ -51,8 +50,9 @@ class SimulatedService:
         basic_questions: list[Question] = []
         for subj in basic_subjects:
             qs = list(
-                Question.objects.filter(subject=subj, is_active=True)
-                .order_by("?")[:BASIC_PER_SUBJECT]
+                Question.objects.filter(subject=subj, is_active=True).order_by("?")[
+                    :BASIC_PER_SUBJECT
+                ]
             )
             if len(qs) < BASIC_PER_SUBJECT:
                 raise InsufficientQuestionsError(
@@ -65,8 +65,7 @@ class SimulatedService:
             Question.objects.filter(
                 subject__category=Subject.SPECIFIC,
                 is_active=True,
-            )
-            .order_by("?")[:SPECIFIC_TOTAL]
+            ).order_by("?")[:SPECIFIC_TOTAL]
         )
 
         if len(specific_questions) < SPECIFIC_TOTAL:
@@ -113,9 +112,9 @@ class SimulatedService:
                 "color": row["question__subject__color"],
                 "total": row["total"],
                 "correct": row["correct"],
-                "percentage": round(row["correct"] / row["total"] * 100)
-                if row["total"]
-                else 0,
+                "percentage": (
+                    round(row["correct"] / row["total"] * 100) if row["total"] else 0
+                ),
             }
             for row in rows
         ]

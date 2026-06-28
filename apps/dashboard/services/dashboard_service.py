@@ -65,9 +65,9 @@ class DashboardService:
                 color=row["question__subject__color"],
                 total=row["total"],
                 correct=row["correct"],
-                percentage=round(row["correct"] / row["total"] * 100)
-                if row["total"]
-                else 0,
+                percentage=(
+                    round(row["correct"] / row["total"] * 100) if row["total"] else 0
+                ),
             )
             for row in subject_rows
         ]
@@ -78,10 +78,8 @@ class DashboardService:
             answered_at__date=today,
         ).count()
 
-        try:
-            daily_goal = user.profile.daily_goal or 10
-        except Exception:
-            daily_goal = 10
+        profile = getattr(user, "profile", None)
+        daily_goal = (profile.daily_goal if profile else None) or 10
 
         today_remaining = max(0, daily_goal - today_answered)
         daily_goal_pct = (

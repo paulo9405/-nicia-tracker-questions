@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 from apps.core.models import BaseModel
@@ -59,8 +60,13 @@ class Profile(BaseModel):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     target_contest = models.CharField(max_length=200, blank=True)
-    daily_goal = models.PositiveSmallIntegerField(default=10)
-    study_level = models.CharField(max_length=20, choices=LEVEL_CHOICES, default=BEGINNER)
+    daily_goal = models.PositiveSmallIntegerField(
+        default=10,
+        validators=[MinValueValidator(1), MaxValueValidator(200)],
+    )
+    study_level = models.CharField(
+        max_length=20, choices=LEVEL_CHOICES, default=BEGINNER
+    )
     bio = models.TextField(blank=True)
     avatar = models.ImageField(upload_to="avatars/", null=True, blank=True)
 

@@ -28,18 +28,50 @@ class SubjectMapping:
 
 SUBJECT_MAP: dict[int, SubjectMapping] = {
     1: SubjectMapping(1, "Saúde Única", "saude-unica", SPECIFIC, "#2e7d32"),
-    2: SubjectMapping(2, "Zoonoses e Vigilância", "zoonoses-vigilancia", SPECIFIC, "#388e3c"),
-    3: SubjectMapping(3, "Segurança Alimentar", "seguranca-alimentar", SPECIFIC, "#43a047"),
+    2: SubjectMapping(
+        2, "Zoonoses e Vigilância", "zoonoses-vigilancia", SPECIFIC, "#388e3c"
+    ),
+    3: SubjectMapping(
+        3, "Segurança Alimentar", "seguranca-alimentar", SPECIFIC, "#43a047"
+    ),
     4: SubjectMapping(4, "Bem-Estar Animal", "bem-estar-animal", SPECIFIC, "#558b2f"),
-    5: SubjectMapping(5, "Medicina Veterinária do Coletivo", "medicina-veterinaria-coletivo", SPECIFIC, "#689f38"),
-    6: SubjectMapping(6, "Fauna e Legislação Ambiental", "fauna-legislacao-ambiental", SPECIFIC, "#7cb342"),
-    7: SubjectMapping(7, "Cirurgia, Anestesia e Contenção", "cirurgia-anestesia-contencao", SPECIFIC, "#33691e"),
-    8: SubjectMapping(8, "Fisiologia e Reprodução", "fisiologia-reproducao", SPECIFIC, "#00695c"),
-    9: SubjectMapping(9, "Lei Orgânica de Ponta Grossa", "lei-organica-ponta-grossa", SPECIFIC, "#00838f"),
+    5: SubjectMapping(
+        5,
+        "Medicina Veterinária do Coletivo",
+        "medicina-veterinaria-coletivo",
+        SPECIFIC,
+        "#689f38",
+    ),
+    6: SubjectMapping(
+        6,
+        "Fauna e Legislação Ambiental",
+        "fauna-legislacao-ambiental",
+        SPECIFIC,
+        "#7cb342",
+    ),
+    7: SubjectMapping(
+        7,
+        "Cirurgia, Anestesia e Contenção",
+        "cirurgia-anestesia-contencao",
+        SPECIFIC,
+        "#33691e",
+    ),
+    8: SubjectMapping(
+        8, "Fisiologia e Reprodução", "fisiologia-reproducao", SPECIFIC, "#00695c"
+    ),
+    9: SubjectMapping(
+        9,
+        "Lei Orgânica de Ponta Grossa",
+        "lei-organica-ponta-grossa",
+        SPECIFIC,
+        "#00838f",
+    ),
     10: SubjectMapping(10, "Português", "portugues", BASIC, "#1565c0"),
     11: SubjectMapping(11, "Informática", "informatica", BASIC, "#6a1b9a"),
     12: SubjectMapping(12, "Matemática", "matematica", BASIC, "#c62828"),
-    13: SubjectMapping(13, "Conhecimentos Gerais", "conhecimentos-gerais", BASIC, "#ef6c00"),
+    13: SubjectMapping(
+        13, "Conhecimentos Gerais", "conhecimentos-gerais", BASIC, "#ef6c00"
+    ),
 }
 
 

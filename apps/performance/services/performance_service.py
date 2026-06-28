@@ -4,7 +4,6 @@ from django.db.models import Count, Q
 
 from apps.exams.models import UserAnswer
 
-
 MIN_QUESTIONS_FOR_RANKING = 3
 
 
@@ -32,9 +31,9 @@ class TopicPerformance:
 
 @dataclass
 class PerformanceStats:
-    subjects: list          # list[SubjectPerformance], sorted weakest first
-    weak_topics: list       # list[TopicPerformance], bottom 5
-    strong_topics: list     # list[TopicPerformance], top 5
+    subjects: list  # list[SubjectPerformance], sorted weakest first
+    weak_topics: list  # list[TopicPerformance], bottom 5
+    strong_topics: list  # list[TopicPerformance], top 5
     total_subjects_studied: int
     total_topics_studied: int
     has_topic_data: bool
@@ -68,9 +67,11 @@ class PerformanceService:
                     category=row["question__subject__category"],
                     total=row["total"],
                     correct=row["correct"],
-                    percentage=round(row["correct"] / row["total"] * 100)
-                    if row["total"]
-                    else 0,
+                    percentage=(
+                        round(row["correct"] / row["total"] * 100)
+                        if row["total"]
+                        else 0
+                    ),
                 )
                 for row in subject_rows
             ],
@@ -100,9 +101,9 @@ class PerformanceService:
                 subject_color=row["question__subject__color"],
                 total=row["total"],
                 correct=row["correct"],
-                percentage=round(row["correct"] / row["total"] * 100)
-                if row["total"]
-                else 0,
+                percentage=(
+                    round(row["correct"] / row["total"] * 100) if row["total"] else 0
+                ),
             )
             for row in topic_rows
         ]

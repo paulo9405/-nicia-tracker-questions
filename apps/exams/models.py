@@ -24,7 +24,9 @@ class Quiz(BaseModel):
         Topic, on_delete=models.PROTECT, related_name="quizzes", null=True, blank=True
     )
     quiz_type = models.CharField(max_length=15, choices=TYPE_CHOICES, default=PRACTICE)
-    status = models.CharField(max_length=15, choices=STATUS_CHOICES, default=IN_PROGRESS)
+    status = models.CharField(
+        max_length=15, choices=STATUS_CHOICES, default=IN_PROGRESS
+    )
     quantity = models.PositiveSmallIntegerField()
     started_at = models.DateTimeField(auto_now_add=True)
     finished_at = models.DateTimeField(null=True, blank=True)
@@ -48,7 +50,9 @@ class Quiz(BaseModel):
 
 
 class QuizQuestion(BaseModel):
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="quiz_questions")
+    quiz = models.ForeignKey(
+        Quiz, on_delete=models.CASCADE, related_name="quiz_questions"
+    )
     question = models.ForeignKey(
         Question, on_delete=models.PROTECT, related_name="quiz_questions"
     )

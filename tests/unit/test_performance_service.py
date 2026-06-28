@@ -32,7 +32,9 @@ def subject_b(db):
 def topic_a(subject_a):
     from apps.questions.models import Topic
 
-    return Topic.objects.create(subject=subject_a, name="Interpretação de Texto", slug="interpretacao")
+    return Topic.objects.create(
+        subject=subject_a, name="Interpretação de Texto", slug="interpretacao"
+    )
 
 
 @pytest.fixture
@@ -111,7 +113,9 @@ class TestPerformanceServiceStats:
         assert s.correct == 2
         assert s.percentage == 50
 
-    def test_disciplinas_ordenadas_por_menor_percentual(self, user, subject_a, subject_b):
+    def test_disciplinas_ordenadas_por_menor_percentual(
+        self, user, subject_a, subject_b
+    ):
         from apps.performance.services.performance_service import PerformanceService
 
         q_a = _make_questions(subject_a, count=4)
@@ -121,7 +125,7 @@ class TestPerformanceServiceStats:
 
         stats = PerformanceService.get_full_stats(user)
 
-        assert stats.subjects[0].name == "Português"   # pior primeiro
+        assert stats.subjects[0].name == "Português"  # pior primeiro
         assert stats.subjects[1].name == "Saúde Única"
 
     def test_total_disciplinas_estudadas(self, user, subject_a, subject_b):
@@ -175,7 +179,9 @@ class TestPerformanceServiceTopics:
         assert stats.weak_topics == []
         assert stats.strong_topics == []
 
-    def test_pontos_fracos_ordenados_pior_primeiro(self, user, subject_a, topic_a, topic_b):
+    def test_pontos_fracos_ordenados_pior_primeiro(
+        self, user, subject_a, topic_a, topic_b
+    ):
         from apps.performance.services.performance_service import PerformanceService
 
         q_a = _make_questions(subject_a, count=4, topic=topic_a)
@@ -189,7 +195,9 @@ class TestPerformanceServiceTopics:
         if stats.weak_topics:
             assert stats.weak_topics[0].percentage <= stats.weak_topics[-1].percentage
 
-    def test_pontos_fortes_ordenados_melhor_primeiro(self, user, subject_a, topic_a, topic_b):
+    def test_pontos_fortes_ordenados_melhor_primeiro(
+        self, user, subject_a, topic_a, topic_b
+    ):
         from apps.performance.services.performance_service import PerformanceService
 
         q_a = _make_questions(subject_a, count=4, topic=topic_a)
@@ -199,11 +207,13 @@ class TestPerformanceServiceTopics:
         stats = PerformanceService.get_full_stats(user)
 
         if stats.strong_topics:
-            assert stats.strong_topics[0].percentage >= stats.strong_topics[-1].percentage
+            assert (
+                stats.strong_topics[0].percentage >= stats.strong_topics[-1].percentage
+            )
 
     def test_pontos_fracos_limitados_a_cinco(self, user, subject_a):
-        from apps.questions.models import Alternative, Question, Topic
         from apps.performance.services.performance_service import PerformanceService
+        from apps.questions.models import Alternative, Question, Topic
 
         # Cria 7 tópicos com 4 questões cada
         topics = []

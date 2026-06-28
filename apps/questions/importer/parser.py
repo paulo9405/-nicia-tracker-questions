@@ -217,9 +217,7 @@ class BancoMestreParser:
         gabarito = self._parse_gabarito(gabarito_lines, section_index, result)
 
         self._merge_gabarito(questions, gabarito, section_index, result)
-        result.questions.extend(
-            questions[number] for number in sorted(questions)
-        )
+        result.questions.extend(questions[number] for number in sorted(questions))
 
     # -- nivel: textos-base (Portugues) ------------------------------------ #
 
@@ -367,9 +365,7 @@ class BancoMestreParser:
 
     # -- validacao por questao --------------------------------------------- #
 
-    def _validate_question(
-        self, question: ParsedQuestion, result: ParseResult
-    ) -> None:
+    def _validate_question(self, question: ParsedQuestion, result: ParseResult) -> None:
         si, n = question.section_index, question.number
         letters = [a.letter for a in question.alternatives]
 

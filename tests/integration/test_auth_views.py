@@ -51,7 +51,9 @@ class TestLoginView:
         assert r.status_code == 200
 
     def test_login_valido_redireciona(self, client, user):
-        r = client.post(self.url, {"username": user.email, "password": "senha123segura"})
+        r = client.post(
+            self.url, {"username": user.email, "password": "senha123segura"}
+        )
         assert r.status_code == 302
 
     def test_credenciais_invalidas_retorna_form(self, client):

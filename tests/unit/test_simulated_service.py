@@ -42,7 +42,9 @@ def full_bank(db):
         _make_subject("Português", "portugues", "basic", "#1565c0"),
         _make_subject("Matemática", "matematica", "basic", "#c62828"),
         _make_subject("Informática", "informatica", "basic", "#6a1b9a"),
-        _make_subject("Conhecimentos Gerais", "conhecimentos-gerais", "basic", "#ef6c00"),
+        _make_subject(
+            "Conhecimentos Gerais", "conhecimentos-gerais", "basic", "#ef6c00"
+        ),
     ]
     for s in basics:
         _add_questions(s, 10)
@@ -83,9 +85,7 @@ class TestSimulatedServiceCreate:
         )
         qqs = QuizQuestion.objects.filter(quiz=quiz).select_related("question__subject")
 
-        basic_count = sum(
-            1 for qq in qqs if qq.question.subject_id in basic_pks
-        )
+        basic_count = sum(1 for qq in qqs if qq.question.subject_id in basic_pks)
         specific_count = quiz.quantity - basic_count
 
         assert basic_count == 20
@@ -158,8 +158,8 @@ class TestSimulatedServiceInProgress:
         assert found.pk == quiz.pk
 
     def test_nao_retorna_simulado_finalizado(self, user, full_bank):
-        from apps.exams.services.simulated_service import SimulatedService
         from apps.exams.services.quiz_service import QuizService
+        from apps.exams.services.simulated_service import SimulatedService
 
         quiz = SimulatedService.create_simulated_quiz(user)
         QuizService.submit_answers(quiz, {})

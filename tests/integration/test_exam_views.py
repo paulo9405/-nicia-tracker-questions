@@ -63,7 +63,9 @@ class TestFilterView:
         assert r.status_code == 200
         assert "form" in r.context
 
-    def test_post_cria_quiz_e_redireciona_para_play(self, client_logged, subject, questions):
+    def test_post_cria_quiz_e_redireciona_para_play(
+        self, client_logged, subject, questions
+    ):
         data = {"subject": str(subject.pk), "quantity": "10"}
         r = client_logged.post(self.url, data)
         assert r.status_code == 302

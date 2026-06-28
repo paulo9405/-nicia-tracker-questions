@@ -62,7 +62,7 @@ A usuária inicial é **Nícia** (candidata ao cargo de Médico Veterinário —
 | 6 | Dashboard | ✅ Concluída (implementada e validada) |
 | 7 | Estatísticas e pontos fracos | ✅ Concluída (implementada e validada) |
 | 8 | Simulados | ✅ Concluída (implementada e validada) |
-| 9 | Qualidade | ⬜ Pendente |
+| 9 | Qualidade | ✅ Concluída (auditoria + correções) |
 | 10 | Deploy | ⬜ Pendente |
 
 ---
@@ -1819,3 +1819,202 @@ A Fase 8 entregou o **modo simulado completo**: `SimulatedService` com criação
 ---
 
 > **Próxima fase:** Fase 9 — Qualidade.
+
+---
+---
+
+# FASE 9 — Qualidade
+
+## Objetivo
+
+Revisar **todo o projeto** com olhar de produção e corrigir o que estiver abaixo desse padrão: N+1 queries, segurança, cobertura de testes (meta ≥ 70%), validações, código morto e configuração de ambientes. Diferente das fases anteriores, a Fase 9 **não adiciona funcionalidade** — ela audita o que existe e corrige.
+
+## Problema que a fase resolve
+
+As Fases 4–8 entregaram funcionalidades rapidamente. Uma fase dedicada de qualidade garante que o sistema esteja **pronto para deploy** (Fase 10) sem surpresas: nenhum formulário quebrando em produção, nenhuma query escondida que degrade com o uso, e uma suíte de testes que cubra os caminhos críticos.
+
+## Auditoria técnica (linha de base)
+
+A auditoria começou medindo o estado real antes de qualquer mudança:
+
+```
+107 testes passando | cobertura 92%
+```
+
+A cobertura **já estava acima da meta de 70%** — então o foco se deslocou de "escrever mais testes" para **corrigir problemas reais de qualidade e segurança**. Achados, por severidade:
+
+| # | Severidade | Achado | Local |
+|---|---|---|---|
+| 1 | 🔴 Crítico | `SECURE_SSL_REDIRECT=True` sem `SECURE_PROXY_SSL_HEADER` → loop de redirect infinito atrás do proxy do Render | `production.py` |
+| 2 | 🔴 Crítico | Falta `CSRF_TRUSTED_ORIGINS` → todo POST falha com 403 em produção HTTPS | `production.py` |
+| 3 | 🟡 Bug UX | `CompressedManifestStaticFilesStorage` no `base.py` exige `collectstatic` → admin/`{% static %}` quebra em dev e teste | `base.py` |
+| 4 | 🟡 Bug UX | Mensagens de erro usam tag `error`, que não existe no Bootstrap (`alert-error`) → erros saem sem cor | `base.html` + settings |
+| 5 | 🟡 N+1 | `submit_answers` fazia 1 query por questão respondida (até 40 num simulado) | `quiz_service.py` |
+| 6 | 🟢 Cleanup | Imports mortos (`datetime.timezone`, `Question`) | `quiz_service.py` |
+| 7 | 🟢 DRY | `FilterView` reimplementava a contagem em vez de usar `QuestionService.count_available` | `exams/views.py` |
+| 8 | 🟢 Robustez | `except Exception` genérico demais ao ler `daily_goal` | `dashboard_service.py` |
+| 9 | 🟢 Validação | `daily_goal` sem validators server-side (só no widget) | `accounts/models.py` |
+| 10 | 🟢 Feature | Nenhum `admin.py` — admin habilitado mas sem curadoria (destaque da Fase 1) | todos os apps |
+| 11 | 🟢 Cobertura | `import_questions` command em 0% | testes |
+
+## Arquivos criados
+
+```
+apps/questions/admin.py     ← curadoria: Subject, Topic, Question (+ Alternative inline)
+apps/accounts/admin.py      ← User (login por e-mail) + Profile inline
+apps/exams/admin.py         ← Quiz, QuizQuestion inline, UserAnswer
+
+apps/accounts/migrations/0003_alter_profile_daily_goal.py  ← validators de daily_goal
+
+tests/integration/test_import_command.py  ← 5 testes do management command
+tests/integration/test_admin.py           ← 9 smoke tests do admin
+tests/integration/test_quality.py         ← 1 teste do fix de mensagens de erro
+```
+
+## Arquivos modificados
+
+- `config/settings/production.py` — `SECURE_PROXY_SSL_HEADER`, `CSRF_TRUSTED_ORIGINS`, `SECURE_HSTS_PRELOAD`.
+- `config/settings/base.py` — `MESSAGE_TAGS` mapeando `ERROR → danger`.
+- `config/settings/development.py` e `testing.py` — `STORAGES` com storage de static simples (sem manifest).
+- `apps/exams/services/quiz_service.py` — fix de N+1 no `submit_answers` + remoção de imports mortos.
+- `apps/exams/views.py` — `FilterView` usa `QuestionService.count_available`.
+- `apps/dashboard/services/dashboard_service.py` — leitura de `daily_goal` sem `except Exception`.
+- `apps/accounts/models.py` — `daily_goal` com `MinValueValidator(1)` / `MaxValueValidator(200)`.
+- `tests/unit/test_quiz_service.py` — teste de regressão de N+1.
+- `docs/PROJECT_EXPLAINED.md` — esta seção + status da fase.
+
+## Correções em detalhe
+
+### 1 e 2 — Segurança de produção (críticas para o deploy)
+
+No Render (e em qualquer PaaS com proxy reverso), a aplicação recebe a requisição já em HTTP interno; só o header `X-Forwarded-Proto` informa que o cliente usou HTTPS. Sem `SECURE_PROXY_SSL_HEADER`, o Django acha que a conexão nunca é segura e o `SECURE_SSL_REDIRECT` **redireciona infinitamente**. E o Django 4.x exige `CSRF_TRUSTED_ORIGINS` para aceitar POST sob HTTPS — sem isso, login, cadastro e submit de quiz retornariam **403**. As origens vêm de variável de ambiente:
+
+```python
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CSRF_TRUSTED_ORIGINS = [o.strip() for o in config("CSRF_TRUSTED_ORIGINS", default="").split(",") if o.strip()]
+```
+
+### 3 — Storage de static por ambiente
+
+O `CompressedManifestStaticFilesStorage` (WhiteNoise) renomeia os arquivos com um hash e exige um *manifest* gerado por `collectstatic`. É a escolha certa **em produção** (cache-busting), mas em dev/teste, sem `collectstatic`, qualquer `{% static %}` — inclusive o do admin — estoura `Missing staticfiles manifest entry`. A correção mantém o manifest só em produção e usa o `StaticFilesStorage` simples em `development.py` e `testing.py`.
+
+### 4 — Mensagens de erro sem cor
+
+O nível `ERROR` do Django gera a tag CSS `error`, mas o Bootstrap usa `alert-danger`. O alerta saía **sem estilo vermelho**. Corrigido com `MESSAGE_TAGS = {message_constants.ERROR: "danger"}`.
+
+### 5 — N+1 no submit de respostas
+
+O código antigo buscava a alternativa selecionada **uma questão por vez**:
+
+```python
+for qq in quiz_questions:
+    if alt_id:
+        selected_alt = Alternative.objects.get(pk=alt_id, question=qq.question)  # 1 query POR questão
+```
+
+Num simulado de 40 questões, isso eram até 40 queries no submit. A correção pré-carrega todas as alternativas das questões do quiz em **uma única query** e resolve a seleção em memória, mantendo a validação de que a alternativa pertence à questão respondida (segurança):
+
+```python
+alternatives_by_id = {str(a.id): a for a in Alternative.objects.filter(question_id__in=question_ids)}
+...
+alt = alternatives_by_id.get(str(alt_id))
+if alt is not None and alt.question_id == qq.question_id:
+    selected_alt = alt
+    is_correct = alt.is_correct
+```
+
+### 10 — Django admin para curadoria
+
+A Fase 1 destacou o admin como ferramenta-chave para curar as 800 questões, mas nenhum model estava registrado. Foram criados três `admin.py`: `QuestionAdmin` com `AlternativeInline` (editar a questão e suas 4 alternativas na mesma tela), `SubjectAdmin`/`TopicAdmin` com filtros, e um `UserAdmin` customizado para o login por e-mail (sem `username`), com `add_fieldsets` próprio para não quebrar o formulário de criação.
+
+## Testes criados
+
+| Arquivo | Testes | O que cobre |
+|---|---|---|
+| `tests/unit/test_quiz_service.py` | +1 | **Regressão de N+1**: responder 12 questões usa o mesmo nº de queries que 3 |
+| `tests/integration/test_import_command.py` | 5 | Command: import normal, `--dry-run`, arquivo inexistente, `--strict` aborta, relato sem abortar |
+| `tests/integration/test_admin.py` | 9 | Changelists e form de criação de usuário carregam (200) |
+| `tests/integration/test_quality.py` | 1 | Mensagem de erro renderiza com `alert-danger`, não `alert-error` |
+
+O teste de N+1 é uma **regressão de performance** elegante: em vez de fixar um número mágico de queries, ele compara um quiz pequeno com um grande e exige contagem igual — se o N+1 voltar, a diferença reaparece e o teste falha.
+
+```
+Antes:  107 testes | cobertura 92%
+Depois: 122 testes | cobertura 96%
+```
+
+## Decisões arquiteturais
+
+### Por que configurar `STORAGES` por ambiente em vez de remover o manifest?
+O manifest é uma vantagem real em produção (cache eterno com invalidação por hash). Removê-lo do `base.py` penalizaria produção; mantê-lo em dev/teste quebra o admin. A solução correta é **configuração por ambiente**: produção herda o manifest do `base.py`; dev e teste sobrescrevem com o storage simples.
+
+### Por que testar N+1 por comparação e não com `assertNumQueries(n)`?
+Um número fixo (`assertNumQueries(5)`) é frágil: muda quando se adiciona um savepoint ou um índice. Comparar dois tamanhos de entrada testa exatamente a **propriedade** que importa — "o custo não cresce com o número de questões" — e é imune a mudanças de contagem-base.
+
+### Por que validar `daily_goal` no model e não só no widget?
+O `min`/`max` do widget é validação **client-side** — um POST direto (curl, script) o ignora. `MinValueValidator`/`MaxValueValidator` no model são a barreira **server-side**, aplicada em todo `full_clean()` e no admin.
+
+### Por que `getattr(user, "profile", None)` em vez de `try/except`?
+`except Exception` engolia qualquer erro (inclusive bugs reais) só para tratar a ausência de perfil. Como o `Profile` é criado por signal e tem `default=10`, `getattr` com fallback expressa a intenção exata sem mascarar nada.
+
+## Explicação educacional
+
+Imagine que o sistema vai "abrir as portas" para a Nícia usar de verdade. A Fase 9 é a **vistoria final antes da inauguração**.
+
+**Os dois ajustes de produção** são como descobrir, antes de inaugurar, que a porta da frente (HTTPS) tem uma armadilha: sem avisar o Django que o cliente entrou por HTTPS, ele manda a pessoa de volta para a porta — para sempre. E sem a lista de origens confiáveis, o sistema recusaria todo formulário enviado.
+
+**O fix de N+1** é trocar 40 idas ao depósito (uma por questão) por **uma só** ida que traz tudo. O resultado é idêntico; o custo, uma fração.
+
+**O admin** é a sala dos bastidores: agora a Nícia (ou um curador) pode corrigir o enunciado de uma questão ou ajustar um gabarito sem mexer no código.
+
+**Os testes novos** são o "checklist da vistoria" que fica registrado: se alguém no futuro reintroduzir o N+1, ou quebrar o admin, ou voltar a mensagem de erro sem cor, um teste acende a luz vermelha.
+
+## Perguntas de entrevista
+
+**P1. O que é o problema N+1 e como você o detectou e corrigiu aqui?**
+R: É fazer 1 query para buscar N itens e depois N queries para dados relacionados (uma por item). No `submit_answers`, cada questão respondida disparava um `Alternative.objects.get`. Detectei lendo o loop e confirmei com um teste que compara a contagem de queries entre um quiz pequeno e um grande. Corrigi pré-carregando todas as alternativas num dict com uma única query (`filter(question_id__in=...)`) e resolvendo a seleção em memória.
+
+**P2. Por que `SECURE_PROXY_SSL_HEADER` é necessário no Render?**
+R: Atrás de um proxy reverso, a conexão entre o proxy e a aplicação é HTTP; o Django só sabe que o cliente usou HTTPS pelo header `X-Forwarded-Proto`. Sem configurar isso, `request.is_secure()` é sempre falso e o `SECURE_SSL_REDIRECT` entra em loop de redirecionamento infinito.
+
+**P3. Qual a diferença entre validação no widget e no model?**
+R: O widget (`min`/`max`) valida no navegador — é UX, e é facilmente contornável por um POST direto. O validator no model é server-side, roda em `full_clean()` e no admin, e é a garantia real de integridade do dado.
+
+**P4. Por que o admin do `User` precisou de customização?**
+R: O `UserAdmin` padrão do Django assume `username` como campo de login e referencia esse campo nos `fieldsets` e `add_fieldsets`. Como nosso `USERNAME_FIELD` é `email` e `username` é opcional, foi preciso reescrever `fieldsets`/`add_fieldsets` para usar `email` + senha — senão o admin quebra ao abrir o usuário ou o formulário de criação.
+
+**P5. A meta de cobertura era 70% e o projeto já estava em 92%. O que isso muda na fase?**
+R: Muda o foco. Cobertura alta não significa ausência de bugs — significa que o caminho feliz está testado. Com a meta já batida, a Fase 9 investiu em **qualidade de produção** (segurança, N+1, configuração por ambiente) e em testes de **caminhos antes não cobertos** (o management command, o admin) e de **regressão** (N+1), em vez de inflar a porcentagem.
+
+## O que aprendi nesta fase
+
+**Django:**
+- `SECURE_PROXY_SSL_HEADER`, `CSRF_TRUSTED_ORIGINS`, `SECURE_HSTS_PRELOAD` para deploy seguro atrás de proxy.
+- `MESSAGE_TAGS` para casar os níveis de mensagem com o framework CSS.
+- `STORAGES` por ambiente; quando o `ManifestStaticFilesStorage` ajuda e quando atrapalha.
+- Customizar `UserAdmin` (`fieldsets`/`add_fieldsets`) para um `User` com login por e-mail.
+- `TabularInline`/`StackedInline` para editar relações na mesma tela do admin.
+- `MinValueValidator`/`MaxValueValidator` como validação server-side no model.
+
+**PostgreSQL / performance:**
+- Reconhecer e eliminar N+1 com `filter(campo_id__in=[...])` + lookup em memória.
+
+**Python:**
+- `getattr(obj, "attr", default)` como alternativa limpa a `try/except` para acesso opcional.
+
+**Testes:**
+- `CaptureQueriesContext` para medir e comparar o número de queries.
+- Testar regressão de performance por **comparação** em vez de número fixo.
+- `call_command` para testar management commands ponta a ponta.
+- Smoke tests do admin (changelist e form de criação retornam 200).
+
+**Tooling:**
+- `black` e `isort --profile black` em conjunto (isort antes, black com a palavra final) para formatação consistente.
+
+## Resumo executivo
+
+A Fase 9 auditou o projeto inteiro e corrigiu **11 achados** — dois deles **bloqueadores de produção** (loop de redirect e 403 de CSRF no Render), um N+1 no submit de respostas, o storage de static que quebrava o admin em dev/teste, mensagens de erro sem cor, além de cleanup, validação server-side e a criação do **Django admin** para curadoria. A suíte cresceu de **107 para 122 testes** e a cobertura de **92% para 96%**, com destaque para um teste de **regressão de N+1** e a cobertura do management command e do admin. O sistema está pronto para a Fase 10 (Deploy).
+
+---
+
+> **Próxima fase:** Fase 10 — Deploy.

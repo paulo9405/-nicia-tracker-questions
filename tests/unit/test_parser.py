@@ -10,7 +10,9 @@ import pytest
 
 from apps.questions.importer.parser import BancoMestreParser
 
-REAL_FILE = Path(__file__).resolve().parents[2] / "docs" / "15_BANCO_MESTRE_DE_QUESTOES.md"
+REAL_FILE = (
+    Path(__file__).resolve().parents[2] / "docs" / "15_BANCO_MESTRE_DE_QUESTOES.md"
+)
 
 SECTION_FIXTURE = """\
 # SEÇÃO 1 — SAÚDE ÚNICA
@@ -103,7 +105,9 @@ class TestParserBasico:
 
     def test_content_hash_muda_com_edicao(self):
         a = BancoMestreParser().parse_text(SECTION_FIXTURE).questions[0]
-        editado = SECTION_FIXTURE.replace("Enunciado da questão um?", "Enunciado EDITADO?")
+        editado = SECTION_FIXTURE.replace(
+            "Enunciado da questão um?", "Enunciado EDITADO?"
+        )
         b = BancoMestreParser().parse_text(editado).questions[0]
         assert a.content_hash != b.content_hash
 
@@ -116,7 +120,9 @@ class TestTextoBase:
 
 class TestValidacoes:
     def test_questao_sem_gabarito_gera_erro(self):
-        texto = SECTION_FIXTURE.replace("| 2 | **A** | Comentário dois. | 01 §1.2 |\n", "")
+        texto = SECTION_FIXTURE.replace(
+            "| 2 | **A** | Comentário dois. | 01 §1.2 |\n", ""
+        )
         result = BancoMestreParser().parse_text(texto)
         assert not result.ok
         assert any("sem gabarito" in str(e) for e in result.errors)

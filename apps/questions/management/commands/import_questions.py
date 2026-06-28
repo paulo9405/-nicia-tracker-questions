@@ -66,5 +66,7 @@ class Command(BaseCommand):
         self.stdout.write(f"  Criadas    : {report.created}")
         self.stdout.write(f"  Atualizadas: {report.updated}")
         self.stdout.write(f"  Inalteradas: {report.unchanged}")
-        self.stdout.write(f"  Disciplinas: {', '.join(sorted(report.subjects_touched))}")
+        self.stdout.write(
+            f"  Disciplinas: {', '.join(sorted(report.subjects_touched))}"
+        )
         self.stdout.write(self.style.SUCCESS("Concluido."))
