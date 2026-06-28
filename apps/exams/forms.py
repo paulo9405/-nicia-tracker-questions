@@ -9,7 +9,7 @@ class TopicSelect(forms.Select):
         super().__init__(*args, **kwargs)
 
     def create_option(self, name, value, label, selected, index, subgroup=None, attrs=None, subindex=None):
-        option = super().create_option(name, value, label, selected, index, subgroup, attrs, subindex)
+        option = super().create_option(name, value, label, selected, index, subgroup, attrs)
         if value:
             subject_id = self.topic_subjects.get(str(value))
             if subject_id:
