@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+
+{% block title %}Estatísticas — Nícia Track{% endblock %}
+
+{% block content %}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+  <div>
+    <h4 class="mb-0 fw-bold">Estatísticas e Pontos Fracos</h4>
+    <p class="text-muted mb-0 small">Veja onde você está indo bem e onde precisa melhorar.</p>
+  </div>
+  <a href="{% url 'exams:filter' %}" class="btn btn-primary">
+    <i class="bi bi-play-fill me-1"></i>Treinar agora
+  </a>
+</div>
+
+{% if stats.total_subjects_studied == 0 %}
+
+{# ── Estado vazio ─────────────────────────────────────────────────────────── #}
+<div class="text-center py-5">
+  <i class="bi bi-bar-chart display-1 text-muted"></i>
+  <h5 class="mt-3 text-muted">Nenhuma estatística ainda</h5>
+  <p class="text-muted">Complete alguns treinos para ver seu desempenho aqui.</p>
+  <a href="{% url 'exams:filter' %}" class="btn btn-primary btn-lg mt-2">
+    <i class="bi bi-play-fill me-2"></i>Começar treino
+  </a>
+</div>
+
+{% else %}
+
+{# ── Resumo ───────────────────────────────────────────────────────────────── #}
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center">
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-primary">{{ stats.total_subjects_studied }}</div>
+        <div class="text-muted small">
+          {% if stats.total_subjects_studied == 1 %}disciplina estudada{% else %}disciplinas estudadas{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center">
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-secondary">{{ stats.total_topics_studied }}</div>
+        <div class="text-muted small">
+          {% if stats.total_topics_studied == 1 %}tópico estudado{% else %}tópicos estudados{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Desempenho por disciplina ─────────────────────────────────────────────── #}
+<div class="card border-0 shadow-sm mb-4">
+  <div class="card-header bg-white border-0 pt-3 pb-0">
+    <h6 class="fw-bold mb-0">
+      <i class="bi bi-graph-up-arrow me-2 text-primary"></i>Desempenho por disciplina
+      <span class="text-muted fw-normal small ms-1">(menor aproveitamento primeiro)</span>
+    </h6>
+  </div>
+  <div class="card-body px-0 pb-0">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th class="ps-4">Disciplina</th>
+            <th class="text-center" style="width:90px;">Resp.</th>
+            <th class="text-center" style="width:90px;">Acertos</th>
+            <th style="min-width:160px;">Aproveitamento</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in stats.subjects %}
+          <tr>
+            <td class="ps-4">
+              <span class="badge me-2" style="background-color:{{ s.color }};">&nbsp;</span>
+              <span class="fw-semibold">{{ s.name }}</span>
+              <span class="badge bg-light text-secondary ms-1 fw-normal" style="font-size:.7rem;">
+                {% if s.category == "basic" %}Básica{% else %}Específica{% endif %}
+              </span>
+            </td>
+            <td class="text-center text-muted">{{ s.total }}</td>
+            <td class="text-center
+              {% if s.percentage >= 70 %}text-success fw-semibold
+              {% elif s.percentage >= 50 %}text-warning fw-semibold
+              {% else %}text-danger fw-semibold{% endif %}">
+              {{ s.correct }}
+            </td>
+            <td>
+              <div class="d-flex align-items-center gap-2">
+                <div class="progress flex-grow-1" style="height:8px;">
+                  <div class="progress-bar
+                    {% if s.percentage >= 70 %}bg-success
+                    {% elif s.percentage >= 50 %}bg-warning
+                    {% else %}bg-danger{% endif %}"
+                    role="progressbar"
+                    style="width:{{ s.percentage }}%;"
+                    aria-valuenow="{{ s.percentage }}"
+                    aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+                <span class="small fw-bold text-nowrap" style="width:38px;">{{ s.percentage }}%</span>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{# ── Pontos fracos e fortes ────────────────────────────────────────────────── #}
+{% if stats.has_topic_data %}
+<div class="row g-3 mb-4">
+
+  {# Pontos fracos #}
+  <div class="col-md-6">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-white border-0 pt-3 pb-0">
+        <h6 class="fw-bold mb-0 text-danger">
+          <i class="bi bi-arrow-down-circle me-2"></i>Pontos fracos
+        </h6>
+        <p class="text-muted small mb-0">Tópicos com menor aproveitamento (mín. {{ stats.weak_topics|length }} respostas)</p>
+      </div>
+      <div class="card-body pt-3">
+        {% if stats.weak_topics %}
+          {% for t in stats.weak_topics %}
+          <div class="mb-3">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <div>
+                <span class="fw-semibold small">{{ t.name }}</span><br>
+                <span class="badge" style="background-color:{{ t.subject_color }}; font-size:.7rem;">
+                  {{ t.subject_name }}
+                </span>
+              </div>
+              <span class="fs-5 fw-bold text-danger ms-2">{{ t.percentage }}%</span>
+            </div>
+            <div class="progress" style="height:6px;">
+              <div class="progress-bar bg-danger"
+                   role="progressbar"
+                   style="width:{{ t.percentage }}%;"
+                   aria-valuenow="{{ t.percentage }}"
+                   aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <div class="text-muted" style="font-size:.75rem;">{{ t.correct }}/{{ t.total }} acertos</div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <p class="text-muted small mb-0">
+            Ainda não há tópicos com questões suficientes para o ranking.
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {# Pontos fortes #}
+  <div class="col-md-6">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-white border-0 pt-3 pb-0">
+        <h6 class="fw-bold mb-0 text-success">
+          <i class="bi bi-arrow-up-circle me-2"></i>Pontos fortes
+        </h6>
+        <p class="text-muted small mb-0">Tópicos com maior aproveitamento</p>
+      </div>
+      <div class="card-body pt-3">
+        {% if stats.strong_topics %}
+          {% for t in stats.strong_topics %}
+          <div class="mb-3">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <div>
+                <span class="fw-semibold small">{{ t.name }}</span><br>
+                <span class="badge" style="background-color:{{ t.subject_color }}; font-size:.7rem;">
+                  {{ t.subject_name }}
+                </span>
+              </div>
+              <span class="fs-5 fw-bold text-success ms-2">{{ t.percentage }}%</span>
+            </div>
+            <div class="progress" style="height:6px;">
+              <div class="progress-bar bg-success"
+                   role="progressbar"
+                   style="width:{{ t.percentage }}%;"
+                   aria-valuenow="{{ t.percentage }}"
+                   aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <div class="text-muted" style="font-size:.75rem;">{{ t.correct }}/{{ t.total }} acertos</div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <p class="text-muted small mb-0">
+            Ainda não há tópicos com questões suficientes para o ranking.
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</div>
+{% else %}
+<div class="alert alert-info border-0 shadow-sm">
+  <i class="bi bi-info-circle me-2"></i>
+  As questões respondidas ainda não possuem tópicos classificados.
+  O ranking de pontos fracos e fortes aparecerá assim que tópicos forem identificados.
+</div>
+{% endif %}
+
+{% endif %}{# end if total_subjects_studied > 0 #}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "accounts/base_auth.html" %}
+
+{% block title %}Entrar — Nícia Track{% endblock %}
+
+{% block card_content %}
+<h2 class="h5 fw-bold mb-4 text-center">Entrar na conta</h2>
+
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  <div class="mb-3">
+    <label class="form-label">E-mail</label>
+    {{ form.username }}
+    {% if form.username.errors %}
+      <div class="invalid-feedback d-block">{{ form.username.errors.0 }}</div>
+    {% endif %}
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Senha</label>
+    {{ form.password }}
+    {% if form.password.errors %}
+      <div class="invalid-feedback d-block">{{ form.password.errors.0 }}</div>
+    {% endif %}
+  </div>
+
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger py-2">{{ form.non_field_errors.0 }}</div>
+  {% endif %}
+
+  <div class="d-grid mt-4">
+    <button type="submit" class="btn btn-primary btn-lg">
+      <i class="bi bi-box-arrow-in-right me-1"></i>Entrar
+    </button>
+  </div>
+</form>
+{% endblock %}
+
+{% block footer_link %}
+  Não tem conta? <a href="{% url 'accounts:register' %}">Criar conta</a>
+{% endblock %}

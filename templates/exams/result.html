@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}Resultado — Nícia Track{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-9">
+
+    {# ── Resumo ── #}
+    <div class="card shadow-sm border-0 mb-4">
+      <div class="card-body p-4">
+        <div class="row align-items-center g-3">
+          <div class="col-sm-auto text-center">
+            {% if result.percentage >= 70 %}
+              <i class="bi bi-trophy-fill text-warning" style="font-size:3rem;"></i>
+            {% elif result.percentage >= 50 %}
+              <i class="bi bi-emoji-smile text-primary" style="font-size:3rem;"></i>
+            {% else %}
+              <i class="bi bi-emoji-frown text-danger" style="font-size:3rem;"></i>
+            {% endif %}
+          </div>
+          <div class="col">
+            <h1 class="h4 fw-bold mb-1">
+              {% if quiz.quiz_type == "simulated" %}
+                Simulado
+              {% else %}
+                {{ quiz.subject.name }}
+                {% if quiz.topic %}<small class="text-muted">— {{ quiz.topic.name }}</small>{% endif %}
+              {% endif %}
+            </h1>
+            <div class="progress mb-2" style="height:12px;">
+              <div class="progress-bar
+                {% if result.percentage >= 70 %}bg-success{% elif result.percentage >= 50 %}bg-warning{% else %}bg-danger{% endif %}"
+                   role="progressbar"
+                   style="width:{{ result.percentage }}%"
+                   aria-valuenow="{{ result.percentage }}" aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <div class="d-flex flex-wrap gap-3">
+              <span class="badge bg-success fs-6 px-3 py-2">
+                <i class="bi bi-check-lg me-1"></i>{{ result.correct }} acerto{{ result.correct|pluralize }}
+              </span>
+              <span class="badge bg-danger fs-6 px-3 py-2">
+                <i class="bi bi-x-lg me-1"></i>{{ result.wrong }} erro{{ result.wrong|pluralize }}
+              </span>
+              {% if result.skipped %}
+              <span class="badge bg-secondary fs-6 px-3 py-2">
+                <i class="bi bi-dash me-1"></i>{{ result.skipped }} pulada{{ result.skipped|pluralize }}
+              </span>
+              {% endif %}
+              <span class="badge bg-primary fs-6 px-3 py-2">
+                {{ result.percentage }}%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# ── Breakdown por disciplina (simulado) ── #}
+    {% if subject_breakdown %}
+    <div class="card shadow-sm border-0 mb-4">
+      <div class="card-header bg-white border-0 pt-3 pb-0">
+        <h6 class="fw-bold mb-0">
+          <i class="bi bi-pie-chart-fill me-2 text-primary"></i>Resultado por disciplina
+        </h6>
+      </div>
+      <div class="card-body pt-3">
+        <div class="row g-2">
+          {% for s in subject_breakdown %}
+          <div class="col-12 col-md-6">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="small fw-semibold">
+                <span class="badge me-1" style="background-color:{{ s.color }};">&nbsp;</span>
+                {{ s.name }}
+              </span>
+              <span class="small text-muted">
+                {{ s.correct }}/{{ s.total }} — <strong>{{ s.percentage }}%</strong>
+              </span>
+            </div>
+            <div class="progress mb-2" style="height:7px;">
+              <div class="progress-bar
+                {% if s.percentage >= 70 %}bg-success{% elif s.percentage >= 50 %}bg-warning{% else %}bg-danger{% endif %}"
+                style="width:{{ s.percentage }}%;"
+                role="progressbar"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {# ── Gabarito por questão ── #}
+    <h2 class="h5 fw-bold mb-3">Gabarito comentado</h2>
+
+    {% for item in result.items %}
+    <div class="card shadow-sm border-0 mb-3
+      {% if item.is_correct %}border-start border-success border-3{% elif item.is_skipped %}border-start border-secondary border-3{% else %}border-start border-danger border-3{% endif %}">
+      <div class="card-body p-4">
+
+        {# Número + status #}
+        <div class="d-flex align-items-start gap-2 mb-3">
+          <span class="badge
+            {% if item.is_correct %}bg-success{% elif item.is_skipped %}bg-secondary{% else %}bg-danger{% endif %}
+            fs-6 flex-shrink-0">{{ item.order }}</span>
+          <p class="mb-0 fw-semibold">{{ item.question.text }}</p>
+        </div>
+
+        {# Contexto #}
+        {% if item.question.context_text %}
+          <div class="alert alert-light border-start border-primary border-3 mb-3 py-2 small">
+            {{ item.question.context_text }}
+          </div>
+        {% endif %}
+
+        {# Alternativas #}
+        <div class="list-group list-group-flush mb-3">
+          {% for alt in item.alternatives %}
+            {% if alt.is_correct %}
+              <div class="list-group-item list-group-item-success d-flex gap-2 align-items-start rounded mb-1 border-0">
+                <i class="bi bi-check-circle-fill text-success mt-1 flex-shrink-0"></i>
+                <span><strong>{{ alt.letter }})</strong> {{ alt.text }}</span>
+              </div>
+            {% elif item.selected and item.selected.pk == alt.pk %}
+              <div class="list-group-item list-group-item-danger d-flex gap-2 align-items-start rounded mb-1 border-0">
+                <i class="bi bi-x-circle-fill text-danger mt-1 flex-shrink-0"></i>
+                <span><strong>{{ alt.letter }})</strong> {{ alt.text }}</span>
+              </div>
+            {% else %}
+              <div class="list-group-item d-flex gap-2 align-items-start rounded mb-1 border">
+                <i class="bi bi-circle text-muted mt-1 flex-shrink-0"></i>
+                <span class="text-muted"><strong>{{ alt.letter }})</strong> {{ alt.text }}</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {# Explicação #}
+        {% if item.question.explanation %}
+          <div class="alert alert-light mb-0 py-2 small">
+            <i class="bi bi-lightbulb-fill text-warning me-1"></i>
+            {{ item.question.explanation }}
+          </div>
+        {% endif %}
+
+        {# Pulada #}
+        {% if item.is_skipped %}
+          <p class="text-muted small mb-0 mt-2">
+            <i class="bi bi-dash-circle me-1"></i>Questão não respondida.
+          </p>
+        {% endif %}
+
+      </div>
+    </div>
+    {% endfor %}
+
+    {# Ações #}
+    <div class="d-flex flex-wrap gap-3 mt-4 mb-2">
+      {% if quiz.quiz_type == "simulated" %}
+        <a href="{% url 'exams:simulated_start' %}" class="btn btn-primary">
+          <i class="bi bi-arrow-repeat me-1"></i>Novo simulado
+        </a>
+      {% else %}
+        <a href="{% url 'exams:filter' %}" class="btn btn-primary">
+          <i class="bi bi-arrow-repeat me-1"></i>Treinar novamente
+        </a>
+      {% endif %}
+      <a href="{% url 'dashboard:home' %}" class="btn btn-outline-secondary">
+        <i class="bi bi-speedometer2 me-1"></i>Dashboard
+      </a>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

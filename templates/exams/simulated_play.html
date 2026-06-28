@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+{% block title %}Simulado em andamento — Nícia Track{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-9">
+
+    {# ── Cabeçalho fixo com cronômetro ─────────────────────────────────────── #}
+    <div class="card border-0 shadow-sm mb-4 sticky-top" style="top:70px;z-index:100;">
+      <div class="card-body py-2 px-4">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+          <div>
+            <span class="fw-bold">
+              <i class="bi bi-clipboard2-pulse text-primary me-1"></i>Simulado
+            </span>
+            <span class="text-muted small ms-2">{{ quiz.quantity }} questões</span>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <div>
+              <span class="text-muted small me-1">Tempo restante:</span>
+              <span id="timer" class="fw-bold fs-5 font-monospace">--:--:--</span>
+            </div>
+            <button type="button" class="btn btn-success btn-sm" id="btn-finalizar"
+                    onclick="finalizarSimulado()">
+              <i class="bi bi-check-circle-fill me-1"></i>Finalizar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form method="post" id="quiz-form">
+      {% csrf_token %}
+
+      {% for qq in quiz_questions %}
+      <div class="card shadow-sm border-0 mb-4" id="q{{ qq.order }}">
+        <div class="card-body p-4">
+
+          {# Disciplina #}
+          <div class="mb-2">
+            <span class="badge" style="background-color:{{ qq.question.subject.color }}; font-size:.7rem;">
+              {{ qq.question.subject.name }}
+            </span>
+          </div>
+
+          {# Contexto #}
+          {% if qq.question.context_text %}
+            <div class="alert alert-light border-start border-primary border-3 mb-3 py-2">
+              <p class="mb-0 small text-muted fst-italic">{{ qq.question.context_text }}</p>
+            </div>
+          {% endif %}
+
+          <p class="fw-semibold mb-3">
+            <span class="badge bg-primary me-2">{{ qq.order }}</span>{{ qq.question.text }}
+          </p>
+
+          <div class="list-group list-group-flush">
+            {% for alt in qq.question.alternatives.all %}
+            <label class="list-group-item list-group-item-action d-flex align-items-start gap-2 py-2 rounded mb-1 border"
+                   style="cursor:pointer;">
+              <input class="form-check-input mt-1 flex-shrink-0"
+                     type="radio"
+                     name="q_{{ qq.question.pk }}"
+                     value="{{ alt.pk }}"
+                     id="alt_{{ alt.pk }}">
+              <span><strong>{{ alt.letter }})</strong> {{ alt.text }}</span>
+            </label>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+      {% endfor %}
+
+      {# Navegação rápida #}
+      <div class="d-flex flex-wrap gap-1 mb-4">
+        {% for qq in quiz_questions %}
+          <a href="#q{{ qq.order }}"
+             class="btn btn-outline-primary btn-sm nav-btn"
+             data-order="{{ qq.order }}"
+             style="min-width:36px;">{{ qq.order }}</a>
+        {% endfor %}
+      </div>
+
+      <div class="d-grid mb-5">
+        <button type="button" class="btn btn-success btn-lg" onclick="finalizarSimulado()">
+          <i class="bi bi-check-circle-fill me-1"></i>Finalizar simulado
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const QUIZ_ID = "{{ quiz.pk }}";
+  const TIMER_KEY = "timer_" + QUIZ_ID;
+  const ANSWERS_KEY = "answers_" + QUIZ_ID;
+  const TOTAL_SECONDS = {{ time_limit_minutes }} * 60;
+
+  // ── Timer ──────────────────────────────────────────────────────── //
+
+  let remaining = parseInt(localStorage.getItem(TIMER_KEY) || TOTAL_SECONDS, 10);
+  if (isNaN(remaining) || remaining <= 0) remaining = TOTAL_SECONDS;
+
+  function fmt(s) {
+    const h = String(Math.floor(s / 3600)).padStart(2, '0');
+    const m = String(Math.floor((s % 3600) / 60)).padStart(2, '0');
+    const sec = String(s % 60).padStart(2, '0');
+    return h + ':' + m + ':' + sec;
+  }
+
+  const timerEl = document.getElementById('timer');
+
+  function tick() {
+    timerEl.textContent = fmt(remaining);
+    if (remaining <= 300) timerEl.classList.add('text-danger');
+    else timerEl.classList.remove('text-danger');
+
+    if (remaining <= 0) {
+      clearInterval(interval);
+      localStorage.removeItem(TIMER_KEY);
+      localStorage.removeItem(ANSWERS_KEY);
+      document.getElementById('quiz-form').submit();
+      return;
+    }
+    remaining--;
+    localStorage.setItem(TIMER_KEY, remaining);
+  }
+
+  timerEl.textContent = fmt(remaining);
+  const interval = setInterval(tick, 1000);
+
+  // ── Salvar respostas no localStorage ──────────────────────────── //
+
+  function saveAnswers() {
+    const answers = {};
+    document.querySelectorAll('input[type="radio"]:checked').forEach(r => {
+      answers[r.name] = r.value;
+    });
+    localStorage.setItem(ANSWERS_KEY, JSON.stringify(answers));
+  }
+
+  function restoreAnswers() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(ANSWERS_KEY) || '{}');
+      Object.entries(saved).forEach(([name, value]) => {
+        const radio = document.querySelector(
+          'input[name="' + name + '"][value="' + value + '"]'
+        );
+        if (radio) {
+          radio.checked = true;
+          highlightNav(radio);
+        }
+      });
+    } catch (e) { /* ignora JSON malformado */ }
+  }
+
+  document.querySelectorAll('input[type="radio"]').forEach(r => {
+    r.addEventListener('change', function () {
+      saveAnswers();
+      highlightNav(this);
+    });
+  });
+
+  // ── Destaca botões de navegação já respondidos ─────────────────── //
+
+  function highlightNav(radio) {
+    const order = radio.closest('.card').id.replace('q', '');
+    const btn = document.querySelector('.nav-btn[data-order="' + order + '"]');
+    if (btn) {
+      btn.classList.remove('btn-outline-primary');
+      btn.classList.add('btn-primary');
+    }
+  }
+
+  restoreAnswers();
+
+  // ── Finalizar ──────────────────────────────────────────────────── //
+
+  window.finalizarSimulado = function () {
+    const totalAnswered = document.querySelectorAll('input[type="radio"]:checked').length;
+    const totalQuestions = {{ quiz.quantity }};
+    const unanswered = totalQuestions - totalAnswered;
+
+    let msg = 'Deseja finalizar o simulado?';
+    if (unanswered > 0) {
+      msg = unanswered + ' questão(ões) sem resposta. Finalizar mesmo assim?';
+    }
+
+    if (confirm(msg)) {
+      clearInterval(interval);
+      localStorage.removeItem(TIMER_KEY);
+      localStorage.removeItem(ANSWERS_KEY);
+      document.getElementById('quiz-form').submit();
+    }
+  };
+})();
+</script>
+{% endblock %}

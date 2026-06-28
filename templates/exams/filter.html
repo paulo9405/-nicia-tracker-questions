@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Treinar Questões — Nícia Track{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+
+    <h1 class="h4 fw-bold mb-1">
+      <i class="bi bi-pencil-fill text-primary me-2"></i>Treinar Questões
+    </h1>
+    <p class="text-muted small mb-4">Escolha a disciplina, o tópico e a quantidade de questões.</p>
+
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <form method="post" novalidate>
+          {% csrf_token %}
+
+          {# Disciplina #}
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Disciplina</label>
+            {{ form.subject }}
+            {% if form.subject.errors %}
+              <div class="invalid-feedback d-block">{{ form.subject.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          {# Tópico #}
+          <div class="mb-4" id="topic-wrapper">
+            <label class="form-label fw-semibold">
+              Tópico <span class="text-muted fw-normal">(opcional)</span>
+            </label>
+            {{ form.topic }}
+            {% if form.topic.errors %}
+              <div class="invalid-feedback d-block">{{ form.topic.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          {# Quantidade #}
+          <div class="mb-4">
+            <label class="form-label fw-semibold d-block mb-2">Quantidade de questões</label>
+            {% for radio in form.quantity %}
+              <div class="form-check form-check-inline">
+                {{ radio.tag }}
+                <label class="form-check-label" for="{{ radio.id_for_label }}">
+                  {{ radio.choice_label }}
+                </label>
+              </div>
+            {% endfor %}
+            {% if form.quantity.errors %}
+              <div class="invalid-feedback d-block">{{ form.quantity.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          {% if form.non_field_errors %}
+            <div class="alert alert-warning py-2">{{ form.non_field_errors.0 }}</div>
+          {% endif %}
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i class="bi bi-play-fill me-1"></i>Iniciar treino
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+/* Filtra os tópicos do select conforme a disciplina escolhida */
+(function () {
+  const subjectEl = document.getElementById('id_subject');
+  const topicEl   = document.getElementById('id_topic');
+  if (!subjectEl || !topicEl) return;
+
+  const allOptions = Array.from(topicEl.options);
+
+  function filterTopics() {
+    const subjectPk = subjectEl.value;
+    topicEl.innerHTML = '';
+
+    const blank = document.createElement('option');
+    blank.value = '';
+    blank.textContent = 'Todos os tópicos';
+    topicEl.appendChild(blank);
+
+    allOptions.forEach(opt => {
+      if (!opt.value) return;
+      if (!opt.dataset.subject || opt.dataset.subject === subjectPk) {
+        topicEl.appendChild(opt.cloneNode(true));
+      }
+    });
+  }
+
+  subjectEl.addEventListener('change', filterTopics);
+  filterTopics();
+})();
+</script>
+{% endblock %}
