@@ -15,7 +15,10 @@ from pathlib import Path
 
 from django.core.management.base import BaseCommand, CommandError
 
+from apps.questions.models import Question
 from apps.questions.services.import_service import QuestionImportService
+
+EXPECTED_QUESTIONS = 800
 
 
 class Command(BaseCommand):
@@ -44,6 +47,11 @@ class Command(BaseCommand):
             raise CommandError(f"Arquivo nao encontrado: {path}")
 
         dry_run = options["dry_run"]
+
+        if not dry_run and Question.objects.count() >= EXPECTED_QUESTIONS:
+            self.stdout.write("Banco ja populado — importacao ignorada.")
+            return
+
         service = QuestionImportService()
 
         self.stdout.write(self.style.MIGRATE_HEADING(f"Importando: {path}"))
