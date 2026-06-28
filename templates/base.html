@@ -49,12 +49,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <form method="post" action="{% url 'accounts:logout' %}">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-outline-light btn-sm">
-                <i class="bi bi-box-arrow-right me-1"></i>Sair
-              </button>
-            </form>
+            <a href="{% url 'accounts:logout' %}" class="btn btn-outline-light btn-sm">
+              <i class="bi bi-box-arrow-right me-1"></i>Sair
+            </a>
           </li>
         </ul>
       </div>

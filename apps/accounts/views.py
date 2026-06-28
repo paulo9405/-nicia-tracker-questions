@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView as DjangoLoginView
-from django.shortcuts import redirect
+from django.shortcuts import redirect, resolve_url
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView, UpdateView
 
@@ -13,11 +13,11 @@ from .services.user_service import UserService
 class RegisterView(FormView):
     template_name = "accounts/register.html"
     form_class = RegisterForm
-    success_url = reverse_lazy("accounts:profile")
+    success_url = reverse_lazy("dashboard:home")
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect("accounts:profile")
+            return redirect("dashboard:home")
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -34,7 +34,7 @@ class LoginView(DjangoLoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy("accounts:profile")
+        return resolve_url("dashboard:home")
 
 
 class LogoutView(LoginRequiredMixin, TemplateView):

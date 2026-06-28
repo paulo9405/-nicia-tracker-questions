@@ -5,6 +5,18 @@ from .models import Profile, User
 
 
 class RegisterForm(forms.ModelForm):
+    first_name = forms.CharField(
+        label="Nome",
+        max_length=150,
+        widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Nome"}),
+    )
+    last_name = forms.CharField(
+        label="Sobrenome",
+        max_length=150,
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "Sobrenome"}
+        ),
+    )
     password1 = forms.CharField(
         label="Senha",
         widget=forms.PasswordInput(
@@ -22,12 +34,6 @@ class RegisterForm(forms.ModelForm):
         model = User
         fields = ["first_name", "last_name", "email"]
         widgets = {
-            "first_name": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Nome"}
-            ),
-            "last_name": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Sobrenome"}
-            ),
             "email": forms.EmailInput(
                 attrs={"class": "form-control", "placeholder": "E-mail"}
             ),
