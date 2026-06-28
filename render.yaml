@@ -1,11 +1,12 @@
 # Render Blueprint — deploy completo com um clique.
-# Ajuste o valor de ALLOWED_HOSTS e CSRF_TRUSTED_ORIGINS com a URL real do serviço.
 #
 # Como usar:
 #   1. Faça push deste arquivo para o repositório GitHub.
 #   2. No Render → New → Blueprint → aponte para o repo.
-#   3. Render criará o banco e o serviço web automaticamente.
-#   4. Após o primeiro deploy, rode: python manage.py import_questions docs/15_BANCO_MESTRE_DE_QUESTOES.md
+#   3. Na tela de preview, preencha ADMIN_EMAIL e ADMIN_PASSWORD.
+#   4. Clique Apply. Render criará banco + serviço automaticamente.
+#   5. Após o primeiro deploy, copie a URL do serviço e atualize
+#      CSRF_TRUSTED_ORIGINS em Environment → Save → Manual Deploy.
 
 databases:
   - name: nicia-track-db
@@ -21,9 +22,11 @@ services:
     plan: free
     healthCheckPath: /conta/login/
 
-    # Roda as migrations ANTES do novo container assumir o tráfego.
-    # Garante que o banco está atualizado antes da aplicação subir (zero-downtime).
-    preDeployCommand: python manage.py migrate --noinput
+    # Roda ANTES do container assumir o tráfego (zero-downtime deploy).
+    # import_questions é idempotente: roda em todo deploy sem duplicar dados.
+    # create_admin só cria o usuário se ADMIN_EMAIL/ADMIN_PASSWORD estiverem definidos
+    # e o usuário ainda não existir.
+    preDeployCommand: "python manage.py migrate --noinput && python manage.py import_questions docs/15_BANCO_MESTRE_DE_QUESTOES.md && python manage.py create_admin"
 
     envVars:
       - key: DJANGO_SETTINGS_MODULE
@@ -33,15 +36,26 @@ services:
       - key: SECRET_KEY
         generateValue: true
 
-      # ⚠️  Atualize com a URL real após o primeiro deploy.
+      # ".onrender.com" (com ponto no início) cobre qualquer subdomínio do Render.
+      # Não é necessário saber o nome exato do serviço com antecedência.
       - key: ALLOWED_HOSTS
-        value: nicia-track.onrender.com
+        value: .onrender.com
 
-      # ⚠️  Atualize com a URL real após o primeiro deploy.
+      # ⚠️  DEVE ser atualizado com a URL real após o primeiro deploy.
+      # Formato: https://<nome-do-servico>.onrender.com
+      # Enquanto não for configurado corretamente, os formulários retornam 403.
       - key: CSRF_TRUSTED_ORIGINS
         value: https://nicia-track.onrender.com
 
-      # Credenciais do banco são injetadas automaticamente pelo Render.
+      # Credenciais do superusuário (admin Django).
+      # Preencha na tela de preview do Blueprint antes de clicar em Apply.
+      # sync: false = não sobrescrito pelo Blueprint em deploys futuros.
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+
+      # Credenciais do banco — injetadas automaticamente pelo Render.
       - key: PGHOST
         fromDatabase:
           name: nicia-track-db
