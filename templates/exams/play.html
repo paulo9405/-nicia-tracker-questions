@@ -14,7 +14,7 @@
           {{ quiz.subject.name }}
           {% if quiz.topic %}<small class="text-muted">— {{ quiz.topic.name }}</small>{% endif %}
         </h1>
-        <p class="text-muted small mb-0">{{ quiz.quantity }} questão{{ quiz.quantity|pluralize:",ões" }} — responda todas e clique em <strong>Finalizar</strong>.</p>
+        <p class="text-muted small mb-0">{{ quiz.quantity }} quest{{ quiz.quantity|pluralize:"ão,ões" }} — responda todas e clique em <strong>Finalizar</strong>.</p>
       </div>
       <a href="{% url 'exams:filter' %}" class="btn btn-outline-secondary btn-sm">
         <i class="bi bi-arrow-left me-1"></i>Voltar
