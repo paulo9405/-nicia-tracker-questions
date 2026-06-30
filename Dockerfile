@@ -33,9 +33,10 @@ EXPOSE 8000
 
 # No plano free do Render, preDeployCommand não é suportado.
 # Migrations, importação e criação do admin rodam aqui, antes do gunicorn.
-# Os três comandos são idempotentes: seguros de rodar em todo deploy.
+# Todos os comandos são idempotentes: seguros de rodar em todo deploy.
 CMD ["sh", "-c", "\
   python manage.py migrate --noinput && \
+  python manage.py import_study_plan && \
   python manage.py import_questions docs/15_BANCO_MESTRE_DE_QUESTOES.md && \
   python manage.py create_admin && \
   gunicorn config.wsgi:application \
