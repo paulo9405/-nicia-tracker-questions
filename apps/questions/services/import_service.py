@@ -159,8 +159,11 @@ class QuestionImportService:
         existing.is_active = True
         existing.save()
 
-        existing.alternatives.all().delete()
-        self._write_alternatives(existing, parsed)
+        for alt in parsed.alternatives:
+            existing.alternatives.filter(letter=alt.letter).update(
+                text=alt.text,
+                is_correct=alt.is_correct,
+            )
         report.updated += 1
 
     @staticmethod

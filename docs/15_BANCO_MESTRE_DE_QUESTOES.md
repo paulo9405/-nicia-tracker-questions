@@ -33,16 +33,16 @@ Este banco foi construído após:
 ### 50 questões | Base: `01_SAUDE_UNICA_MASTER.md`
 
 **1.** Sobre o conceito de Saúde Única (One Health), assinale a alternativa correta.
-A) Trata-se de abordagem que prioriza exclusivamente a saúde humana, subordinando a saúde animal e ambiental a esta.
-B) Substitui o conceito de saúde pública veterinária, tornando-o obsoleto.
-C) Refere-se apenas ao controle de zoonoses em animais domésticos de companhia.
-D) É uma abordagem integrada e unificada que busca equilibrar e melhorar de forma sustentável a saúde de pessoas, animais e ecossistemas, reconhecidos como interdependentes.
+A) Abordagem que prioriza a saúde humana e subordina a ela as dimensões animal e ambiental, tidas como secundárias.
+B) Conceito que substitui a saúde pública veterinária, tornando-a obsoleta diante das novas demandas sanitárias.
+C) Estratégia voltada ao controle de zoonoses em animais domésticos de companhia, no âmbito urbano e periurbano.
+D) Abordagem integrada que equilibra de forma sustentável a saúde de pessoas, animais e ecossistemas interdependentes.
 
 **2.** A definição oficial e padronizada de Saúde Única foi elaborada por qual painel de especialistas?
 A) CDC (Centers for Disease Control and Prevention).
 B) OHHLEP (One Health High-Level Expert Panel).
-C) Wildlife Conservation Society.
-D) Conselho Nacional de Saúde.
+C) WCS (Wildlife Conservation Society).
+D) CNS (Conselho Nacional de Saúde).
 
 **3.** A aliança internacional que sustenta a Saúde Única, em sua forma **quadripartite**, é composta por:
 A) OMS, OPAS, FAO e Banco Mundial.
@@ -63,10 +63,10 @@ C) Cerca de 95%.
 D) Cerca de 60%.
 
 **6.** A respeito das doenças infecciosas emergentes e reemergentes, é correto afirmar que cerca de:
-A) 10% têm origem animal.
-B) 100% têm origem exclusivamente ambiental.
-C) 70% têm origem animal.
-D) 5% têm origem zoonótica.
+A) Cerca de 10% têm origem animal.
+B) Cerca de 90% têm origem ambiental.
+C) Cerca de 70% têm origem animal.
+D) Cerca de 5% têm origem zoonótica.
 
 **7.** O conceito de "One Medicine" (Medicina Única), precursor da Saúde Única, foi consagrado em 1964 por:
 A) Rudolf Virchow.
@@ -87,21 +87,21 @@ C) Dos 12 Princípios de Manhattan.
 D) Da Resolução CNS nº 287/1998.
 
 **10.** Segundo a OMS (1948), saúde é definida como:
-A) A simples ausência de doenças e enfermidades.
-B) O equilíbrio exclusivo entre saúde animal e ambiental.
-C) A capacidade do organismo de resistir a infecções.
-D) Um estado de completo bem-estar físico, mental e social, e não apenas a ausência de doença.
+A) Estado de simples ausência de doenças, enfermidades e agravos no organismo.
+B) Equilíbrio entre a saúde animal e a saúde ambiental do indivíduo.
+C) Capacidade do organismo de resistir a infecções e manter sua integridade.
+D) Estado de completo bem-estar físico, mental e social e não apenas a ausência de doença.
 
 **11.** Sobre a distinção entre Saúde Pública e Saúde Coletiva, assinale a correta.
-A) A Saúde Pública parte do estudo da saúde e da vida, enquanto a Saúde Coletiva parte da doença.
-B) Ambas são sinônimos e não apresentam diferença conceitual.
-C) A Saúde Coletiva inspirou a Reforma Sanitária que originou o SUS e propõe o estudo da saúde e da vida, não apenas da doença.
-D) A Saúde Pública tem raízes na Medicina Social francesa e no preventivismo.
+A) A Saúde Pública parte do estudo da saúde e da vida, ao passo que a Saúde Coletiva parte da doença.
+B) Ambas são conceitos sinônimos, equivalentes em teoria e em objeto de estudo.
+C) A Saúde Coletiva inspirou a Reforma Sanitária do SUS e estuda a saúde e a vida, não só a doença.
+D) A Saúde Pública tem raízes na Medicina Social francesa, no higienismo e no preventivismo.
 
 **12.** O termo que designa a transmissão de um patógeno de uma espécie animal para a população humana (como ocorreu com o SARS-CoV-2) é:
-A) Patocenose.
-B) Saprozoonose.
-C) Anfixenose.
+A) Patocenose (conjunto de doenças de um território).
+B) Saprozoonose (ciclo com fase no ambiente).
+C) Anfixenose (circulação igual entre homem e animal).
 D) Spillover (transbordamento zoonótico).
 
 **13.** "Conjunto de doenças presente em determinado período e território", conceito do historiador Mirko Grmek, denomina-se:
@@ -111,10 +111,10 @@ C) Saúde Planetária.
 D) Patocenose.
 
 **14.** Assinale a alternativa que diferencia corretamente doença emergente de reemergente.
-A) Emergente é a que volta a aumentar em incidência; reemergente é a doença nova.
-B) Emergente é doença nova ou recém-identificada na população; reemergente é doença já conhecida que volta a aumentar em incidência ou distribuição.
-C) Ambas designam doenças extintas.
-D) Emergente refere-se apenas a doenças não infecciosas.
+A) Emergente é a doença que volta a aumentar em incidência; reemergente é a doença nova na população.
+B) Emergente é a doença nova ou recém-identificada; reemergente é a já conhecida que volta a aumentar.
+C) Ambas designam doenças já erradicadas e sem ocorrência atual nas populações.
+D) Emergente refere-se a doenças não infecciosas, de natureza crônica ou degenerativa.
 
 **15.** A abordagem que é **mais ampla** que a Saúde Única, integrando a saúde humana à sustentabilidade dos sistemas naturais da Terra, é denominada:
 A) Saúde Planetária.
@@ -123,9 +123,9 @@ C) Saúde Coletiva.
 D) Saúde Pública Veterinária.
 
 **16.** Segundo a OMS, zoonose é a infecção ou doença infecciosa transmissível, em condições naturais:
-A) Exclusivamente entre seres humanos.
-B) Somente entre animais domésticos.
-C) Apenas por meio de vetores invertebrados.
+A) Entre seres humanos, no ambiente hospitalar.
+B) Entre animais domésticos, especialmente os de produção.
+C) Por meio de vetores invertebrados, como os carrapatos.
 D) Dos animais vertebrados ao homem.
 
 **17.** Quanto ao **sentido** da transmissão, a doença mantida em animais (reservatórios) que eventualmente atinge o homem, tendo a raiva como exemplo, classifica-se como:
@@ -135,10 +135,10 @@ C) Zooantropozoonose.
 D) Saprozoonose.
 
 **18.** A tuberculose, doença mantida entre humanos que eventualmente atinge animais, é exemplo de:
-A) Antropozoonose.
+A) Antropozoonose (mantida em animais).
 B) Zooantropozoonose (antropozoonose reversa).
-C) Anfixenose.
-D) Ciclozoonose.
+C) Anfixenose (circulação igual entre ambos).
+D) Ciclozoonose (vários vertebrados no ciclo).
 
 **19.** A estafilococose, que circula igualmente entre humanos e animais, classifica-se quanto ao sentido da transmissão como:
 A) Antropozoonose.
@@ -172,33 +172,33 @@ D) Zoonose direta.
 
 **24.** O Complexo Teníase–Cisticercose, modelo didático de Saúde Única, tem como hospedeiro definitivo do verme adulto (teníase):
 A) O suíno.
-B) O bovino exclusivamente.
+B) O bovino.
 C) O ser humano.
 D) O cão.
 
 **25.** Ainda sobre o complexo Teníase–Cisticercose por *Taenia solium*, a neurocisticercose humana decorre da:
-A) Ingestão de carne suína malpassada contendo o verme adulto.
-B) Ingestão acidental de ovos do parasita, com localização dos cisticercos no tecido nervoso.
-C) Picada de vetor invertebrado.
-D) Inalação de esporos presentes no solo.
+A) Ingestão de carne suína malpassada, que contém o cisticerco do parasita.
+B) Ingestão acidental de ovos do parasita, com cisticercos no tecido nervoso.
+C) Picada de vetor invertebrado hematófago, como o mosquito.
+D) Inalação de esporos do parasita presentes na poeira do solo.
 
 **26.** A leptospirose urbana tem como característica epidemiológica marcante:
-A) A transmissão exclusiva por vetores artrópodes.
+A) A transmissão por vetores artrópodes hematófagos, como pulgas e carrapatos.
 B) Surtos após enchentes, por contato com água contaminada por urina de roedores.
-C) A ausência de relação com mudanças climáticas.
-D) A transmissão apenas entre animais silvestres.
+C) A independência epidemiológica em relação a fatores climáticos e sazonais.
+D) A transmissão mantida entre animais silvestres de vida livre.
 
 **27.** A respeito da resistência antimicrobiana (AMR), é correto afirmar que:
-A) É um fenômeno exclusivamente artificial, sem qualquer base natural.
-B) Não constitui problema relevante de saúde pública.
-C) Embora seja um fenômeno natural dos microrganismos, é acelerada pela pressão seletiva do uso humano e animal.
-D) Afeta somente a medicina humana, sem interface veterinária.
+A) É um fenômeno de origem artificial, decorrente da ação laboratorial humana, sem base natural.
+B) Não constitui um problema sanitário relevante para a saúde pública atual.
+C) É um fenômeno natural dos microrganismos, mas acelerado pela pressão do uso humano e animal.
+D) Afeta o campo da medicina humana, sem interface com a área veterinária.
 
 **28.** O PAN-BR (2018–2022) é o Plano de Ação Nacional de Prevenção e Controle da Resistência aos Antimicrobianos no âmbito da Saúde Única. Sua autoria é do:
-A) Conselho Federal de Medicina Veterinária.
-B) Ministério da Saúde, alinhado ao Plano de Ação Global da aliança tripartite.
-C) Ministério do Meio Ambiente, isoladamente.
-D) Instituto UniFil.
+A) Conselho Federal de Medicina Veterinária, em parceria com o Mapa.
+B) Ministério da Saúde, alinhado ao Plano de Ação Global tripartite.
+C) Ministério do Meio Ambiente, de forma isolada e setorial.
+D) Instituto UniFil, banca organizadora do certame veterinário.
 
 **29.** Qual é a vigência do PAN-BR?
 A) 2010 a 2015.
@@ -207,16 +207,16 @@ C) 2015 a 2018.
 D) 2020 a 2030.
 
 **30.** Entre os 5 Objetivos Estratégicos do PAN-BR, NÃO se inclui:
-A) Melhorar a conscientização e a compreensão sobre a AMR.
-B) Eliminar definitivamente o uso de qualquer antimicrobiano em animais de produção.
-C) Fortalecer conhecimentos por meio de vigilância e pesquisa.
-D) Otimizar o uso de antimicrobianos na saúde humana e animal.
+A) Melhorar a conscientização e a compreensão da sociedade sobre a AMR.
+B) Promover a eliminação completa do uso de antimicrobianos em animais de produção.
+C) Fortalecer os conhecimentos por meio da vigilância e da pesquisa.
+D) Otimizar o uso de antimicrobianos na saúde humana e na saúde animal.
 
 **31.** A restrição do uso veterinário do Ceftiofur, que reduziu a resistência em países como Canadá e Japão, é citada como exemplo de:
-A) Aplicação prática da Saúde Única no controle da resistência antimicrobiana.
-B) Ineficácia das políticas de controle da AMR.
-C) Uso indiscriminado de antimicrobianos.
-D) Zoonose direta.
+A) Aplicação prática da Saúde Única no controle da resistência aos antimicrobianos.
+B) Ineficácia das políticas públicas de controle da resistência microbiana.
+C) Exemplo de uso indiscriminado e abusivo de antimicrobianos veterinários.
+D) Caso clássico de zoonose direta transmitida por contato.
 
 **32.** A Medicina Veterinária foi incluída no rol das profissões de saúde por meio de qual norma?
 A) Lei nº 9.605/1998.
@@ -225,10 +225,10 @@ C) Portaria nº 2.775/2016.
 D) Resolução CNS nº 287/1998.
 
 **33.** O médico veterinário pode integrar os Núcleos Ampliados de Saúde da Família e Atenção Básica (NASF-AB), atuando, entre outras áreas, em:
-A) Apenas cirurgia de pequenos animais.
-B) Somente pesquisa acadêmica.
-C) Exclusivamente produção de alimentos industrializados.
-D) Vigilância Sanitária, Epidemiológica, de Zoonoses, de Doenças Transmitidas por Vetores e Saúde do Trabalhador.
+A) Cirurgia, clínica e odontologia de cães, gatos e aves de companhia.
+B) Pesquisa acadêmica e docência no ensino superior.
+C) Produção industrial de alimentos de origem animal.
+D) Vigilâncias sanitária, epidemiológica, de zoonoses e saúde do trabalhador.
 
 **34.** Assinale a alternativa que apresenta corretamente os três pilares operacionais da Saúde Única segundo o artigo da UFRGS.
 A) Diagnosticar, tratar e notificar.
@@ -238,15 +238,15 @@ D) Pesquisar, publicar e ensinar.
 
 **35.** No eixo "prevenir" da Saúde Única, são considerados alvos para impedir a emergência de doenças, EXCETO:
 A) Os animais (silvestres, sinantrópicos e vetores).
-B) As populações humanas sentinela (caçadores, manipuladores de carne silvestre).
-C) Os produtos farmacêuticos já patenteados, exclusivamente.
-D) A população humana geral.
+B) As populações humanas sentinela (caçadores e manipuladores de carne).
+C) Os produtos farmacêuticos já patenteados (medicamentos de marca).
+D) A população humana geral (residentes de áreas urbanas e rurais).
 
 **36.** Sobre as escolas de veterinária e suas origens históricas, é correto afirmar que:
-A) A primeira escola de veterinária foi fundada por Schwabe em 1964.
-B) Hipócrates fundou a escola de Maisons-Alfort.
-C) A primeira escola de veterinária surgiu no Brasil no século XIX.
-D) Claude Bourgelat fundou a primeira escola de veterinária em Lyon, na França, em 1762.
+A) A primeira escola de veterinária foi fundada por Calvin Schwabe, em 1964.
+B) Hipócrates fundou a primeira escola de veterinária, em Maisons-Alfort.
+C) A primeira escola de veterinária do mundo surgiu no Brasil, no século XIX.
+D) Claude Bourgelat fundou a primeira escola de veterinária em Lyon, em 1762.
 
 **37.** O 1º Congresso Internacional de Saúde Única, em 2011, foi realizado em:
 A) Nova York (EUA).
@@ -255,10 +255,10 @@ C) Melbourne (Austrália).
 D) Brasília (Brasil).
 
 **38.** As mudanças climáticas impactam a saúde porque, entre outros efeitos:
-A) Eliminam todos os vetores de doenças.
-B) Alteram a distribuição geográfica de vírus, bactérias, fungos e parasitas.
-C) Não têm qualquer relação com surtos de antraz.
-D) Reduzem, de modo geral, a incidência de zoonoses.
+A) Eliminam, em larga escala, os vetores de doenças tropicais.
+B) Alteram a distribuição geográfica de vírus, bactérias e parasitas.
+C) Não apresentam relação com os surtos recentes de antraz.
+D) Reduzem, de modo geral, a incidência das zoonoses urbanas.
 
 **39.** O surto de antraz na Sibéria, associado ao descongelamento do permafrost, ilustra a relação entre:
 A) Saneamento básico e doenças respiratórias.
@@ -267,22 +267,22 @@ C) Uso de antimicrobianos e resistência bacteriana.
 D) Mudanças climáticas e emergência/reemergência de doenças.
 
 **40.** Sobre a evolução terminológica do conceito, a sequência correta é:
-A) "One Health" → "One Medicine" → "One World, One Health".
-B) "One World, One Health" → "One Medicine" → "Medicina Comparada".
-C) "Saúde Planetária" → "One Medicine" → "Saúde Pública".
+A) "One Health" (atual) → "One Medicine" (Schwabe) → "One World, One Health" (2004).
+B) "One World, One Health" (2004) → "One Medicine" (Schwabe) → "Medicina Comparada" (Virchow).
+C) "Saúde Planetária" (2015) → "One Medicine" (Schwabe) → "Saúde Pública" (clássica).
 D) "One Medicine" (Schwabe) → "One World, One Health" (2004) → "One Health / Saúde Única".
 
 **41.** As arboviroses dengue, zika e chikungunya têm sua disseminação favorecida principalmente por:
-A) Excesso de saneamento básico.
-B) Falta de saneamento e armazenamento inadequado de água, que favorecem o *Aedes aegypti*.
-C) Baixas temperaturas persistentes.
-D) Contato direto com roedores.
+A) Excesso de saneamento básico nas áreas urbanas densas.
+B) Falta de saneamento e armazenamento inadequado de água parada.
+C) Baixas temperaturas persistentes ao longo de todo o ano.
+D) Contato direto com roedores e com suas excretas.
 
 **42.** Assinale a alternativa que constitui uma das oito funções do médico veterinário na Saúde Única.
-A) Diagnóstico clínico exclusivo de doenças humanas.
-B) Prescrição de psicotrópicos para humanos.
+A) Diagnóstico clínico e tratamento de doenças humanas.
+B) Prescrição de medicamentos psicotrópicos para humanos.
 C) Inspeção de alimentos e vigilância sanitária.
-D) Realização de cirurgias em seres humanos.
+D) Realização de procedimentos cirúrgicos em seres humanos.
 
 **43.** O comitê **Cipan**, instituído pela Portaria nº 2.775/2016, está vinculado a qual órgão?
 A) ANVISA.
@@ -291,16 +291,16 @@ C) Ministério da Saúde.
 D) Ministério do Meio Ambiente.
 
 **44.** Constitui PEGADINHA frequente em provas confundir anfixenose com antropozoonose. Assinale a afirmativa correta.
-A) Anfixenose é a doença que vem exclusivamente do animal para o homem.
-B) A raiva é exemplo de anfixenose.
-C) Antropozoonose e anfixenose são sinônimos.
-D) Anfixenose é a circulação igual entre homem e animal (ex.: estafilococose), ao passo que a antropozoonose vem do animal (ex.: raiva).
+A) Anfixenose é a doença transmitida do animal para o homem (ex.: raiva).
+B) A raiva é um exemplo clássico de anfixenose (circulação igual).
+C) Antropozoonose e anfixenose são termos sinônimos (mesmo conceito).
+D) Anfixenose é a circulação igual entre homem e animal (ex.: estafilococose).
 
 **45.** Sobre a natureza da Saúde Única, é INCORRETO afirmar que:
-A) Envolve dimensões políticas, sociais, econômicas e éticas.
-B) É um projeto técnico apolítico e neutro, restrito a aspectos laboratoriais.
-C) Reconhece a indissociabilidade entre saúde humana, animal e ambiental.
-D) Exige equipes multidisciplinares e ações intersetoriais.
+A) Envolve dimensões políticas, sociais, econômicas e éticas da sociedade.
+B) É um projeto técnico, apolítico e neutro, de natureza estritamente laboratorial.
+C) Reconhece a indissociabilidade entre a saúde humana, a animal e a ambiental.
+D) Exige equipes multidisciplinares e ações intersetoriais coordenadas.
 
 **46.** A definição de duas áreas de atuação do médico veterinário em saúde pública — atividades exclusivas e atividades compartilhadas com outros profissionais — foi estabelecida pela OMS em:
 A) 1948.
@@ -309,28 +309,28 @@ C) 1964.
 D) 2004.
 
 **47.** O desmatamento e a fragmentação de habitats contribuem para a emergência de doenças porque:
-A) Eliminam reservatórios silvestres de patógenos.
-B) Aproximam humanos da vida selvagem, favorecendo o surgimento de novos patógenos.
-C) Não têm relação com a circulação de patógenos.
-D) Reduzem a população de vetores em todas as regiões.
+A) Eliminam, por completo, os reservatórios silvestres de patógenos.
+B) Aproximam humanos da vida selvagem e favorecem o surgimento de novos patógenos.
+C) Não guardam relação com a circulação de novos patógenos.
+D) Reduzem a população de vetores na maioria das regiões.
 
 **48.** A COVID-19 é frequentemente citada em provas de Saúde Única como exemplo de:
-A) Doença de origem zoonótica (spillover do SARS-CoV-2), ligada à perda de biodiversidade e ao comércio de silvestres.
-B) Doença não infecciosa de origem genética.
-C) Zooantropozoonose clássica mantida exclusivamente entre humanos.
-D) Saprozoonose transmitida pelo solo.
+A) Doença zoonótica (spillover do SARS-CoV-2), ligada à perda de biodiversidade.
+B) Doença não infecciosa de origem genética, hereditária e congênita (mutação herdada).
+C) Zooantropozoonose clássica mantida no ambiente hospitalar (entre humanos).
+D) Saprozoonose transmitida pelo solo e pela matéria orgânica (esporos).
 
 **49.** O comitê **CPRA**, voltado à Prevenção da Resistência aos Antimicrobianos em Animais, está vinculado a qual órgão?
-A) ANVISA.
-B) Ministério da Saúde.
-C) MAPA (Portaria SDA nº 45/2016).
-D) PNUMA.
+A) Anvisa (vigilância sanitária).
+B) Ministério da Saúde (SVS).
+C) Mapa (agricultura e pecuária).
+D) PNUMA (meio ambiente, ONU).
 
 **50.** Assinale a alternativa que melhor sintetiza a frase-chave da Saúde Única.
-A) "A saúde humana deve ser tratada isoladamente das demais."
-B) "A saúde de humanos, animais e do ambiente é uma só — o todo é maior do que a soma das partes."
-C) "A saúde animal é irrelevante para a saúde pública."
-D) "O ambiente não influencia a saúde das populações."
+A) "A saúde humana deve ser tratada de forma isolada, independentemente das demais áreas."
+B) "A saúde de humanos, animais e ambiente é uma só e indivisível."
+C) "A saúde animal é irrelevante para a saúde pública das cidades."
+D) "O ambiente não exerce influência sobre a saúde das populações."
 
 ---
 
@@ -402,10 +402,10 @@ C) *Leptospira* / Leptospiraceae.
 D) *Hantavirus* / Hantaviridae.
 
 **2.** O diagnóstico laboratorial padrão da raiva é realizado por:
-A) Microaglutinação (MAT) e ELISA.
-B) Imunofluorescência direta (IFD) associada à prova biológica.
-C) Tuberculinização e gama-interferon.
-D) Hemocultura e antibiograma.
+A) Microaglutinação (MAT) associada ao ELISA indireto.
+B) Imunofluorescência direta (IFD) com prova biológica.
+C) Tuberculinização (PPD) e gama-interferon.
+D) Hemocultura (seriada) e antibiograma.
 
 **3.** Após agressão por cão ou gato passível de observação, o animal agressor deve ser observado por um período de:
 A) 3 dias.
@@ -420,27 +420,27 @@ C) 75%.
 D) 50%.
 
 **5.** No ciclo rural/dos herbívoros da raiva, o principal transmissor é:
-A) O cão doméstico.
-B) O carrapato-estrela.
-C) O gato doméstico.
+A) O cão doméstico (ciclo urbano).
+B) O carrapato-estrela (*Amblyomma*).
+C) O gato doméstico (ciclo urbano).
 D) O morcego hematófago (*Desmodus rotundus*).
 
 **6.** Quanto à conduta imediata diante de ferimento por animal suspeito de raiva, recomenda-se:
 A) Aplicar timerosal (Merthiolate) e suturar firmemente.
-B) Lavar imediatamente o ferimento com água e sabão.
+B) Lavar o ferimento imediatamente com água corrente e sabão.
 C) Cauterizar a ferida e fazer curativo compressivo.
-D) Aguardar 48 horas antes de qualquer assepsia.
+D) Aguardar 48 horas antes da assepsia local.
 
 **7.** Sobre a leptospirose, o reservatório principal e a via de eliminação da bactéria são:
-A) Felídeos, que eliminam oocistos nas fezes.
-B) Carrapatos, pela saliva.
-C) Bovinos, por aerossóis respiratórios.
-D) Roedores sinantrópicos, que eliminam a bactéria pela urina.
+A) Felídeos, que eliminam oocistos pelas fezes.
+B) Carrapatos, que inoculam pela saliva.
+C) Bovinos, que eliminam por aerossóis respiratórios.
+D) Roedores sinantrópicos, que eliminam pela urina.
 
 **8.** O exame considerado padrão-ouro no diagnóstico sorológico da leptospirose é:
-A) ELISA.
-B) Imunofluorescência direta.
-C) Tuberculinização.
+A) ELISA (ensaio imunoenzimático).
+B) Imunofluorescência direta (IFD).
+C) Tuberculinização (teste de PPD).
 D) MAT (teste de microaglutinação).
 
 **9.** A leptospirose humana grave, com icterícia, insuficiência renal e hemorragias, é também conhecida como:
@@ -456,10 +456,10 @@ C) A capivara.
 D) O morcego.
 
 **11.** O vetor da leishmaniose no Novo Mundo pertence ao gênero:
-A) *Aedes*.
-B) *Amblyomma*.
+A) *Aedes* (mosquito).
+B) *Amblyomma* (carrapato).
 C) *Lutzomyia* (flebotomíneo).
-D) *Triatoma*.
+D) *Triatoma* (barbeiro).
 
 **12.** No hospedeiro vertebrado, a *Leishmania* apresenta-se sob a forma:
 A) Amastigota.
@@ -474,10 +474,10 @@ C) O suíno.
 D) Os felídeos.
 
 **14.** Assinale a alternativa correta sobre a transmissão da toxoplasmose.
-A) A importância epidemiológica está na ingestão de carne crua/malcozida e em água/alimentos/solo contaminados por oocistos.
-B) O contato com o pelo do gato é a principal via de contágio.
-C) Transmite-se exclusivamente por aerossóis.
-D) Só ocorre por meio de vetores artrópodes.
+A) A importância está na ingestão de carne crua e em água ou solo com oocistos.
+B) O contato com o pelo do gato é a principal via de contágio humano.
+C) A transmissão se dá por aerossóis das excretas do gato infectado.
+D) A transmissão ocorre por meio de vetores artrópodes hematófagos.
 
 **15.** Quanto ao ciclo, a toxoplasmose classifica-se como:
 A) Saprozoonose.
@@ -499,15 +499,15 @@ D) *B. suis*.
 
 **18.** Manifestação clínica característica da brucelose nas fêmeas dos animais é:
 A) Aborto no terço final da gestação.
-B) Tosse seca repetitiva.
-C) Paralisia flácida.
-D) Onicogrifose.
+B) Tosse seca, persistente e repetitiva.
+C) Paralisia flácida e progressiva dos membros.
+D) Onicogrifose acentuada das extremidades.
 
 **19.** A vacinação contra brucelose com a amostra B19 é indicada para:
-A) Machos bovinos adultos.
+A) Machos bovinos adultos usados na reprodução.
 B) Fêmeas bovinas de 3 a 8 meses de idade.
-C) Todos os bovinos, sem restrição de idade.
-D) Apenas búfalos com mais de 2 anos.
+C) Bovinos de ambos os sexos, em idade adulta.
+D) Búfalos machos com mais de 2 anos de vida.
 
 **20.** O PNCEBT é o Programa Nacional de Controle e Erradicação de:
 A) Brucelose e tuberculose animal.
@@ -522,27 +522,27 @@ C) *Mycobacterium bovis*.
 D) *Mycobacterium leprae*.
 
 **22.** O diagnóstico de rotina da tuberculose bovina é feito principalmente por:
-A) Tuberculinização (teste intradérmico/PPD) e gama-interferon.
-B) MAT e ELISA.
-C) Imunofluorescência direta.
+A) Tuberculinização (PPD) e gama-interferon.
+B) MAT e ELISA (testes sorológicos).
+C) Imunofluorescência direta (IFD).
 D) Pesquisa de corpúsculos de Negri.
 
 **23.** Sobre a tuberculose bovina no Brasil, é correto afirmar que:
-A) Existe vacina obrigatória para todo o rebanho.
-B) Não é doença de notificação obrigatória.
-C) É transmitida exclusivamente por vetores.
-D) Não há vacina disponível; o controle baseia-se em teste-e-abate e pasteurização do leite.
+A) Existe vacina obrigatória para o rebanho bovino nacional.
+B) Não é doença de notificação obrigatória aos serviços oficiais.
+C) É transmitida ao homem por meio de vetores artrópodes.
+D) Não há vacina; o controle se baseia em teste-e-abate e pasteurização.
 
 **24.** A hantavirose é transmitida ao homem principalmente por:
-A) Inalação de aerossóis formados a partir de urina, fezes e saliva de roedores silvestres.
-B) Picada de carrapato.
-C) Ingestão de leite não pasteurizado.
-D) Mordedura de morcego hematófago.
+A) Inalação de aerossóis das excretas de roedores silvestres.
+B) Picada de carrapato-estrela infectado.
+C) Ingestão de leite cru não pasteurizado.
+D) Mordedura de morcego hematófago infectado.
 
 **25.** A forma grave da hantavirose, com dispneia e hipoxemia, é denominada:
-A) Síndrome de Weil.
-B) Neurocisticercose.
-C) Febre ondulante.
+A) Síndrome de Weil (forma ictérica).
+B) Neurocisticercose (forma neurológica).
+C) Febre ondulante (forma brucélica).
 D) Síndrome Cardiopulmonar por Hantavírus (SCPH).
 
 **26.** O agente etiológico da febre maculosa brasileira é:
@@ -552,9 +552,9 @@ C) *Yersinia pestis*.
 D) *Listeria monocytogenes*.
 
 **27.** No Brasil, o principal vetor da febre maculosa e o animal amplificador frequentemente associado são, respectivamente:
-A) Mosquito *Aedes* e o cão.
-B) Triatomíneo e o gambá.
-C) Flebotomíneo e o roedor.
+A) Mosquito *Aedes* (culicídeo) e o cão.
+B) Triatomíneo (barbeiro) e o gambá.
+C) Flebotomíneo (*Lutzomyia*) e o roedor.
 D) Carrapato-estrela (*Amblyomma*) e a capivara.
 
 **28.** O tratamento de escolha da febre maculosa, decisivo para reduzir a letalidade, é:
@@ -570,10 +570,10 @@ C) 4 categorias.
 D) 6 categorias.
 
 **30.** Na classificação da Portaria MPA nº 19/2015, a Categoria 1 refere-se a:
-A) Doenças de notificação mensal de casos confirmados.
-B) Doenças de notificação imediata apenas de casos confirmados.
-C) Doenças erradicadas ou nunca registradas no país, com notificação imediata de caso suspeito ou diagnóstico laboratorial.
-D) Doenças sem necessidade de notificação.
+A) Doenças de notificação mensal de casos confirmados em laboratório.
+B) Doenças de notificação imediata, restritas aos casos confirmados em laboratório.
+C) Doenças erradicadas ou nunca registradas, com notificação imediata de caso suspeito.
+D) Doenças sem necessidade de notificação às autoridades sanitárias.
 
 **31.** A obrigatoriedade legal da notificação compulsória no Brasil tem como base principal a:
 A) Lei nº 9.605/1998.
@@ -594,46 +594,46 @@ C) SIH.
 D) SISBOV.
 
 **34.** Sobre a omissão de notificação compulsória pelo médico veterinário, é correto afirmar:
-A) É conduta lícita e sem consequências.
-B) É infração apenas administrativa, sem repercussão ética.
-C) Configura crime (Código Penal) e infração ética (Resolução CFMV nº 1.138/2016).
-D) Aplica-se somente a médicos, não a veterinários.
+A) É conduta lícita, sem consequências legais (ato permitido).
+B) É infração administrativa leve, sem repercussão ética (multa simples).
+C) Configura crime (Código Penal) e infração ética (Resolução CFMV).
+D) Aplica-se aos médicos, mas não aos veterinários (regra restrita).
 
 **35.** Quem tem o dever de notificar uma doença de notificação compulsória?
-A) Apenas o médico veterinário oficial.
-B) Qualquer profissional de saúde ou qualquer cidadão que tenha conhecimento.
-C) Somente laboratórios credenciados.
-D) Exclusivamente o secretário municipal de saúde.
+A) O médico veterinário oficial do serviço estadual.
+B) Qualquer profissional de saúde ou cidadão que tome conhecimento.
+C) Os laboratórios de análises clínicas credenciados pelo SUS.
+D) O secretário municipal de saúde do território.
 
 **36.** A Unidade de Vigilância de Zoonoses (UVZ), antigo Centro de Controle de Zoonoses (CCZ), é responsável por:
-A) Apenas a vacinação de animais de produção.
-B) Fiscalização tributária municipal.
+A) Vacinação, vermifugação e identificação dos animais de produção.
+B) Fiscalização tributária e arrecadação municipal de tributos.
 C) Inspeção de produtos industrializados de origem vegetal.
-D) Execução das ações de vigilância, prevenção e controle de zoonoses e de acidentes por animais peçonhentos de relevância para a saúde pública.
+D) Vigilância, prevenção e controle de zoonoses e de animais peçonhentos.
 
 **37.** Sobre a atribuição dos municípios na vigilância de zoonoses, é correto afirmar:
-A) Todo município é obrigado a receber animais de relevância, independentemente de estrutura.
-B) O município que não possui UVZ não tem a atribuição de receber e avaliar animais de relevância para a saúde pública.
-C) A UVZ é estrutura federal, sem vínculo municipal.
-D) A vigilância de zoonoses não integra o SUS.
+A) O município é obrigado a receber animais de relevância, mesmo sem estrutura.
+B) O município sem UVZ não tem atribuição de receber e avaliar esses animais.
+C) A UVZ é uma estrutura de âmbito federal, sem vínculo com o município.
+D) A vigilância de zoonoses não integra as ações do SUS no território.
 
 **38.** A diferença entre vigilância ativa e passiva está em que a vigilância ativa:
-A) Aguarda a entrega espontânea de animais pela população.
-B) Não envolve articulação com laboratórios.
-C) Limita-se a receber notificações por telefone.
-D) Realiza busca sistemática e permanente do risco/ocorrência, com monitoramento de populações animais e inquéritos.
+A) Aguarda a entrega espontânea de animais, feita pela população local.
+B) Dispensa a articulação com os laboratórios de referência.
+C) Restringe-se a receber notificações feitas por telefone.
+D) Realiza busca sistemática e permanente do risco, com inquéritos.
 
 **39.** A distinção entre animal **peçonhento** e **venenoso** está em que o peçonhento:
-A) Causa intoxicação apenas por ingestão.
-B) Nunca causa acidentes em humanos.
+A) Causa intoxicação por via oral, ao ser ingerido (passivo).
+B) Raramente provoca acidentes em humanos (animal dócil).
 C) Inocula veneno por aparelho especializado (presas ou ferrão).
-D) Possui veneno inócuo.
+D) Possui veneno de baixa toxicidade (praticamente inócuo).
 
 **40.** Entre os gêneros de serpentes peçonhentas de interesse médico no Brasil, encontram-se:
-A) *Tityus*, *Phoneutria* e *Loxosceles*.
+A) *Tityus*, *Phoneutria*, *Loxosceles* e *Latrodectus*.
 B) *Bothrops*, *Crotalus*, *Lachesis* e *Micrurus*.
-C) *Lonomia*, *Latrodectus* e *Aedes*.
-D) *Amblyomma*, *Lutzomyia* e *Triatoma*.
+C) *Lonomia*, *Aedes*, *Anopheles* e *Culex*.
+D) *Amblyomma*, *Lutzomyia*, *Triatoma* e *Dermacentor*.
 
 **41.** O escorpião-amarelo, principal causador de escorpionismo grave no Brasil, pertence ao gênero:
 A) *Phoneutria*.
@@ -642,34 +642,34 @@ C) *Loxosceles*.
 D) *Tityus*.
 
 **42.** Diante de um acidente por serpente peçonhenta, a conduta correta é:
-A) Fazer torniquete e sucção do veneno.
-B) Realizar cortes no local da picada.
-C) Manter a vítima em repouso e encaminhá-la imediatamente para soroterapia específica.
-D) Aplicar gelo diretamente sobre a ferida e aguardar em casa.
+A) Fazer torniquete e tentar a sucção do veneno.
+B) Realizar cortes profundos no local da picada.
+C) Manter a vítima em repouso e encaminhá-la à soroterapia específica.
+D) Aplicar gelo sobre a ferida e aguardar em casa.
 
 **43.** No complexo teníase–cisticercose, a neurocisticercose humana é adquirida por:
-A) Ingestão de carne suína malcozida contendo cisticercos.
-B) Ingestão acidental de ovos de *Taenia solium* presentes em água/alimentos contaminados por fezes humanas.
-C) Picada de flebotomíneo.
-D) Contato com urina de roedor.
+A) Ingestão de carne suína malcozida contendo cisticercos vivos.
+B) Ingestão acidental de ovos de *Taenia solium* em água ou alimentos.
+C) Picada de flebotomíneo do gênero *Lutzomyia*.
+D) Contato com a urina de roedores sinantrópicos.
 
 **44.** A teníase (verme adulto, a "solitária") é adquirida pelo homem por meio de:
-A) Ingestão de ovos do parasita.
-B) Picada de carrapato.
-C) Inalação de aerossóis.
-D) Ingestão de carne crua ou malcozida com cisticercos.
+A) Ingestão dos ovos do parasita em alimentos.
+B) Picada de carrapato-estrela infectado.
+C) Inalação de aerossóis contaminados do ambiente.
+D) Ingestão de carne crua/malcozida com cisticercos.
 
 **45.** Na febre amarela silvestre, os primatas não humanos (macacos) funcionam como:
-A) Vetores da doença.
-B) Agentes etiológicos.
-C) Reservatórios definitivos sem importância epidemiológica.
-D) Hospedeiros sentinela, cuja morte sinaliza a circulação viral.
+A) Vetores biológicos da doença na mata.
+B) Agentes etiológicos da febre amarela.
+C) Reservatórios definitivos, de baixa relevância epidemiológica.
+D) Hospedeiros sentinela, cuja morte sinaliza o vírus.
 
 **46.** A larva migrans cutânea ("bicho-geográfico") é causada por larvas de:
-A) *Toxocara canis*.
-B) *Ancylostoma* spp. de cães e gatos.
-C) *Taenia saginata*.
-D) *Leishmania braziliensis*.
+A) *Toxocara canis* (de cães).
+B) *Ancylostoma* spp. (de cães e gatos).
+C) *Taenia saginata* (de bovinos).
+D) *Leishmania braziliensis* (cutânea).
 
 **47.** Quanto ao sentido da transmissão, raiva e tuberculose classificam-se, respectivamente, como:
 A) Antropozoonose e zooantropozoonose.
@@ -678,10 +678,10 @@ C) Anfixenose e antropozoonose.
 D) Saprozoonose e metazoonose.
 
 **48.** O botulismo é uma intoxicação causada por:
-A) *Rickettsia rickettsii*.
-B) Toxina de *Clostridium botulinum*, associada a alimentos mal conservados/enlatados.
-C) *Mycobacterium bovis*.
-D) *Leptospira interrogans*.
+A) *Rickettsia rickettsii* (febre maculosa).
+B) Toxina de *Clostridium botulinum* (alimentos enlatados).
+C) *Mycobacterium bovis* (tuberculose).
+D) *Leptospira interrogans* (leptospirose).
 
 **49.** A peste, monitorada por programa nacional, tem como ciclo epidemiológico clássico:
 A) Roedores – pulgas – homem.
@@ -690,10 +690,10 @@ C) Carrapato – capivara – homem.
 D) Morcego – herbívoros – homem.
 
 **50.** Sobre a notificação na esfera da sanidade animal, é correto afirmar que é IMEDIATA a notificação de:
-A) Qualquer doença, sem exceção, de forma mensal.
-B) Somente doenças de animais aquáticos.
-C) Apenas doenças já erradicadas, em prazo anual.
-D) Qualquer doença exótica ou emergente com morbidade/mortalidade significativa ou repercussão à saúde pública, ainda que não conste na lista.
+A) Doença de notificação mensal de rotina, sem prazo imediato.
+B) Doença que acomete os animais de criação aquática.
+C) Doença já erradicada do país, com notificação anual.
+D) Doença exótica ou emergente, de morbidade significativa ou repercussão pública.
 
 ---
 
@@ -783,10 +783,10 @@ C) No máximo 5 ºC, por até 5 dias.
 D) Abaixo de 0 ºC, por até 30 dias.
 
 **5.** A RDC 216/2004 aplica-se a:
-A) Estabelecimentos industrializadores de alimentos.
-B) Serviços de alimentação como cantinas, bufês, restaurantes, padarias e lanchonetes.
-C) Apenas à produção primária rural.
-D) Exclusivamente ao transporte de cargas perigosas.
+A) Estabelecimentos industriais, como abatedouros, laticínios e moinhos.
+B) Serviços de alimentação, como bufês, restaurantes e lanchonetes.
+C) Estabelecimentos voltados à produção primária rural de alimentos.
+D) Empresas de transporte rodoviário de cargas perigosas.
 
 **6.** O número de POPs obrigatórios na RDC 216/2004 (serviços de alimentação) é:
 A) 4.
@@ -795,10 +795,10 @@ C) 8.
 D) 10.
 
 **7.** Entre os 4 POPs obrigatórios da RDC 216/2004, NÃO se inclui:
-A) Higienização de instalações, equipamentos e móveis.
-B) Controle integrado de vetores e pragas urbanas.
-C) Programa de recolhimento de alimentos (recall).
-D) Higiene e saúde dos manipuladores.
+A) Higienização das instalações, equipamentos e móveis (limpeza).
+B) Controle integrado de vetores e pragas urbanas (dedetização).
+C) Programa de recolhimento de alimentos do mercado (recall).
+D) Higiene e saúde dos manipuladores de alimentos (treinamento).
 
 **8.** A RDC 275/2002, aplicável à indústria de alimentos, exige a implantação de quantos POPs?
 A) 4.
@@ -807,16 +807,16 @@ C) 6.
 D) 12.
 
 **9.** Assinale a alternativa que apresenta um POP exigido pela RDC 275/2002 e que NÃO consta explicitamente entre os 4 POPs da RDC 216/2004.
-A) Higiene e saúde dos manipuladores.
-B) Higienização das instalações.
+A) Higiene e saúde dos manipuladores de alimentos.
+B) Higienização das instalações e dos equipamentos.
 C) Manutenção preventiva e calibração de equipamentos.
-D) Controle integrado de vetores e pragas.
+D) Controle integrado de vetores e de pragas urbanas.
 
 **10.** Na Lista de Verificação de BPF (RDC 275/2002), o estabelecimento classificado no GRUPO 1 atende:
-A) 0 a 50% dos itens.
-B) 76 a 100% dos itens.
-C) 51 a 75% dos itens.
-D) Exatamente 100% dos itens.
+A) De 0 a 50% dos itens.
+B) De 76 a 100% dos itens.
+C) De 51 a 75% dos itens.
+D) De 90 a 100% dos itens.
 
 **11.** Na Lista de Verificação de BPF da RDC 275/2002, o GRUPO 3 corresponde ao atendimento de:
 A) 76 a 100% dos itens.
@@ -826,57 +826,57 @@ D) 0 a 50% dos itens.
 
 **12.** Higienização, segundo a RDC 275/2002, é definida como:
 A) A operação de limpeza seguida de desinfecção.
-B) Apenas a remoção de sujidades visíveis.
+B) A simples remoção das sujidades visíveis.
 C) A redução de micro-organismos da pele.
-D) A esterilização completa de superfícies.
+D) A esterilização total de superfícies.
 
 **13.** A antissepsia diferencia-se da desinfecção por ser a redução de micro-organismos:
 A) Do ar ambiente.
-B) De superfícies de equipamentos.
+B) De superfícies fixas, como as de equipamentos.
 C) Da pele, por agente químico.
 D) Da água de abastecimento.
 
 **14.** O reservatório de água (caixa d'água) de um serviço de alimentação deve ser higienizado, no mínimo:
 A) A cada mês.
-B) Apenas na instalação.
+B) No momento da instalação inicial.
 C) A cada 2 anos.
 D) A cada 6 meses.
 
 **15.** A contaminação cruzada nos alimentos caracteriza-se por:
-A) Multiplicação de micro-organismos por excesso de calor.
-B) Contaminação exclusivamente química.
-C) Deterioração natural por oxidação.
-D) Transferência de contaminação de um alimento cru (ou utensílio/mão sujos) para um alimento pronto.
+A) Multiplicação de micro-organismos pelo excesso de calor no preparo.
+B) Contaminação de natureza química por resíduos de produtos.
+C) Deterioração natural do alimento causada por oxidação.
+D) Transferência de contaminação de um alimento cru para um alimento pronto.
 
 **16.** Sobre micro-organismos deteriorantes e patogênicos, é correto afirmar:
-A) Ambos sempre alteram cheiro e sabor do alimento.
-B) Os patogênicos podem se multiplicar silenciosamente, sem alterar o alimento, ao contrário dos deteriorantes.
-C) Os deteriorantes são sempre mais perigosos à saúde.
-D) Nenhum deles se multiplica em alimentos refrigerados.
+A) Ambos alteram, de imediato, o cheiro e o sabor do alimento.
+B) Os patogênicos podem se multiplicar sem alterar o alimento, diferentemente dos deteriorantes.
+C) Os deteriorantes costumam ser mais perigosos à saúde humana.
+D) Os dois grupos não se multiplicam em alimentos refrigerados.
 
 **17.** A maioria das Doenças Transmitidas por Alimentos (DTA) tem causa:
-A) Química.
-B) Física.
-C) Radioativa.
-D) Biológica, especialmente bacteriana.
+A) Química, ligada a resíduos tóxicos.
+B) Física, por corpos estranhos.
+C) Radioativa, por contaminação ambiental.
+D) Biológica, sobretudo bacteriana.
 
 **18.** Os componentes de um padrão microbiológico, segundo a RDC 724/2022, são:
-A) Alimento, micro-organismo, limites m e M, e plano de amostragem.
-B) Apenas o micro-organismo e sua toxina.
-C) Somente o tipo de embalagem e a validade.
-D) Cor, sabor, odor e textura.
+A) Alimento, micro-organismo, limites m e M e plano de amostragem.
+B) O micro-organismo, a sua toxina e o tempo de exposição.
+C) O tipo de embalagem, o lote e a data de validade.
+D) A cor, o sabor, o odor e a textura do produto.
 
 **19.** No plano de amostragem microbiológica, o símbolo "n" representa:
-A) O número máximo de unidades toleradas com qualidade intermediária.
-B) O limite que separa aceitável de inaceitável.
-C) O número de unidades amostrais coletadas e analisadas individualmente.
-D) A unidade formadora de colônia.
+A) O número máximo de unidades toleradas em qualidade intermediária.
+B) O limite que separa o aceitável do inaceitável no lote.
+C) O número de unidades amostrais coletadas e analisadas.
+D) A unidade formadora de colônia no meio de cultura.
 
 **20.** No plano de amostragem, o "c" corresponde:
-A) Ao número de unidades amostrais coletadas.
-B) Ao limite superior de aceitação.
-C) Ao número máximo de unidades toleradas com qualidade intermediária (entre m e M).
-D) Ao número mais provável.
+A) Ao número total de unidades amostrais coletadas (n).
+B) Ao limite superior de aceitação do lote (M).
+C) Ao número máximo de unidades toleradas em qualidade intermediária.
+D) Ao número mais provável de micro-organismos (NMP).
 
 **21.** No plano de TRÊS classes, o limite "M" separa:
 A) Aceitável de intermediária.
@@ -897,22 +897,22 @@ C) Qualquer unidade ultrapassa o limite M.
 D) O número de amostras é igual a n.
 
 **24.** A amostra REPRESENTATIVA difere da INDICATIVA porque a representativa:
-A) Possui número de unidades igual a "n" do plano e representa o lote em sua totalidade.
-B) Possui número de unidades inferior ao plano (n).
-C) Só pode ser coletada pela autoridade sanitária.
-D) Nunca pode ser usada pela empresa.
+A) Possui número de unidades igual a "n" e representa o lote inteiro.
+B) Possui número de unidades inferior ao previsto no plano (n).
+C) É coletada pela autoridade sanitária local, em fiscalização.
+D) Não pode ser utilizada pela empresa para liberar lotes.
 
 **25.** Sobre a amostra indicativa, é correto afirmar que:
-A) Pode ser usada pela empresa para liberar lotes.
-B) Representa integralmente o lote.
-C) É de uso da autoridade sanitária e seu resultado negativo não libera o lote como satisfatório.
-D) Sempre contém número de unidades superior a n.
+A) Pode ser usada pela empresa para liberar lotes de produção.
+B) Representa o lote inteiro em sua totalidade analítica.
+C) É de uso da autoridade sanitária e não libera o lote como satisfatório.
+D) Contém, em geral, número de unidades superior ao "n".
 
 **26.** Para a investigação de surtos de DTA, deve-se utilizar:
-A) O Manual Integrado de Vigilância, Prevenção e Controle das DTA do Ministério da Saúde.
-B) Os limites m e M da IN 161/2022.
-C) Apenas a Lista de Verificação de BPF.
-D) A RDC 222/2018.
+A) O Manual Integrado de Vigilância e Controle das DTA do MS.
+B) Os limites m e M definidos pela IN 161/2022.
+C) A Lista de Verificação de Boas Práticas de Fabricação.
+D) A RDC 222/2018 sobre resíduos de serviços de saúde.
 
 **27.** O melhor indicador de higiene e de falha de processo, segundo o marco atual de padrões microbiológicos, é:
 A) Enterobacteriaceae.
@@ -927,16 +927,16 @@ C) Esterilidade comercial.
 D) Presença de toxinas químicas.
 
 **29.** Sobre os antigos "coliformes" no marco regulatório vigente, é correto afirmar:
-A) Continuam sendo o principal indicador de higiene.
-B) Tornaram-se padrão para todos os alimentos infantis.
-C) Passaram a ser pesquisados apenas em águas.
-D) Foram substituídos por E. coli e Enterobacteriaceae por serem grupo mal definido.
+A) Continuam a ser, ainda hoje, o principal indicador de higiene.
+B) Tornaram-se o padrão de referência para os alimentos infantis.
+C) Passaram a ser pesquisados nas águas de abastecimento.
+D) Foram substituídos por E. coli e Enterobacteriaceae, grupo mal definido.
 
 **30.** O padrão para *Listeria monocytogenes* em alimentos prontos para o consumo (regra geral) é de:
 A) Ausência em 25 g.
 B) 10.000 UFC/g.
 C) 1.000 UFC/g.
-D) 100 UFC/g (10²).
+D) 100 UFC/g.
 
 **31.** Para alimentos prontos destinados a lactentes, o padrão de *Listeria monocytogenes* é:
 A) 100 UFC/g.
@@ -945,10 +945,10 @@ C) Ausência em 25 g.
 D) Tolerância de até c unidades.
 
 **32.** Quanto à *Salmonella* em carne de aves crua, a abordagem atual baseia-se:
-A) Na pesquisa de *Salmonella* spp. com c=1.
-B) Na contagem de aeróbios mesófilos.
-C) Na pesquisa dos sorotipos *S.* Enteritidis e *S.* Typhimurium, com c=0.
-D) Na ausência de qualquer pesquisa.
+A) Na pesquisa de *Salmonella* spp. genérica, com c=1.
+B) Na contagem de aeróbios mesófilos da carcaça.
+C) Na pesquisa dos sorotipos Enteritidis e Typhimurium, com c=0.
+D) Na dispensa de pesquisa de *Salmonella* na carne.
 
 **33.** A norma que estabelece as disposições gerais dos padrões microbiológicos dos alimentos, revogando a RDC 331/2019, é:
 A) RDC 216/2004.
@@ -958,15 +958,15 @@ D) RDC 222/2018.
 
 **34.** As listas (valores) de padrões microbiológicos estão estabelecidas na:
 A) IN 161/2022, alterada pela IN 313/2024.
-B) RDC 724/2022.
-C) RDC 216/2004.
-D) Lei nº 6.437/1977.
+B) RDC 724/2022, das disposições gerais.
+C) RDC 216/2004, dos serviços de alimentação.
+D) Lei nº 6.437/1977, das infrações sanitárias.
 
 **35.** Entre as mudanças trazidas pela IN 313/2024, está:
-A) A retirada do padrão de aeróbios mesófilos de diversas categorias de carne e a previsão de que alimento deteriorado é de qualidade inaceitável.
-B) A inclusão dos coliformes como indicador principal.
-C) A criação do Anexo IV de Salmonella em carne suína.
-D) A revogação total da RDC 724/2022.
+A) A retirada dos aeróbios mesófilos de várias carnes; a deterioração vira inaceitável.
+B) A inclusão dos coliformes totais como indicador principal de higiene.
+C) A criação de um Anexo IV de Salmonella específico para carne suína.
+D) A revogação integral da RDC 724/2022 e de seus anexos.
 
 **36.** Os Resíduos de Serviços de Saúde (RSS) são classificados, segundo a RDC 222/2018, em quantos grupos?
 A) 3 grupos.
@@ -975,10 +975,10 @@ C) 7 grupos.
 D) 5 grupos.
 
 **37.** Na classificação dos RSS, o Grupo E corresponde a:
-A) Resíduos químicos.
-B) Resíduos perfurocortantes/escarificantes.
-C) Rejeitos radioativos.
-D) Resíduos comuns.
+A) Resíduos químicos perigosos.
+B) Resíduos perfurocortantes e escarificantes.
+C) Rejeitos radioativos diversos.
+D) Resíduos comuns recicláveis.
 
 **38.** Os resíduos biológicos/infectantes da RDC 222/2018 pertencem ao:
 A) Grupo A.
@@ -988,21 +988,21 @@ D) Grupo D.
 
 **39.** Tecidos e órgãos com risco de príons, classificados como A5, devem ser:
 A) Descartados em saco branco leitoso, sem tratamento.
-B) Encaminhados a aterro comum.
-C) Incinerados, em saco vermelho duplo.
-D) Reaproveitados após desinfecção.
+B) Encaminhados ao aterro sanitário comum.
+C) Incinerados e acondicionados em saco vermelho duplo.
+D) Reaproveitados após processo de desinfecção.
 
 **40.** O saco VERMELHO, no acondicionamento de RSS, destina-se a:
-A) Resíduos comuns (Grupo D).
-B) Resíduos químicos líquidos.
-C) Perfurocortantes.
-D) Resíduos do Grupo A que ainda serão tratados.
+A) Resíduos comuns recicláveis (Grupo D).
+B) Resíduos químicos líquidos (Grupo B).
+C) Resíduos perfurocortantes (Grupo E).
+D) Resíduos do Grupo A a serem tratados.
 
 **41.** O saco BRANCO leitoso é utilizado para:
-A) Resíduos radioativos.
-B) Resíduos comuns recicláveis.
-C) Resíduos do Grupo A já tratados ou que não necessitam de tratamento.
-D) Perfurocortantes contaminados.
+A) Resíduos radioativos do Grupo C.
+B) Resíduos comuns recicláveis do Grupo D.
+C) Resíduos do Grupo A já tratados ou que dispensam tratamento.
+D) Resíduos perfurocortantes contaminados do Grupo E.
 
 **42.** Os sacos de acondicionamento de RSS, em regra, devem ser substituídos ao atingir:
 A) 1/2 da capacidade.
@@ -1017,22 +1017,22 @@ C) 3/4 da capacidade.
 D) Capacidade total.
 
 **44.** Sobre o manejo de agulhas nos RSS, a RDC 222/2018:
-A) Permite reencapar manualmente para reduzir custos.
-B) Exige reaproveitamento dos perfurocortantes.
-C) Veda reencapar ou desconectar agulhas manualmente, salvo com dispositivo de segurança.
-D) Permite o descarte em saco comum.
+A) Permite reencapar as agulhas manualmente, a fim de reduzir custos.
+B) Exige o reaproveitamento dos materiais perfurocortantes usados.
+C) Veda reencapar ou desconectar agulhas manualmente, salvo dispositivo de segurança.
+D) Permite o descarte das agulhas em saco de lixo comum.
 
 **45.** A etapa considerada chave de todo o processo de gerenciamento dos RSS é:
-A) O transporte externo.
-B) A segregação na fonte/momento de geração.
-C) A disposição final.
-D) A coleta interna.
+A) O transporte externo dos resíduos, até o destino final.
+B) A segregação na fonte, no momento da geração.
+C) A disposição final ambientalmente adequada.
+D) A coleta interna nos pontos de geração.
 
 **46.** O Plano de Gerenciamento de RSS (PGRSS):
-A) É dispensável para todos os serviços de saúde.
-B) Deve seguir modelo fornecido pela ANVISA.
-C) É documento obrigatório; novos geradores têm prazo de 180 dias para apresentá-lo.
-D) Só é exigido para hospitais de grande porte.
+A) É documento dispensável para os serviços de saúde de pequeno porte.
+B) Deve seguir um modelo único fornecido pela ANVISA.
+C) É documento obrigatório; novos geradores têm 180 dias para apresentá-lo.
+D) É exigido dos hospitais de grande porte e maternidades.
 
 **47.** Na estrutura federativa da vigilância sanitária, a competência de regulamentar (editar RDCs e INs) é da:
 A) ANVISA.
@@ -1047,10 +1047,10 @@ C) Lei nº 6.437/1977.
 D) Lei nº 9.782/1999.
 
 **49.** A higienização de hortaliças e frutas consumidas cruas, conforme orientação da cartilha da RDC 216/2004, é feita por imersão em:
-A) Água fervente por 1 minuto.
-B) Água clorada a 200 ppm por cerca de 10 minutos, seguida de enxágue.
-C) Vinagre puro por 30 minutos.
-D) Água com sal por 5 minutos.
+A) Água fervente, por cerca de 1 minuto de imersão.
+B) Água clorada a 200 ppm, por cerca de 10 minutos.
+C) Vinagre puro de álcool, por cerca de 30 minutos.
+D) Água com sal de cozinha, por cerca de 5 minutos.
 
 **50.** Segundo a IN 161/2022, "tratamento térmico efetivo" é o aquecimento até que o ponto frio do alimento atinja:
 A) 60 ºC.
@@ -1128,10 +1128,10 @@ C) O seu estado em relação às suas tentativas de se adaptar ao seu ambiente.
 D) A sensação de prazer constante do animal.
 
 **2.** Sobre a distinção entre bem-estar animal e direitos dos animais, é correto afirmar:
-A) São conceitos sinônimos.
-B) O bem-estar animal proíbe qualquer uso de animais.
-C) Bem-estar animal é a ciência que busca melhorar a qualidade de vida (admitindo o uso do animal); direitos dos animais é uma filosofia que os reconhece como sujeitos de direitos.
-D) Os direitos dos animais constituem disciplina mensurável e objetiva.
+A) São conceitos sinônimos, plenamente equivalentes entre si.
+B) O bem-estar animal se opõe ao uso dos animais pelo homem.
+C) Bem-estar animal é ciência da qualidade de vida; direitos, filosofia dos animais como sujeitos.
+D) Os direitos dos animais constituem uma disciplina mensurável e objetiva.
 
 **3.** A capacidade de um ser de sentir, ter experiências subjetivas como dor, medo e prazer, fundamento ético e científico do bem-estar animal, é denominada:
 A) Etologia.
@@ -1140,22 +1140,22 @@ C) Senciência.
 D) Resiliência.
 
 **4.** As Cinco Liberdades, instrumento reconhecido para o diagnóstico do bem-estar animal, originaram-se:
-A) Da Lei Sansão.
-B) Da Declaração de Cambridge de 2012.
-C) Do Relatório Brambell (1965), sendo publicadas em 1993.
-D) Do Protocolo Welfare Quality®.
+A) Da Lei Sansão, de 2020.
+B) Da Declaração de Cambridge, de 2012.
+C) Do Relatório Brambell (1965), publicadas em 1993.
+D) Do Protocolo Welfare Quality®, de 2005.
 
 **5.** Assinale a alternativa que NÃO corresponde a uma das Cinco Liberdades.
-A) Livre de fome e sede.
-B) Livre de qualquer forma de uso pelo homem.
+A) Livre de fome e de sede.
+B) Livre do uso e da exploração pelo homem.
 C) Livre de dor, ferimento e doença.
 D) Livre para expressar o comportamento natural.
 
 **6.** A liberdade que assegura ao animal abrigo contra intempéries, conforto térmico e local de descanso adequado corresponde à liberdade:
 A) Ambiental (livre de desconforto).
-B) Sanitária.
-C) Nutricional.
-D) Psicológica.
+B) Sanitária (livre de doença).
+C) Nutricional (livre de fome).
+D) Psicológica (livre de medo).
 
 **7.** A disciplina que estuda o comportamento animal e serve de base para avaliar o bem-estar é a:
 A) Etologia.
@@ -1171,21 +1171,21 @@ D) Carlos Molento.
 
 **9.** A disciplina de Bem-Estar Animal foi criada no currículo de Medicina Veterinária, em 1986, por:
 A) Niko Tinbergen, na Holanda.
-B) Donald Broom, na Universidade de Cambridge.
+B) Donald Broom, em Cambridge.
 C) Ruth Harrison, em Londres.
-D) Russell e Burch, nos EUA.
+D) Russell e Burch, nos Estados Unidos.
 
 **10.** O conceito de "Bem-Estar Único" (One Welfare):
-A) Refere-se apenas ao bem-estar de animais de produção.
-B) Considera simultaneamente o bem-estar dos animais, dos seres humanos e a sustentabilidade ambiental.
-C) Substitui o conceito de senciência.
-D) É restrito a animais silvestres em cativeiro.
+A) Refere-se ao bem-estar dos animais de produção, em sistemas intensivos.
+B) Considera o bem-estar dos animais, dos humanos e do ambiente.
+C) Substitui e torna obsoleto o conceito de senciência.
+D) É restrito aos animais silvestres mantidos em cativeiro.
 
 **11.** Sobre a escala do bem-estar animal, é correto afirmar que:
-A) É um conceito de "tudo ou nada".
-B) Depende exclusivamente de considerações éticas subjetivas.
+A) É um conceito do tipo "tudo ou nada", sem gradação.
+B) Depende de considerações éticas de natureza subjetiva.
 C) Varia em uma escala contínua, de muito bom a muito ruim.
-D) Só pode ser avaliada após a morte do animal.
+D) É avaliada após a morte do animal, na necropsia.
 
 **12.** A Declaração de Curitiba (2014), do CFMV, reconhece os animais como:
 A) Bens semoventes sem proteção.
@@ -1206,52 +1206,52 @@ C) 4 princípios e 12 critérios.
 D) 7 princípios e 14 critérios.
 
 **15.** Entre os quatro princípios do Welfare Quality®, estão:
-A) Boa alimentação, boas instalações, boa saúde e comportamento apropriado.
+A) Boa alimentação, boas instalações, boa saúde e bom comportamento.
 B) Substituição, redução, refinamento e reaproveitamento.
-C) Detenção, reclusão, multa e proibição.
-D) Físico, social, alimentar e cognitivo.
+C) Detenção, reclusão, aplicação de multa e proibição.
+D) Aspecto físico, social, alimentar e cognitivo.
 
 **16.** A definição de dor adotada nos materiais de bem-estar refere-se a uma experiência:
-A) Exclusivamente sensorial, sem componente emocional.
-B) Apenas psicológica, sem base física.
-C) Sensitiva e emocional aversiva, causada por destruição ou lesão de tecidos, que modifica o comportamento do animal.
-D) Sempre idêntica entre os indivíduos.
+A) Sensorial pura, desprovida de qualquer componente emocional, afetivo ou cognitivo.
+B) Psicológica, sem base de origem física.
+C) Sensitiva e emocional, por lesão de tecidos, que altera o comportamento.
+D) Idêntica entre os indivíduos de uma espécie.
 
 **17.** Segundo Broom, o estresse é:
-A) Um estado sempre benéfico ao animal.
-B) Um fenômeno exclusivamente genético.
-C) A simples elevação da frequência cardíaca.
-D) Um efeito ambiental sobre o indivíduo que interfere no controle sistêmico e reduz sua saúde ou aparência de saudável.
+A) Um estado benéfico e desejável ao organismo do animal.
+B) Um fenômeno de origem puramente genética.
+C) A simples elevação da frequência cardíaca do animal.
+D) Um efeito ambiental que reduz a saúde e o controle sistêmico.
 
 **18.** O estresse crônico compromete o bem-estar principalmente porque:
-A) Deprime a resposta imunológica, predispondo o animal a doenças.
-B) Aumenta a resposta imunológica.
-C) Reduz a frequência cardíaca permanentemente.
-D) Não tem qualquer efeito fisiológico.
+A) Deprime a resposta imunológica e predispõe a doenças.
+B) Aumenta de forma intensa a resposta imunológica.
+C) Reduz a frequência cardíaca de modo permanente.
+D) Não produz nenhum efeito fisiológico no organismo.
 
 **19.** O principal biomarcador fisiológico utilizado para mensurar estresse e bem-estar pobre é:
-A) A glicose.
-B) A hemoglobina.
-C) O cortisol, liberado via eixo Hipotálamo-Hipófise-Adrenal.
-D) A albumina.
+A) A glicose sanguínea, de aferição imediata.
+B) A hemoglobina circulante.
+C) O cortisol, do eixo hipotálamo-hipófise-adrenal.
+D) A albumina plasmática.
 
 **20.** Um cuidado importante na interpretação do cortisol como indicador de estresse é que:
-A) A própria contenção para a coleta pode elevar o cortisol, devendo ser associado a indicadores comportamentais e clínicos.
-B) Ele nunca se altera com o manejo.
-C) Só pode ser dosado após o abate.
-D) Níveis altos sempre indicam bom bem-estar.
+A) A contenção para a coleta eleva o cortisol, exigindo outros indicadores.
+B) Ele raramente se altera, mesmo com o manejo dos animais.
+C) É dosado no animal após o abate sanitário.
+D) Níveis altos costumam indicar bom estado de bem-estar.
 
 **21.** O enriquecimento ambiental é definido como:
-A) O aumento do tamanho do recinto, exclusivamente.
-B) O princípio de manejo que modifica o ambiente de animais em cativeiro para melhorar a qualidade de vida e diversificar comportamentos naturais.
-C) A restrição de estímulos para acalmar o animal.
-D) A redução do número de animais por recinto.
+A) O simples aumento do tamanho do recinto do animal.
+B) O manejo que modifica o ambiente e melhora a qualidade de vida.
+C) A restrição de estímulos do ambiente para acalmar o animal.
+D) A redução do número de animais alojados por recinto.
 
 **22.** Um dos principais objetivos do enriquecimento ambiental é:
-A) Aumentar a frequência de estereotipias.
-B) Reduzir a frequência de comportamentos anormais e aumentar os comportamentos normais da espécie.
-C) Eliminar o contato social entre os animais.
-D) Diminuir a complexidade do ambiente.
+A) Aumentar a frequência das estereotipias no animal.
+B) Reduzir comportamentos anormais e ampliar os normais da espécie.
+C) Eliminar o contato social entre os animais do grupo.
+D) Diminuir a complexidade estrutural do ambiente.
 
 **23.** Manter animais em grupos sociais apropriados à espécie corresponde ao tipo de enriquecimento:
 A) Físico.
@@ -1266,51 +1266,51 @@ C) Físico.
 D) Sensorial.
 
 **25.** Sobre o enriquecimento físico (estrutural), os materiais destacam que:
-A) O tamanho do recinto é o único fator relevante.
-B) Estruturas fixas devem permanecer inalteradas indefinidamente.
-C) Mais importante que o tamanho do recinto é o que ele oferece ao animal, explorando o espaço tridimensional.
-D) Não deve haver mobília no recinto.
+A) O tamanho do recinto é o principal fator relevante.
+B) As estruturas fixas devem permanecer inalteradas com o tempo.
+C) Importa mais o que o recinto oferece do que o seu tamanho.
+D) Não deve existir mobília nem objetos no recinto.
 
 **26.** O transporte é considerado um momento crítico ao bem-estar porque:
-A) Combina medo, novidade, contenção, vibração e calor, sendo um dos maiores estressores e fonte de lesões.
-B) Reduz o nível de cortisol dos animais.
-C) Elimina o risco de disseminação de doenças.
-D) Não causa qualquer impacto fisiológico.
+A) Combina medo, contenção e vibração, sendo um grande estressor.
+B) Reduz, de imediato, o cortisol circulante, segundo alguns autores.
+C) Elimina o risco de disseminação de doenças no rebanho.
+D) Não provoca nenhum impacto fisiológico no animal.
 
 **27.** Em relação à duração do transporte, os materiais indicam que acima de:
-A) 6 horas ocorre morte imediata.
-B) 2 horas o animal já não sente estresse.
-C) 48 horas não há mais risco.
-D) 24 horas ocorrem mudanças metabólicas significativas e acima de 30 horas há predisposição à fadiga muscular.
+A) 6 horas ocorre a morte imediata, súbita e generalizada, dos animais.
+B) 2 horas o animal já deixa de sentir estresse.
+C) 48 horas o risco para o animal se torna desprezível.
+D) 24 horas há mudanças metabólicas e, após 30 horas, fadiga muscular.
 
 **28.** O núcleo do conceito de abate humanitário é:
-A) A insensibilização (atordoamento) prévia à sangria, garantindo inconsciência e insensibilidade à dor.
-B) A sangria realizada com o animal consciente.
-C) O abate sem qualquer jejum prévio.
-D) A ausência de manejo pré-abate.
+A) A insensibilização (atordoamento) prévia à sangria do animal.
+B) A sangria realizada com o animal ainda consciente (sem atordoamento).
+C) O abate conduzido sem o jejum prévio dos animais (a seco).
+D) A ausência de manejo no período pré-abate (sem descanso).
 
 **29.** São métodos clássicos de insensibilização no abate humanitário:
-A) Jejum, hidratação e descanso.
-B) Sangria direta, evisceração e resfriamento.
-C) Mecânico (dardo cativo), elétrico (eletronarcose) e gasoso (CO₂).
-D) Vacinação, vermifugação e castração.
+A) Jejum (hídrico), hidratação e descanso.
+B) Sangria direta (a frio), evisceração e resfriamento.
+C) Mecânico (dardo cativo), elétrico e gasoso (CO₂).
+D) Vacinação (sanitária), vermifugação e castração.
 
 **30.** O crime de maus-tratos a animais está tipificado em qual dispositivo legal?
-A) Art. 121 do Código Penal.
-B) Lei nº 8.080/1990.
-C) Art. 5º da Constituição Federal.
+A) Art. 121 do Código Penal brasileiro.
+B) Art. 1º da Lei nº 8.080/1990.
+C) Art. 5º da Constituição Federal de 1988.
 D) Art. 32 da Lei nº 9.605/1998.
 
 **31.** A pena prevista no caput do art. 32 da Lei nº 9.605/1998 (regra geral de maus-tratos) é de:
-A) Reclusão de 2 a 5 anos e multa.
-B) Apenas advertência.
-C) Prisão perpétua.
-D) Detenção de 3 meses a 1 ano e multa.
+A) Reclusão de 2 a 5 anos, com multa.
+B) Mera advertência, sem prisão.
+C) Prisão perpétua, sem fiança.
+D) Detenção de 3 meses a 1 ano, com multa.
 
 **32.** A Lei Sansão (Lei nº 14.064/2020) alterou o art. 32 para, no caso de cães e gatos, estabelecer pena de:
-A) Detenção de 3 meses a 1 ano.
-B) Reclusão de 10 a 20 anos.
-C) Multa isolada.
+A) Detenção de 3 meses a 1 ano, com multa.
+B) Reclusão de 10 a 20 anos, com multa.
+C) Multa isolada, sem pena de prisão.
 D) Reclusão de 2 a 5 anos, multa e proibição da guarda.
 
 **33.** Uma diferença juridicamente relevante introduzida pela Lei Sansão é a mudança da espécie de pena de:
@@ -1320,10 +1320,10 @@ C) Multa para advertência.
 D) Detenção para reclusão.
 
 **34.** Quanto ao elemento subjetivo do crime do art. 32 da Lei nº 9.605/1998:
-A) Pune apenas a conduta dolosa (direta ou eventual); a culposa não é punível.
-B) Pune tanto a conduta dolosa quanto a culposa.
-C) Pune somente a conduta culposa.
-D) Não exige nenhum elemento subjetivo.
+A) Pune a conduta dolosa, direta ou eventual; a culposa não é punível.
+B) Pune tanto a conduta dolosa quanto a conduta culposa.
+C) Pune a conduta culposa, mas não a dolosa do agente.
+D) Dispensa o elemento subjetivo na conduta do agente.
 
 **35.** Conforme o §2º do art. 32 da Lei nº 9.605/1998, se ocorre a morte do animal, a pena é:
 A) Reduzida pela metade.
@@ -1332,94 +1332,94 @@ C) Mantida inalterada.
 D) Aumentada de 1/6 a 1/3.
 
 **36.** No contexto da Lei nº 9.605/1998, animais "domesticados" são:
-A) Espécies de tempos imemoriais afeiçoadas ao homem, como cães e gatos.
-B) Espécies próprias de uma região (autóctones).
-C) Silvestres adestrados ou acostumados ao convívio humano, como papagaios e araras.
-D) Espécies provenientes de local diferente daquele onde se encontram.
+A) Espécies afeiçoadas ao homem desde tempos imemoriais (cães e gatos).
+B) Espécies próprias e originárias de uma dada região (autóctones).
+C) Silvestres acostumados ao convívio humano (papagaios e araras).
+D) Espécies provenientes de local diverso daquele onde se encontram.
 
 **37.** A base constitucional da proteção contra a crueldade aos animais encontra-se:
 A) No art. 225, §1º, VII, da Constituição Federal.
-B) No art. 5º, caput, da Constituição Federal.
-C) Na Lei nº 14.064/2020, exclusivamente.
-D) No Código Civil.
+B) No art. 5º, caput, da Constituição Federal de 1988.
+C) Na Lei Sansão, nº 14.064/2020, de forma isolada.
+D) No Código Civil de 2002, art. 82, caput, sobre os bens semoventes.
 
 **38.** A Emenda Constitucional nº 96/2017 estabeleceu que não são consideradas cruéis as práticas desportivas que utilizem animais, desde que:
-A) Não haja qualquer fiscalização.
-B) Gerem lucro aos organizadores.
-C) Sejam manifestações culturais registradas como patrimônio, reguladas por lei específica e que assegurem o bem-estar dos animais.
-D) Sejam realizadas apenas em zonas rurais.
+A) Não sejam submetidas à fiscalização dos órgãos públicos, federais ou estaduais.
+B) Gerem lucro econômico aos seus organizadores e promotores.
+C) Sejam manifestações culturais reguladas por lei, com bem-estar assegurado.
+D) Sejam realizadas nas zonas rurais e no interior do país.
 
 **39.** Segundo a jurisprudência do STF, a vaquejada (ADI 4.983) e a rinha de galo (ADI 1.856) foram consideradas:
-A) Manifestações culturais constitucionais.
-B) Atividades econômicas protegidas.
-C) Práticas permitidas sem ressalvas.
-D) Inconstitucionais por crueldade manifesta aos animais.
+A) Manifestações culturais legítimas e constitucionais.
+B) Atividades econômicas protegidas pela legislação.
+C) Práticas plenamente permitidas, sem ressalvas legais.
+D) Inconstitucionais, por crueldade manifesta aos animais.
 
 **40.** Na investigação de maus-tratos, a prova considerada ideal para comprovar lesões ou a causa mortis é:
-A) Apenas o depoimento de vizinhos.
-B) A notícia em jornal.
-C) A confissão do agressor.
+A) O depoimento testemunhal de vizinhos.
+B) A notícia veiculada em jornal local.
+C) A confissão espontânea do agressor.
 D) O laudo ou atestado médico-veterinário.
 
 **41.** Os "3 R's" da experimentação animal, propostos por Russell e Burch, são:
-A) Reciclar, Reutilizar, Reduzir.
-B) Registro, Recolhimento, Reabilitação.
-C) Substituição (Replacement), Redução (Reduction) e Refinamento (Refinement).
-D) Reclusão, Reparação, Restituição.
+A) Reciclar, Reutilizar e Reduzir (três erres).
+B) Registro, Recolhimento e Reabilitação (três erres).
+C) Substituição, Redução e Refinamento (três erres).
+D) Reclusão, Reparação e Restituição (três erres).
 
 **42.** O princípio do Refinamento, entre os 3 R's, consiste em:
-A) Trocar o animal por métodos alternativos.
-B) Aperfeiçoar técnicas para minimizar dor, sofrimento e estresse.
-C) Usar o menor número possível de animais.
-D) Aumentar o número de repetições experimentais.
+A) Trocar o animal por métodos alternativos de pesquisa.
+B) Aperfeiçoar técnicas para reduzir dor e sofrimento.
+C) Usar o menor número possível de animais no estudo.
+D) Aumentar o número de repetições de cada experimento.
 
 **43.** A avaliação do bem-estar animal deve ser, segundo os materiais:
-A) Baseada em um único indicador isolado.
-B) Multifatorial, associando vários parâmetros para reduzir a subjetividade.
-C) Restrita a índices zootécnicos.
-D) Feita apenas por leigos.
+A) Baseada em um indicador isolado e principal.
+B) Multifatorial, associando vários parâmetros entre si.
+C) Restrita aos índices zootécnicos de produção.
+D) Realizada por pessoas leigas, sem formação técnica.
 
 **44.** A "febre do transporte" em equinos está associada a:
-A) Apenas a desidratação.
-B) Fraturas de membros.
-C) Doenças respiratórias por inalação de partículas e queda da imunidade ciliar.
-D) Intoxicação alimentar.
+A) Quadros de desidratação grave durante a viagem.
+B) Fraturas dos membros por quedas no transporte.
+C) Doenças respiratórias por inalação de partículas e baixa imunidade.
+D) Intoxicação alimentar por ração contaminada na viagem.
 
 **45.** A crueldade por omissão, que também configura o crime do art. 32, inclui:
-A) Deixar de dar alimento/água ou não prestar socorro a animal atropelado.
-B) Realizar castração indicada.
-C) Cortar o pelo do animal.
-D) Vacinar o animal contra a raiva.
+A) Deixar de fornecer alimento e água ao animal sob guarda.
+B) Realizar a castração clinicamente indicada do animal.
+C) Cortar o pelo do animal para fins de higiene.
+D) Vacinar o animal de estimação contra a raiva.
 
 **46.** Não configuram mutilação criminosa, por serem procedimentos legítimos quando indicados:
-A) Corte de pelo, corte de cauda e castração.
-B) Decepar membros sem indicação.
-C) Espancamento.
-D) Privação de água.
+A) Corte de pelo, corte de cauda e castração indicada.
+B) Decepar membros saudáveis, sem indicação clínica.
+C) Espancamento e agressão física do animal.
+D) Privação prolongada de água e de alimento.
 
 **47.** A ADPF 640, julgada pelo STF, estabeleceu que:
-A) É legítimo o abate de animais apreendidos em maus-tratos.
-B) É ilegítima a interpretação que autoriza o abate de animais apreendidos em situação de maus-tratos.
-C) Animais apreendidos devem ser sempre eutanasiados.
-D) Maus-tratos não constituem crime.
+A) É legítimo o abate dos animais apreendidos em situação de maus-tratos.
+B) É ilegítima a interpretação que autoriza o abate desses animais apreendidos.
+C) Os animais apreendidos devem ser sistematicamente eutanasiados.
+D) Os maus-tratos a animais não constituem conduta criminosa.
 
 **48.** O dolo eventual, punível no crime de maus-tratos, caracteriza-se quando o agente:
 A) Prevê o resultado como possível e assume o risco de produzi-lo.
-B) Quer diretamente o resultado.
-C) Age sem qualquer previsão do resultado.
-D) Não tem consciência da conduta.
+B) Quer e busca diretamente o resultado da sua conduta.
+C) Age sem nenhuma previsão do resultado lesivo.
+D) Não tem consciência nem domínio da própria conduta.
 
 **49.** A Declaração de Cambridge sobre a Consciência (2012) é relevante para o bem-estar animal porque:
-A) Proibiu a pesquisa com animais.
-B) Reconheceu que os animais possuem os substratos neurológicos que geram a consciência.
-C) Estabeleceu as Cinco Liberdades.
-D) Criou a disciplina de etologia.
+A) Proibiu a realização de pesquisa científica com animais.
+B) Reconheceu nos animais os substratos neurológicos da consciência.
+C) Estabeleceu as Cinco Liberdades do bem-estar animal.
+D) Criou a disciplina científica de etologia comparada.
 
 **50.** A responsabilidade de assegurar as Cinco Liberdades, segundo os materiais, recai sobre:
-A) Médicos-veterinários e zootecnistas, mas também os mantenedores (tutores e produtores).
-B) Exclusivamente os médicos-veterinários.
-C) Apenas o Poder Público.
-D) Somente os órgãos ambientais.
+A) Os médicos-veterinários, os zootecnistas e os mantenedores (tutores/produtores).
+B) Os médicos-veterinários, no exercício da clínica, da cirurgia e da perícia.
+C) O Poder Público, por meio dos seus órgãos de fiscalização.
+D) Os órgãos ambientais, nas três esferas de governo.
 
 ---
 
@@ -1485,10 +1485,10 @@ D) Somente os órgãos ambientais.
 ### 50 questões | Base: `05_MED_VET_COLETIVO_MASTER.md`
 
 **1.** A Medicina Veterinária do Coletivo (MVC) caracteriza-se por atuar:
-A) Sobre populações, integrando medicina preventiva, saúde pública, controle de zoonoses e manejo populacional.
-B) Exclusivamente sobre o indivíduo, na clínica particular.
-C) Apenas na produção de alimentos de origem animal.
-D) Somente na pesquisa laboratorial.
+A) Sobre populações, integrando prevenção, saúde pública e manejo populacional.
+B) Sobre o indivíduo, no contexto da clínica particular, em consultório.
+C) Na cadeia de produção de alimentos de origem animal.
+D) No campo da pesquisa científica em laboratório.
 
 **2.** A norma que incluiu o médico-veterinário no NASF (Núcleo de Apoio à Saúde da Família) foi a:
 A) Lei nº 13.426/2017.
@@ -1497,46 +1497,46 @@ C) Resolução CFMV nº 1.000/2012.
 D) Decreto nº 24.645/1934.
 
 **3.** Sobre o controle populacional de cães e gatos por extermínio sistemático, é correto afirmar:
-A) É a medida mais eficaz e recomendada pela OMS.
-B) Resolve definitivamente o problema em poucos meses.
-C) É ineficaz, devido ao efeito vácuo/reposição, além de ilegal e antiético.
-D) É permitido pela Constituição Federal.
+A) É a medida mais eficaz, recomendada pela OMS.
+B) Resolve o problema de forma definitiva em poucos meses.
+C) É ineficaz pelo efeito vácuo, além de ilegal e antiético.
+D) É uma prática expressamente permitida pela Constituição Federal.
 
 **4.** O "efeito vácuo" no controle populacional refere-se ao fenômeno em que:
-A) A remoção de animais deixa mais recursos aos remanescentes, que se reproduzem mais, recuperando a população.
-B) A remoção de animais elimina permanentemente a população.
-C) Os animais migram para outras cidades e não retornam.
-D) A castração aumenta a natalidade.
+A) A remoção deixa mais recursos aos remanescentes, que se reproduzem mais.
+B) A remoção de animais elimina a população, de forma permanente.
+C) Os animais migram para outras cidades e não mais retornam.
+D) A castração aumenta a taxa de natalidade da população.
 
 **5.** Segundo as diretrizes técnicas da OMS, os três métodos práticos de controle populacional são:
-A) Extermínio, confinamento e eutanásia.
-B) Censo, amostragem e captura.
-C) Adoção, microchipagem e vacinação.
-D) Limitação do movimento, controle do habitat e controle da reprodução.
+A) Extermínio, confinamento e eutanásia em massa.
+B) Censo populacional, amostragem e captura seletiva.
+C) Adoção responsável, microchipagem e vacinação.
+D) Limitação do movimento, controle do habitat e da reprodução.
 
 **6.** A medida considerada mais eficiente e duradoura para combater o abandono e a superpopulação animal é:
-A) A guarda responsável e o fim do abandono (mudança de comportamento humano).
-B) A construção de grandes canis.
-C) O extermínio periódico.
-D) A castração química em massa.
+A) A guarda responsável e o fim do abandono (conduta humana).
+B) A construção de grandes canis municipais (abrigos).
+C) O extermínio periódico dos animais de rua (descarte).
+D) A castração química aplicada em massa (hormonal).
 
 **7.** A castração química ou hormonal, como estratégia de manejo populacional coletivo, segundo a Resolução CFMV nº 1.596/2024, é:
-A) Recomendada como primeira opção.
-B) Permitida apenas para gatos.
-C) Obrigatória em todos os mutirões.
-D) Vedada.
+A) Recomendada como a primeira opção de manejo.
+B) Permitida no manejo de gatos comunitários.
+C) Obrigatória nos mutirões de esterilização.
+D) Vedada como estratégia de manejo populacional.
 
 **8.** A Lei federal nº 13.426/2017 determina que o controle de natalidade de cães e gatos se dê por:
-A) Eutanásia seletiva.
-B) Esterilização permanente por cirurgia (ou procedimento equivalente que garanta segurança e bem-estar).
-C) Castração química.
-D) Confinamento em abrigos.
+A) Eutanásia seletiva dos animais de rua.
+B) Esterilização permanente por cirurgia ou procedimento equivalente seguro.
+C) Castração química e hormonal periódica.
+D) Confinamento dos animais em abrigos públicos.
 
 **9.** A Resolução CFMV nº 1.596/2024, ao tratar de programas, campanhas e mutirões de esterilização:
-A) Manteve em vigor a Resolução nº 962/2010.
-B) Revogou a Resolução nº 962/2010.
-C) Aplica-se apenas a esterilizações individuais de rotina.
-D) Proibiu qualquer esterilização cirúrgica.
+A) Manteve em vigor a antiga Resolução nº 962/2010.
+B) Revogou expressamente a Resolução nº 962/2010.
+C) Aplica-se às esterilizações individuais de rotina.
+D) Proibiu a esterilização cirúrgica dos animais.
 
 **10.** Segundo a Resolução CFMV nº 1.596/2024, a atividade permanente de mobilização coletiva para esterilização denomina-se:
 A) Campanha.
@@ -1545,190 +1545,190 @@ C) Eutanásia.
 D) Programa.
 
 **11.** Ainda segundo a Resolução CFMV nº 1.596/2024, o "Mutirão" é a atividade:
-A) Permanente de mobilização coletiva.
+A) Permanente, de mobilização coletiva.
 B) Pontual, em local específico.
 C) Temporária de mobilização coletiva.
 D) Individual em clínica veterinária.
 
 **12.** A eutanásia, segundo a Resolução CFMV nº 1.000/2012, é:
-A) Método recomendado de controle populacional.
-B) Permitida para qualquer animal saudável.
-C) Procedimento que pode ser feito por qualquer profissional de saúde.
-D) A indução da morte sem dor nem sofrimento, ato privativo do médico-veterinário.
+A) Um método recomendado, em larga escala, para o controle populacional.
+B) Um procedimento permitido para animais saudáveis.
+C) Um ato que pode ser feito por outros profissionais de saúde.
+D) A morte induzida sem dor nem sofrimento, ato privativo do veterinário.
 
 **13.** O uso da eutanásia como medida de controle populacional é:
-A) Recomendado pela OMS.
-B) A regra geral em abrigos.
-C) Obrigatório nos CCZs.
+A) Recomendado pela OMS (organização mundial).
+B) A regra geral adotada nos abrigos (canis).
+C) Obrigatório nos CCZs (centros de zoonoses).
 D) Vedado (ex.: Lei MG nº 21.970/2016).
 
 **14.** A esterilização cirúrgica, além de controlar a natalidade, traz benefícios à saúde como:
 A) Prevenção de neoplasias mamárias, piometra e doenças prostáticas.
-B) Aumento do risco de neoplasias mamárias.
-C) Maior agressividade dos animais.
-D) Aumento da incidência de zoonoses.
+B) Aumento do risco de neoplasias mamárias, sobretudo nas fêmeas.
+C) Maior agressividade e irritabilidade dos animais.
+D) Aumento da incidência de zoonoses na população.
 
 **15.** Sobre o abrigo/canil tradicional de acolhimento indiscriminado, os materiais afirmam que:
-A) É a principal solução para o controle populacional.
-B) Não é estratégia de controle populacional, atinge lotação rapidamente e pode estimular o abandono.
-C) Garante bem-estar pleno aos animais.
-D) Deve ser construído em todos os municípios como prioridade.
+A) É a principal solução, eficaz e definitiva, para o controle populacional.
+B) Não controla a população, lota rapidamente e estimula o abandono.
+C) Garante o bem-estar pleno e integral aos animais.
+D) Deve ser construído nos municípios como ação prioritária.
 
 **16.** O CATA (Centro de Acolhimento Transitório e Adoção) caracteriza-se por ser:
-A) Um abrigo permanente para todos os animais de rua.
-B) Uma estrutura de acolhimento transitório para urgência, recuperação e adoção, não abrigo permanente.
-C) Um local exclusivo de extermínio.
-D) Uma clínica particular.
+A) Um abrigo permanente para os animais de rua do município.
+B) Uma estrutura de acolhimento transitório para urgência e adoção.
+C) Um local destinado ao extermínio dos animais recolhidos.
+D) Uma clínica veterinária particular de pequenos animais.
 
 **17.** A lógica CED, aplicada a gatos e cães comunitários, significa:
-A) Captura, Eutanásia, Descarte.
+A) Captura, Eutanásia e Descarte do animal.
 B) Castração, Encaminhamento e Demissão.
-C) Controle, Educação e Doação.
-D) Captura, Esterilização e Devolução ao local de origem.
+C) Controle, Educação e Doação responsável.
+D) Captura, Esterilização e Devolução à origem.
 
 **18.** Animal comunitário é aquele que:
-A) Não tem tutor único e vive em determinada área sob cuidado coletivo da vizinhança.
-B) Possui um único tutor que o mantém domiciliado.
-C) É mantido exclusivamente em canil municipal.
-D) É um animal silvestre de cativeiro.
+A) Não tem tutor único e vive sob cuidado coletivo da vizinhança.
+B) Possui um único tutor responsável que o mantém domiciliado.
+C) É mantido de forma permanente em canil municipal público.
+D) É um animal silvestre criado em cativeiro doméstico.
 
 **19.** Para estimar o tamanho de populações de animais de rua (irrestritos), o método adequado é:
 A) Captura-recaptura (população aberta).
-B) Censo total domiciliar.
-C) Amostragem estratificada de domiciliados.
-D) Questionário aplicado em residências.
+B) Censo total domiciliar (população fechada).
+C) Amostragem estratificada (animais domiciliados).
+D) Questionário aplicado nas residências (entrevista).
 
 **20.** Uma população "aberta", no contexto de estimativa populacional, é aquela que:
-A) Não sofre nascimentos, mortes ou migração no período.
-B) É composta apenas por animais domiciliados.
-C) Está confinada em abrigos.
-D) Sofre nascimento, morte e migração, sendo adequada para animais de rua.
+A) Não sofre nascimentos, mortes, nem migração ao longo do período.
+B) É composta por animais domiciliados de uma dada área.
+C) Está permanentemente confinada dentro de abrigos.
+D) Sofre nascimento, morte e migração, típica de animais de rua.
 
 **21.** O modelo da Holanda, livre de cães abandonados desde 2016, baseou-se, entre outros pilares, em:
-A) Sacrifício em massa e confinamento em canis.
-B) Ausência de qualquer regulação.
-C) Eutanásia de todos os animais de rua.
-D) Repressão severa ao abandono, castração massiva gratuita, conscientização e fiscalização da criação comercial.
+A) Sacrifício em massa e confinamento dos animais, em canis públicos.
+B) Ausência de regulação estatal sobre a criação de animais.
+C) Eutanásia sistemática dos animais de rua do país.
+D) Repressão ao abandono, castração gratuita e fiscalização da criação.
 
 **22.** A decisão do STJ (REsp 1.115.916-MG) é citada por ter:
-A) Feito cessar o uso de câmaras de gás em Belo Horizonte.
-B) Autorizado o uso de câmaras de gás.
-C) Proibido a castração de cães.
-D) Determinado a construção de canis.
+A) Feito cessar o uso de câmaras de gás na capital mineira.
+B) Autorizado o uso de câmaras de gás nos abrigos.
+C) Proibido a castração cirúrgica de cães e gatos.
+D) Determinado a construção de novos canis municipais.
 
 **23.** O conteúdo mínimo de um programa oficial de controle populacional inclui:
-A) Esterilização cirúrgica massiva, educação em saúde, registro/identificação e fiscalização do comércio.
-B) Apenas mutirões avulsos de castração.
-C) Somente a construção de abrigos.
-D) Exclusivamente campanhas de vacinação.
+A) Esterilização massiva, educação, registro e fiscalização do comércio.
+B) Mutirões avulsos, esporádicos e isolados, de castração cirúrgica.
+C) A construção de grandes abrigos e canis municipais.
+D) Campanhas pontuais de vacinação antirrábica anual.
 
 **24.** A base legal que estabelece que os animais são tutelados do Estado é o:
-A) Decreto nº 9.013/2017.
-B) Código Civil de 2002.
-C) Estatuto da Cidade.
+A) Decreto Federal nº 9.013/2017.
+B) Código Civil brasileiro de 2002.
+C) Estatuto da Cidade, de 2001.
 D) Decreto Federal nº 24.645/1934.
 
 **25.** O paradigma que a MVC busca superar, em favor de visões biocêntrica/ecocêntrica, é o:
-A) Paradigma antropocêntrico (animal como commodity a serviço do homem).
-B) Paradigma da Saúde Única.
-C) Paradigma do bem-estar animal.
-D) Paradigma da guarda responsável.
+A) Paradigma antropocêntrico (animal a serviço do homem).
+B) Paradigma da Saúde Única (One Health).
+C) Paradigma do bem-estar animal (welfare).
+D) Paradigma da guarda responsável (tutor).
 
 **26.** Quanto à prioridade nos mutirões/campanhas de esterilização, a Resolução CFMV nº 1.596/2024 estabelece que:
-A) A quantidade de cirurgias é o objetivo principal.
-B) Não há critérios de bem-estar.
-C) Apenas o número de animais atendidos importa.
-D) A sanidade, a segurança e o bem-estar dos animais têm prioridade sobre a quantidade de intervenções.
+A) A quantidade de cirurgias realizadas é o objetivo principal.
+B) Não existem critérios de bem-estar a observar.
+C) O número de animais atendidos é o que mais importa.
+D) A sanidade e o bem-estar têm prioridade sobre a quantidade.
 
 **27.** Em relação à ART nos programas/mutirões de esterilização, é correto afirmar:
-A) É dispensável.
-B) É obrigatória a homologação no CRMV da UF onde ocorrer a ação, sendo vedado ao CRMV condicionar a homologação à prévia aprovação do projeto.
-C) Deve ser aprovada pela ANVISA.
-D) Substitui o prontuário individual.
+A) É um documento dispensável, nesses programas de esterilização.
+B) É obrigatória a homologação no CRMV da UF, não condicionada ao projeto.
+C) Deve ser previamente aprovada pela ANVISA.
+D) Substitui o prontuário individual do animal.
 
 **28.** O método de identificação permanente preferencial dos animais esterilizados, segundo a norma do CFMV, é:
-A) Coleira numerada.
-B) Tatuagem temporária.
-C) Microchip.
-D) Brinco plástico.
+A) Coleira numerada e identificada.
+B) Tatuagem temporária na pele.
+C) Microchip subcutâneo permanente.
+D) Brinco plástico auricular.
 
 **29.** A liberação do animal após a cirurgia de esterilização só deve ocorrer:
-A) Após o restabelecimento pleno dos reflexos protetores, tônus postural e normotermia.
-B) Imediatamente após a sutura.
-C) No dia seguinte, independentemente do estado clínico.
-D) Sem qualquer critério clínico.
+A) Após o retorno dos reflexos protetores, do tônus e da normotermia.
+B) Imediatamente após a finalização da sutura cirúrgica.
+C) No dia seguinte, sem avaliar o estado clínico do animal.
+D) De forma livre, sem critério clínico de recuperação.
 
 **30.** Quanto ao relatório final dos programas e mutirões (Res. CFMV nº 1.596/2024):
-A) Não há obrigatoriedade de relatório.
-B) É arquivado por apenas 30 dias.
-C) Deve ser entregue à ANVISA mensalmente.
-D) No Programa é anual; na Campanha/Mutirão, ao final de cada ação; o RT guarda o relatório por no mínimo 5 anos.
+A) Não há obrigatoriedade de elaborar relatório final.
+B) É arquivado pelo prazo máximo de 30 dias.
+C) Deve ser entregue mensalmente à ANVISA.
+D) Programa: anual; Mutirão: ao fim da ação; o RT guarda por 5 anos.
 
 **31.** A Lei estadual MG nº 21.970/2016, citada como modelo, estabelece que:
-A) Autoriza o extermínio de cães vadios.
-B) Proíbe o extermínio e veda a eutanásia como método de controle populacional, impondo ao município o dever de política pública.
-C) Permite câmaras de gás.
-D) Dispensa a guarda responsável.
+A) Autoriza o extermínio dos cães vadios, em vias públicas.
+B) Proíbe o extermínio e a eutanásia populacional, impondo dever ao município.
+C) Permite o uso de câmaras de gás nos abrigos.
+D) Dispensa o município da política de guarda responsável.
 
 **32.** O instrumento jurídico que permite a municípios otimizarem recursos no controle de zoonoses e da população animal é:
-A) A concessão de serviço público de transporte.
-B) O consórcio público intermunicipal (Lei nº 11.107/2005).
-C) A parceria público-privada de saneamento.
-D) O termo de ajustamento de conduta ambiental.
+A) A concessão de serviço público de transporte (delegação).
+B) O consórcio público intermunicipal de saúde (gestão associada).
+C) A parceria público-privada na área de saneamento (PPP).
+D) O termo de ajustamento de conduta ambiental (TAC).
 
 **33.** Segundo dado-âncora do IBGE (2013), nos lares brasileiros havia:
-A) Menos cães do que crianças de 0 a 14 anos.
-B) Igual número de cães e crianças.
-C) Cerca de 52,2 milhões de cães, superando o número de crianças de 0 a 14 anos.
-D) Apenas 5 milhões de cães.
+A) Menos cães registrados do que crianças de 0 a 14 anos.
+B) Cerca de 30,5 milhões de cães, igualando o número de crianças.
+C) Cerca de 52,2 milhões de cães, mais que as crianças de 0 a 14 anos.
+D) Cerca de 8 milhões de cães em todo o território nacional.
 
 **34.** No modelo de intervenção em animais de rua, após a esterilização e vacinação, a conduta padrão é:
-A) Encaminhar todos para eutanásia.
-B) Vendê-los a criadouros.
-C) Mantê-los permanentemente em canil.
-D) Devolver o animal ao local de origem, salvo idade avançada, deficiência ou agressividade.
+A) Encaminhar os animais para a eutanásia coletiva, sem exceções.
+B) Vendê-los a criadouros comerciais da região.
+C) Mantê-los de forma permanente em canil municipal.
+D) Devolvê-lo ao local de origem, salvo idade avançada ou agressividade.
 
 **35.** A eutanásia de cães é citada como medida sanitária aplicável, em áreas de risco, no contexto de:
-A) Raiva humana exclusivamente.
-B) Leishmaniose Visceral Canina (LVC), em cães positivos confirmados, conforme preconização do Ministério da Saúde.
-C) Esporotricose felina.
-D) Controle de natalidade.
+A) Raiva humana, de transmissão canina, em meio urbano.
+B) Leishmaniose Visceral Canina, em cães positivos, conforme o MS.
+C) Esporotricose felina de evolução crônica.
+D) Controle de natalidade da população canina.
 
 **36.** O Centro de Controle de Zoonoses (CCZ), hoje denominado UVZ, tem como função moderna:
-A) Servir de depósito e instrumento de extermínio.
-B) Apenas recolher e sacrificar animais.
-C) Executar vigilância de zoonoses, controle reprodutivo, vacinação, registro, educação em saúde e eutanásia regulamentada.
-D) Comercializar animais.
+A) Servir de depósito, de canil e de instrumento de extermínio em massa.
+B) Recolher e sacrificar os animais de rua do município.
+C) Executar vigilância de zoonoses, vacinação, registro e educação em saúde.
+D) Comercializar e vender animais à população local.
 
 **37.** A justificativa epidemiológica da Medicina Veterinária do Coletivo apoia-se no fato de que:
-A) Nenhuma doença humana tem origem animal.
-B) As zoonoses são irrelevantes para a saúde pública.
-C) Cerca de 60% das doenças infecciosas humanas e 70% das emergentes são de origem animal.
-D) Os animais não transmitem doenças.
+A) Nenhuma das doenças humanas tem origem em animais.
+B) As zoonoses têm pouca relevância para a saúde pública.
+C) Cerca de 60% das infecciosas e 70% das emergentes vêm de animais.
+D) Os animais, em geral, não transmitem doenças ao homem.
 
 **38.** A esterilização permanente cirúrgica, no manejo coletivo, deve ser:
-A) Uma ação pontual e isolada.
-B) Realizada sem qualquer estrutura adequada.
-C) Substituída pela castração química.
-D) Uma ação permanente, idealmente em parceria e sempre associada à educação em guarda responsável.
+A) Uma ação pontual, isolada e de curta duração.
+B) Realizada sem estrutura física e técnica adequada.
+C) Substituída integralmente pela castração química.
+D) Uma ação permanente, em parceria e ligada à educação em guarda.
 
 **39.** Sobre a relação entre Judiciário e políticas públicas de controle populacional, os materiais indicam que:
-A) O Judiciário não pode interferir em políticas públicas.
-B) Apenas o Executivo federal decide sobre o tema.
-C) O Judiciário pode determinar a implementação de política pública diante de omissão administrativa, por ser dever constitucional ligado à saúde pública.
-D) Não há fundamento constitucional para a tutela animal.
+A) O Judiciário não pode interferir nas políticas públicas do Executivo.
+B) Cabe ao Executivo federal, com exclusividade, decidir o tema.
+C) O Judiciário pode determinar a política pública diante de omissão administrativa.
+D) Não existe fundamento constitucional para a tutela dos animais.
 
 **40.** As populações de gatos, segundo Beaver (2005), são classificadas em:
 A) Restritos, semirrestritos, irrestritos e sem proprietário.
 B) Controlados, de família, comunitários e selvagens.
 C) Feral, antissocial, domesticado e de estimação.
-D) Apenas domiciliados e de rua.
+D) Domiciliados, de rua, de abrigo e de criadouro.
 
 **41.** A sala de cirurgia para esterilização, conforme requisitos de estrutura, deve ter:
-A) Área superior a 6 m², cantos arredondados e ventilação artificial.
-B) Área de até 2 m², sem ventilação.
-C) Janelas abertas permanentemente.
-D) Piso de terra batida.
+A) Área superior a 6 m², cantos arredondados e ventilação adequada.
+B) Área de até 2 m², desprovida de ventilação artificial.
+C) Janelas amplas mantidas permanentemente abertas.
+D) Piso de terra batida e paredes de madeira.
 
 **42.** Entre as causas do descontrole populacional, NÃO se inclui:
 A) Esterilização cirúrgica massiva permanente.
@@ -1737,34 +1737,34 @@ C) Falta de guarda responsável e abandono.
 D) Legislação e fiscalização deficientes.
 
 **43.** A classificação dos cães pela OMS inclui as categorias:
-A) Feral, antissocial e de estimação.
-B) Apenas domiciliados e errantes.
-C) Supervisionados/controlados, de família, comunitários e selvagens (assilvestrados).
-D) Restrito e irrestrito apenas.
+A) Feral, antissocial, de rua e de estimação doméstica.
+B) Domiciliados e errantes de vida livre.
+C) Supervisionados, de família, comunitários e selvagens.
+D) Restritos e irrestritos, conforme o movimento.
 
 **44.** O documento "Orientação para Projetos de Centros de Controle de Zoonoses (CCZ)", primeira referência nacional, já incorporava:
-A) O extermínio sistemático como método principal.
-B) A eutanásia como controle populacional.
-C) A restrição de movimento, o controle de habitat e o controle da reprodução.
-D) A construção obrigatória de câmaras de gás.
+A) O extermínio sistemático, como método principal de controle.
+B) A eutanásia em massa como forma de controle populacional.
+C) A restrição de movimento, o controle de habitat e da reprodução.
+D) A construção obrigatória de câmaras de gás nos abrigos.
 
 **45.** A esterilização individual de rotina em clínicas e hospitais veterinários, segundo a Res. CFMV nº 1.596/2024:
-A) Não é abrangida pela resolução, que trata de manejo populacional coletivo.
-B) Está abrangida pela resolução de mutirões.
-C) É proibida.
-D) Exige ART de mutirão.
+A) Não é abrangida pela resolução, que trata do manejo coletivo.
+B) Está abrangida pela resolução, no rol dos mutirões de castração.
+C) É uma prática expressamente proibida pela norma.
+D) Exige a emissão de ART específica de mutirão.
 
 **46.** O manejo populacional ético deve focar:
-A) Apenas nos sintomas (animais nas ruas).
-B) Exclusivamente na construção de abrigos.
-C) Nas causas do problema, com diagnóstico local prévio e abordagem multidimensional.
-D) Somente em campanhas pontuais de castração.
+A) Nos sintomas visíveis, como os animais nas ruas.
+B) Na construção de grandes abrigos e canis públicos.
+C) Nas causas do problema, com diagnóstico local e abordagem ampla.
+D) Em campanhas pontuais e esporádicas de castração.
 
 **47.** A triagem clínica de todos os animais antes da esterilização, com prontuário individual e termo de consentimento, está prevista na:
-A) Lei nº 6.437/1977.
-B) Resolução CFMV nº 1.596/2024 (com a Res. nº 1.321/2020 sobre prontuários).
-C) RDC 216/2004.
-D) Lei nº 8.080/1990.
+A) Lei nº 6.437/1977, das infrações sanitárias.
+B) Resolução CFMV nº 1.596/2024, com a Res. nº 1.321/2020.
+C) RDC 216/2004, dos serviços de alimentação.
+D) Lei nº 8.080/1990, orgânica da saúde.
 
 **48.** A fonte de reposição mais importante de animais nas ruas é:
 A) A castração.
@@ -1775,12 +1775,12 @@ D) A vacinação.
 **49.** Em relação ao número máximo de animais removidos para que o extermínio fosse eficaz, os materiais indicam que a taxa de remoção dificilmente supera:
 A) 100% da população.
 B) 50% da população.
-C) 80% da população.
+C) 85% da população.
 D) 15% da população.
 
 **50.** O mnemônico das três normas-chave do manejo populacional refere-se a:
 A) RDC 216/2004, RDC 275/2002 e RDC 724/2022.
-B) Lei 13.426/2017 (federal – esterilização), Lei MG 21.970/2016 (proíbe extermínio/eutanásia populacional) e Res. CFMV 1.596/2024 (mutirões/veda castração química).
+B) Lei 13.426/2017, Lei MG 21.970/2016 e Res. CFMV 1.596/2024.
 C) Lei 9.605/98, Lei 14.064/2020 e EC 96/2017.
 D) Portaria 2.488/2011, Lei 11.107/2005 e Decreto 24.645/1934.
 
@@ -1848,58 +1848,58 @@ D) Portaria 2.488/2011, Lei 11.107/2005 e Decreto 24.645/1934.
 ### 50 questões | Base: `06_FAUNA_AMBIENTAL_MASTER.md`
 
 **1.** Segundo a legislação ambiental, a fauna silvestre é:
-A) Propriedade exclusiva de quem a captura.
-B) Patrimônio do Estado e bem de uso comum do povo, protegida pelo Poder Público e pela coletividade.
-C) Bem privado de livre comercialização.
-D) Res nullius, sem qualquer proteção.
+A) Propriedade particular de quem a captura na natureza.
+B) Patrimônio do Estado e bem de uso comum, protegida pelo Poder Público.
+C) Bem de natureza privada, de livre comercialização no mercado.
+D) Coisa de ninguém (res nullius), desprovida de proteção legal.
 
 **2.** A fauna silvestre nativa é definida pelo critério de:
-A) Ter sido alterada pelo manejo humano.
-B) Viver exclusivamente em cativeiro.
-C) Ter origem geográfica fora do Brasil.
-D) Possuir todo ou parte do ciclo de vida dentro do território ou águas jurisdicionais brasileiras.
+A) Ter as características alteradas pelo manejo humano direto.
+B) Viver em ambiente de cativeiro controlado pelo homem.
+C) Ter a sua origem geográfica situada fora do Brasil.
+D) Ter o ciclo de vida no território ou em águas brasileiras.
 
 **3.** Um animal silvestre, por definição legal, é aquele cujas características genotípicas e fenotípicas:
-A) Foram alteradas pelo melhoramento zootécnico.
-B) Dependem estritamente do homem.
-C) São idênticas às de animais domésticos.
-D) Não foram alteradas pelo manejo humano, mantendo correlação com indivíduos do ambiente natural.
+A) Foram alteradas pelo melhoramento genético, seletivo e zootécnico.
+B) Dependem de forma estrita dos cuidados do homem.
+C) São idênticas às dos animais domésticos de produção.
+D) Não foram alteradas pelo manejo, como as do ambiente natural.
 
 **4.** A fauna silvestre exótica caracteriza-se por:
-A) Ter distribuição geográfica original que inclui o Brasil.
-B) Possuir ciclo de vida exclusivamente no território brasileiro.
-C) Ser sempre de animais domésticos.
-D) Ter distribuição geográfica original que NÃO inclui o Brasil, mesmo quando introduzida ou asselvajada.
+A) Ter a distribuição geográfica original que abrange o Brasil.
+B) Possuir o ciclo de vida no território nacional brasileiro.
+C) Ser, em regra, oriunda de animais domésticos de criação.
+D) Ter distribuição original que não inclui o Brasil, ainda que introduzida.
 
 **5.** A lei que estabelece que os animais silvestres, seus ninhos, abrigos e criadouros são propriedade do Estado é a:
-A) Lei nº 9.605/1998.
-B) Lei nº 11.794/2008.
+A) Lei nº 9.605/1998 (Crimes Ambientais).
+B) Lei nº 11.794/2008 (Lei Arouca).
 C) Lei nº 5.197/1967 (Proteção à Fauna).
-D) Lei nº 9.985/2000.
+D) Lei nº 9.985/2000 (SNUC).
 
 **6.** O CETAS (Centro de Triagem de Animais Silvestres) é responsável por:
-A) Recepção, identificação, marcação, triagem, avaliação e destinação de animais silvestres.
-B) Reabilitar e reintroduzir animais na natureza, exclusivamente.
-C) Comercializar animais silvestres.
-D) Abater animais de produção.
+A) Recepção, identificação, triagem, avaliação e destinação de silvestres.
+B) Reabilitar, recondicionar, treinar e reintroduzir os silvestres, na natureza.
+C) Comercializar os animais silvestres com tutores particulares.
+D) Abater os animais de produção para consumo humano.
 
 **7.** Sobre o recebimento de animais pelo CETAS, é correto afirmar:
-A) Sua atuação é restrita a animais silvestres, não recebendo domésticos, e excepcionalmente recebe silvestres exóticos.
-B) Recebe animais domésticos rotineiramente.
-C) Recebe apenas animais de produção.
-D) Não recebe animais provenientes de fiscalização.
+A) Atua com silvestres, não recebe domésticos e, por exceção, exóticos.
+B) Recebe animais domésticos de companhia, como cães, gatos e aves, de forma rotineira.
+C) Recebe os animais de produção apreendidos em fiscalização.
+D) Não recebe os animais provenientes de ações de fiscalização.
 
 **8.** Os três procedimentos da triagem no CETAS (art. 9º da IN 23/2014) são:
-A) Vacinação, castração e microchipagem.
-B) Eutanásia, necropsia e descarte.
-C) Conferência da identificação taxonômica, marcação individual e avaliação clínica/física/comportamental.
-D) Soltura, cativeiro e pesquisa.
+A) Vacinação, castração e microchipagem dos animais.
+B) Eutanásia, necropsia e descarte das carcaças.
+C) Identificação taxonômica, marcação individual e avaliação clínica.
+D) Soltura na natureza, cativeiro e pesquisa científica.
 
 **9.** A diferença entre CETAS e CRAS é que o CETAS faz triagem/destinação, enquanto o CRAS se dedica a:
-A) Comercialização de fauna.
-B) Abate humanitário.
+A) Comercialização da fauna silvestre nativa.
+B) Abate humanitário de animais doentes.
 C) Reabilitação e reintrodução de animais na natureza.
-D) Pesquisa em peçonhentos.
+D) Pesquisa científica com animais peçonhentos.
 
 **10.** A destinação de animais silvestres divide-se em:
 A) Total e parcial.
@@ -1908,16 +1908,16 @@ C) Imediata e mediata.
 D) Direta e indireta.
 
 **11.** A "reintrodução", como modalidade de soltura, consiste em:
-A) Reestabelecer uma espécie em área de sua distribuição natural da qual foi extirpada ou extinta.
-B) Soltar animais em área onde já existem indivíduos da mesma espécie.
-C) Soltar animais com coleta sistemática de dados.
-D) Manter o animal em cativeiro definitivo.
+A) Reestabelecer uma espécie em área natural da qual foi extinta.
+B) Soltar animais onde já existem indivíduos da mesma espécie.
+C) Soltar os animais com a coleta sistemática de dados.
+D) Manter o animal em regime de cativeiro definitivo.
 
 **12.** O "revigoramento populacional" caracteriza-se por:
-A) Reestabelecer espécie extinta localmente.
-B) Captura para pesquisa.
-C) Soltura rotineira em área onde já existem indivíduos da mesma espécie.
-D) Abate de animais nocivos.
+A) Reestabelecer uma espécie já extinta localmente.
+B) Capturar os animais para fins de pesquisa.
+C) Soltura em área onde já há indivíduos da mesma espécie.
+D) Abater os animais considerados nocivos à lavoura.
 
 **13.** A destinação sumária (imediata) da fauna nativa apreendida pode ocorrer, sem manifestação prévia da autoridade julgadora, em até:
 A) 72 horas.
@@ -1938,28 +1938,28 @@ C) ICMBio.
 D) MAPA.
 
 **16.** As autorizações do SISBio:
-A) Eximem o pesquisador de qualquer outra anuência.
-B) Não eximem o pesquisador de obter outras anuências (proprietário, órgão gestor de UC estadual, terra indígena etc.).
-C) Substituem o licenciamento ambiental do IBAMA.
-D) São concedidas pela CEUA.
+A) Eximem o pesquisador de obter outras anuências legais.
+B) Não eximem o pesquisador de obter outras anuências necessárias.
+C) Substituem o licenciamento ambiental conduzido pelo IBAMA.
+D) São concedidas diretamente pela CEUA da instituição.
 
 **17.** O CONCEA (Conselho Nacional de Controle de Experimentação Animal) foi criado pela:
-A) Lei nº 9.605/1998.
-B) Lei nº 5.197/1967.
+A) Lei nº 9.605/1998 (Crimes Ambientais).
+B) Lei nº 5.197/1967 (Proteção à Fauna).
 C) Lei nº 11.794/2008 (Lei Arouca).
-D) Lei nº 9.985/2000.
+D) Lei nº 9.985/2000 (SNUC).
 
 **18.** Sobre a CEUA (Comissão de Ética no Uso de Animais), é correto afirmar:
-A) É facultativa nas instituições de pesquisa.
-B) É obrigatória em cada instituição que usa animais; nenhuma atividade de ensino/pesquisa pode iniciar antes de sua aprovação formal.
-C) Substitui a autorização do SISBio.
-D) É administrada pelo IBAMA.
+A) É um órgão facultativo nas instituições de pesquisa.
+B) É obrigatória; nenhuma pesquisa começa sem a sua aprovação formal.
+C) Substitui a autorização de pesquisa do SISBio.
+D) É um órgão administrado diretamente pelo IBAMA.
 
 **19.** Os "3 R's" que norteiam a experimentação animal são:
-A) Registro, Recolhimento e Reabilitação.
-B) Resgate, Reintrodução e Revigoramento.
-C) Substituição (Replace), Redução (Reduce) e Refinamento (Refine).
-D) Reciclar, Reutilizar e Reduzir.
+A) Registro, Recolhimento e Reabilitação (três erres).
+B) Resgate, Reintrodução e Revigoramento (três erres).
+C) Substituição, Redução e Refinamento (três erres).
+D) Reciclar, Reutilizar e Reduzir (três erres).
 
 **20.** A IN IBAMA nº 07/2015 institui quantas categorias de uso e manejo da fauna silvestre em cativeiro?
 A) 5 categorias.
@@ -1968,94 +1968,94 @@ C) 12 categorias.
 D) 10 categorias.
 
 **21.** A sequência correta das autorizações ambientais previstas na IN IBAMA nº 07/2015 é:
-A) AP (Prévia) → AI (Instalação) → AM (Uso e Manejo).
-B) AM → AI → AP.
-C) AI → AP → AM.
-D) AP → AM → AI.
+A) AP (Prévia) → AI (Instalação) → AM (Manejo).
+B) AM (Manejo) → AI (Instalação) → AP (Prévia).
+C) AI (Instalação) → AP (Prévia) → AM (Manejo).
+D) AP (Prévia) → AM (Manejo) → AI (Instalação).
 
 **22.** A Autorização Prévia (AP), na IN IBAMA nº 07/2015:
-A) Autoriza operar o empreendimento.
-B) Aprova a localização e as espécies, mas não autoriza instalar nem operar.
-C) Autoriza apenas a instalação física.
-D) Dispensa o licenciamento ambiental.
+A) Autoriza a operação plena do empreendimento, em sua fase final.
+B) Aprova a localização e as espécies, sem instalar nem operar.
+C) Autoriza a instalação física do empreendimento.
+D) Dispensa o licenciamento ambiental do empreendimento.
 
 **23.** O "mantenedouro", entre as categorias de uso da fauna, caracteriza-se por:
-A) Criar e reproduzir para alienação comercial.
-B) Criar e manter sem fins lucrativos, sendo proibida a reprodução, exposição e alienação.
-C) Abater e beneficiar produtos.
-D) Expor animais à visitação pública.
+A) Criar e reproduzir os animais, para a alienação comercial.
+B) Criar e manter sem fins lucrativos, vedada a reprodução e venda.
+C) Abater os animais e beneficiar os seus produtos.
+D) Expor os animais silvestres à visitação pública.
 
 **24.** Um animal de estimação silvestre só é legalmente mantido quando:
-A) Capturado diretamente da natureza pelo tutor.
-B) Adquirido em feira livre sem documentação.
-C) For espécie exótica capturada no exterior.
-D) For da fauna silvestre nativa, nascido em criadouro comercial autorizado e mantido em cativeiro domiciliar sem fins de abate/reprodução/comércio.
+A) Capturado diretamente da natureza pelo próprio tutor.
+B) Adquirido em feira livre, sem documentação de origem.
+C) For espécie exótica capturada e trazida do exterior.
+D) For nativo, nascido em criadouro autorizado e sem fins comerciais.
 
 **25.** Quanto à responsabilidade penal da pessoa jurídica na Lei nº 9.605/1998:
-A) A PJ responde penal, civil e administrativamente, sem excluir a responsabilidade das pessoas físicas.
-B) A PJ nunca responde por crimes ambientais.
-C) Apenas as pessoas físicas respondem.
-D) A responsabilização da PJ exclui a das pessoas físicas.
+A) A PJ responde nas três esferas, sem excluir as pessoas físicas.
+B) A PJ não responde pelos crimes ambientais que comete.
+C) As pessoas físicas respondem, mas a PJ não responde.
+D) A responsabilização da PJ afasta a das pessoas físicas.
 
 **26.** O crime de matar, perseguir, caçar ou apanhar espécimes da fauna silvestre sem permissão (art. 29 da Lei nº 9.605/1998) tem pena de:
-A) Reclusão de 2 a 5 anos.
-B) Reclusão de 1 a 3 anos.
-C) Detenção de 6 meses a 1 ano e multa.
-D) Apenas multa.
+A) Reclusão de 2 a 5 anos, com multa.
+B) Reclusão de 1 a 3 anos, com multa.
+C) Detenção de 6 meses a 1 ano, com multa.
+D) Pena de multa, sem privação de liberdade.
 
 **27.** Segundo o art. 29, §2º, da Lei nº 9.605/1998, na guarda doméstica de espécie silvestre não ameaçada de extinção:
-A) A pena é sempre dobrada.
+A) A pena prevista é dobrada de imediato.
 B) O juiz pode deixar de aplicar a pena.
-C) A conduta deixa de ser ilícita.
-D) Aplica-se reclusão obrigatória.
+C) A conduta deixa de ser considerada ilícita.
+D) Aplica-se a pena de reclusão obrigatória.
 
 **28.** A pesca mediante a utilização de explosivos ou substâncias tóxicas (art. 35 da Lei nº 9.605/1998), a mais grave dos crimes da seção, tem pena de:
-A) Detenção de 3 meses a 1 ano.
-B) Apenas advertência.
-C) Reclusão de 1 a 5 anos.
-D) Multa isolada.
+A) Detenção de 3 meses a 1 ano, sem multa.
+B) Mera advertência verbal ao infrator.
+C) Reclusão de 1 a 5 anos, com multa.
+D) Aplicação de multa isolada e única.
 
 **29.** Segundo o art. 37 da Lei nº 9.605/1998, NÃO é crime o abate de animal quando:
-A) Realizado por esporte.
-B) Por mera diversão.
+A) Realizado por esporte e lazer, a critério do caçador.
+B) Praticado por mera diversão do agente.
 C) Para obtenção de lucro com a venda da carne.
-D) Em estado de necessidade, para saciar a fome do agente ou de sua família.
+D) Em estado de necessidade, para saciar a fome da família.
 
 **30.** O crime de maus-tratos (art. 32 da Lei nº 9.605/1998) protege:
-A) Apenas animais domésticos.
-B) Somente espécies ameaçadas.
-C) Animais silvestres, domésticos, domesticados, nativos ou exóticos.
-D) Exclusivamente a fauna aquática.
+A) Os animais domésticos de companhia, em regra.
+B) As espécies da fauna ameaçadas, raras ou vulneráveis, de extinção.
+C) Animais silvestres, domésticos, nativos ou exóticos.
+D) A fauna aquática de água doce e marinha.
 
 **31.** São consideradas circunstâncias agravantes nos crimes ambientais (art. 15 da Lei nº 9.605/1998):
-A) Baixa escolaridade do agente.
-B) Cometimento em período de defeso, à noite, em unidade de conservação ou contra espécies ameaçadas.
-C) Arrependimento com reparação do dano.
-D) Colaboração com a fiscalização.
+A) A baixa escolaridade e a pobreza, próprias do agente.
+B) Cometimento no defeso, à noite ou em unidade de conservação.
+C) O arrependimento do agente com reparação do dano.
+D) A colaboração espontânea do agente com a fiscalização.
 
 **32.** A quarentena no CETAS tem por finalidade:
-A) Comercializar o animal.
-B) Realizar o abate sanitário.
-C) Treinar o animal para soltura imediata.
-D) Período de isolamento para detectar doenças preexistentes, com acompanhamento por prontuário.
+A) Comercializar o animal silvestre, já recuperado.
+B) Realizar o abate sanitário do animal doente.
+C) Treinar o animal para a soltura imediata.
+D) Isolar para detectar doenças, com acompanhamento por prontuário.
 
 **33.** A divisão de competências na pesquisa com fauna estabelece que o IBAMA é responsável por:
-A) Autorização de coleta/pesquisa em UC federais.
-B) A administração do SISBio.
-C) A ética da experimentação animal.
-D) Aquariofilia, gestão pesqueira, defeso, licenciamento ambiental e importação/exportação de fauna.
+A) A autorização de coleta, captura e pesquisa, nas UC federais.
+B) A administração do sistema SISBio de pesquisa.
+C) A ética no uso de animais em experimentação.
+D) Aquariofilia, defeso, licenciamento e importação de fauna.
 
 **34.** Entre os anestésicos recomendados pelo CONCEA para peixes, que agem por imersão, estão:
-A) Benzocaína, MS-222 (tricaína) e óleo de cravo (eugenol).
-B) Cetamina e xilazina injetáveis.
-C) Halotano e isoflurano inalatórios apenas.
-D) Penicilina e estreptomicina.
+A) Benzocaína, MS-222 (tricaína) e óleo de cravo.
+B) Cetamina, xilazina e diazepam (anestésicos injetáveis).
+C) Halotano e isoflurano (anestésicos inalatórios).
+D) Penicilina e estreptomicina (antibióticos).
 
 **35.** A "Carta de Intenção e Compromisso" e o "Termo de Compromisso de Reabilitador" servem para:
-A) Autorizar o comércio de fauna.
-B) Dispensar o licenciamento ambiental.
-C) Cadastrar o reabilitador e a área de soltura na SUPES, sendo vedado transferir/vender/soltar animais por conta própria.
-D) Permitir a caça profissional.
+A) Autorizar o comércio de animais, da fauna silvestre nativa.
+B) Dispensar o reabilitador do licenciamento ambiental.
+C) Cadastrar o reabilitador na SUPES, vedado agir por conta própria.
+D) Permitir a prática da caça profissional de fauna.
 
 **36.** As listas oficiais de espécies ameaçadas de extinção da fauna brasileira foram estabelecidas pelas:
 A) Leis nº 5.197/67 e 9.605/98.
@@ -2064,16 +2064,16 @@ C) INs IBAMA nº 07/2015 e 23/2014.
 D) Portarias MMA nº 444 e 445/2014.
 
 **37.** O conceito de "parte/produto" da fauna refere-se a:
-A) Fração beneficiada a ponto de alterar as propriedades primárias.
-B) Fração que não alterou as propriedades primárias (carcaça, carne, ovo, pena, pele, osso).
-C) Indivíduo vivo em qualquer fase do desenvolvimento.
-D) Animal resultante do cruzamento de duas espécies.
+A) Fração beneficiada que altera as propriedades primárias (couro, farinha, óleo).
+B) Fração que não altera as propriedades primárias (carne, pena, osso).
+C) Indivíduo vivo em uma das fases do desenvolvimento (filhote ou adulto).
+D) Animal resultante do cruzamento de duas espécies (híbrido).
 
 **38.** Na contenção de serpentes, a distância de segurança recomendada considera que o bote atinge cerca de:
-A) O comprimento total do animal.
-B) O dobro do comprimento.
-C) 1/3 do comprimento do animal.
-D) 10 metros.
+A) O comprimento total do corpo do animal.
+B) O dobro do comprimento do animal.
+C) Um terço do comprimento do animal.
+D) Cerca de 10 metros de distância.
 
 **39.** A marcação por anilhas, na fauna, é método exclusivo para:
 A) Mamíferos.
@@ -2088,46 +2088,46 @@ C) ICMBio.
 D) ANVISA.
 
 **41.** A soltura de animais em Unidades de Conservação deve observar especialmente a:
-A) Lei nº 9.985/2000 (SNUC), consultando o órgão gestor.
-B) Lei nº 9.605/1998.
-C) Lei nº 11.794/2008.
-D) Lei nº 5.197/1967.
+A) Lei nº 9.985/2000 (SNUC), com o órgão gestor.
+B) Lei nº 9.605/1998 (Crimes Ambientais), de forma subsidiária.
+C) Lei nº 11.794/2008 (Lei Arouca).
+D) Lei nº 5.197/1967 (Proteção à Fauna).
 
 **42.** As isenções de autorização da IN IBAMA nº 07/2015 (art. 5º) aplicam-se a empreendimentos que utilizam:
-A) Exclusivamente fauna silvestre nativa ameaçada.
-B) Apenas espécies exóticas.
-C) Exclusivamente fauna doméstica; ou exclusivamente peixes/invertebrados aquáticos (exceto zoológicos).
-D) Qualquer espécie, sem distinção.
+A) A fauna silvestre nativa ameaçada de extinção (rara).
+B) As espécies exóticas mantidas em cativeiro (importadas).
+C) A fauna doméstica; ou peixes e invertebrados aquáticos (salvo zoológicos).
+D) As espécies da fauna em geral, sem distinção de grupo.
 
 **43.** O princípio da "Redução" (Reduce), entre os 3 R's, significa:
-A) Substituir o animal por métodos alternativos.
-B) Usar o menor número de animais necessário, com delineamento amostral adequado.
-C) Aperfeiçoar técnicas para reduzir a dor.
-D) Aumentar o número de repetições.
+A) Substituir o animal por métodos alternativos, in vitro ou computacionais.
+B) Usar o menor número de animais, com amostragem adequada.
+C) Aperfeiçoar as técnicas para reduzir a dor e o sofrimento.
+D) Aumentar o número de repetições de cada experimento.
 
 **44.** O "cambiamento", em estruturas de manejo da fauna, é:
-A) O cruzamento entre espécies diferentes.
-B) Uma área anexa ao habitat com portões fechados, que permite manejo seguro e evita fugas.
-C) O transporte de animais entre estados.
-D) A troca de alimento do plantel.
+A) O cruzamento reprodutivo entre espécies diferentes.
+B) Uma área anexa ao recinto que permite o manejo seguro.
+C) O transporte dos animais entre estados diferentes.
+D) A troca periódica do alimento oferecido ao plantel.
 
 **45.** A reabilitação para soltura mediata inclui, entre suas etapas, o "estudo do comportamento" (Protocolo III), que busca:
-A) Apenas medir o peso do animal.
-B) Identificar estereotipias, grau de humanização/habituação e testar comportamento antipredatório e forrageio.
-C) Comercializar o animal reabilitado.
-D) Definir o preço de venda.
+A) Medir o peso, a altura e as dimensões corporais do animal.
+B) Identificar estereotipias, habituação e o comportamento antipredatório.
+C) Comercializar o animal reabilitado a particulares.
+D) Definir o preço de venda do espécime no mercado.
 
 **46.** O Instituto Butantan é citado nos materiais como referência em:
-A) Reabilitação de aves marinhas.
-B) Pesquisa em peçonhentos e maior produtor de soros e vacinas da América Latina.
-C) Triagem de animais domésticos.
-D) Licenciamento de criadouros comerciais.
+A) Reabilitação de aves marinhas atingidas por óleo.
+B) Pesquisa em peçonhentos e produção de soros e vacinas.
+C) Triagem de animais domésticos apreendidos em vias.
+D) Licenciamento ambiental de criadouros comerciais.
 
 **47.** O "biotério", no contexto do manejo da fauna, é:
-A) O recinto de exposição de animais ao público.
-B) A área de quarentena do CETAS.
-C) Local de reprodução de espécies (camundongos, ratos, grilos, tenébrios) para alimentar o plantel.
-D) O setor administrativo do zoológico.
+A) O recinto de exposição dos animais, ao público visitante.
+B) A área de quarentena e isolamento do CETAS.
+C) Local de reprodução de presas (ratos, grilos) para o plantel.
+D) O setor administrativo e financeiro do zoológico.
 
 **48.** A RN CONCEA nº 37/2018 trata especificamente de:
 A) Categorias de uso da fauna.
@@ -2136,16 +2136,16 @@ C) Diretriz da prática de eutanásia.
 D) Listas de espécies ameaçadas.
 
 **49.** Sobre o monitoramento pós-soltura (Protocolo IV) na reabilitação, ele avalia:
-A) Apenas a aparência física do animal antes da soltura.
-B) Sobrevivência, mortalidade, deslocamento e reprodução após a soltura.
-C) O valor comercial do espécime.
-D) A taxonomia do animal.
+A) A aparência física do animal, antes da sua soltura.
+B) Sobrevivência, mortalidade e deslocamento após a soltura.
+C) O valor comercial do espécime no mercado ilegal.
+D) A classificação taxonômica do animal reabilitado.
 
 **50.** Segundo o art. 29, §4º, da Lei nº 9.605/1998, a pena é aumentada de metade quando o crime é praticado, entre outras hipóteses:
-A) Durante o dia e em propriedade privada.
-B) Com colaboração da fiscalização.
-C) Por agente de baixa escolaridade.
-D) Contra espécie rara ou ameaçada, em período proibido de caça, à noite ou em unidade de conservação.
+A) Durante o dia, em área de propriedade privada, com autorização.
+B) Com a colaboração do agente com a fiscalização.
+C) Por agente de baixa escolaridade e renda.
+D) Contra espécie ameaçada, no defeso, à noite ou em UC.
 
 ---
 
@@ -2211,16 +2211,16 @@ D) Contra espécie rara ou ameaçada, em período proibido de caça, à noite ou
 ### 50 questões | Base: `07_CIRURGIA_ANESTESIA_CONTENCAO_MASTER.md`
 
 **1.** Os três componentes da tríade da anestesia geral são:
-A) Sedação, tranquilização e narcose.
-B) Hipnose (inconsciência), analgesia e relaxamento muscular.
-C) Diérese, hemostasia e síntese.
+A) Sedação, tranquilização e narcose profunda.
+B) Hipnose, analgesia e relaxamento muscular.
+C) Diérese, hemostasia e síntese cirúrgica.
 D) Assepsia, antissepsia e esterilização.
 
 **2.** A anestesia balanceada consiste em:
-A) Usar um único fármaco em dose alta.
-B) Combinar vários fármacos em doses menores para somar efeitos e reduzir toxicidade.
-C) Anestesiar sem qualquer monitorização.
-D) Empregar apenas anestésico local.
+A) Usar um único fármaco anestésico, em dose alta.
+B) Combinar vários fármacos em doses menores, somando efeitos.
+C) Anestesiar o paciente sem nenhuma monitorização clínica.
+D) Empregar o anestésico local de forma infiltrativa.
 
 **3.** A classificação ASA (American Society of Anesthesiologists) tem por finalidade:
 A) Classificar o estado físico/risco do paciente.
@@ -2241,16 +2241,16 @@ C) ASA II.
 D) ASA I-E.
 
 **6.** Sobre o jejum pré-anestésico, é correto afirmar que:
-A) Coelhos e roedores NÃO devem ser submetidos a jejum, pois não vomitam e há risco de hipoglicemia e estase gastrointestinal.
+A) Coelhos e roedores não fazem jejum: não vomitam e podem ter hipoglicemia.
 B) Coelhos e roedores devem fazer jejum prolongado de 24 a 48 horas.
-C) Ruminantes dispensam qualquer jejum.
-D) Filhotes devem fazer jejum de 24 horas.
+C) Os ruminantes adultos dispensam por completo o jejum pré-anestésico.
+D) Os filhotes neonatos devem fazer jejum de até 24 horas.
 
 **7.** A acepromazina, fenotiazínico usado na MPA, caracteriza-se por:
-A) Possuir potente efeito analgésico.
-B) Aumentar a pressão arterial.
-C) Ter o flumazenil como antídoto.
-D) Ser tranquilizante, sem analgesia, causar hipotensão (bloqueio alfa-1) e não possuir antagonista.
+A) Possuir efeito analgésico potente, intenso e duradouro, sobre a dor.
+B) Elevar a pressão arterial por vasoconstrição periférica.
+C) Ter o flumazenil como o seu antídoto específico.
+D) Ser tranquilizante, sem analgesia, causar hipotensão e não ter antagonista.
 
 **8.** Os benzodiazepínicos (diazepam, midazolam) têm como antagonista específico:
 A) Naloxona.
@@ -2259,16 +2259,16 @@ C) Atipamezol.
 D) Diprenorfina.
 
 **9.** Diferentemente da acepromazina, os agonistas alfa-2 (xilazina, dexmedetomidina):
-A) Não produzem analgesia.
-B) São irreversíveis.
-C) Não têm efeitos cardiovasculares.
-D) Produzem sedação, analgesia e relaxamento muscular, além de possuírem antagonista.
+A) Não produzem efeito analgésico, sedativo, nem relaxante.
+B) São fármacos de ação totalmente irreversível.
+C) Não exercem efeitos sobre o sistema cardiovascular.
+D) Produzem sedação, analgesia e relaxamento, além de antagonista.
 
 **10.** O antagonista (reversor) dos agonistas alfa-2 é:
-A) Flumazenil.
-B) Naloxona.
+A) Flumazenil (benzodiazepínicos).
+B) Naloxona (opioides).
 C) Atipamezol (ou ioimbina).
-D) Neostigmina.
+D) Neostigmina (bloqueadores neuromusculares).
 
 **11.** A classe analgésica considerada a melhor para dor, cujo antagonista é a naloxona, é a dos:
 A) Opioides.
@@ -2277,70 +2277,70 @@ C) Benzodiazepínicos.
 D) Anestésicos locais.
 
 **12.** A buprenorfina é classificada como opioide:
-A) Agonista puro.
-B) Antagonista.
-C) Agonista parcial, de longa duração, útil em gatos.
-D) Agonista-antagonista sem analgesia.
+A) Agonista puro dos receptores mu.
+B) Antagonista dos receptores opioides.
+C) Agonista parcial de longa duração, usado em gatos.
+D) Agonista-antagonista, desprovido de analgesia.
 
 **13.** Sobre a cetamina (anestésico dissociativo), é correto afirmar:
-A) Promove excelente relaxamento muscular isoladamente.
-B) Possui o flumazenil como antídoto.
-C) Deprime fortemente o sistema cardiovascular.
-D) Mantém reflexos preservados e olhos abertos, aumenta o tônus muscular e deve ser associada a benzodiazepínico ou alfa-2.
+A) Promove excelente relaxamento muscular, de forma isolada.
+B) Possui o flumazenil como o seu antídoto específico.
+C) Deprime de forma intensa o sistema cardiovascular.
+D) Mantém reflexos e tônus, devendo ser associada a benzodiazepínico.
 
 **14.** No gato, a cetamina apresenta como característica farmacocinética relevante:
-A) Metabolismo exclusivamente hepático.
-B) Eliminação pulmonar.
-C) Excreção renal da droga inalterada, exigindo cautela em nefropatas/obstruídos.
-D) Ausência de excreção.
+A) Metabolismo de natureza estritamente hepática, no fígado.
+B) Eliminação por via pulmonar e expiratória.
+C) Excreção renal inalterada, exigindo cautela em nefropatas.
+D) Ausência total de excreção pelo organismo.
 
 **15.** O propofol, anestésico geral intravenoso, tem como efeito adverso importante:
-A) Hipertensão grave.
-B) Analgesia prolongada.
-C) Apneia (depressão respiratória) se administrado em bolus rápido.
-D) Aumento do tônus muscular.
+A) Hipertensão arterial grave e sustentada.
+B) Analgesia prolongada no pós-operatório.
+C) Apneia respiratória se administrado em bolus rápido.
+D) Aumento acentuado do tônus muscular.
 
 **16.** Sobre a CAM (Concentração Alveolar Mínima) dos anestésicos inalatórios, é correto afirmar:
-A) Quanto maior a CAM, maior a potência.
-B) A CAM mede apenas a toxicidade hepática.
-C) A CAM não tem relação com a potência.
+A) Quanto maior a CAM, maior a potência do anestésico.
+B) A CAM mede a toxicidade hepática do anestésico.
+C) A CAM não guarda relação com a potência do fármaco.
 D) Quanto menor a CAM, maior a potência do anestésico.
 
 **17.** A bupivacaína, anestésico local de longa duração, apresenta como advertência fundamental:
-A) Pode ser usada por via intravenosa livremente.
-B) É cardiotóxica e NUNCA deve ser administrada por via intravenosa.
-C) Tem início de ação imediato.
-D) Não tem qualquer toxicidade.
+A) Pode ser usada por via intravenosa de forma livre.
+B) É cardiotóxica e não deve ser administrada por via intravenosa.
+C) Tem início de ação rápido e quase imediato.
+D) É praticamente desprovida de toxicidade sistêmica.
 
 **18.** Na orquiectomia, o bloqueio anestésico local que reduz a dose de anestésico geral e a resposta à tração do cordão, útil em mutirões, é o:
 A) Bloqueio epidural lombossacro.
-B) Bloqueio intratesticular.
-C) Bloqueio do plano transverso.
+B) Bloqueio anestésico intratesticular.
+C) Bloqueio do plano transverso abdominal.
 D) Bloqueio do nervo facial.
 
 **19.** A analgesia preemptiva caracteriza-se por:
-A) Administrar analgésico somente após o término da cirurgia.
-B) Usar apenas um fármaco.
-C) Administrar analgesia ANTES do estímulo doloroso, prevenindo a sensibilização central (wind-up).
-D) Evitar qualquer analgésico no transoperatório.
+A) Administrar o analgésico ao término da cirurgia, no fechamento.
+B) Empregar um fármaco analgésico isolado.
+C) Administrar analgesia antes do estímulo doloroso, prevenindo o wind-up.
+D) Evitar o uso de analgésicos no transoperatório.
 
 **20.** Os AINEs no pós-operatório devem ser usados:
-A) Em qualquer paciente, mesmo hipovolêmico.
-B) Sempre associados a corticoides.
-C) Apenas em paciente normovolêmico/normotenso, evitando associação com corticoides.
-D) Em desidratados, sem risco renal.
+A) No paciente, mesmo quando hipovolêmico.
+B) Em associação rotineira com os corticoides.
+C) No paciente normovolêmico, evitando os corticoides.
+D) No paciente desidratado, sem risco renal.
 
 **21.** O período de maior risco de óbito anestésico em cães e gatos, segundo o estudo CEPSAF, é:
-A) O pós-operatório (recuperação), sobretudo nas primeiras horas.
-B) O transoperatório.
-C) A indução anestésica.
-D) A medicação pré-anestésica.
+A) O pós-operatório, sobretudo nas primeiras horas.
+B) O período transoperatório, no curso da cirurgia.
+C) O momento da indução anestésica.
+D) A fase de medicação pré-anestésica.
 
 **22.** Em relação à extubação na recuperação anestésica:
-A) O gato deve ser extubado mais tarde que o cão.
-B) A extubação é dispensável.
-C) Cão e gato são extubados no mesmo momento.
-D) O gato deve ser extubado mais cedo que o cão, por ser sensível ao laringoespasmo.
+A) O gato deve ser extubado bem mais tarde, depois do cão.
+B) A extubação é um procedimento dispensável na recuperação.
+C) O cão e o gato são extubados no mesmo momento.
+D) O gato é extubado mais cedo, por ser sensível ao laringoespasmo.
 
 **23.** Assinale a associação correta entre fármaco e antagonista:
 A) Opioide → flumazenil.
@@ -2355,10 +2355,10 @@ C) Acepromazina, propofol e cetamina.
 D) Fentanil, diazepam e dexmedetomidina.
 
 **25.** Os princípios de Halsted, fundamentos da boa técnica cirúrgica, incluem:
-A) Manuseio brusco dos tecidos e tensão na sutura.
-B) Esterilização dispensável.
-C) Hemostasia rigorosa, manuseio delicado dos tecidos e aproximação sem tensão.
-D) Manutenção de espaço morto.
+A) Manuseio brusco dos tecidos, com tensão na linha de sutura.
+B) Esterilização dispensável do campo cirúrgico.
+C) Hemostasia rigorosa, manuseio delicado e sutura sem tensão.
+D) Manutenção de espaço morto na ferida cirúrgica.
 
 **26.** A sequência correta dos tempos cirúrgicos fundamentais é:
 A) Síntese → exérese → hemostasia → diérese.
@@ -2367,148 +2367,148 @@ C) Diérese → hemostasia → exérese → síntese.
 D) Exérese → diérese → síntese → hemostasia.
 
 **27.** A esterilização, diferentemente da antissepsia e da desinfecção, caracteriza-se por:
-A) Reduzir microrganismos apenas em tecidos vivos.
-B) Destruir todas as formas de vida, inclusive esporos (ex.: autoclave).
-C) Eliminar microrganismos somente de superfícies inanimadas.
-D) Remover sujidade mecanicamente.
+A) Reduzir os microrganismos presentes em tecidos vivos, externos.
+B) Destruir todas as formas de vida, inclusive os esporos.
+C) Eliminar os microrganismos de superfícies inanimadas.
+D) Remover a sujidade visível por ação mecânica.
 
 **28.** A antissepsia é definida como:
-A) A destruição de todas as formas de vida, inclusive esporos.
-B) A prevenção da chegada de microrganismos a local estéril.
-C) A redução/eliminação de microrganismos em tecidos vivos (pele, mucosa) com antisséptico.
-D) A eliminação de microrganismos em objetos inanimados.
+A) A destruição de todas as formas de vida, inclusive os esporos.
+B) A prevenção da chegada de microrganismos ao local estéril.
+C) A redução de microrganismos em tecidos vivos com antisséptico.
+D) A eliminação de microrganismos dos objetos inanimados.
 
 **29.** O antisséptico que apresenta efeito residual longo e é pouco inativado por matéria orgânica é:
 A) PVPI (iodopovidona).
-B) Álcool 70%.
-C) Água oxigenada.
-D) Clorexidina.
+B) Álcool a 70% (etílico).
+C) Água oxigenada (peróxido).
+D) Clorexidina (digluconato).
 
 **30.** O acesso cirúrgico padrão para orquiectomia em CÃES é:
-A) Escrotal.
-B) Perineal.
-C) Pré-escrotal (linha média ventral, cranial ao escroto).
-D) Inguinal bilateral.
+A) Acesso escrotal, na linha mediana.
+B) Acesso perineal ventral.
+C) Acesso pré-escrotal, na linha média.
+D) Acesso inguinal bilateral.
 
 **31.** Na orquiectomia de GATOS, a técnica habitual emprega:
-A) Acesso pré-escrotal com sutura de pele.
-B) Acesso escrotal com autoligadura, sem fios, e cicatrização por segunda intenção.
-C) Acesso abdominal.
-D) Ligadura com fio inabsorvível na pele.
+A) Acesso pré-escrotal com sutura de pele e fio.
+B) Acesso escrotal com autoligadura e cicatrização por 2ª intenção.
+C) Acesso abdominal, pela linha média ventral caudal.
+D) Ligadura com fio inabsorvível na pele escrotal.
 
 **32.** Na ovariohisterectomia (OSH), os três pontos de ligadura correspondem a:
-A) Dois pedículos ovarianos e o corpo uterino (antes da cérvix).
-B) Apenas o corpo uterino.
-C) Os dois ureteres e a bexiga.
+A) Os dois pedículos ovarianos e o corpo uterino.
+B) O corpo uterino, antes da cérvix.
+C) Os dois ureteres e a bexiga urinária.
 D) A artéria aorta e as veias cavas.
 
 **33.** A complicação mais comum e grave da ovariohisterectomia é:
-A) A deiscência de pele.
-B) A infecção urinária.
-C) A hemorragia de pedículo ovariano.
-D) O seroma escrotal.
+A) A deiscência da ferida de pele.
+B) A infecção do trato urinário.
+C) A hemorragia do pedículo ovariano.
+D) O seroma na região do abdome.
 
 **34.** A "síndrome do ovário remanescente" (ERSS) manifesta-se por:
-A) Hemorragia incoercível.
-B) Deiscência da linha alba.
-C) Ligadura acidental do ureter.
-D) Sinais de cio persistentes devido a tecido ovariano deixado.
+A) Hemorragia incoercível do pedículo.
+B) Deiscência completa da linha alba.
+C) Ligadura acidental de um dos ureteres.
+D) Cio persistente por tecido ovariano deixado.
 
 **35.** A deiscência de ferida cirúrgica, que pode levar à evisceração, tem entre suas causas:
-A) Técnica/fio inadequado, infecção e automutilação (lamber).
-B) Uso de colar elizabetano.
-C) Restrição de atividade adequada.
-D) Hemostasia rigorosa.
+A) Técnica ou fio inadequado, infecção e automutilação.
+B) O uso correto do colar elizabetano, sempre protetor.
+C) A restrição adequada da atividade física.
+D) A realização de hemostasia rigorosa e cuidadosa.
 
 **36.** Em cirurgia limpa eletiva, como a castração de rotina, a antibioticoterapia profilática:
-A) É sempre obrigatória.
-B) Substitui a assepsia.
-C) Deve ser mantida por 30 dias.
-D) Em geral NÃO é requerida de rotina.
+A) É um procedimento obrigatório, sempre rotineiro.
+B) Substitui a assepsia do campo cirúrgico.
+C) Deve ser mantida pelo prazo de 30 dias.
+D) Em geral, não é requerida de rotina.
 
 **37.** A miopatia de captura, síndrome relevante na contenção de fauna, caracteriza-se por:
-A) Degeneração muscular desencadeada por estresse/esforço extremos, com rabdomiólise, mioglobinúria e morte horas a dias depois.
-B) Infecção bacteriana de feridas.
-C) Reação alérgica imediata aos anestésicos.
-D) Hemorragia do pedículo ovariano.
+A) Degeneração muscular por estresse extremo, com rabdomiólise e morte.
+B) Infecção bacteriana das feridas, geradas na contenção.
+C) Reação alérgica imediata aos fármacos anestésicos.
+D) Hemorragia do pedículo ovariano após a cirurgia.
 
 **38.** No uso de dardos anestésicos em fauna, o alvo de aplicação preferencial é:
-A) O abdome.
-B) O tórax.
-C) As grandes massas musculares (garupa/coxa e paleta).
-D) As articulações.
+A) A parede do abdome.
+B) A região do tórax.
+C) As grandes massas musculares da garupa.
+D) As articulações dos membros.
 
 **39.** A cetamina, carro-chefe da contenção química de fauna, deve ser sempre:
-A) Combinada com alfa-2 ou benzodiazepínico, devido à rigidez muscular quando isolada.
-B) Usada isoladamente em dose alta.
-C) Administrada apenas por via oral.
-D) Substituída por acepromazina.
+A) Combinada com alfa-2 ou benzodiazepínico, pela rigidez quando isolada.
+B) Usada de forma isolada, em dose elevada.
+C) Administrada por via oral em solução aquosa.
+D) Substituída pela acepromazina na contenção.
 
 **40.** A associação tiletamina + zolazepam (Zoletil®/Telazol®) é caracterizada por:
-A) Combinar dissociativo + benzodiazepínico em frasco único, com pequeno volume, ótima para dardos.
-B) Ser um opioide puro.
-C) Não ter efeito sedativo.
-D) Ser um anestésico inalatório.
+A) Combinar dissociativo e benzodiazepínico em frasco único, para dardos.
+B) Ser um opioide agonista, de ação pura.
+C) Não produzir efeito sedativo apreciável.
+D) Ser um anestésico de uso inalatório.
 
 **41.** Para a contenção química de AVES, a preferência recai sobre:
-A) Cetamina isolada injetável.
-B) Anestesia inalatória (isoflurano/sevoflurano por máscara).
-C) Etorfina.
-D) Bupivacaína intravenosa.
+A) Cetamina isolada, por via injetável.
+B) Anestesia inalatória, por máscara facial.
+C) Etorfina, por via intramuscular.
+D) Bupivacaína, por via intravenosa.
 
 **42.** Os opioides ultrapotentes etorfina (M99) e carfentanil, usados em megafauna:
-A) São seguros para manuseio humano sem EPI.
-B) São usados em aves de pequeno porte.
-C) Não possuem antagonista.
-D) Representam risco fatal ao operador por absorção acidental, exigindo antagonista (diprenorfina/naltrexona) pronto.
+A) São seguros para o manuseio humano, sem o uso de EPI.
+B) São usados na contenção de aves de pequeno porte.
+C) Não possuem antagonista específico disponível.
+D) Têm risco fatal ao operador, exigindo antagonista pronto.
 
 **43.** Na recuperação de animais silvestres contidos quimicamente, recomenda-se posicioná-los em:
-A) Decúbito esternal, em local calmo, sombreado e seguro, com proteção ocular.
-B) Decúbito dorsal, em local iluminado.
-C) Decúbito lateral sem proteção.
-D) Posição vertical suspensa.
+A) Decúbito esternal, em local calmo e seguro, com proteção ocular.
+B) Decúbito dorsal, em local bem iluminado, movimentado e ruidoso.
+C) Decúbito lateral, sem proteção dos olhos.
+D) Posição vertical e suspensa pelos membros.
 
 **44.** A administração intravenosa rápida de morfina pode causar:
-A) Hipertensão grave.
-B) Aumento do tônus muscular.
-C) Liberação de histamina e hipotensão, sendo preferível a via lenta/IM/SC.
-D) Apneia por broncoespasmo exclusivo.
+A) Quadro de hipertensão arterial grave, sustentada.
+B) Aumento acentuado do tônus muscular.
+C) Liberação de histamina e hipotensão, preferindo-se a via lenta.
+D) Apneia decorrente de broncoespasmo agudo.
 
 **45.** O fentanil, opioide agonista puro, caracteriza-se por ser:
-A) De longa duração e uso em dose única.
-B) Antagonista dos receptores mu.
-C) Desprovido de analgesia.
-D) Potente e de curta duração, usado em infusão contínua (CRI) ou adesivo transdérmico.
+A) De longa duração, usado em dose única.
+B) Antagonista dos receptores opioides mu.
+C) Totalmente desprovido de efeito analgésico.
+D) Potente e de curta duração, usado em infusão contínua ou adesivo.
 
 **46.** Sob efeito da cetamina, a avaliação do plano anestésico:
-A) NÃO deve usar a posição ocular nem o reflexo palpebral, pois permanecem preservados.
-B) Deve basear-se no reflexo palpebral e na posição ocular.
-C) É feita exclusivamente pela frequência cardíaca.
-D) Dispensa qualquer monitorização.
+A) Não usa a posição ocular nem o reflexo palpebral, que ficam preservados.
+B) Baseia-se no reflexo palpebral, bem como na posição do globo ocular.
+C) É feita pela frequência cardíaca e pela respiratória.
+D) Dispensa a monitorização clínica do paciente.
 
 **47.** No plano anestésico cirúrgico ideal (cão), o globo ocular tipicamente apresenta:
-A) Posição central com nistagmo.
-B) Movimentos rápidos e resposta à incisão.
-C) Midríase fixa central.
-D) Rotação ventromedial, com reflexo palpebral diminuído/ausente.
+A) Posição central do globo, com nistagmo.
+B) Movimentos oculares rápidos e resposta à incisão.
+C) Midríase fixa, com globo em posição central.
+D) Rotação ventromedial, com reflexo palpebral ausente.
 
 **48.** O fio cirúrgico do tipo monofilamentar, comparado ao multifilamentar, apresenta:
-A) Maior aderência bacteriana.
-B) Maior retenção de microrganismos.
-C) Menor aderência bacteriana, embora menos maleável.
-D) Uso exclusivo em pele exposta.
+A) Maior aderência bacteriana, na superfície do fio.
+B) Maior retenção de microrganismos entre os filamentos.
+C) Menor aderência bacteriana, ainda que menos maleável.
+D) Uso preferencial em suturas de pele exposta.
 
 **49.** A emergência anestésica mais comum, frequentemente decorrente dos próprios anestésicos, é:
-A) A hipertensão maligna.
-B) A hipotensão (PAM < 60 mmHg), tratada com redução do vaporizador, fluidoterapia e inotrópicos.
-C) A bradicardia isolada.
-D) A hipertermia.
+A) A hipertensão arterial, de caráter maligno.
+B) A hipotensão (PAM < 60 mmHg), tratada com fluidos e inotrópicos.
+C) A bradicardia sinusal isolada e leve.
+D) A hipertermia de origem central e maligna.
 
 **50.** A subdose no dardeamento de um animal silvestre é especialmente perigosa porque:
-A) Causa depressão respiratória fatal imediata.
-B) Não tem qualquer consequência.
-C) Provoca hipertensão controlável.
-D) O animal pode fugir sedado e desaparecer, com risco de óbito longe da equipe.
+A) Causa depressão respiratória fatal, quase imediata.
+B) Não acarreta nenhuma consequência ao animal.
+C) Provoca hipertensão arterial leve e controlável.
+D) O animal foge sedado e some, com risco de óbito longe da equipe.
 
 ---
 
@@ -2586,76 +2586,76 @@ C) Prolactina.
 D) Ocitocina.
 
 **3.** Sobre o feedback do estrógeno no eixo reprodutivo, é correto afirmar:
-A) Em qualquer concentração exerce feedback negativo.
-B) Em alta concentração (folículo pré-ovulatório) exerce feedback positivo, gerando o pico de LH.
-C) Não influencia a secreção de LH.
-D) Em alta concentração bloqueia a ovulação.
+A) Em baixa concentração, exerce feedback negativo, sobre o eixo.
+B) Em alta concentração, exerce feedback positivo, gerando o pico de LH.
+C) Não exerce influência sobre a secreção de LH.
+D) Em alta concentração, bloqueia o processo de ovulação.
 
 **4.** A administração CONTÍNUA de GnRH (ou de seus agonistas), diferentemente da pulsátil:
 A) Dessensibiliza a hipófise e suprime o eixo reprodutivo.
-B) Aumenta permanentemente a liberação de FSH/LH.
-C) Não tem qualquer efeito.
-D) Induz ovulação imediata e contínua.
+B) Aumenta de forma permanente a liberação de FSH e LH.
+C) Não produz nenhum efeito sobre a hipófise.
+D) Induz a ovulação de forma imediata e contínua.
 
 **5.** A progesterona, no eixo reprodutivo, exerce feedback:
-A) Negativo, bloqueando GnRH/LH (base da gestação e dos anticoncepcionais).
-B) Positivo sobre o GnRH.
-C) Seletivo apenas sobre o FSH.
-D) Nulo.
+A) Negativo, bloqueando o GnRH e o LH no eixo.
+B) Positivo, estimulando a liberação do GnRH.
+C) Seletivo, dirigido ao FSH hipofisário.
+D) Nulo, sem ação relevante no eixo.
 
 **6.** A inibina, produzida pela granulosa (♀) e pelas células de Sertoli (♂), exerce feedback:
-A) Negativo seletivo sobre o FSH.
-B) Positivo sobre o LH.
-C) Negativo sobre a ocitocina.
-D) Positivo sobre o GnRH.
+A) Negativo e seletivo sobre o FSH.
+B) Positivo sobre a liberação de LH.
+C) Negativo sobre a secreção de ocitocina.
+D) Positivo sobre a secreção de GnRH.
 
 **7.** Os hormônios FSH, LH e prolactina são produzidos pela:
 A) Neuro-hipófise (posterior).
-B) Glândula adrenal.
+B) Glândula adrenal (suprarrenal).
 C) Adeno-hipófise (anterior).
-D) Tireoide.
+D) Glândula tireoide (cervical).
 
 **8.** A ocitocina e o ADH (hormônio antidiurético) são:
-A) Sintetizados na adeno-hipófise.
-B) Produzidos pelas gônadas.
-C) Sintetizados no hipotálamo e armazenados/liberados pela neuro-hipófise.
-D) Produzidos pelo corpo lúteo.
+A) Sintetizados diretamente na adeno-hipófise anterior.
+B) Produzidos pelas gônadas masculinas e femininas.
+C) Sintetizados no hipotálamo e liberados pela neuro-hipófise.
+D) Produzidos pelo corpo lúteo do ovário.
 
 **9.** Quanto à gametogênese, é correto afirmar que:
-A) A espermatogênese inicia-se na vida fetal.
-B) A ovogênese inicia-se na vida fetal e a meiose feminina só se completa na fecundação.
-C) Ambas se iniciam apenas na puberdade.
+A) A espermatogênese tem início na vida fetal do macho.
+B) A ovogênese inicia na vida fetal e a meiose termina na fecundação.
+C) Ambas as gametogêneses iniciam na puberdade do animal.
 D) A ovogênese produz quatro óvulos viáveis por ciclo.
 
 **10.** Uma exceção reprodutiva da cadela é que ela:
-A) Ovula um ovócito já maduro.
-B) Ovula um ovócito primário/imaturo, que completa a maturação na tuba uterina.
-C) Possui ovulação induzida pela cópula.
-D) Não apresenta corpo lúteo.
+A) Ovula um ovócito que já se encontra maduro, pronto.
+B) Ovula um ovócito imaturo, que matura na tuba uterina.
+C) Possui ovulação induzida e reflexa pela cópula.
+D) Não forma corpo lúteo após a ovulação.
 
 **11.** O local da fecundação, na maioria das espécies domésticas, é:
 A) A ampola da tuba uterina (oviduto).
-B) A cérvix.
-C) O útero (corpo).
-D) A vagina.
+B) A cérvix (colo do útero).
+C) O corpo do útero (uterino).
+D) A vagina (canal vaginal).
 
 **12.** Quanto à transferência de imunidade, nas espécies de produção (porca, vaca, égua), a placenta:
-A) NÃO transfere imunoglobulinas, tornando o colostro imprescindível.
-B) Transfere abundantes imunoglobulinas ao feto.
-C) Transfere imunidade celular completa.
-D) Dispensa o colostro.
+A) Não transfere imunoglobulinas, tornando o colostro essencial.
+B) Transfere abundantes imunoglobulinas maternas, ao feto.
+C) Transfere a imunidade celular materna completa.
+D) Dispensa o colostro na transferência de imunidade.
 
 **13.** A placenta epiteliocorial é típica de:
 A) Primatas e roedores.
 B) Cadela e gata.
 C) Porca e égua.
-D) Apenas humanos.
+D) Os seres humanos.
 
 **14.** Quanto à ciclicidade, a cadela é classificada como:
-A) Poliéstrica anual.
+A) Poliéstrica anual e contínua, ao longo do ano.
 B) Poliéstrica estacional de dias curtos.
 C) Poliéstrica estacional de dias longos.
-D) Monoéstrica não estacional (cerca de 2 cios por ano).
+D) Monoéstrica não estacional, com cerca de 2 cios/ano.
 
 **15.** A espécie que apresenta o estro (cio) mais CURTO, de cerca de 12 a 18 horas, é a:
 A) Égua.
@@ -2676,39 +2676,39 @@ C) Cadela e porca.
 D) Ovelha e cabra.
 
 **18.** A vaca apresenta como particularidade do ciclo estral:
-A) Ovular antes do início do cio.
-B) Não apresentar corpo lúteo.
-C) Ter ovulação induzida.
-D) Ovular cerca de 10 a 12 horas APÓS o fim do cio, com sangramento metaestral normal.
+A) Ovular ainda antes do início do cio, ainda invisível.
+B) Não apresentar corpo lúteo no ciclo estral.
+C) Ter ovulação do tipo induzida pela cópula.
+D) Ovular após o fim do cio, com sangramento metaestral.
 
 **19.** Na cadela, o sangramento vaginal visível ocorre no:
-A) Proestro, embora ela só aceite o macho no estro.
-B) Estro, quando aceita o macho.
-C) Diestro.
-D) Anestro.
+A) Proestro, embora aceite o macho no estro seguinte.
+B) Estro, fase em que aceita a monta do macho.
+C) Diestro, fase pós-ovulatória do ciclo.
+D) Anestro, fase de repouso do ciclo.
 
 **20.** O sinal-chave de cio na porca, base do manejo em suinocultura, é:
-A) O reflexo de imobilidade (tolerância ao varrão/teste do dorso).
-B) O sangramento metaestral.
-C) A onicogrifose.
-D) O piscar da vulva.
+A) O reflexo de imobilidade ao teste do dorso.
+B) O sangramento metaestral pós-ovulatório.
+C) A onicogrifose das extremidades dos cascos.
+D) O piscar rítmico da vulva edemaciada.
 
 **21.** A duração média da gestação na PORCA é de aproximadamente:
 A) 63 dias.
 B) 150 dias.
-C) 114 dias (3 meses, 3 semanas e 3 dias).
+C) 114 dias.
 D) 283 dias.
 
 **22.** A duração média da gestação na VACA é de aproximadamente:
 A) 114 dias.
-B) 150 dias.
+B) 145 a 150 dias.
 C) 280 a 285 dias.
-D) 340 dias.
+D) 335 a 340 dias.
 
 **23.** A duração média da gestação na ÉGUA é de aproximadamente:
-A) 150 dias.
-B) 230 dias.
-C) 283 dias.
+A) 145 a 150 dias.
+B) 225 a 230 dias.
+C) 280 a 283 dias.
 D) 330 a 345 dias.
 
 **24.** A duração média da gestação na cadela e na gata é de aproximadamente:
@@ -2724,70 +2724,70 @@ C) A PGF2α.
 D) A progesterona.
 
 **26.** O hormônio luteolítico, que provoca a regressão do corpo lúteo e participa do desencadeamento do parto, é:
-A) A progesterona.
-B) A prolactina.
-C) A PGF2α (prostaglandina F2α).
-D) A relaxina.
+A) A progesterona (esteroide luteal).
+B) A prolactina (hormônio lactogênico).
+C) A PGF2α (prostaglandina F2-alfa).
+D) A relaxina (hormônio do parto).
 
 **27.** Nas espécies CL-dependentes durante toda a gestação, a PGF2α é considerada:
-A) Inócua.
-B) Indutora de ovulação.
-C) Abortiva, por provocar luteólise.
-D) Mantenedora da gestação.
+A) Inócua, sem ação sobre o corpo lúteo.
+B) Indutora da ovulação folicular.
+C) Abortiva, por provocar a luteólise.
+D) Mantenedora da gestação ativa.
 
 **28.** O "reconhecimento materno da gestação" nos ruminantes ocorre, entre outros mecanismos, pela ação do:
-A) Interferon-tau, que impede a luteólise e mantém o corpo lúteo.
-B) Cortisol materno.
-C) ADH.
-D) Estrógeno placentário.
+A) Interferon-tau, que impede a luteólise no útero.
+B) Cortisol materno liberado pela adrenal.
+C) ADH, o hormônio antidiurético hipofisário.
+D) Estrógeno de origem placentária materna.
 
 **29.** O gatilho fisiológico do parto é:
-A) O cortisol materno.
-B) O cortisol fetal, que ativa o eixo HPA do feto.
-C) A prolactina materna.
-D) A relaxina placentária.
+A) O cortisol, de origem materna.
+B) O cortisol fetal, que ativa o eixo do feto.
+C) A prolactina de origem materna.
+D) A relaxina de origem placentária.
 
 **30.** A cascata hormonal do parto pode ser resumida como:
-A) Cortisol fetal → ↓progesterona/↑estrógeno → PGF2α → ocitocina + relaxina → contrações e dilatação.
-B) Progesterona → estrógeno → ocitocina → relaxamento uterino.
-C) Prolactina → ocitocina → cortisol → expulsão.
-D) PGF2α → progesterona → quietude uterina.
+A) Cortisol fetal → ↓progesterona → PGF2α → ocitocina → contrações e parto.
+B) Progesterona → estrógeno → ocitocina → relaxamento → quietude uterina.
+C) Prolactina → ocitocina → cortisol fetal → dilatação → expulsão.
+D) PGF2α → progesterona → estrógeno → quietude uterina prolongada.
 
 **31.** As três fases (estágios) do parto, em ordem, são:
 A) Expulsão fetal → dilatação cervical → dequitação.
-B) Dilatação cervical → expulsão do feto → expulsão das membranas fetais (dequitação).
-C) Dequitação → dilatação → expulsão.
-D) Expulsão → dequitação → dilatação.
+B) Dilatação cervical → expulsão do feto → dequitação.
+C) Dequitação → dilatação cervical → expulsão fetal.
+D) Expulsão fetal → dequitação → dilatação cervical.
 
 **32.** O reflexo de Ferguson, relevante no parto, consiste em:
-A) Liberação reflexa de ocitocina pela distensão da cérvix/vagina, gerando feedback positivo até a expulsão.
-B) Inibição da ocitocina pela distensão cervical.
-C) Bloqueio das contrações uterinas.
-D) Liberação de progesterona pelo feto.
+A) Liberação reflexa de ocitocina pela distensão da cérvix, em feedback.
+B) Inibição da liberação de ocitocina, pela distensão cervical.
+C) Bloqueio reflexo das contrações do músculo uterino.
+D) Liberação de progesterona fetal durante o parto.
 
 **33.** A retenção de placenta corresponde à falha de qual fase do parto, sendo mais comum na vaca?
-A) Primeira fase (dilatação).
-B) Segunda fase (expulsão).
-C) Puerpério tardio.
-D) Terceira fase (dequitação/expulsão das membranas).
+A) Primeira fase (dilatação cervical).
+B) Segunda fase (expulsão fetal).
+C) Puerpério tardio (involução).
+D) Terceira fase (dequitação das membranas).
 
 **34.** Os lóquios, no puerpério, são:
-A) Sempre sinal de metrite.
-B) Indicativos de gestação.
-C) Secreção pós-parto fisiológica, esperada na involução uterina.
-D) Sinais de aborto.
+A) Um sinal clínico de metrite puerperal.
+B) Indicativos de uma nova gestação.
+C) Secreção pós-parto fisiológica da involução uterina.
+D) Sinais de aborto em curso na fêmea.
 
 **35.** A involução uterina na vaca completa-se, em média, em:
-A) 7 dias.
+A) 5 a 7 dias.
 B) 30 a 45 dias.
-C) 90 dias.
-D) 6 meses.
+C) 85 a 90 dias.
+D) 5 a 6 meses.
 
 **36.** O anestro lactacional, com retorno tardio ao cio durante a amamentação, decorre principalmente da ação da:
-A) Ocitocina.
-B) PGF2α.
-C) Prolactina (estimulada pela sucção), que inibe o GnRH.
-D) Relaxina.
+A) Ocitocina, liberada na ejeção do leite, no úbere.
+B) PGF2α, de ação luteolítica uterina.
+C) Prolactina, estimulada pela sucção, que inibe o GnRH.
+D) Relaxina, do final da gestação.
 
 **37.** Na lactação, o hormônio responsável pela PRODUÇÃO (síntese) do leite é:
 A) A ocitocina.
@@ -2802,58 +2802,58 @@ C) O estrógeno.
 D) A progesterona.
 
 **39.** O reflexo de ejeção do leite pode ser inibido por:
-A) Sucção do teto.
-B) Estresse (adrenalina), que bloqueia a ação da ocitocina.
-C) Aumento da prolactina.
-D) Esvaziamento regular do úbere.
+A) A sucção do teto, feita pelo neonato.
+B) O estresse e a adrenalina, que bloqueiam a ocitocina.
+C) O aumento dos níveis de prolactina.
+D) O esvaziamento regular do úbere cheio.
 
 **40.** A lactogênese (início da secreção láctea) tem como gatilho fisiológico:
-A) O aumento da progesterona.
-B) A liberação de ADH.
-C) A elevação da PGF2α.
-D) A queda da progesterona no pós-parto, associada à prolactina e ao cortisol.
+A) O aumento dos níveis de progesterona, no plasma.
+B) A liberação do hormônio antidiurético.
+C) A elevação dos níveis de PGF2α.
+D) A queda da progesterona, com prolactina e cortisol.
 
 **41.** Quanto à fonte de progesterona na gestação, é correto afirmar que:
-A) Varia por espécie: pode depender do corpo lúteo por toda a gestação (ex.: porca, cabra, cadela) ou transitar para a placenta (ex.: égua, ovelha).
-B) É sempre exclusivamente placentária em todas as espécies.
-C) Provém sempre da adeno-hipófise.
-D) Não existe durante a gestação.
+A) Varia por espécie: corpo lúteo por toda a gestação ou a placenta.
+B) É de origem placentária em todas as espécies domésticas.
+C) Provém da glândula adeno-hipófise anterior.
+D) Não existe progesterona durante o período de gestação.
 
 **42.** A eCG (PMSG), hormônio usado em protocolos reprodutivos, é produzida:
-A) Pelos cálices/copos endometriais da égua prenhe, com atividade FSH/LH-símile.
-B) Pela adeno-hipófise da vaca.
-C) Pelo corpo lúteo da porca.
-D) Pela placenta de primatas.
+A) Pelos copos endometriais da égua prenhe, com ação FSH-símile.
+B) Pela glândula adeno-hipófise anterior, na vaca.
+C) Pelo corpo lúteo do ovário da porca.
+D) Pela placenta hemocorial dos primatas.
 
 **43.** Na inseminação artificial (IA), entre as principais vantagens está:
-A) O aumento da transmissão de doenças venéreas.
-B) O melhoramento genético e o maior controle sanitário (redução de doenças venéreas).
-C) A dispensa da avaliação do sêmen.
-D) A impossibilidade de registro genealógico.
+A) O aumento da transmissão das doenças venéreas.
+B) O melhoramento genético e o maior controle sanitário.
+C) A dispensa total da avaliação do sêmen coletado.
+D) A impossibilidade de registro genealógico do plantel.
 
 **44.** A IATF (Inseminação Artificial em Tempo Fixo) baseia-se:
-A) Na sincronização hormonal do cio/ovulação, permitindo inseminar sem detecção de cio.
-B) Na detecção visual obrigatória do cio.
-C) Na transferência de embriões.
-D) Na ausência de qualquer protocolo hormonal.
+A) Na sincronização hormonal da ovulação, sem detecção do cio.
+B) Na detecção visual obrigatória do cio, nas fêmeas.
+C) Na transferência de embriões para receptoras.
+D) Na ausência de um protocolo hormonal prévio.
 
 **45.** Na transferência de embriões (TE), a doadora é submetida a:
-A) Apenas detecção de cio.
-B) Castração prévia.
-C) Superovulação (com FSH/eCG), seguida de IA e colheita dos embriões.
-D) Anestro induzido permanente.
+A) Detecção do cio natural, próprio da fêmea.
+B) Castração cirúrgica prévia da doadora.
+C) Superovulação com FSH, seguida de IA e colheita.
+D) Indução de anestro permanente na fêmea.
 
 **46.** As células de Sertoli, no testículo, têm como funções:
-A) Sustentar a espermatogênese (sob FSH) e compor a barreira hematotesticular.
-B) Produzir testosterona sob ação do LH.
-C) Secretar progesterona.
-D) Produzir estrógeno na granulosa.
+A) Sustentar a espermatogênese sob FSH e formar a barreira.
+B) Produzir a testosterona sob a ação do LH.
+C) Secretar a progesterona no corpo lúteo.
+D) Produzir o estrógeno nas células da granulosa.
 
 **47.** As células de Leydig, no testículo, são responsáveis por:
-A) Produzir testosterona sob estímulo do LH.
-B) Compor a barreira hematotesticular.
-C) Produzir inibina.
-D) Realizar a espermatogênese diretamente.
+A) Produzir a testosterona sob estímulo do LH.
+B) Compor a barreira hematotesticular do túbulo.
+C) Produzir a inibina, que regula o FSH.
+D) Realizar a espermatogênese de forma direta.
 
 **48.** As espécies estacionais de DIAS LONGOS, que entram em cio na primavera/verão, são:
 A) Ovelha e cabra.
@@ -2868,10 +2868,10 @@ C) Nidação.
 D) Capacitação.
 
 **50.** A relaxina, hormônio do final da gestação e do parto, tem como função:
-A) Manter a quietude uterina.
-B) Produzir o leite.
-C) Relaxar a cérvix e os ligamentos pélvicos, preparando o canal do parto.
-D) Desencadear a ovulação.
+A) Manter a quietude do músculo uterino.
+B) Estimular a produção do leite materno.
+C) Relaxar a cérvix e os ligamentos pélvicos.
+D) Desencadear a ovulação do folículo.
 
 ---
 
@@ -2939,10 +2939,10 @@ D) Desencadear a ovulação.
 > ⚠️ A LOM é renumerada a cada Emenda; o foco destas questões é o **conteúdo**, não a numeração de artigos.
 
 **1.** O Município de Ponta Grossa foi criado pelo:
-A) Decreto Imperial nº 15, de 15 de setembro de 1823.
-B) Decreto-Lei nº 311, de 1938.
-C) Constituição Estadual de 1989.
-D) Lei Orgânica de 1990.
+A) Decreto Imperial nº 15, de 1823.
+B) Decreto-Lei nº 311, de 3 de dezembro de 1938.
+C) Constituição Estadual do Paraná, de 1989.
+D) Lei Orgânica Municipal, de 1990.
 
 **2.** A autonomia municipal assenta-se em três pilares, que são:
 A) Auto-organização, autogoverno e autoadministração.
@@ -2952,21 +2952,21 @@ D) Executivo, Legislativo e Judiciário.
 
 **3.** Quanto à organização dos Poderes, o governo municipal de Ponta Grossa é exercido por:
 A) Três Poderes: Executivo, Legislativo e Judiciário.
-B) Câmara, Prefeitura e Tribunal de Contas do Município.
-C) Apenas pelo Poder Executivo.
+B) Câmara, Prefeitura e Tribunal de Contas Municipal.
+C) Um só Poder, o Executivo, na figura do Prefeito.
 D) Dois Poderes: Legislativo (Câmara) e Executivo (Prefeito).
 
 **4.** A competência para "cuidar da saúde e proteger o meio ambiente" é classificada como:
-A) Privativa do Município.
-B) Suplementar legislativa.
-C) Exclusiva da União.
-D) Comum (partilhada entre União, Estados e Municípios).
+A) Privativa do Município, em caráter local.
+B) Suplementar e legislativa do Estado.
+C) Exclusiva da União federal.
+D) Comum entre União, Estados e Municípios.
 
 **5.** A competência do Município para "registro e vacinação de animais", observadas as normas federais e estaduais, é exemplo de competência:
-A) Privativa exclusiva.
-B) Suplementar.
-C) Comum administrativa.
-D) Soberana.
+A) Privativa e exclusiva.
+B) Suplementar do Município.
+C) Comum e administrativa.
+D) Soberana e originária.
 
 **6.** A Câmara Municipal de Ponta Grossa é composta por:
 A) 11 vereadores.
@@ -2981,27 +2981,27 @@ C) 5 anos.
 D) 8 anos.
 
 **8.** A imunidade dos vereadores caracteriza-se por ser:
-A) Formal e ampla, idêntica à de deputados federais.
-B) Material, pelas opiniões, palavras e votos, limitada à circunscrição do Município.
-C) Inexistente.
-D) Material e válida em todo o território nacional.
+A) Formal e ampla, idêntica àquela dos deputados federais, no Congresso.
+B) Material, pelas opiniões e votos, limitada ao Município.
+C) Inexistente para os membros do Legislativo municipal.
+D) Material e válida em todo o território brasileiro.
 
 **9.** Os atos privativos da Câmara Municipal, como a elaboração do seu Regimento Interno:
-A) Dependem de sanção do Prefeito.
-B) Exigem referendo popular.
-C) São editados pelo TCE-PR.
-D) São veiculados por decreto legislativo ou resolução, sem sanção do Prefeito.
+A) Dependem da sanção do Prefeito Municipal.
+B) Exigem a realização de referendo popular.
+C) São editados pelo TCE-PR estadual.
+D) São veiculados por decreto legislativo ou resolução própria.
 
 **10.** São matérias de iniciativa privativa do Prefeito:
-A) Apenas o Regimento Interno da Câmara.
-B) A fixação dos subsídios dos vereadores apenas.
-C) A eleição da Mesa Diretora.
-D) Leis sobre orçamento, criação de cargos/remuneração, regime de servidores e estruturação das Secretarias.
+A) O Regimento Interno, a Mesa e as comissões da Câmara Municipal.
+B) A fixação dos subsídios dos próprios vereadores.
+C) A eleição da Mesa Diretora da Câmara.
+D) Leis sobre orçamento, cargos, servidores e Secretarias.
 
 **11.** Aprovado um projeto de lei, o prazo para o Prefeito sancioná-lo ou vetá-lo é de:
 A) 5 dias úteis.
-B) 10 dias corridos.
-C) 30 dias.
+B) 10 dias úteis.
+C) 30 dias úteis.
 D) 15 dias úteis.
 
 **12.** O silêncio do Prefeito, decorrido o prazo para manifestação sobre o projeto de lei, importa em:
@@ -3011,16 +3011,16 @@ C) Arquivamento.
 D) Devolução à Câmara.
 
 **13.** A eleição do Prefeito e do Vice-Prefeito em Ponta Grossa ocorre:
-A) Em momentos distintos.
-B) De forma simultânea, para mandato de 4 anos.
-C) Pela Câmara Municipal.
-D) A cada 2 anos.
+A) Em momentos eleitorais distintos, separados.
+B) De forma simultânea, para 4 anos.
+C) Por escolha da Câmara Municipal.
+D) A cada período de 2 anos.
 
 **14.** Na ausência simultânea do Prefeito e do Vice-Prefeito, assume o cargo:
 A) O Presidente da Câmara Municipal.
-B) O Secretário de Administração.
-C) O vereador mais idoso.
-D) O Governador do Estado.
+B) O Secretário Municipal de Administração.
+C) O vereador mais idoso da Casa.
+D) O Governador do Estado do Paraná.
 
 **15.** O poder do Prefeito de expedir decretos e regulamentos para a fiel execução das leis denomina-se:
 A) Poder regulamentar.
@@ -3035,40 +3035,40 @@ C) Liberdade, Igualdade, Moralidade, Pessoalidade e Eficácia.
 D) Legalidade, Isonomia, Mérito, Publicidade e Equidade.
 
 **17.** A regra geral para investidura em cargo ou emprego público efetivo é:
-A) A livre nomeação pelo Prefeito.
-B) A indicação política.
-C) O concurso público de provas ou de provas e títulos.
-D) A eleição direta.
+A) A livre nomeação feita pelo Prefeito.
+B) A indicação de natureza política.
+C) O concurso público de provas ou de títulos.
+D) A eleição direta pelo voto popular.
 
 **18.** Os cargos em comissão (livre nomeação e exoneração) destinam-se apenas a:
-A) Atividades técnicas de nível médio.
+A) Atividades técnicas de nível médio, técnico e superior.
 B) Funções de direção, chefia e assessoramento.
-C) Cargos de carreira efetivos.
-D) Serviços braçais.
+C) Cargos de carreira de provimento efetivo.
+D) Serviços braçais e operacionais de apoio.
 
 **19.** O prazo de validade do concurso público é de:
 A) Até 2 anos, prorrogável uma vez por igual período.
-B) 1 ano, improrrogável.
-C) 5 anos, sem prorrogação.
-D) Indeterminado.
+B) De 1 ano, sem possibilidade de prorrogação.
+C) De 5 anos, sem direito a prorrogação.
+D) Indeterminado, conforme a necessidade do órgão.
 
 **20.** A estabilidade do servidor público efetivo é adquirida após:
-A) 1 ano de exercício.
-B) 2 anos de exercício.
-C) 5 anos de exercício.
-D) 3 anos de efetivo exercício, com avaliação de desempenho.
+A) 1 ano de efetivo exercício, no cargo.
+B) 2 anos de efetivo exercício no cargo.
+C) 5 anos de efetivo exercício no cargo.
+D) 3 anos de exercício, com avaliação de desempenho.
 
 **21.** O servidor estável pode perder o cargo, entre outras hipóteses, por:
-A) Mera vontade do Prefeito.
-B) Decisão exclusiva do TCE-PR.
-C) Aposentadoria compulsória apenas.
-D) Sentença judicial transitada em julgado, processo administrativo com ampla defesa, avaliação periódica ou excesso de despesa (LRF).
+A) A mera vontade política, pessoal e discricionária, do Prefeito.
+B) A decisão administrativa do TCE-PR estadual.
+C) A aposentadoria compulsória por idade.
+D) Sentença judicial, processo administrativo, avaliação ou excesso de despesa.
 
 **22.** O instrumento de planejamento orçamentário com vigência de 4 anos é:
 A) O PPA (Plano Plurianual).
-B) A LOA.
-C) A LDO.
-D) A LRF.
+B) A LOA (Lei Orçamentária Anual).
+C) A LDO (Lei de Diretrizes Orçamentárias).
+D) A LRF (Lei de Responsabilidade Fiscal).
 
 **23.** A iniciativa das leis orçamentárias (PPA, LDO e LOA) é:
 A) Privativa do Prefeito.
@@ -3078,15 +3078,15 @@ D) Do TCE-PR.
 
 **24.** O controle externo da Administração municipal é exercido:
 A) Pelo TCE-PR, que julga as contas do Prefeito.
-B) Pela Câmara Municipal, com auxílio do Tribunal de Contas do Estado do Paraná (TCE-PR).
-C) Por um Tribunal de Contas do Município.
-D) Pelo Ministério Público exclusivamente.
+B) Pela Câmara Municipal, com o auxílio do TCE-PR.
+C) Por um Tribunal de Contas próprio do Município.
+D) Pelo Ministério Público estadual, de forma isolada.
 
 **25.** Sobre o parecer prévio do TCE-PR acerca das contas do Prefeito, ele:
-A) É definitivo e não pode ser alterado.
-B) É emitido pelo Prefeito.
-C) Substitui o julgamento da Câmara.
-D) Só deixa de prevalecer por decisão de 2/3 dos vereadores.
+A) É definitivo e não admite qualquer alteração.
+B) É emitido pelo próprio Prefeito Municipal.
+C) Substitui o julgamento das contas pela Câmara.
+D) Deixa de prevalecer por decisão de 2/3 dos vereadores.
 
 **26.** Quem efetivamente JULGA as contas anuais do Prefeito é:
 A) O TCE-PR.
@@ -3095,28 +3095,28 @@ C) O Ministério Público.
 D) O Governador.
 
 **27.** O Município integra o SUS de forma:
-A) Centralizada e isolada.
-B) Independente do SUS.
-C) Regionalizada e hierarquizada, com descentralização, integralidade e participação da comunidade.
-D) Apenas consultiva.
+A) De forma centralizada e isolada, alheia às demais esferas.
+B) De forma independente do Sistema Único de Saúde.
+C) Regionalizada e hierarquizada, com participação da comunidade.
+D) De modo consultivo e sem gestão própria.
 
 **28.** A participação da comunidade na gestão da saúde municipal ocorre por meio:
-A) De consulta facultativa esporádica.
+A) De consulta facultativa e esporádica à população.
 B) Do Conselho Municipal de Saúde.
-C) Do TCE-PR.
-D) Da Câmara de Vereadores exclusivamente.
+C) Do Tribunal de Contas do Estado (TCE-PR).
+D) Da Câmara de Vereadores do Município.
 
 **29.** A proteção do meio ambiente e da fauna urbana, no âmbito da LOM, é competência:
-A) Exclusiva do Estado.
-B) Privativa da União.
-C) Comum (União, Estado e Município) e dever do Poder Público e da coletividade.
-D) Apenas do IBAMA.
+A) Exclusiva do Estado do Paraná.
+B) Privativa da União federal.
+C) Comum aos entes e dever do Poder Público e da coletividade.
+D) Atribuída ao IBAMA federal.
 
 **30.** A vedação à acumulação remunerada de cargos públicos, salvo exceções constitucionais, aplica-se:
-A) Apenas a cargos comissionados.
-B) Exclusivamente ao Prefeito.
-C) Somente a vereadores.
-D) Aos servidores públicos municipais, como dever/vedação.
+A) Aos ocupantes de cargos comissionados, de livre nomeação.
+B) Ao Prefeito e ao Vice-Prefeito.
+C) Aos vereadores da Câmara Municipal.
+D) Aos servidores públicos municipais, como vedação.
 
 **31.** A LDO (Lei de Diretrizes Orçamentárias) tem periodicidade:
 A) Quadrienal.
@@ -3125,16 +3125,16 @@ C) Bienal.
 D) Decenal.
 
 **32.** A LC nº 101/2000 (Lei de Responsabilidade Fiscal), reproduzida na disciplina municipal, impõe:
-A) A extinção dos tributos municipais.
-B) O fim do concurso público.
-C) Responsabilidade na gestão fiscal, limites de despesa com pessoal e relatórios ao TCE-PR.
+A) A extinção dos tributos próprios, geridos pelo Município.
+B) O fim da exigência de concurso público.
+C) Gestão fiscal responsável, com limites de despesa com pessoal.
 D) A criação de um Tribunal de Contas Municipal.
 
 **33.** Sobre a publicidade dos atos da Administração, é correto afirmar:
 A) Pode conter nomes e símbolos de promoção pessoal do agente.
-B) Não pode conter nomes/símbolos que caracterizem promoção pessoal de autoridades.
-C) É facultativa.
-D) Substitui a prestação de contas.
+B) Não pode conter símbolos de promoção pessoal de autoridades.
+C) É uma medida de natureza facultativa ao gestor.
+D) Substitui integralmente a prestação de contas.
 
 **34.** A criação, organização e supressão de distritos é competência:
 A) Própria do Município.
@@ -3149,94 +3149,94 @@ C) Autorização do Governador.
 D) Filiação partidária.
 
 **36.** Os serviços públicos de interesse local podem ser prestados pelo Município:
-A) Apenas diretamente.
-B) Diretamente ou sob regime de concessão ou permissão.
-C) Somente por empresas estrangeiras.
-D) Exclusivamente pela União.
+A) De forma direta pela Administração municipal.
+B) De forma direta ou por concessão e permissão.
+C) Por empresas estrangeiras contratadas.
+D) Pela União, em caráter federal.
 
 **37.** Entre as competências privativas da Câmara, sem sanção do Prefeito, está:
-A) Sancionar leis tributárias.
-B) Enviar o orçamento.
-C) Eleger sua Mesa e elaborar seu Regimento Interno.
-D) Nomear secretários municipais.
+A) Sancionar as leis de natureza tributária.
+B) Enviar a proposta de lei orçamentária.
+C) Eleger sua Mesa e elaborar seu Regimento.
+D) Nomear os secretários municipais do Executivo.
 
 **38.** A Administração Pública municipal compreende a administração:
-A) Apenas direta.
-B) Exclusivamente de empresas privadas.
-C) Apenas indireta.
-D) Direta (Secretarias) e indireta (autarquias, fundações, empresas públicas e sociedades de economia mista).
+A) A administração direta do Município.
+B) As empresas privadas contratadas pelo poder público.
+C) A administração indireta autárquica.
+D) Direta (Secretarias) e indireta (autarquias e fundações).
 
 **39.** O princípio da eficiência, na Administração Pública:
-A) Não integra o rol de princípios.
-B) Aplica-se apenas a empresas privadas.
-C) Substituiu o princípio da legalidade.
-D) Integra o rol (LIMPE), tendo sido incluído posteriormente (EC 19/98).
+A) Não integra o rol dos princípios constitucionais, expressos.
+B) Aplica-se às empresas privadas em geral.
+C) Substituiu o antigo princípio da legalidade.
+D) Integra o rol do LIMPE, incluído pela EC 19/98.
 
 **40.** A licitação, como regra para os contratos da Administração municipal:
-A) É a regra, visando à isonomia e à seleção da proposta mais vantajosa.
-B) É dispensável em qualquer caso.
-C) Substitui o concurso público.
-D) É competência do TCE-PR.
+A) É a regra, visando à isonomia e à melhor proposta.
+B) É dispensável, em todos os contratos públicos.
+C) Substitui a exigência de concurso público.
+D) É de competência exclusiva do TCE-PR.
 
 **41.** Qualquer cidadão, quanto à fiscalização das contas públicas municipais:
-A) É parte legítima para denunciar irregularidades ao TCE-PR/Câmara (controle social).
-B) Não tem legitimidade para denunciar irregularidades.
-C) Só pode agir por meio de partido político.
-D) Depende de autorização do Prefeito.
+A) É parte legítima para denunciar irregularidades ao TCE-PR.
+B) Não tem legitimidade para denunciar as irregularidades.
+C) Pode agir por meio de um partido político.
+D) Depende de prévia autorização do Prefeito Municipal.
 
 **42.** A distinção entre estabilidade e efetividade indica que:
-A) Efetividade é a forma de provimento; estabilidade é adquirida após 3 anos e avaliação.
-B) São sinônimos.
-C) Estabilidade vem antes da efetividade.
-D) Ambas são vitalícias.
+A) Efetividade é a forma de provimento; estabilidade vem após 3 anos.
+B) São conceitos sinônimos e equivalentes entre si.
+C) A estabilidade ocorre antes da efetividade no cargo.
+D) Ambas têm natureza vitalícia e permanente.
 
 **43.** O veto do Prefeito a um projeto de lei:
-A) É sempre total e irrevogável.
-B) Não pode ser derrubado pela Câmara.
-C) Pode ser total ou parcial e é apreciado pela Câmara, que pode rejeitá-lo (derrubá-lo).
-D) Equivale à promulgação da lei.
+A) É de caráter total e irrevogável.
+B) Não pode ser derrubado pela Câmara Municipal.
+C) Pode ser total ou parcial e é apreciado pela Câmara.
+D) Equivale à promulgação imediata da lei aprovada.
 
 **44.** Um vereador que apresenta projeto de lei criando cargo no Poder Executivo incorre em:
-A) Vício de iniciativa, pois a matéria é de iniciativa privativa do Prefeito.
-B) Conduta regular e válida.
-C) Crime de responsabilidade do Prefeito.
-D) Competência suplementar.
+A) Vício de iniciativa, por ser matéria privativa do Prefeito.
+B) Conduta legislativa regular, plenamente válida.
+C) Crime de responsabilidade imputável ao Prefeito.
+D) Exercício de competência legislativa suplementar.
 
 **45.** As três diretrizes do SUS reproduzidas na LOM são:
 A) Centralização, atendimento parcial e gestão privada.
-B) Lucratividade, terceirização e sigilo.
-C) Descentralização, atendimento integral e participação da comunidade.
-D) Autonomia, soberania e independência.
+B) Lucratividade, terceirização e sigilo das ações.
+C) Descentralização, integralidade e participação social.
+D) Autonomia, soberania e independência dos entes.
 
 **46.** A interface da Lei Orgânica com o trabalho do médico veterinário aparece especialmente em temas como:
-A) Direito tributário internacional.
-B) Legislação trabalhista privada.
-C) Política externa do Município.
-D) Proteção da fauna urbana, controle de zoonoses e registro/vacinação de animais.
+A) O direito tributário internacional, aplicado.
+B) A legislação trabalhista do setor privado.
+C) A política externa e diplomática do Município.
+D) Fauna urbana, zoonoses e vacinação de animais.
 
 **47.** O financiamento da saúde municipal observa:
-A) A inexistência de percentual mínimo de aplicação.
-B) A aplicação de percentual mínimo da receita em saúde (EC 29), com gestão pelo Fundo Municipal de Saúde.
-C) A vedação a fundos municipais.
-D) O repasse exclusivo de recursos privados.
+A) A inexistência de percentual mínimo, na aplicação.
+B) A aplicação de percentual mínimo da receita (EC 29), via Fundo.
+C) A vedação à criação de fundos municipais de saúde.
+D) O repasse de recursos de origem privada.
 
 **48.** A Secretaria Municipal de Meio Ambiente, segundo a LOM, tem entre suas funções:
-A) Planejar, executar e fiscalizar ações ambientais, incluindo proteção da flora e fauna urbanas.
-B) Apenas a arrecadação de tributos.
-C) Julgar as contas do Prefeito.
-D) Elaborar o Regimento Interno da Câmara.
+A) Planejar, executar e fiscalizar as ações ambientais municipais.
+B) Realizar a arrecadação dos tributos, próprios do Município.
+C) Julgar as contas anuais do Prefeito Municipal.
+D) Elaborar o Regimento Interno da Câmara de Vereadores.
 
 **49.** Sobre o decreto do Prefeito, é correto afirmar:
-A) Pode criar direitos e obrigações contra a lei.
-B) Serve para regulamentar a lei, não a substituindo nem contrariando.
-C) Tem força de emenda à Lei Orgânica.
-D) Dispensa a publicação.
+A) Pode criar direitos e obrigações, contra a lei.
+B) Regulamenta a lei, sem substituí-la nem contrariá-la.
+C) Tem a mesma força de uma emenda à Lei Orgânica.
+D) Dispensa a sua publicação no diário oficial.
 
 **50.** Em relação ao número de vereadores de Ponta Grossa, é correto afirmar que:
-A) Foi ampliado para 23 pela Emenda nº 72/2022.
-B) É definido anualmente pelo Prefeito.
-C) Foi reduzido para 11.
-D) Permaneceu em 19, tendo sido rejeitado o projeto que tentou ampliá-lo para 23.
+A) Foi ampliado para 23, pela Emenda nº 72 de 2022.
+B) É definido a cada ano pelo Prefeito Municipal.
+C) Foi reduzido para o total de 11 vereadores.
+D) Permaneceu em 19, rejeitada a ampliação para 23.
 
 ---
 
@@ -3306,16 +3306,16 @@ D) Permaneceu em 19, tendo sido rejeitado o projeto que tentou ampliá-lo para 2
 > *"A Saúde Única reconhece que a saúde dos seres humanos, dos animais e do ambiente está interligada. Por isso, problemas como as zoonoses e a resistência aos antimicrobianos não podem ser enfrentados de forma isolada. Embora muitos ainda acreditem que basta tratar o doente, a verdadeira prevenção exige a atuação conjunta de várias áreas do conhecimento. O médico veterinário, nesse contexto, deixou de ser visto apenas como o profissional dos animais e passou a ocupar papel central na saúde pública."*
 
 **1.** De acordo com o Texto I, a Saúde Única caracteriza-se por:
-A) Tratar a saúde humana de forma isolada das demais.
-B) Substituir o médico por outros profissionais.
-C) Reconhecer a interligação entre a saúde humana, animal e ambiental.
-D) Restringir-se ao tratamento de animais domésticos.
+A) Tratar a saúde humana de modo isolado, sem as demais áreas.
+B) Substituir o médico veterinário por outros profissionais.
+C) Reconhecer a interligação entre saúde humana, animal e ambiental.
+D) Restringir-se ao tratamento dos animais domésticos.
 
 **2.** Depreende-se do Texto I que, para o autor, a prevenção verdadeira:
-A) Consiste apenas em tratar o doente.
-B) Exige a atuação conjunta de diferentes áreas do conhecimento.
-C) Dispensa a atuação de várias áreas.
-D) É impossível de ser alcançada.
+A) Consiste no tratamento do indivíduo doente.
+B) Exige a atuação conjunta de diferentes áreas.
+C) Dispensa a atuação conjunta de várias áreas.
+D) É algo impossível de ser plenamente alcançado.
 
 **3.** No trecho "Embora muitos ainda acreditem que basta tratar o doente", a conjunção destacada exprime ideia de:
 A) Conclusão.
@@ -3324,16 +3324,16 @@ C) Finalidade.
 D) Alternância.
 
 **4.** A expressão "nesse contexto" (último período) funciona, no texto, como elemento de:
-A) Conclusão lógica equivocada.
-B) Contradição das ideias anteriores.
-C) Coesão, retomando o que foi dito anteriormente.
-D) Mera repetição sem função.
+A) Uma conclusão lógica de caráter equivocado.
+B) Uma contradição das ideias anteriores do texto.
+C) Coesão, retomando o que já foi dito antes.
+D) Uma mera repetição, sem função no texto.
 
 **5.** Conclui-se do Texto I que o papel do médico veterinário:
-A) Ampliou-se, passando a ter papel central na saúde pública.
-B) Permaneceu inalterado ao longo do tempo.
-C) Reduziu-se ao cuidado de animais.
-D) Tornou-se irrelevante para a saúde pública.
+A) Ampliou-se, com papel central na saúde pública.
+B) Permaneceu inalterado, ao longo de todo o tempo.
+C) Reduziu-se ao simples cuidado dos animais.
+D) Tornou-se irrelevante para a saúde da população.
 
 **6.** Assinale a alternativa em que a concordância verbal está CORRETA.
 A) Faz dois anos que o programa começou.
@@ -3348,10 +3348,10 @@ C) Houveram falhas na campanha.
 D) Hão de haverem soluções.
 
 **8.** Em "Vendem-se vacinas na clínica", o "se" é:
-A) Índice de indeterminação do sujeito.
-B) Pronome reflexivo.
-C) Partícula apassivadora, e o verbo concorda com "vacinas".
-D) Conjunção integrante.
+A) Índice de indeterminação do sujeito, na oração.
+B) Pronome reflexivo de ação sobre si mesmo.
+C) Partícula apassivadora, concordando com "vacinas".
+D) Conjunção integrante de oração subordinada.
 
 **9.** Assinale a opção com concordância nominal CORRETA.
 A) Segue anexo as fichas dos pacientes.
@@ -3540,10 +3540,10 @@ C) Espero que tudo dê certo.
 D) É necessário que estudes.
 
 **40.** Sobre a diferença entre coesão e coerência, é correto afirmar:
-A) Coesão é a ligação lógica; coerência é a ligação gramatical.
-B) São exatamente sinônimos.
-C) Coesão é a ligação gramatical (conectivos, pronomes); coerência é a ligação lógica/de sentido.
-D) Coerência refere-se apenas à pontuação.
+A) Coesão é a ligação lógica; coerência, a ligação gramatical.
+B) São conceitos exatamente sinônimos e equivalentes.
+C) Coesão é a ligação gramatical; coerência, a de sentido.
+D) Coerência refere-se à pontuação do texto.
 
 **41.** "Estudou muito, portanto foi mal na prova." Essa frase apresenta problema de:
 A) Acentuação.
@@ -3558,16 +3558,16 @@ C) O guarda-chuva era novo.
 D) A pessoa odeia chuva.
 
 **43.** Em interpretação de texto, alternativas com palavras como "sempre, nunca, todo, exclusivamente":
-A) Estão sempre corretas.
-B) Têm alta chance de estar erradas, por afirmarem algo absoluto raramente sustentado pelo texto.
-C) São irrelevantes.
-D) Indicam inferência válida.
+A) Estão sempre corretas no contexto do texto.
+B) Têm alta chance de estar erradas, por afirmarem algo absoluto.
+C) São totalmente irrelevantes para a resposta.
+D) Indicam, em regra, uma inferência válida.
 
 **44.** A "extrapolação", erro comum em interpretação, ocorre quando a alternativa:
-A) Vai além do que o texto afirma, usando conhecimento externo.
-B) Repete literalmente o texto.
-C) Contradiz o texto com palavras opostas.
-D) Resume corretamente a tese.
+A) Vai além do que o texto afirma, com conhecimento externo.
+B) Repete de forma literal o conteúdo do texto.
+C) Contradiz o texto, usando palavras de sentido oposto.
+D) Resume de forma correta a tese central do texto.
 
 **45.** Assinale a alternativa em que a palavra é acentuada por ser oxítona terminada em vogal tônica.
 A) cafezinho.
@@ -3583,7 +3583,7 @@ D) também.
 
 **47.** Na frase "Faz dois anos que não a vejo", o verbo "faz" está no singular porque:
 A) É verbo impessoal (indica tempo decorrido), em oração sem sujeito.
-B) O sujeito é "dois anos".
+B) O sujeito é "dois anos", no plural.
 C) Concorda com "anos" no plural.
 D) Trata-se de erro gramatical.
 
@@ -3610,10 +3610,10 @@ D) Doutora, venha examinar, este animal.
 > *"O abandono de animais é hoje um dos maiores problemas das cidades brasileiras. Muitos acreditam que recolher e sacrificar os animais das ruas resolveria a questão; entretanto, a ciência demonstra o contrário. Quando se removem os animais, sobra mais alimento para os que ficam, e estes se reproduzem ainda mais. A solução duradoura passa, necessariamente, pela guarda responsável e pela castração."*
 
 **51.** Segundo o Texto II, a remoção e o sacrifício de animais de rua:
-A) Resolvem definitivamente o problema do abandono.
-B) Reduzem a oferta de alimento.
-C) São recomendados pela ciência.
-D) Não resolvem, pois os animais remanescentes se reproduzem ainda mais.
+A) Resolvem, de forma definitiva, o problema do abandono.
+B) Reduzem a oferta de alimento aos remanescentes.
+C) São recomendados pela ciência e pelos estudos.
+D) Não resolvem, pois os remanescentes se reproduzem mais.
 
 **52.** A conjunção "entretanto", no Texto II, estabelece relação de:
 A) Adição.
@@ -3622,22 +3622,22 @@ C) Causa.
 D) Oposição.
 
 **53.** A expressão "necessariamente", no último período do Texto II, reforça a ideia de que a guarda responsável e a castração são:
-A) Soluções dispensáveis.
-B) Medidas ineficazes.
-C) Condições indispensáveis para a solução duradoura.
-D) Alternativas secundárias.
+A) Soluções dispensáveis e secundárias.
+B) Medidas ineficazes e sem resultado.
+C) Condições indispensáveis à solução duradoura.
+D) Alternativas secundárias e pouco eficazes.
 
 **54.** Em "Quando se removem os animais", o "se" é:
-A) Conjunção integrante.
+A) Conjunção integrante de oração.
 B) Índice de indeterminação do sujeito.
-C) Pronome reflexivo.
-D) Partícula apassivadora (os animais são removidos).
+C) Pronome reflexivo de ação própria.
+D) Partícula apassivadora da oração.
 
 **55.** Assinale a alternativa em que o emprego do pronome demonstrativo está correto.
-A) "Isto" que acabei de dizer é importante (referindo-se ao já dito).
-B) "Isso" que vou dizer a seguir é importante (referindo-se ao que virá).
-C) Aquilo aqui na minha mão é seu.
-D) Guarde bem isto: a prova será amanhã (anunciando o que vem).
+A) "Isto" que acabei de dizer é importante (já dito).
+B) "Isso" que direi a seguir é importante (o que virá).
+C) Aquilo aqui na minha mão é seu (perto de mim).
+D) Guarde bem isto: a prova será amanhã (o que vem).
 
 **56.** Em "Ele bebe café; ela, chá", a vírgula marca:
 A) Separação entre sujeito e verbo.
@@ -3649,7 +3649,7 @@ D) Aposto explicativo.
 A) excessão.
 B) exceção.
 C) esceção.
-D) excessão.
+D) exscessão.
 
 **58.** Assinale a alternativa em que há ERRO de concordância verbal.
 A) A maioria dos alunos faltou.
@@ -3724,10 +3724,10 @@ C) Derivação prefixal.
 D) Hibridismo (radicais de línguas diferentes).
 
 **70.** Em "A reunião foi adiada, o que frustrou a todos", o termo "o que" introduz oração:
-A) Subordinada substantiva subjetiva.
-B) Subordinada adjetiva explicativa (referindo-se a toda a ideia anterior).
-C) Coordenada adversativa.
-D) Subordinada adverbial concessiva.
+A) Subordinada substantiva subjetiva, de natureza nominal.
+B) Subordinada adjetiva explicativa, retomando a ideia anterior.
+C) Coordenada sindética adversativa de oposição.
+D) Subordinada adverbial concessiva de oração.
 
 **71.** Assinale a alternativa em que a concordância nominal está correta.
 A) As fichas seguem anexo.
@@ -3814,7 +3814,7 @@ C) Aspiro no cargo de diretor.
 D) Aspiro com o cargo de diretor.
 
 **85.** Em "Daqui a pouco começará a campanha", a expressão "Daqui a pouco":
-A) Deve receber crase no "a".
+A) Deve receber crase, no "a".
 B) Exige acento agudo.
 C) Está gramaticalmente incorreta.
 D) Não recebe crase, por indicar tempo futuro.
@@ -4049,10 +4049,10 @@ C) Letras e números.
 D) Hífen e sublinhado.
 
 **5.** A Lixeira do Windows armazena, em regra, arquivos excluídos:
-A) Do disco local, sendo recuperáveis até que seja esvaziada.
-B) De pen drives.
-C) De unidades de rede.
-D) Definitivamente apagados com Shift+Delete.
+A) Do disco local, recuperáveis até o esvaziamento.
+B) De pen drives e cartões de memória externos.
+C) De unidades de rede compartilhadas.
+D) Apagados com Shift+Delete, de forma definitiva.
 
 **6.** O atalho Ctrl + Z, no Windows e nos programas, serve para:
 A) Desfazer.
@@ -4079,22 +4079,22 @@ C) Extranet (totalmente pública).
 D) Intranet.
 
 **10.** A "extranet" caracteriza-se por:
-A) Ser totalmente pública e mundial.
-B) Ser uma intranet estendida a parceiros/clientes externos com acesso por senha.
-C) Não usar a tecnologia da internet.
-D) Ser sinônimo de internet.
+A) Ser uma rede de acesso público, mundial.
+B) Ser uma intranet estendida a parceiros externos, com senha.
+C) Não utilizar a tecnologia da internet comum.
+D) Ser um sinônimo direto da internet pública.
 
 **11.** A diferença fundamental entre HTTP e HTTPS é que o HTTPS:
-A) É mais lento e sem segurança.
-B) Não permite login.
-C) Utiliza criptografia (SSL/TLS), indicada pelo cadeado, garantindo segurança.
-D) É um navegador.
+A) É mais lento, inseguro e desprovido de criptografia, na conexão.
+B) Não permite a realização de login.
+C) Usa criptografia, indicada pelo cadeado, garantindo segurança.
+D) É um tipo de navegador de internet.
 
 **12.** Sobre os cookies, é correto afirmar que:
 A) São um tipo de vírus que danifica o computador.
-B) Substituem o antivírus.
-C) Roubam senhas automaticamente.
-D) São pequenos arquivos de texto que guardam informações de navegação e podem ser apagados.
+B) Substituem o antivírus na proteção do sistema.
+C) Roubam as senhas do usuário automaticamente.
+D) São arquivos de texto que guardam dados de navegação.
 
 **13.** A ação de "baixar" um arquivo de um servidor para o seu computador denomina-se:
 A) Download.
@@ -4103,10 +4103,10 @@ C) Streaming.
 D) Backup.
 
 **14.** No navegador, o modo anônimo/privativo:
-A) Apenas não salva o histórico e os cookies localmente, no aparelho.
-B) Torna o usuário invisível na internet para o provedor e os sites.
-C) Impede qualquer rastreamento.
-D) Bloqueia todos os vírus.
+A) Não salva o histórico nem os cookies no próprio aparelho.
+B) Torna o usuário invisível ao provedor e aos sites.
+C) Impede o rastreamento do usuário na internet.
+D) Bloqueia os vírus durante a navegação web.
 
 **15.** O operador de pesquisa que busca uma frase exatamente como escrita é:
 A) -palavra
@@ -4127,16 +4127,16 @@ C) Cc.
 D) Anexo.
 
 **18.** A diferença entre spam e phishing é que o phishing:
-A) É apenas propaganda não solicitada.
-B) É um filtro de e-mail.
-C) É um golpe que se passa por empresa/banco para roubar dados.
-D) É um tipo de cookie.
+A) É uma propaganda comercial não solicitada.
+B) É um filtro de mensagens de e-mail.
+C) É um golpe que finge ser banco para roubar dados.
+D) É um tipo específico de cookie.
 
 **19.** O principal vetor de transmissão de vírus por e-mail é:
-A) Os anexos, especialmente de remetentes desconhecidos.
-B) O campo assunto.
-C) A assinatura do remetente.
-D) O campo Cc.
+A) Os anexos de remetentes desconhecidos.
+B) O campo de assunto da mensagem.
+C) A assinatura no rodapé do remetente.
+D) O campo Cc dos destinatários.
 
 **20.** A extensão padrão de arquivos do Microsoft Word é:
 A) .xlsx
@@ -4181,16 +4181,16 @@ C) O sinal de = (igual).
 D) Um número.
 
 **27.** No Excel, a fórmula =SOMA(A1:A5):
-A) Soma apenas A1 e A5.
-B) Soma todas as células do intervalo de A1 até A5.
-C) Calcula a média de A1 a A5.
-D) Conta as células preenchidas.
+A) Soma as células A1 e A5, isoladas.
+B) Soma as células do intervalo de A1 até A5.
+C) Calcula a média dos valores de A1 a A5.
+D) Conta as células preenchidas do intervalo.
 
 **28.** No Excel, a fórmula =SOMA(A1;A5):
-A) Soma o intervalo de A1 até A5.
-B) Calcula a média.
-C) É inválida.
-D) Soma apenas as células A1 e A5.
+A) Soma todo o intervalo, de A1 até A5.
+B) Calcula a média das células.
+C) É uma fórmula inválida no Excel.
+D) Soma as duas células A1 e A5, separadas.
 
 **29.** A função do Excel que retorna o MAIOR valor de um intervalo é:
 A) =MÁXIMO()
@@ -4199,10 +4199,10 @@ C) =MÉDIA()
 D) =CONT.SE()
 
 **30.** A função =CONT.SE(A1:A10;">10") tem como resultado:
-A) A soma das células maiores que 10.
-B) O maior valor do intervalo.
-C) A média das células.
-D) A quantidade de células do intervalo cujo valor é maior que 10.
+A) A soma das células com valor maior que 10.
+B) O maior valor encontrado no intervalo.
+C) A média aritmética das células do intervalo.
+D) A quantidade de células com valor maior que 10.
 
 **31.** No Excel, a referência $A$1 é classificada como:
 A) Absoluta (travada).
@@ -4307,10 +4307,10 @@ C) Cookie, Cache e Histórico.
 D) Confidencialidade, Integridade e Disponibilidade.
 
 **48.** O certificado digital pode ser comparado a:
-A) Um antivírus.
-B) Um "RG/identidade eletrônico" que identifica uma pessoa ou empresa.
-C) Um firewall.
-D) Um cookie.
+A) Um programa antivírus do sistema.
+B) Um "RG eletrônico" que identifica pessoa ou empresa.
+C) Um firewall de proteção da rede.
+D) Um cookie de navegação do site.
 
 **49.** A infraestrutura que confere validade jurídica aos certificados digitais no Brasil é a:
 A) ANVISA.
@@ -4319,22 +4319,22 @@ C) ONU.
 D) Receita Federal.
 
 **50.** A assinatura digital garante, entre outros aspectos:
-A) Apenas a confidencialidade do conteúdo.
-B) A formatação do documento.
-C) A velocidade de envio.
+A) A confidencialidade do conteúdo, no envio.
+B) A formatação visual do documento.
+C) A velocidade de envio da mensagem.
 D) Autenticidade, integridade e não-repúdio.
 
 **51.** A diferença entre assinatura digital e assinatura digitalizada é que a digitalizada:
-A) Tem validade jurídica plena e usa criptografia.
-B) É emitida pela ICP-Brasil.
-C) É mais segura que a digital.
-D) É apenas a imagem (foto/scan) da assinatura à caneta, sem garantia técnica forte.
+A) Tem validade jurídica plena, com uso de criptografia.
+B) É emitida diretamente pela ICP-Brasil.
+C) É mais segura do que a assinatura digital.
+D) É a imagem escaneada da assinatura à caneta, sem garantia.
 
 **52.** Na criptografia assimétrica usada na assinatura digital:
 A) A chave pública assina e a privada verifica.
-B) Ambas as chaves são públicas.
-C) A chave privada (secreta) assina e a chave pública verifica.
-D) Não há chaves.
+B) As duas chaves do par são públicas.
+C) A chave privada assina e a pública verifica.
+D) Não há uso de chaves no processo.
 
 **53.** O atalho Alt + Tab, no Windows, serve para:
 A) Fechar o programa ativo.
@@ -4409,10 +4409,10 @@ C) Apenas o que mudou desde o último backup completo.
 D) Apenas o que mudou desde o último backup (de qualquer tipo).
 
 **65.** O firewall, diferentemente do antivírus:
-A) Remove vírus já instalados no computador.
-B) Substitui o backup.
-C) Faz cópias de segurança.
-D) Controla o tráfego de rede, bloqueando acessos não autorizados.
+A) Remove os vírus já instalados, no computador.
+B) Substitui o backup de cópias de segurança.
+C) Faz cópias de segurança dos arquivos.
+D) Controla o tráfego de rede, bloqueando acessos.
 
 **66.** Para que o antivírus mantenha sua eficácia, é fundamental que ele esteja:
 A) Desinstalado periodicamente.
@@ -4445,10 +4445,10 @@ C) Salvar.
 D) Procurar.
 
 **71.** No Excel, o símbolo ":" (dois-pontos) entre referências de células indica:
-A) Texto.
-B) Células avulsas.
-C) Multiplicação.
-D) Um intervalo contínuo (de uma célula até outra).
+A) Uma referência de texto.
+B) Células avulsas e separadas.
+C) A operação de multiplicação.
+D) Um intervalo contínuo de células.
 
 **72.** No Excel, a referência mista $A1 significa que:
 A) Apenas a coluna está travada.
@@ -4463,16 +4463,16 @@ C) Área de Notificação.
 D) Menu Iniciar.
 
 **74.** A operação de "compactar" arquivos (ZIP) serve para:
-A) Aumentar o tamanho dos arquivos.
-B) Reduzir o tamanho e/ou agrupar vários arquivos em um.
-C) Excluir arquivos.
-D) Renomear arquivos.
+A) Aumentar o tamanho final dos arquivos.
+B) Reduzir o tamanho e agrupar vários arquivos.
+C) Excluir arquivos do disco rígido.
+D) Renomear vários arquivos de uma vez.
 
 **75.** No contexto de e-mail, o spam é melhor definido como:
-A) Um golpe que rouba dados bancários.
-B) Um tipo de backup.
-C) Um certificado digital.
-D) Mensagem não solicitada, enviada em massa, geralmente de cunho comercial.
+A) Um golpe que rouba os dados bancários, da vítima.
+B) Um tipo de cópia de backup.
+C) Um certificado digital de identidade.
+D) Mensagem não solicitada, enviada em massa comercial.
 
 **76.** A técnica usada pelo phishing para enganar o usuário, sem necessariamente usar um vírus, é a:
 A) Engenharia social.
@@ -4493,10 +4493,10 @@ C) Encerrar a apresentação.
 D) Aplicar transição.
 
 **79.** O vírus de computador, diferentemente do worm:
-A) Precisa que o usuário execute um arquivo/programa hospedeiro para se espalhar.
-B) Se espalha sozinho pela rede sem ação do usuário.
-C) Não causa dano.
-D) É uma ferramenta de defesa.
+A) Precisa que o usuário execute um arquivo hospedeiro.
+B) Espalha-se sozinho pela rede, sem ação do usuário.
+C) Não causa nenhum dano ao sistema.
+D) É uma ferramenta de defesa do sistema.
 
 **80.** O spyware é o malware que tem como característica principal:
 A) Exigir resgate financeiro.
@@ -4517,10 +4517,10 @@ C) Salvar.
 D) Negrito.
 
 **83.** Em https://www.exemplo.com.br/contato, o trecho "/contato" representa:
-A) O protocolo.
-B) O domínio.
-C) O subdomínio.
-D) O caminho do recurso/página.
+A) O protocolo de comunicação.
+B) O domínio principal do site.
+C) O subdomínio do endereço.
+D) O caminho do recurso ou página.
 
 **84.** O recurso do navegador que armazena temporariamente partes de um site para carregá-lo mais rápido é o:
 A) Favorito.
@@ -4565,16 +4565,16 @@ C) Bloquear o computador.
 D) Mostrar a área de trabalho.
 
 **91.** Sobre arquivos excluídos de um pen drive no Windows, é correto afirmar que:
-A) Geralmente são removidos diretamente, sem passar pela Lixeira.
-B) Vão sempre para a Lixeira.
-C) São automaticamente compactados.
-D) Não podem ser excluídos.
+A) Em regra, são removidos sem passar pela Lixeira.
+B) Vão diretamente para a Lixeira, do sistema.
+C) São compactados de forma automática ao excluir.
+D) Não podem ser excluídos do dispositivo.
 
 **92.** O operador de busca "site:gov.br" tem como efeito:
-A) Excluir resultados do domínio.
-B) Buscar a frase exata.
-C) Buscar somente arquivos PDF.
-D) Restringir a busca apenas ao domínio indicado.
+A) Excluir os resultados do domínio indicado.
+B) Buscar a frase exata entre aspas.
+C) Buscar os arquivos do tipo PDF.
+D) Restringir a busca ao domínio indicado.
 
 **93.** A função =MÍNIMO(A1:A5) retorna:
 A) O menor valor do intervalo.
@@ -4589,22 +4589,22 @@ C) .doc
 D) .pdf
 
 **95.** No Excel, ao arrastar a fórmula =$A$1+B1 da célula C1 para C2, a referência $A$1:
-A) Muda para $A$2.
-B) Gera erro.
-C) Vira A2.
-D) Permanece $A$1 (absoluta), enquanto B1 vira B2.
+A) Passa a ser $A$2, na nova célula.
+B) Gera um erro de referência.
+C) Transforma-se na referência A2.
+D) Permanece $A$1, enquanto B1 vira B2.
 
 **96.** Entre as ações abaixo, a que NÃO é função do firewall é:
-A) Controlar o tráfego de entrada.
-B) Controlar o tráfego de saída.
-C) Bloquear acessos não autorizados.
+A) Controlar o tráfego de entrada da rede.
+B) Controlar o tráfego de saída da rede.
+C) Bloquear os acessos não autorizados.
 D) Remover um vírus já instalado no sistema.
 
 **97.** A diferença entre certificado digital e assinatura digital é que o certificado:
 A) É o ato de assinar; a assinatura é a identidade.
-B) Nenhum tem validade jurídica.
-C) São exatamente a mesma coisa.
-D) É a identidade eletrônica; a assinatura é o ato de assinar usando essa identidade.
+B) Nenhum dos dois tem validade jurídica.
+C) São exatamente a mesma coisa, sem distinção.
+D) É a identidade eletrônica; a assinatura é o ato de assinar.
 
 **98.** O atalho Ctrl + A, na maioria dos programas do Windows, serve para:
 A) Imprimir.
@@ -4619,10 +4619,10 @@ C) 15.
 D) 60.
 
 **100.** A respeito da segurança no uso de e-mails, a conduta CORRETA é:
-A) Desconfiar de remetentes desconhecidos e não abrir anexos/links suspeitos.
-B) Clicar em links de mensagens urgentes de bancos.
-C) Abrir todos os anexos para verificar o conteúdo.
-D) Informar senhas solicitadas por e-mail.
+A) Desconfiar de remetentes desconhecidos e de links suspeitos.
+B) Clicar nos links de mensagens urgentes de bancos.
+C) Abrir os anexos recebidos para verificar o conteúdo.
+D) Informar as senhas solicitadas por e-mail.
 
 ---
 
@@ -4741,7 +4741,7 @@ D) Informar senhas solicitadas por e-mail.
 A) 5/3.
 B) 3/5.
 C) 9/15.
-D) 15/9 (não simplificável).
+D) 15/9.
 
 **2.** Um carro percorre 300 km em 5 horas. A velocidade média é de:
 A) 50 km/h.
@@ -4819,7 +4819,7 @@ D) R$ 120,00.
 A) 25%.
 B) 20%.
 C) 30%.
-D) 40%.
+D) 35%.
 
 **15.** Um valor de R$ 100,00 sofre um aumento de 10% e, em seguida, um desconto de 10%. O valor final é:
 A) R$ 99,00.
@@ -5068,7 +5068,7 @@ C) 12 dias.
 D) 18 dias.
 
 **56.** Um carro a 90 km/h percorre, em 2,5 horas, uma distância de:
-A) 180 km.
+A) 195 km.
 B) 200 km.
 C) 225 km.
 D) 250 km.
@@ -5087,7 +5087,7 @@ D) 3/4.
 
 **59.** Um valor de R$ 100,00 sofre dois aumentos sucessivos de 20% cada. O valor final é:
 A) R$ 120,00.
-B) R$ 140,00.
+B) R$ 132,00.
 C) R$ 144,00.
 D) R$ 240,00.
 
@@ -5099,7 +5099,7 @@ D) R$ 160,00.
 
 **61.** O número 60 corresponde a quantos por cento de 240?
 A) 20%.
-B) 40%.
+B) 35%.
 C) 30%.
 D) 25%.
 
@@ -5160,7 +5160,7 @@ D) 1 h 30 min.
 **71.** O lucro percentual de um produto comprado por R$ 80,00 e vendido por R$ 100,00 é de:
 A) 25%.
 B) 20%.
-C) 30%.
+C) 35%.
 D) 80%.
 
 **72.** Em uma urna há 10 bolas, das quais 3 são vermelhas. A probabilidade de retirar uma bola vermelha é:
@@ -5182,10 +5182,10 @@ C) x = 3.
 D) x = 27.
 
 **75.** As raízes da equação x² − 9 = 0 são:
-A) somente 9.
-B) 9 e −9.
-C) somente 3.
-D) 3 e −3.
+A) O valor 9.
+B) Os valores 9 e −9.
+C) O valor 3.
+D) Os valores 3 e −3.
 
 **76.** A área de um retângulo de base 8 cm e altura 5 cm é:
 A) 13 cm².
@@ -5460,21 +5460,21 @@ D) curitibano.
 
 **2.** Ponta Grossa é conhecida pelos apelidos de:
 A) "Cidade Sorriso" e "Capital do Frio".
-B) "Princesa dos Campos" e "Capital Cívica do Paraná".
+B) "Princesa dos Campos" e "Capital Cívica".
 C) "Cidade das Pontes" e "Capital Verde".
 D) "Pérola do Atlântico" e "Cidade Jardim".
 
 **3.** O Município de Ponta Grossa foi criado em:
-A) 1823 (Decreto Imperial nº 15).
+A) 1823.
 B) 1990.
 C) 1853.
 D) 1988.
 
 **4.** Segundo o Censo 2022 do IBGE, a população de Ponta Grossa é de aproximadamente:
-A) 150 mil habitantes.
+A) 180 mil habitantes.
 B) 358 mil habitantes.
 C) 1 milhão de habitantes.
-D) 500 mil habitantes.
+D) 412 mil habitantes.
 
 **5.** Ponta Grossa localiza-se na região dos:
 A) Campos Gerais do Paraná.
@@ -5483,9 +5483,9 @@ C) Sertões do Nordeste.
 D) Pantanal.
 
 **6.** O principal cartão-postal natural de Ponta Grossa, com formações de arenito esculpidas pela erosão, é:
-A) As Cataratas do Iguaçu.
-B) O Pico da Bandeira.
-C) A Ilha do Mel.
+A) As Cataratas do Rio Iguaçu.
+B) O Pico da Bandeira capixaba.
+C) A Ilha do Mel paranaense.
 D) O Parque Estadual de Vila Velha.
 
 **7.** A atividade histórica que marcou a formação de Ponta Grossa, ligada às rotas que ligavam o Sul a Sorocaba/SP, foi:
@@ -5495,10 +5495,10 @@ C) A pesca industrial.
 D) A extração de petróleo.
 
 **8.** A prefeita de Ponta Grossa na gestão 2025–2028 é:
-A) Ratinho Junior.
+A) Carlos Ratinho Junior.
 B) Elizabeth Silveira Schmidt.
-C) Marisa Lobo.
-D) Sandra Silva.
+C) Marisa Lobo Santos.
+D) Sandra Silva Pereira.
 
 **9.** A capital do estado do Paraná é:
 A) Curitiba.
@@ -5537,14 +5537,14 @@ C) Paranaguá.
 D) Londrina.
 
 **15.** O governador do Paraná na gestão 2023–2026 é:
-A) Ratinho Junior (Carlos Massa Jr.).
+A) Ratinho Junior.
 B) Beto Richa.
 C) Roberto Requião.
 D) Lula da Silva.
 
 **16.** A forma de Estado do Brasil é a:
 A) Confederação.
-B) Federação (União + estados + DF + municípios).
+B) Federação.
 C) Estado unitário.
 D) Monarquia.
 
@@ -5579,16 +5579,16 @@ C) 25 estados e dois distritos.
 D) 26 estados e o Distrito Federal.
 
 **22.** O número de municípios do Brasil é de aproximadamente:
-A) 399.
-B) 1.000.
-C) 10.000.
-D) 5.570.
+A) 4.870 municípios.
+B) 1.200 municípios.
+C) 8.500 municípios.
+D) 5.570 municípios.
 
 **23.** O Poder Legislativo federal, de natureza bicameral, é exercido pelo:
 A) Supremo Tribunal Federal.
 B) Conselho Nacional de Justiça.
 C) Presidente da República.
-D) Congresso Nacional (Câmara dos Deputados e Senado Federal).
+D) Congresso Nacional.
 
 **24.** No Senado Federal, cada estado e o Distrito Federal são representados por:
 A) 1 senador.
@@ -5603,13 +5603,13 @@ C) A Mata Atlântica.
 D) A Caatinga.
 
 **26.** A COP30, conferência do clima da ONU, foi sediada pelo Brasil em 2025 na cidade de:
-A) Curitiba.
-B) Rio de Janeiro.
+A) Curitiba (PR).
+B) Rio de Janeiro (RJ).
 C) Belém (PA).
-D) Brasília.
+D) Brasília (DF).
 
 **27.** A Reforma Tributária regulamentada pela LC nº 214/2025 criou o IVA dual, composto por:
-A) CBS (federal) e IBS (estados/municípios).
+A) CBS e IBS.
 B) ICMS e ISS.
 C) IPI e IOF.
 D) IR e CSLL.
@@ -5621,14 +5621,14 @@ C) Dezembro de 2026.
 D) Outubro de 2026.
 
 **29.** Um dos temas tecnológicos mais debatidos no período, com impactos em trabalho, eleições e educação, é:
-A) O rádio AM.
-B) O telégrafo.
+A) O rádio AM analógico.
+B) O telégrafo elétrico.
 C) A inteligência artificial generativa.
-D) A máquina de escrever.
+D) A antiga máquina de escrever.
 
 **30.** A abordagem que integra a saúde humana, animal e ambiental, alinhada ao perfil do cargo de médico veterinário, é a:
 A) Medicina isolada.
-B) Saúde Única (One Health).
+B) Saúde Única.
 C) Saúde suplementar.
 D) Telemedicina exclusiva.
 
@@ -5651,16 +5651,16 @@ C) 50ª maior cidade.
 D) Menor cidade.
 
 **34.** A universidade estadual de referência sediada em Ponta Grossa é a:
-A) UEPG (Universidade Estadual de Ponta Grossa).
+A) UEPG.
 B) UFPR.
 C) UEL.
 D) USP.
 
 **35.** A população do estado do Paraná, segundo o Censo 2022, é de aproximadamente:
-A) 5 milhões.
-B) 20 milhões.
+A) 5,5 milhões.
+B) 18 milhões.
 C) 11,4 milhões.
-D) 50 milhões.
+D) 45 milhões.
 
 **36.** A região do Brasil em que se localiza o estado do Paraná é a:
 A) Norte.
@@ -5669,10 +5669,10 @@ C) Centro-Oeste.
 D) Sul.
 
 **37.** O Distrito Federal, na organização político-administrativa do Brasil:
-A) É uma unidade federativa própria (nem estado nem município).
-B) É um município.
-C) É um estado comum.
-D) Não integra a federação.
+A) É uma unidade federativa própria, sui generis.
+B) É um município, da federação brasileira.
+C) É um estado comum como os demais.
+D) Não integra a federação brasileira.
 
 **38.** O Presidente da República no mandato 2023–2026 é:
 A) Jair Bolsonaro.
@@ -5681,34 +5681,34 @@ C) Luiz Inácio Lula da Silva.
 D) Dilma Rousseff.
 
 **39.** O clima predominante na região de Ponta Grossa é o:
-A) Equatorial úmido.
-B) Desértico.
-C) Semiárido.
-D) Subtropical (Cfb), temperado, sem estação seca.
+A) Equatorial, úmido e quente.
+B) Desértico e árido.
+C) Semiárido e seco.
+D) Subtropical (Cfb), sem estação seca.
 
 **40.** Entre os setores econômicos de Ponta Grossa, têm grande peso:
-A) A pesca oceânica e o turismo de praia.
-B) A mineração de ferro.
-C) A extração de petróleo offshore.
-D) Os serviços e a indústria (agroindústria, madeira, alimentos), com forte papel logístico.
+A) A pesca oceânica, com o turismo de praia.
+B) A mineração de minério de ferro.
+C) A extração de petróleo em alto-mar.
+D) Os serviços, a indústria e a logística regional.
 
 **41.** A população do Brasil, segundo o Censo 2022, é de aproximadamente:
 A) 203 milhões.
-B) 150 milhões.
-C) 100 milhões.
-D) 300 milhões.
+B) 145 milhões.
+C) 95 milhões.
+D) 280 milhões.
 
 **42.** As tradições gastronômicas de Ponta Grossa estão ligadas à cultura:
-A) Pampeana argentina.
-B) Indígena amazônica exclusivamente.
-C) Litorânea baiana.
-D) Tropeira (arroz tropeiro/carreteiro, feijão tropeiro).
+A) Pampeana, gaúcha e argentina.
+B) Indígena e amazônica.
+C) Litorânea e baiana.
+D) Tropeira, do arroz e do feijão tropeiro.
 
 **43.** A Reforma Tributária prevê substituição de tributos sobre o consumo de forma:
-A) Gradual, por meio de período de transição.
-B) Imediata e integral em 2025.
-C) Apenas em 2050, sem transição.
-D) Sem qualquer mudança real.
+A) Gradual, por meio de um período de transição.
+B) Imediata e integral, já a partir de 2025.
+C) Tardia, a partir de 2050, sem transição.
+D) Inexistente, sem mudança real na prática.
 
 **44.** Os Campos Gerais, onde se situa Ponta Grossa, localizam-se no:
 A) 1º planalto paranaense.
@@ -5729,9 +5729,9 @@ C) O peso.
 D) O euro.
 
 **47.** A imigração que marcou fortemente os Campos Gerais e a região de Ponta Grossa inclui descendentes de:
-A) Apenas japoneses.
-B) Apenas portugueses.
-C) Apenas africanos.
+A) Sobretudo os japoneses, chineses e coreanos.
+B) Sobretudo os portugueses.
+C) Sobretudo os africanos.
 D) Alemães, ucranianos, poloneses e italianos.
 
 **48.** Entre os limites do estado do Paraná, encontram-se fronteiras com os países:
@@ -5741,16 +5741,16 @@ C) Chile e Peru.
 D) Venezuela e Colômbia.
 
 **49.** Um debate central associado às eleições de 2026 e à tecnologia é:
-A) O uso de inteligência artificial generativa e deepfakes, e sua regulação.
-B) O retorno do voto em cédula de papel exclusivamente.
-C) A proibição total da internet.
-D) O fim do horário eleitoral.
+A) O uso de inteligência artificial generativa e deepfakes.
+B) O retorno do voto em cédula de papel impressa.
+C) A proibição ampla do acesso à internet.
+D) O fim do horário eleitoral gratuito.
 
 **50.** A respeito da distinção entre a criação do Município de Ponta Grossa e sua Lei Orgânica, é correto afirmar:
-A) Ambas ocorreram em 1990.
-B) A Lei Orgânica é de 1823.
-C) O Município foi criado em 1988.
-D) O Município foi criado em 1823 (Decreto Imperial nº 15), e a Lei Orgânica foi promulgada em 1990.
+A) Ambas ocorreram, no mesmo ano, em 1990.
+B) A Lei Orgânica do Município data de 1823.
+C) O Município de Ponta Grossa foi criado em 1988.
+D) O Município foi criado em 1823, e a Lei Orgânica, em 1990.
 
 ---
 
