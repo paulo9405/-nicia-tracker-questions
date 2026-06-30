@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Mini Quiz — {{ chapter.title }}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'study_plan:dashboard' %}">Plano</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'study_plan:module_detail' module.slug %}">{{ module.title }}</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'study_plan:chapter_read' module.slug chapter.slug %}">{{ chapter.title }}</a></li>
+      <li class="breadcrumb-item active">Mini Quiz</li>
+    </ol>
+  </nav>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <!-- Progresso das etapas -->
+      <div class="d-flex gap-2 mb-4 flex-wrap">
+        <span class="badge bg-success">1. Leitura ✓</span>
+        <span class="badge bg-success">2. Nota ✓</span>
+        <span class="badge bg-success">3. Reflexão ✓</span>
+        <span class="badge bg-primary">4. Mini Quiz</span>
+        <span class="badge bg-secondary">5. Questões Sugeridas</span>
+      </div>
+
+      <h2 class="h4 mb-1">Mini Quiz</h2>
+      <p class="text-muted mb-4">{{ chapter.title }}</p>
+
+      {% if has_enough_questions %}
+        <!-- Estado: questões disponíveis -->
+        <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body text-center py-5">
+            <div class="fs-1 mb-3">🎯</div>
+            <h3 class="h5">{{ available_count }} questão{% if available_count != 1 %}s{% endif %} disponível{% if available_count != 1 %}s{% endif %}</h3>
+            <p class="text-muted mb-4">
+              Questões do banco relacionadas ao conteúdo que você estudou.<br>
+              O quiz terá entre 3 e 5 questões.
+            </p>
+            <form method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary btn-lg px-5">
+                Iniciar Mini Quiz
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {% if suggested_questions %}
+        <div class="card border-0 shadow-sm mb-4">
+          <div class="card-header bg-white fw-semibold">
+            Prévia das questões
+          </div>
+          <ul class="list-group list-group-flush">
+            {% for q in suggested_questions %}
+            <li class="list-group-item">
+              <span class="badge bg-secondary me-2">{{ q.subject.name }}</span>
+              {{ q.text|truncatechars:120 }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+      {% else %}
+        <!-- Estado: questões insuficientes -->
+        <div class="card border-warning border mb-4">
+          <div class="card-body text-center py-5">
+            <div class="fs-1 mb-3">📚</div>
+            <h3 class="h5">Questões insuficientes no banco</h3>
+            <p class="text-muted mb-4">
+              Ainda não há questões suficientes no banco para este tema específico.<br>
+              Você pode praticar com questões gerais da disciplina.
+            </p>
+            {% if module.subject %}
+            <a href="{% url 'exams:filter' %}?subject={{ module.subject.id }}"
+               class="btn btn-outline-primary me-2">
+              Treinar questões de {{ module.subject.name }}
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- Navegação -->
+      <div class="d-flex justify-content-between mt-3">
+        <a href="{% url 'study_plan:chapter_reflection' module.slug chapter.slug %}" class="btn btn-outline-secondary btn-sm">
+          ← Voltar à reflexão
+        </a>
+        <a href="{% url 'study_plan:module_detail' module.slug %}" class="btn btn-outline-secondary btn-sm">
+          Pular e voltar ao módulo →
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

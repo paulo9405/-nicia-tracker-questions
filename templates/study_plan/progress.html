@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block title %}Progresso — Nícia Track{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0"><i class="bi bi-bar-chart-line me-2 text-primary"></i>Meu Progresso</h1>
+  <a href="{% url 'study_plan:dashboard' %}" class="btn btn-outline-secondary btn-sm">
+    <i class="bi bi-arrow-left me-1"></i>Voltar ao Plano
+  </a>
+</div>
+
+{% with s=stats %}
+
+{# ── Streak ─────────────────────────────────────────────────────────── #}
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-4">
+    <div class="card text-center h-100 border-0 shadow-sm">
+      <div class="card-body py-3">
+        <div class="display-5 fw-bold {% if s.current_streak >= 3 %}text-warning{% else %}text-secondary{% endif %}">
+          {{ s.current_streak }}<span class="fs-4">🔥</span>
+        </div>
+        <div class="small text-muted mt-1">Streak atual</div>
+        {% if s.current_streak == 0 %}
+        <div class="small text-muted mt-1">Estude hoje para começar!</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-4">
+    <div class="card text-center h-100 border-0 shadow-sm">
+      <div class="card-body py-3">
+        <div class="display-5 fw-bold text-primary">{{ s.max_streak }}</div>
+        <div class="small text-muted mt-1">Maior streak</div>
+        <div class="small text-muted">dias consecutivos</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="card text-center h-100 border-0 shadow-sm">
+      <div class="card-body py-3">
+        <div class="display-5 fw-bold text-success">{{ s.total_study_days }}</div>
+        <div class="small text-muted mt-1">Dias estudados</div>
+        <div class="small text-muted">no total</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Calendário ──────────────────────────────────────────────────────── #}
+<div class="card border-0 shadow-sm mb-4">
+  <div class="card-body">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <a href="?year={{ prev_year }}&month={{ prev_month }}"
+         class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-chevron-left"></i>
+      </a>
+      <h5 class="mb-0 fw-semibold">{{ calendar_month_name }} {{ calendar_year }}</h5>
+      <a href="?year={{ next_year }}&month={{ next_month }}"
+         class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-chevron-right"></i>
+      </a>
+    </div>
+
+    {# Cabeçalho dos dias da semana (segunda-feira primeiro) #}
+    <div class="calendar-grid mb-1">
+      <div class="cal-header text-muted small text-center">Seg</div>
+      <div class="cal-header text-muted small text-center">Ter</div>
+      <div class="cal-header text-muted small text-center">Qua</div>
+      <div class="cal-header text-muted small text-center">Qui</div>
+      <div class="cal-header text-muted small text-center">Sex</div>
+      <div class="cal-header text-muted small text-center">Sáb</div>
+      <div class="cal-header text-muted small text-center">Dom</div>
+    </div>
+
+    {# Células do calendário #}
+    {% for week in calendar_weeks %}
+    <div class="calendar-grid mb-1">
+      {% for day, active in week %}
+        {% if day == 0 %}
+        <div class="cal-cell cal-empty"></div>
+        {% else %}
+          {% if day == today.day and calendar_month == today.month and calendar_year == today.year %}
+          <div class="cal-cell {% if active %}cal-active{% else %}cal-inactive{% endif %} cal-today"
+               title="{{ day }}/{{ calendar_month }}/{{ calendar_year }} — hoje">
+            <span class="cal-day">{{ day }}</span>
+          </div>
+          {% else %}
+          <div class="cal-cell {% if active %}cal-active{% else %}cal-inactive{% endif %}"
+               title="{{ day }}/{{ calendar_month }}/{{ calendar_year }}{% if active %} — estudou{% endif %}">
+            <span class="cal-day">{{ day }}</span>
+          </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+
+    <div class="d-flex align-items-center gap-3 mt-3 small text-muted">
+      <span><span class="cal-legend cal-active-legend"></span> Estudou</span>
+      <span><span class="cal-legend cal-inactive-legend"></span> Não estudou</span>
+    </div>
+  </div>
+</div>
+
+{# ── Progresso dos capítulos ─────────────────────────────────────────── #}
+<div class="row g-3 mb-4">
+  <div class="col-12">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold mb-3">
+          <i class="bi bi-book me-2 text-primary"></i>Progresso de Estudo
+        </h5>
+
+        <div class="mb-3">
+          <div class="d-flex justify-content-between small mb-1">
+            <span class="text-muted">Capítulos concluídos</span>
+            <span class="fw-semibold">{{ s.completed_chapters }}/{{ s.total_chapters }}
+              <span class="text-muted">({{ s.overall_percentage }}%)</span>
+            </span>
+          </div>
+          <div class="progress" style="height:10px">
+            <div class="progress-bar
+              {% if s.overall_percentage >= 80 %}bg-success
+              {% elif s.overall_percentage >= 50 %}bg-primary
+              {% elif s.overall_percentage >= 20 %}bg-warning
+              {% else %}bg-secondary{% endif %}"
+              style="width:{{ s.overall_percentage }}%"
+              role="progressbar"
+              aria-valuenow="{{ s.overall_percentage }}"
+              aria-valuemin="0" aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-6 col-md-3">
+            <div class="text-center p-2 bg-light rounded">
+              <div class="fw-bold fs-5 text-success">{{ s.completed_modules }}</div>
+              <div class="small text-muted">Módulos<br>concluídos</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="text-center p-2 bg-light rounded">
+              <div class="fw-bold fs-5 text-warning">{{ s.in_progress_chapters }}</div>
+              <div class="small text-muted">Capítulos<br>em andamento</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="text-center p-2 bg-light rounded">
+              <div class="fw-bold fs-5 text-info">
+                {% if s.total_minutes_estimated %}
+                  {{ s.total_minutes_estimated|floatformat:"0" }}min
+                {% else %}
+                  —
+                {% endif %}
+              </div>
+              <div class="small text-muted">Tempo estimado<br>estudado</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="text-center p-2 bg-light rounded">
+              <div class="fw-bold fs-5 text-primary">{{ s.total_modules }}</div>
+              <div class="small text-muted">Total de<br>módulos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Atividades de aprendizagem ──────────────────────────────────────── #}
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body">
+        <h6 class="card-subtitle fw-semibold text-muted mb-3">
+          <i class="bi bi-pencil-square me-1"></i>Aprendizagem Ativa
+        </h6>
+        <div class="row g-2 text-center">
+          <div class="col-6">
+            <div class="fw-bold fs-4 text-primary">{{ s.notes_created }}</div>
+            <div class="small text-muted">Notas criadas</div>
+          </div>
+          <div class="col-6">
+            <div class="fw-bold fs-4 text-info">{{ s.reflections_created }}</div>
+            <div class="small text-muted">Reflexões feitas</div>
+          </div>
+        </div>
+        {% if s.notes_created == 0 and s.reflections_created == 0 %}
+        <p class="small text-muted text-center mt-2 mb-0">
+          Conclua um capítulo e registre sua primeira nota!
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body">
+        <h6 class="card-subtitle fw-semibold text-muted mb-3">
+          <i class="bi bi-patch-question me-1"></i>Prática com Questões
+        </h6>
+        <div class="row g-2 text-center">
+          <div class="col-6">
+            <div class="fw-bold fs-4 text-success">{{ s.mini_quizzes_done }}</div>
+            <div class="small text-muted">Mini quizzes feitos</div>
+          </div>
+          <div class="col-6">
+            <div class="fw-bold fs-4 {% if s.errors_pending > 0 %}text-danger{% else %}text-secondary{% endif %}">
+              {{ s.errors_pending }}
+            </div>
+            <div class="small text-muted">Erros pendentes</div>
+          </div>
+        </div>
+        {% if s.errors_pending > 0 %}
+        <div class="text-center mt-2">
+          <a href="{% url 'study_plan:error_notebook' %}" class="btn btn-outline-danger btn-sm">
+            <i class="bi bi-journal-x me-1"></i>Revisar erros
+          </a>
+        </div>
+        {% elif s.errors_reviewed > 0 %}
+        <p class="small text-success text-center mt-2 mb-0">
+          <i class="bi bi-check-circle me-1"></i>Todos os {{ s.errors_reviewed }} erros revisados!
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Estado vazio ─────────────────────────────────────────────────────── #}
+{% if s.total_study_days == 0 %}
+<div class="alert alert-info d-flex align-items-start gap-2" role="alert">
+  <i class="bi bi-info-circle-fill fs-5 mt-1 flex-shrink-0"></i>
+  <div>
+    <strong>Ainda sem atividade registrada.</strong><br>
+    Comece estudando um capítulo do Plano de Estudos e seu progresso aparecerá aqui.
+    <div class="mt-2">
+      <a href="{% url 'study_plan:dashboard' %}" class="btn btn-info btn-sm text-white">
+        Ir para o Plano de Estudos
+      </a>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endwith %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  .cal-header {
+    padding: 4px 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .cal-cell {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 500;
+    position: relative;
+    cursor: default;
+  }
+  .cal-empty { background: transparent; }
+  .cal-active {
+    background: #198754;
+    color: #fff;
+  }
+  .cal-inactive {
+    background: #e9ecef;
+    color: #adb5bd;
+  }
+  .cal-today {
+    outline: 2px solid #0d6efd;
+    outline-offset: 1px;
+  }
+  .cal-active.cal-today { outline-color: #0d6efd; }
+  .cal-legend {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+  .cal-active-legend { background: #198754; }
+  .cal-inactive-legend { background: #e9ecef; border: 1px solid #dee2e6; }
+
+  @media (max-width: 576px) {
+    .cal-cell { font-size: 0.68rem; }
+    .cal-header { font-size: 0.62rem; }
+  }
+</style>
+{% endblock %}

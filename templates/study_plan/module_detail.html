@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}{{ module.title }} — Plano de Estudos{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'study_plan:dashboard' %}">Plano de Estudos</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'study_plan:module_list' %}">Módulos</a></li>
+    <li class="breadcrumb-item active">{{ module.title }}</li>
+  </ol>
+</nav>
+
+{# ── Header do módulo ────────────────────────────────────────────── #}
+<div class="card border-0 shadow-sm mb-4">
+  <div class="card-body">
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+      <div>
+        <h2 class="h4 mb-1">
+          <span class="me-2">{{ module.icon }}</span>{{ module.title }}
+        </h2>
+        <div class="text-muted small mb-2">
+          Módulo {{ module.order }}
+          · Fase {{ module.get_study_phase_display }}
+          · {{ module.estimated_hours }}h estimadas
+          {% if module.subject %}· <span class="badge" style="background-color:{{ module.subject.color }}">{{ module.subject.name }}</span>{% endif %}
+        </div>
+        {% if module.description %}
+        <p class="text-muted mb-0">{{ module.description }}</p>
+        {% endif %}
+      </div>
+      <div class="text-center">
+        <div class="display-5 fw-bold {% if module_progress.percentage == 100 %}text-success{% else %}text-primary{% endif %}">
+          {{ module_progress.percentage }}%
+        </div>
+        <div class="small text-muted">
+          {{ module_progress.completed }}/{{ module_progress.total_chapters }} capítulos
+        </div>
+        <div class="progress mt-1" style="width:100px; height:6px">
+          <div class="progress-bar" style="width:{{ module_progress.percentage }}%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Lista de capítulos ──────────────────────────────────────────── #}
+<h5 class="fw-semibold mb-3">Capítulos</h5>
+<div class="list-group shadow-sm">
+  {% for chapter, progress in chapters_with_progress %}
+  <div class="list-group-item list-group-item-action p-0">
+    <div class="d-flex align-items-center p-3">
+
+      {# Status icon #}
+      <div class="me-3 text-center" style="width:32px">
+        {% if progress and progress.status == "completed" %}
+          <i class="bi bi-check-circle-fill text-success fs-5"></i>
+        {% elif progress and progress.status == "in_progress" %}
+          <i class="bi bi-play-circle-fill text-warning fs-5"></i>
+        {% else %}
+          <i class="bi bi-circle text-muted fs-5"></i>
+        {% endif %}
+      </div>
+
+      {# Info #}
+      <div class="flex-grow-1">
+        <div class="fw-semibold">{{ chapter.order }}. {{ chapter.title }}</div>
+        <div class="small text-muted">
+          <i class="bi bi-clock me-1"></i>{{ chapter.estimated_minutes }} min
+          {% if chapter.sections_source %}· {{ chapter.sections_source }}{% endif %}
+        </div>
+        {% if chapter.tags %}
+        <div class="mt-1">
+          {% for tag in chapter.tags|slice:":4" %}
+            <span class="badge bg-light text-secondary border me-1" style="font-size:.7rem">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      {# Ação #}
+      <div class="ms-3">
+        {% if progress and progress.status == "completed" %}
+          <a href="{% url 'study_plan:chapter_read' module.slug chapter.slug %}" class="btn btn-sm btn-outline-success">
+            <i class="bi bi-arrow-repeat me-1"></i>Rever
+          </a>
+        {% elif progress and progress.status == "in_progress" %}
+          <a href="{% url 'study_plan:chapter_read' module.slug chapter.slug %}" class="btn btn-sm btn-warning">
+            <i class="bi bi-play-fill me-1"></i>Continuar
+          </a>
+        {% else %}
+          <a href="{% url 'study_plan:chapter_read' module.slug chapter.slug %}" class="btn btn-sm btn-primary">
+            <i class="bi bi-book-open me-1"></i>Estudar
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+  {% empty %}
+  <div class="list-group-item text-muted">Nenhum capítulo disponível.</div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Aprendizagem Ativa — {{ chapter.title }}{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'study_plan:dashboard' %}">Plano de Estudos</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'study_plan:module_detail' module.slug %}">{{ module.title }}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'study_plan:chapter_read' module.slug chapter.slug %}">Cap. {{ chapter.order }}</a></li>
+    <li class="breadcrumb-item active">Aprendizagem Ativa</li>
+  </ol>
+</nav>
+
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+
+    {# Etapas do capítulo #}
+    <div class="d-flex align-items-center gap-2 mb-4 small text-muted">
+      <span class="badge bg-success"><i class="bi bi-check me-1"></i>Leitura</span>
+      <span class="text-muted">→</span>
+      <span class="badge bg-primary">Aprendizagem Ativa</span>
+      <span class="text-muted">→</span>
+      <span class="badge {% if completion_status.has_reflection %}bg-success{% else %}bg-light text-secondary border{% endif %}">Reflexão Guiada</span>
+    </div>
+
+    {# Card instrucional #}
+    <div class="card border-0 shadow-sm mb-4 border-start border-primary border-4">
+      <div class="card-body">
+        <h5 class="card-title"><i class="bi bi-pencil-square me-2 text-primary"></i>Por que escrever com suas palavras?</h5>
+        <p class="card-text text-muted mb-0">
+          Reformular o conteúdo em suas próprias palavras é a técnica mais eficaz para consolidar a memória de longo prazo.
+          Não é uma cópia — é uma explicação. Escreva como se estivesse explicando para alguém que nunca estudou o tema.
+        </p>
+      </div>
+    </div>
+
+    {# Aviso de capítulo atual #}
+    <div class="card border-0 bg-light mb-4">
+      <div class="card-body py-2">
+        <span class="text-muted small">
+          <span class="me-2">{{ module.icon }}</span>
+          <strong>{{ chapter.title }}</strong>
+          · {{ module.title }} · Capítulo {{ chapter.order }}
+        </span>
+      </div>
+    </div>
+
+    {% if existing_note %}
+    <div class="alert alert-info alert-dismissible fade show mb-3" role="alert">
+      <i class="bi bi-info-circle me-2"></i>
+      Você já tem uma nota salva para este capítulo. Edite abaixo para atualizar.
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endif %}
+
+    {# Formulário #}
+    <div class="card border-0 shadow-sm mb-4">
+      <div class="card-body">
+        <form method="post" id="noteForm">
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label for="{{ form.explanation.id_for_label }}" class="form-label fw-semibold">
+              {{ form.explanation.label }}
+            </label>
+            {{ form.explanation }}
+            {% if form.explanation.errors %}
+              <div class="invalid-feedback d-block">{{ form.explanation.errors.0 }}</div>
+            {% endif %}
+            <div class="form-text d-flex justify-content-between">
+              <span>Mínimo de 20 caracteres.</span>
+              <span id="charCount" class="text-muted">0 caracteres</span>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-4">
+            <a href="{% url 'study_plan:chapter_reflection' module.slug chapter.slug %}" class="btn btn-link text-muted p-0">
+              Pular esta etapa →
+            </a>
+            <button type="submit" class="btn btn-primary px-4">
+              <i class="bi bi-save me-1"></i>Salvar e ir para a Reflexão
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Link de volta #}
+    <div class="text-center mt-2">
+      <a href="{% url 'study_plan:chapter_read' module.slug chapter.slug %}" class="text-decoration-none text-muted small">
+        <i class="bi bi-arrow-left me-1"></i>Voltar ao capítulo
+      </a>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  const textarea = document.getElementById('id_explanation');
+  const counter = document.getElementById('charCount');
+  function updateCount() {
+    const n = textarea.value.trim().length;
+    counter.textContent = n + ' caractere' + (n !== 1 ? 's' : '');
+    counter.className = n < 20 ? 'text-danger' : 'text-success';
+  }
+  textarea.addEventListener('input', updateCount);
+  updateCount();
+</script>
+{% endblock %}

@@ -7,4 +7,5 @@ urlpatterns = [
     path("questoes/", include("apps.exams.urls", namespace="exams")),
     path("", include("apps.dashboard.urls", namespace="dashboard")),
     path("estatisticas/", include("apps.performance.urls", namespace="performance")),
+    path("plano/", include("apps.study_plan.urls", namespace="study_plan")),
 ]

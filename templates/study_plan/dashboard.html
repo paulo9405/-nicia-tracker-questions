@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}Plano de Estudos — Nícia Track{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0"><i class="bi bi-book me-2 text-primary"></i>Plano de Estudos</h1>
+  <div class="d-flex gap-2">
+    <a href="{% url 'study_plan:progress' %}" class="btn btn-outline-success btn-sm">
+      <i class="bi bi-bar-chart-line me-1"></i>Meu progresso
+    </a>
+    <a href="{% url 'study_plan:module_list' %}" class="btn btn-outline-primary btn-sm">
+      <i class="bi bi-list-ul me-1"></i>Ver módulos
+    </a>
+  </div>
+</div>
+
+{% with s=summary %}
+
+{# ── Botão principal ─────────────────────────────────────────────── #}
+{% if s.next_chapter %}
+<div class="alert alert-primary d-flex align-items-center justify-content-between mb-4" role="alert">
+  <div>
+    <i class="bi bi-play-circle-fill me-2 fs-5"></i>
+    <strong>Continuar de onde parei:</strong>
+    {{ s.next_chapter.module.title }} — {{ s.next_chapter.title }}
+  </div>
+  <a href="{% url 'study_plan:chapter_read' s.next_chapter.module.slug s.next_chapter.slug %}" class="btn btn-primary btn-sm ms-3 text-nowrap">
+    Estudar agora <i class="bi bi-arrow-right ms-1"></i>
+  </a>
+</div>
+{% else %}
+<div class="alert alert-success mb-4">
+  <i class="bi bi-trophy-fill me-2"></i><strong>Todos os capítulos concluídos!</strong> Incrível, Nícia!
+</div>
+{% endif %}
+
+{# ── Métricas ────────────────────────────────────────────────────── #}
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-3">
+    <div class="card text-center h-100 border-0 shadow-sm">
+      <div class="card-body py-3">
+        <div class="display-6 fw-bold text-primary">{{ s.overall_percentage }}%</div>
+        <div class="small text-muted mt-1">Progresso geral</div>
+        <div class="progress mt-2" style="height:6px">
+          <div class="progress-bar" style="width:{{ s.overall_percentage }}%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card text-center h-100 border-0 shadow-sm">
+      <div class="card-body py-3">
+        <div class="display-6 fw-bold text-success">{{ s.completed_chapters }}</div>
+        <div class="small text-muted mt-1">Capítulos concluídos</div>
+        <div class="small text-muted">de {{ s.total_chapters }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <a href="{% url 'study_plan:progress' %}" class="text-decoration-none">
+      <div class="card text-center h-100 border-0 shadow-sm card-hover">
+        <div class="card-body py-3">
+          <div class="display-6 fw-bold {% if s.streak_days >= 3 %}text-warning{% else %}text-secondary{% endif %}">
+            {{ s.streak_days }}🔥
+          </div>
+          <div class="small text-muted mt-1">Dias consecutivos</div>
+          <div class="small text-primary mt-1">Ver progresso →</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card text-center h-100 border-0 shadow-sm">
+      <div class="card-body py-3">
+        <div class="display-6 fw-bold text-info">{{ s.in_progress_chapters }}</div>
+        <div class="small text-muted mt-1">Em andamento</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ── Módulos Específicos ─────────────────────────────────────────── #}
+<h5 class="fw-semibold text-muted mb-3">
+  <i class="bi bi-bookmark-star me-1"></i>Conhecimentos Específicos
+</h5>
+<div class="row g-3 mb-4">
+  {% for mp in s.module_progresses %}
+    {% if mp.module.category == "specific" %}
+    <div class="col-md-6 col-lg-4">
+      <a href="{% url 'study_plan:module_detail' mp.module.slug %}" class="text-decoration-none">
+        <div class="card h-100 border-0 shadow-sm card-hover">
+          <div class="card-body">
+            <div class="d-flex align-items-start justify-content-between">
+              <div>
+                <span class="fs-4 me-2">{{ mp.module.icon }}</span>
+                <span class="fw-semibold">{{ mp.module.title }}</span>
+              </div>
+              {% if mp.percentage == 100 %}
+                <span class="badge bg-success rounded-pill">✅ Concluído</span>
+              {% elif mp.in_progress > 0 %}
+                <span class="badge bg-warning text-dark rounded-pill">Em andamento</span>
+              {% else %}
+                <span class="badge bg-secondary rounded-pill">Não iniciado</span>
+              {% endif %}
+            </div>
+            <div class="mt-2 small text-muted">
+              {{ mp.completed }}/{{ mp.total_chapters }} capítulos
+              · Fase {{ mp.module.study_phase }}
+            </div>
+            <div class="progress mt-2" style="height:5px">
+              <div class="progress-bar
+                {% if mp.percentage == 100 %}bg-success
+                {% elif mp.percentage >= 50 %}bg-primary
+                {% else %}bg-secondary{% endif %}"
+                style="width:{{ mp.percentage }}%"></div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{# ── Módulos Básicas ─────────────────────────────────────────────── #}
+<h5 class="fw-semibold text-muted mb-3">
+  <i class="bi bi-bookmark me-1"></i>Conhecimentos Básicos
+</h5>
+<div class="row g-3">
+  {% for mp in s.module_progresses %}
+    {% if mp.module.category == "basic" %}
+    <div class="col-md-6 col-lg-3">
+      <a href="{% url 'study_plan:module_detail' mp.module.slug %}" class="text-decoration-none">
+        <div class="card h-100 border-0 shadow-sm card-hover">
+          <div class="card-body">
+            <div class="fs-4 mb-1">{{ mp.module.icon }}</div>
+            <div class="fw-semibold">{{ mp.module.title }}</div>
+            <div class="small text-muted mt-1">{{ mp.completed }}/{{ mp.total_chapters }} capítulos</div>
+            <div class="progress mt-2" style="height:5px">
+              <div class="progress-bar" style="width:{{ mp.percentage }}%"></div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% endwith %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  .card-hover { transition: transform .15s, box-shadow .15s; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.12) !important; }
+</style>
+{% endblock %}

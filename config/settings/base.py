@@ -25,6 +25,7 @@ LOCAL_APPS = [
     "apps.exams",
     "apps.dashboard",
     "apps.performance",
+    "apps.study_plan",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS

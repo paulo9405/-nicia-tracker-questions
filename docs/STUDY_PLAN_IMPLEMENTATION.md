@@ -1,9 +1,37 @@
 # STUDY_PLAN_IMPLEMENTATION.md
 # Plano de Estudos — Documento Técnico de Implementação
 
-> **Status:** Aguardando aprovação. Nenhum código será escrito antes da aprovação deste documento.
+> **Status:** ✅ APROVADO COM AJUSTES — Fase 1 em implementação.
 > **Data:** 2026-06-30
 > **Sistema base:** Nícia Track (10 fases concluídas, deploy em produção)
+
+---
+
+## Ajustes Aplicados (pós-aprovação)
+
+### Ajuste 1 — Mapeamento Explícito dos Conteúdos
+
+Antes de iniciar a Fase 1, foi criado o documento **`docs/STUDY_CONTENT_MAPPING.md`** com a estrutura completa de todos os 14 módulos, seus capítulos, ordem, tempo estimado, tags e subjects relacionados.
+
+O `import_study_plan.py` usa esse arquivo como **fonte da verdade** — não faz parsing automático de cabeçalhos markdown. O mapeamento é explícito e revisável sem tocar no código.
+
+### Ajuste 2 — Mini Quiz mais Preciso (campo `tags`)
+
+O model `StudyChapter` recebe o campo `tags` (JSONField contendo lista de strings) além do `related_subjects`.
+
+O `MiniQuizService` tentará questões na seguinte ordem de prioridade:
+1. Por `Topic` matching as tags do capítulo
+2. Por `Subject` vinculado ao módulo
+3. Fallback: disciplina completa
+
+Isso evita que um capítulo sobre Raiva gere perguntas de Leptospirose.
+
+### Ajuste 3 — Revisão Espaçada (ScheduledReview — futuro)
+
+Adicionada ao roadmap (Fase 5+) a funcionalidade `ScheduledReview` / `ReviewTask`:
+- Ao concluir um capítulo, o sistema cria automaticamente revisões em D+1, D+7 e D+21
+- O dashboard exibirá "Revisões para hoje"
+- **Não implementar nas Fases 1–4.** A arquitetura está preparada: `LessonProgress.completed_at` já armazena a data de conclusão, servindo como ponto de partida para calcular os intervalos.
 
 ---
 
@@ -240,7 +268,8 @@ Representa um capítulo/seção dentro de um módulo. Um módulo tem N capítulo
 | `content` | TextField | Conteúdo em markdown (importado do MASTER) |
 | `key_points` | TextField(blank=True) | Resumo dos pontos-chave (extraído do MASTER) |
 | `estimated_minutes` | PositiveSmallIntegerField | Tempo estimado de leitura em minutos |
-| `related_subjects` | ManyToManyField(Subject, blank=True) | Subjects relacionados (para sugestão de questões) |
+| `tags` | JSONField(default=list) | Lista de strings para busca precisa no mini quiz. Ex.: `["raiva", "profilaxia-raiva"]` |
+| `related_subjects` | ManyToManyField(Subject, blank=True) | Subjects relacionados (fallback para sugestão de questões) |
 | `is_active` | BooleanField | Soft toggle |
 | `created_at` | DateTimeField | Herdado de BaseModel |
 | `updated_at` | DateTimeField | Herdado de BaseModel |

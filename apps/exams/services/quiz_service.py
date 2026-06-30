@@ -125,6 +125,9 @@ class QuizService:
         quiz.finished_at = tz.now()
         quiz.save(update_fields=["status", "finished_at"])
 
+        from apps.study_plan.services.error_notebook_service import ErrorNotebookService
+        ErrorNotebookService.sync_errors(quiz.user, quiz)
+
         return quiz
 
     # ------------------------------------------------------------------ #

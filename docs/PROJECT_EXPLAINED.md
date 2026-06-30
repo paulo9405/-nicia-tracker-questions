@@ -2367,4 +2367,835 @@ A Fase 10 entregou o sistema **em produção**: um `Dockerfile` de produção co
 
 ---
 
-> **Projeto concluído.** Todas as 10 fases implementadas e documentadas.
+> As Fases 1–10 implementaram e documentaram o sistema base. A partir da Fase 11, o projeto evolui com funcionalidades de apoio ao estudo.
+
+---
+
+# Fase 11 — Plano de Estudos (Fase 1: Estrutura e Leitura)
+
+## Objetivo
+
+Adicionar ao Nícia Track um módulo de **Plano de Estudos** que transforma os 14 arquivos MASTER (`.md` em `docs/`) em um percurso de aprendizagem estruturado. A Fase 1 cobre a fundação: cadastro de módulos e capítulos, rastreamento de progresso de leitura (não iniciado → em andamento → concluído), dashboard com métricas e navegação linear entre capítulos.
+
+## Problema resolvido
+
+Antes, a Nícia tinha 14 documentos de conteúdo mas nenhuma forma de saber _o que já estudou_ ou _o que estudar a seguir_. Os documentos existiam apenas como arquivos estáticos no repositório. Com a Fase 11, o conteúdo passa a ser representado no banco de dados, e cada leitura gera um registro de progresso vinculado ao usuário.
+
+---
+
+## Arquivos criados
+
+### App `apps/study_plan/`
+
+| Arquivo | Função |
+|---|---|
+| `__init__.py` | Pacote Python vazio |
+| `apps.py` | `StudyPlanConfig` — registra o app com Django |
+| `models.py` | Três modelos: `StudyModule`, `StudyChapter`, `LessonProgress` |
+| `admin.py` | Admin com inline de capítulos e filtros de progresso |
+| `urls.py` | 5 rotas com namespace `study_plan` |
+| `views.py` | 5 views CBV + View pura para completar capítulo |
+| `services/__init__.py` | Pacote vazio |
+| `services/plan_service.py` | `PlanService` com 7 métodos estáticos + 2 dataclasses |
+| `migrations/0001_initial.py` | Migração auto-gerada dos 3 modelos |
+| `management/commands/import_study_plan.py` | Command idempotente que popula módulos e capítulos |
+
+### Templates `templates/study_plan/`
+
+| Arquivo | Rota correspondente |
+|---|---|
+| `dashboard.html` | `GET /plano/` |
+| `module_list.html` | `GET /plano/modulos/` |
+| `module_detail.html` | `GET /plano/modulo/<slug>/` |
+| `chapter_read.html` | `GET /plano/capitulo/<slug>/` |
+
+### Documentos
+
+| Arquivo | Função |
+|---|---|
+| `docs/STUDY_PLAN_IMPLEMENTATION.md` | Arquitetura aprovada (fonte de verdade técnica) |
+| `docs/STUDY_CONTENT_MAPPING.md` | Mapeamento manual explícito dos 14 módulos e 98 capítulos |
+
+### Testes
+
+| Arquivo | Cobertura |
+|---|---|
+| `tests/integration/test_study_plan_views.py` | 9 testes de integração (login, carregamento, progresso, idempotência, 404) |
+| `tests/unit/test_plan_service.py` | 10 testes unitários (ModuleProgress, mark_started/completed, get_next_chapter, streak) |
+
+---
+
+## Arquivos modificados
+
+| Arquivo | Mudança |
+|---|---|
+| `config/settings/base.py` | `"apps.study_plan"` adicionado a `LOCAL_APPS` |
+| `config/urls.py` | `path("plano/", include("apps.study_plan.urls", namespace="study_plan"))` |
+| `templates/base.html` | Item de navbar "Plano de Estudos" entre Estatísticas e menu do usuário |
+
+---
+
+## Modelos
+
+### `StudyModule`
+
+Representa um dos 14 módulos de estudo. Herda de `BaseModel` (UUID pk).
+
+```python
+class StudyModule(BaseModel):
+    subject      = OneToOneField(Subject, null=True, blank=True)  # nullable para Módulo 10
+    title        = CharField(max_length=200)
+    slug         = SlugField(unique=True)           # auto-gerado via slugify(title)
+    order        = PositiveSmallIntegerField()       # 1–14
+    description  = TextField(blank=True)
+    master_file  = CharField(max_length=80)         # ex: "01_SAUDE_UNICA_MASTER.md"
+    study_phase  = CharField(choices=PHASE_CHOICES) # "1"/"2"/"3"/"4"
+    estimated_hours = DecimalField(5, 1)
+    category     = CharField(choices=[specific/basic])
+    icon         = CharField(max_length=10, blank=True)
+    is_active    = BooleanField(default=True)
+    # property: chapter_count
+```
+
+`subject` é `OneToOneField` pois cada `Subject` deve se mapear a no máximo um `StudyModule`. O Módulo 10 (Revisão Final) tem `subject=None` porque não corresponde a uma disciplina específica do banco de questões.
+
+### `StudyChapter`
+
+Representa um capítulo dentro de um módulo (7 por módulo em média).
+
+```python
+class StudyChapter(BaseModel):
+    module            = ForeignKey(StudyModule, related_name="chapters")
+    title             = CharField(max_length=200)
+    slug              = SlugField()                  # único dentro do módulo
+    order             = PositiveSmallIntegerField()
+    content           = TextField(blank=True)        # vazio na Fase 1
+    key_points        = TextField(blank=True)
+    estimated_minutes = PositiveSmallIntegerField(default=30)
+    tags              = JSONField(default=list)      # para matching de mini quiz (Fase 3)
+    related_subjects  = ManyToManyField(Subject)    # para enriquecer busca
+    sections_source   = CharField(max_length=200)   # ex: "Seção 1.1–1.3 do MASTER"
+    is_active         = BooleanField(default=True)
+    # unique_together: (module, slug), (module, order)
+```
+
+O campo `tags` (JSONField) foi incluído na Fase 1 pelo Ajuste 2 da aprovação da arquitetura: quando a Fase 3 implementar MiniQuiz, o serviço poderá usar essas tags para buscar questões por tópico, com fallback para disciplina.
+
+### `LessonProgress`
+
+Máquina de estados por usuário+capítulo.
+
+```python
+class LessonProgress(BaseModel):
+    user           = ForeignKey(AUTH_USER_MODEL, related_name="lesson_progresses")
+    chapter        = ForeignKey(StudyChapter, related_name="progresses")
+    status         = CharField(choices=[not_started/in_progress/completed])
+    started_at     = DateTimeField(null=True)
+    completed_at   = DateTimeField(null=True)  # preparado para ScheduledReview (Fase futura)
+    time_spent_minutes = PositiveSmallIntegerField(default=0)
+    # unique_together: (user, chapter)
+```
+
+A restrição `unique_together = [("user", "chapter")]` garante exatamente um registro por par usuário/capítulo, permitindo que `get_or_create` seja usado com segurança em todos os métodos de serviço.
+
+---
+
+## Serviço `PlanService`
+
+Toda a lógica de negócio está em `apps/study_plan/services/plan_service.py`. As views não fazem queries diretas — delegam ao serviço.
+
+### Dataclasses de saída
+
+```python
+@dataclass
+class ModuleProgress:
+    module: StudyModule
+    total_chapters: int
+    completed: int
+    in_progress: int
+    percentage: float  # calculado em __post_init__
+
+@dataclass
+class PlanSummary:
+    total_modules: int
+    total_chapters: int
+    completed_chapters: int
+    in_progress_chapters: int
+    overall_percentage: float
+    streak_days: int
+    module_progresses: list[ModuleProgress]
+    next_chapter: StudyChapter | None
+```
+
+### Métodos
+
+| Método | Retorno | Descrição |
+|---|---|---|
+| `get_module_progress(user, module)` | `ModuleProgress` | Conta capítulos por status no módulo |
+| `get_plan_summary(user)` | `PlanSummary` | Consolida todos os módulos + streak + próximo capítulo |
+| `get_next_chapter(user)` | `StudyChapter \| None` | Em andamento primeiro, depois não iniciado por ordem |
+| `get_plan_streak(user)` | `int` | Dias consecutivos com ≥1 capítulo concluído (conta também a partir de ontem) |
+| `mark_chapter_started(user, chapter)` | `LessonProgress` | `get_or_create` + atualiza se `not_started` |
+| `mark_chapter_completed(user, chapter)` | `LessonProgress` | `get_or_create` + seta `completed_at` se não completado |
+| `get_calendar_activity(user, year, month)` | `dict[date, int]` | Contagem de capítulos concluídos por dia no mês (para Fase 4) |
+
+---
+
+## Views
+
+Todas as views têm `LoginRequiredMixin`. Nenhuma faz query direta — usam `PlanService` ou `get_object_or_404`.
+
+| View | Método | URL | Template |
+|---|---|---|---|
+| `PlanDashboardView` | GET | `/plano/` | `dashboard.html` |
+| `ModuleListView` | GET | `/plano/modulos/` | `module_list.html` |
+| `ModuleDetailView` | GET | `/plano/modulo/<slug>/` | `module_detail.html` |
+| `ChapterReadView` | GET | `/plano/capitulo/<slug>/` | `chapter_read.html` |
+| `ChapterCompleteView` | POST | `/plano/capitulo/<slug>/concluir/` | redirect → module_detail |
+
+`ChapterReadView` chama `mark_chapter_started()` automaticamente ao carregar o capítulo. `ChapterCompleteView` é `View` puro (não `TemplateView`) pois só processa POST e redireciona.
+
+---
+
+## Management Command `import_study_plan`
+
+```
+python manage.py import_study_plan [--dry-run]
+```
+
+O mapeamento completo de 14 módulos e 98 capítulos está embutido em `STUDY_PLAN_MAP` como lista de dataclasses `ModuleDef` e `ChapterDef`. O command **não faz parsing de markdown** — os dados são explícitos (Ajuste 1 da arquitetura aprovada).
+
+Estratégia de idempotência:
+- `StudyModule`: `update_or_create(slug=...)`
+- `StudyChapter`: `update_or_create(module=..., order=...)`
+- `related_subjects`: sempre regrava via `chapter.related_subjects.set([subject])`
+
+Segunda execução: 0 criados, 14+98 atualizados. Seguro para re-executar em produção.
+
+---
+
+## Fluxo completo (happy path)
+
+```
+Usuário acessa /plano/
+  → PlanDashboardView.get_context_data()
+  → PlanService.get_plan_summary(user) → PlanSummary
+  → dashboard.html renderiza: próximo capítulo (CTA), % geral, streak, módulos por categoria
+
+Usuário clica em "Módulo Saúde Única"
+  → ModuleDetailView → get_object_or_404(StudyModule, slug=slug)
+  → progress_map = {chapter_id: LessonProgress} para todos os capítulos do módulo
+  → module_detail.html lista capítulos com status icon + botão (Estudar/Continuar/Rever)
+
+Usuário clica em "Estudar" no Capítulo 1
+  → ChapterReadView → mark_chapter_started() → status muda para in_progress
+  → chapter_read.html mostra conteúdo (ou alerta para MASTER), tags, badge de status
+  → Sidebar direita: todos os capítulos do módulo (desktop only)
+  → Usuário lê o MASTER file e clica "Marcar como Concluído"
+
+POST /plano/capitulo/<slug>/concluir/
+  → ChapterCompleteView.post() → mark_chapter_completed()
+  → messages.success() + redirect → /plano/modulo/<slug>/
+```
+
+---
+
+## Decisões arquiteturais
+
+### Por que `OneToOneField` para `StudyModule.subject`?
+
+Cada `Subject` deve ter no máximo um `StudyModule`. Um `ForeignKey` permitiria dois módulos apontando para a mesma disciplina, o que quebraria a semântica de "cada disciplina tem exatamente uma trilha de estudo". O `OneToOneField` reforça isso no nível do banco.
+
+### Por que `tags = JSONField` e não `ManyToMany`?
+
+Tags são strings livres, não entidades gerenciadas. Criar uma tabela `Tag` para strings como `"one-health"` ou `"saude-unica"` seria over-engineering. `JSONField` permite armazenar e iterar as tags sem migração adicional quando novos valores aparecem. A Fase 3 (MiniQuiz) pode filtrar `tags__contains="one-health"` diretamente no ORM.
+
+### Por que o content dos capítulos está vazio na Fase 1?
+
+A decisão consciente foi separar estrutura de conteúdo. O `STUDY_CONTENT_MAPPING.md` mapeia onde cada capítulo está no MASTER file (`sections_source`). Preencher o `content` de 98 capítulos seria trabalho de curadoria manual — possível via admin ou um future command `extract_chapter_content`. O template trata graciosamente o caso vazio com um alerta informativo.
+
+### Por que mapeamento explícito e não parsing de markdown?
+
+Parsing automático de headers `##` é frágil: renomear uma seção no MASTER quebraria silenciosamente a estrutura do plano. Com mapeamento explícito, a relação entre capítulos e seções é uma decisão intencional e auditável. Mudanças no MASTER não afetam o plano automaticamente — há uma atualização manual deliberada.
+
+---
+
+## Testes
+
+A suíte cresceu de 122 para **141 testes** (19 novos).
+
+### Unitários (`tests/unit/test_plan_service.py`) — 10 testes
+
+- `test_module_progress_zero_when_no_activity` — ModuleProgress zerado sem atividade
+- `test_module_progress_updates_when_completed` — 100% quando único capítulo concluído
+- `test_mark_chapter_started_creates_in_progress` — status correto + started_at setado
+- `test_mark_chapter_completed_sets_completed_at` — completed_at setado
+- `test_mark_chapter_completed_idempotent` — segunda chamada não cria registro duplicado
+- `test_get_next_chapter_returns_first_when_no_progress` — retorna o primeiro capítulo
+- `test_get_next_chapter_skips_completed` — pula capítulos concluídos
+- `test_get_next_chapter_returns_none_when_all_done` — None quando tudo concluído
+- `test_plan_streak_zero_when_no_activity` — streak 0 sem atividade
+- `test_plan_streak_counts_consecutive_days` — streak ≥ 1 após conclusão
+
+### Integração (`tests/integration/test_study_plan_views.py`) — 9 testes
+
+- `test_dashboard_requires_login` — 302 para `/conta/login/`
+- `test_dashboard_loads` — 200 + "Plano de Estudos" no HTML
+- `test_module_list_loads` — 200 + título do módulo
+- `test_module_detail_loads` — 200 + título do capítulo
+- `test_chapter_read_creates_progress` — `LessonProgress` criado ao acessar
+- `test_chapter_complete_marks_completed` — POST seta status `completed`
+- `test_chapter_complete_is_idempotent` — dois POSTs geram apenas 1 registro
+- `test_module_detail_404_for_unknown_slug` — 404 para slug inexistente
+- `test_chapter_read_404_for_unknown_slug` — 404 para slug inexistente
+
+---
+
+## Perguntas de entrevista
+
+**Por que usar dataclasses (`ModuleProgress`, `PlanSummary`) em vez de dicts?**
+Dataclasses têm type hints, autocompletion na IDE, `__repr__` legível e protegem contra typos em keys. Um dict `{"completed": 3}` não documenta seus campos; uma dataclass sim.
+
+**Como funciona `unique_together = [("user", "chapter")]`?**
+Cria uma constraint composta no banco (UNIQUE INDEX). O ORM então garante que `get_or_create(user=u, chapter=c)` nunca insira duplicata — o `created=False` no retorno indica que o registro já existia.
+
+**O que acontece se `mark_chapter_completed` for chamado duas vezes?**
+`get_or_create` retorna o registro existente com `created=False`. O `if progress.status != COMPLETED` protege: se já está completo, não faz update desnecessário. Resultado: exatamente 1 registro no banco.
+
+**Por que `ChapterReadView` chama `mark_chapter_started` automaticamente?**
+UX: o ato de abrir o capítulo já indica intenção de estudo. Não faz sentido exigir que o usuário clique em "Iniciar" antes de ler. A transição `not_started → in_progress` é implícita; a transição `in_progress → completed` é explícita (botão POST).
+
+**O `completed_at` de `LessonProgress` para quê serve no futuro?**
+Para o sistema de revisão espaçada (Ajuste 3 aprovado): `ScheduledReview` calcularia D+1, D+7, D+21 a partir de `completed_at`. O campo foi pensado para isso desde a Fase 1, sem implementação prematura.
+
+---
+
+## O que foi aprendido na Fase 11
+
+- **Service Layer como adaptador**: a view nunca sabe como o progresso é calculado — apenas pede um `PlanSummary`. Isso torna as views testáveis sem mocks complexos e o serviço testável sem HTTP.
+- **Mapeamento explícito vs. geração automática**: a tentação de parsear markdown automaticamente é forte, mas a robustez de um mapeamento explícito compensa o trabalho manual inicial.
+- **JSONField para dados semiestruturados**: `tags = JSONField(default=list)` é a solução certa para listas de strings livres que não precisam de uma tabela própria.
+- **Idempotência desde o início**: `update_or_create` em vez de `create` no management command permite re-executar em produção sem efeitos colaterais, mesmo após mudanças nos dados.
+- **`OneToOneField` comunica intenção**: a escolha entre `OneToOneField` e `ForeignKey` não é apenas técnica — é semântica. `OneToOneField` diz "existe exatamente um", o que a IDE e o banco reforçam.
+
+---
+
+## Resumo executivo
+
+A Fase 11 adicionou o **módulo de Plano de Estudos** ao Nícia Track: 3 modelos Django (`StudyModule`, `StudyChapter`, `LessonProgress`), um serviço com 7 métodos estáticos (`PlanService`), 5 views CBV, 4 templates Bootstrap 5 e um management command idempotente que popula 14 módulos e 98 capítulos a partir de um mapeamento explícito. A suíte de testes cresceu de 122 para **141 testes (todos passando)**. O conteúdo dos capítulos estava vazio na Fase 1 — preenchido na Fase 1.5.
+
+---
+
+---
+
+# Fase 12 — Importação de Conteúdo dos Capítulos (Fase 1.5)
+
+**Data:** 30/06/2026  
+**Objetivo:** popular `StudyChapter.content` para todos os 98 capítulos com o conteúdo real extraído dos 14 arquivos MASTER, e renderizá-lo corretamente no template.
+
+---
+
+## Problema resolvido
+
+Antes desta fase, abrir qualquer capítulo do Plano de Estudos mostrava:
+
+> "O conteúdo deste capítulo ainda está sendo preparado. Consulte o arquivo MASTER na pasta docs/."
+
+Após: o usuário lê o conteúdo completo do tema dentro do sistema, incluindo tabelas, títulos, listas, blockquotes e destaques em negrito, sem precisar consultar os arquivos MASTER externamente.
+
+---
+
+## Arquivos criados
+
+| Arquivo | Descrição |
+|---|---|
+| `apps/study_plan/management/commands/populate_chapter_content.py` | Command com mapping explícito de 98 capítulos e 3 estratégias de extração |
+| `apps/study_plan/templatetags/__init__.py` | Pacote templatetags |
+| `apps/study_plan/templatetags/study_filters.py` | Filtro `render_markdown` (usa a biblioteca `Markdown`) |
+| `docs/PHASE_1_5_CONTENT_MAPPING_REPORT.md` | Mapeamento detalhado módulo × capítulo × seção × chars |
+| `docs/PHASE_1_5_IMPLEMENTATION.md` | Relatório de implementação completo |
+
+---
+
+## Arquivos modificados
+
+| Arquivo | Mudança |
+|---|---|
+| `templates/study_plan/chapter_read.html` | Filtro `linebreaks` → `render_markdown`; CSS estendido para tabelas, h2/h3/h4, blockquotes |
+
+---
+
+## Estratégias de extração de seções
+
+O management command `populate_chapter_content` lê cada arquivo MASTER e extrai seções por tipo de cabeçalho:
+
+| Tipo | Padrão de cabeçalho | Módulos |
+|---|---|---|
+| `numbered` | `## N. TÍTULO` | 1-9, 11, 13 |
+| `bloco` | `# BLOCO N — TÍTULO` | 10 |
+| `modulo` | `# MÓDULO N — TÍTULO` | 12, 14 |
+| `modulo_head/tail` | Split por subsection `## Tecnologia` | 14 (caps 4-5) |
+
+O parser genérico `_parse_sections(file_content, header_pattern)` usa regex para delimitar seções. A última seção de cada arquivo captura automaticamente todo o conteúdo subsequente (ex.: "Revisão Relâmpago", "Top Pegadinhas") sem código especial.
+
+---
+
+## Renderização de markdown
+
+**Antes:** `{{ chapter.content|linebreaks }}` — converte `\n` para `<br>`, ignora sintaxe markdown.
+
+**Depois:** `{{ chapter.content|render_markdown }}` — produz HTML completo com tabelas `|---|---|`, cabeçalhos `## H2`, listas `- item`, blockquotes `>`, negrito `**texto**`.
+
+O filtro `render_markdown` está em `apps/study_plan/templatetags/study_filters.py`:
+
+```python
+@register.filter(name='render_markdown')
+def render_markdown(value):
+    extensions = ['tables', 'fenced_code', 'sane_lists']
+    return mark_safe(md.markdown(str(value), extensions=extensions))
+```
+
+---
+
+## Estatísticas
+
+| Métrica | Valor |
+|---|---|
+| Capítulos populados | 98 / 98 (100%) |
+| Capítulos vazios | 0 |
+| Total de caracteres | 361.080 |
+| Média por capítulo | 3.684 chars |
+| Menor capítulo | 1.233 chars (Leptospirose, M02/Ch05) |
+| Maior capítulo | 11.599 chars (CCZs e Legislação, M05/Ch05) |
+| Módulos completos | 14 / 14 |
+| Testes | 141 passando, 0 falhas |
+
+---
+
+## Regra principal preservada
+
+> "NÃO INVENTAR CONTEÚDO. NÃO RESUMIR AGRESSIVAMENTE. NÃO REESCREVER O MATERIAL."
+
+O texto exibido no sistema é **idêntico** ao dos arquivos MASTER — apenas delimitado por seção. Nenhuma palavra foi adicionada, removida ou parafrasada.
+
+---
+
+## Resumo executivo
+
+A Fase 1.5 completou o Plano de Estudos: `populate_chapter_content` lê 14 arquivos MASTER, extrai seções por tipo de cabeçalho e persiste o conteúdo nos 98 `StudyChapter.content`. Um templatetag `render_markdown` converte o markdown para HTML no navegador, com CSS estilizando tabelas, cabeçalhos e blockquotes. A suíte mantém **141 testes passando**. O sistema agora serve conteúdo real ao aluno sem depender de arquivos externos.
+
+---
+
+---
+
+# Fase do Plano de Estudos — Fase 2: Aprendizagem Ativa e Reflexão Guiada
+
+## Objetivo
+
+Adicionar as etapas de escrita após a leitura de cada capítulo. Após marcar um capítulo como concluído, a candidata é guiada por dois momentos pedagógicos:
+
+1. **Aprendizagem Ativa (`ActiveLearningNote`):** "Explique com suas palavras o que aprendeu."
+2. **Reflexão Guiada (`GuidedReflection`):** três perguntas estruturadas — "O que você entendeu?", "Qual foi a parte mais importante?", "Qual foi a parte mais difícil?"
+
+## Problema que a fase resolve
+
+Ler passivamente não consolida a memória. A técnica da "elaborative interrogation" (reformular o conteúdo em suas próprias palavras) e a reflexão metacognitiva (identificar lacunas) são as duas intervenções com maior evidência empírica para memória de longo prazo. Sem elas, a candidata termina um capítulo e esquece 70% em 24 horas.
+
+## Fluxo implementado
+
+```
+ChapterReadView      → candidata lê o conteúdo do capítulo
+ChapterCompleteView  → POST: marca LessonProgress.status = COMPLETED
+                     → redireciona para ChapterNoteView (antes ia para module_detail)
+ChapterNoteView      → candidata escreve explicação livre (≥ 20 chars)
+                     → POST: salva ActiveLearningNote via PlanService
+                     → redireciona para ChapterReflectionView
+ChapterReflectionView → candidata responde 3 perguntas
+                      → POST: salva GuidedReflection via PlanService
+                      → redireciona para ChapterReadView (com mensagem de sucesso)
+```
+
+Cada etapa pode ser acessada diretamente e editada a qualquer momento. Nenhuma etapa é bloqueante.
+
+## Models criados
+
+### `ActiveLearningNote`
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| `user` | FK(User, CASCADE) | Candidata |
+| `chapter` | FK(StudyChapter, CASCADE) | Capítulo estudado |
+| `explanation` | TextField | Explicação livre (≥ 20 chars) |
+
+**Constraint:** `unique_together = [('user', 'chapter')]` — uma nota por capítulo; edição sobrescreve.
+
+**Por que `unique_together`?** Uma nota por capítulo é o comportamento correto: a candidata quer evoluir sua explicação sem acumular versões. O `update_or_create` no service garante que o segundo envio atualize, não duplique.
+
+### `GuidedReflection`
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| `user` | FK(User, CASCADE) | Candidata |
+| `chapter` | FK(StudyChapter, CASCADE) | Capítulo estudado |
+| `what_understood` | TextField | "O que você entendeu?" |
+| `most_important` | TextField | "Qual foi a parte mais importante?" |
+| `most_difficult` | TextField | "Qual foi a parte mais difícil?" |
+
+**Constraint:** `unique_together = [('user', 'chapter')]`
+
+## Forms criados
+
+### `ActiveLearningNoteForm`
+- `ModelForm` para `ActiveLearningNote`
+- Validação: `min_length=20` no `clean_explanation()` com mensagem em português
+- Widget: `Textarea(rows=8)`
+
+### `GuidedReflectionForm`
+- `ModelForm` para `GuidedReflection`
+- 3 campos requeridos, sem validação adicional de tamanho
+- Widget: `Textarea(rows=4)` por campo
+
+## Views criadas
+
+### `ChapterNoteView` (`LoginRequiredMixin + FormView`)
+- **GET:** pré-popula o form com nota existente (modo edição automático)
+- **POST:** chama `PlanService.save_active_note()` → redireciona para reflexão
+- Contexto: `chapter`, `module`, `existing_note`, `completion_status`
+
+### `ChapterReflectionView` (`LoginRequiredMixin + FormView`)
+- **GET:** pré-popula com reflexão existente (modo edição automático)
+- **POST:** chama `PlanService.save_guided_reflection()` → redireciona para capítulo
+- Contexto: `chapter`, `module`, `existing_reflection`, `completion_status`
+
+## Service: extensões do `PlanService`
+
+### `ChapterCompletionStatus` (dataclass)
+```python
+@dataclass
+class ChapterCompletionStatus:
+    is_reading_done: bool
+    has_note: bool
+    has_reflection: bool
+
+    @property
+    def is_fully_done(self) -> bool:
+        return self.is_reading_done and self.has_note and self.has_reflection
+```
+
+### `get_chapter_completion_status(user, chapter)`
+Consulta `LessonProgress`, `ActiveLearningNote` e `GuidedReflection` em 3 queries. Retorna `ChapterCompletionStatus`.
+
+### `save_active_note(user, chapter, explanation)`
+`update_or_create` em `ActiveLearningNote`. Envolto em `@transaction.atomic`.
+
+### `save_guided_reflection(user, chapter, what_understood, most_important, most_difficult)`
+`update_or_create` em `GuidedReflection`. Envolto em `@transaction.atomic`.
+
+## Templates criados
+
+### `chapter_note.html`
+- Breadcrumb com etapas visuais (Leitura → **Aprendizagem Ativa** → Reflexão)
+- Card de instrução: por que escrever com suas palavras ajuda
+- Textarea com contador de caracteres em JavaScript inline
+- Alerta se nota já existe (modo edição)
+- Link "Pular esta etapa" → reflexão direta
+
+### `chapter_reflection.html`
+- Breadcrumb com etapas visuais
+- Card de instrução: por que a reflexão metacognitiva funciona
+- 3 campos rotulados com badges coloridos (azul/verde/amarelo)
+- Alerta se reflexão já existe (modo edição)
+- Link "Pular esta etapa" → capítulo direto
+
+## Alterações em arquivos existentes
+
+| Arquivo | Mudança |
+|---|---|
+| `apps/study_plan/models.py` | +`ActiveLearningNote`, +`GuidedReflection` |
+| `apps/study_plan/forms.py` | Criado (novo) |
+| `apps/study_plan/views.py` | +`ChapterNoteView`, +`ChapterReflectionView`; `ChapterCompleteView` redireciona para `chapter_note` |
+| `apps/study_plan/urls.py` | +2 rotas: `nota/` e `reflexao/` |
+| `apps/study_plan/services/plan_service.py` | +`ChapterCompletionStatus`, +3 métodos |
+| `apps/study_plan/admin.py` | +`ActiveLearningNoteAdmin`, +`GuidedReflectionAdmin` |
+| `templates/study_plan/chapter_read.html` | Botão de conclusão atualizado; +links para nota/reflexão quando concluído |
+| `apps/study_plan/migrations/0002_*.py` | Gerado automaticamente |
+
+## Estatísticas
+
+| Métrica | Valor |
+|---|---|
+| Testes anteriores | 141 |
+| Testes adicionados | +17 (7 unitários + 10 integração) |
+| **Total de testes** | **158 passando, 0 falhas** |
+| Models novos | 2 |
+| Views novas | 2 |
+| Templates novos | 2 |
+| Forms novos | 2 |
+| URLs novas | 2 |
+
+## O que aprendi nesta fase
+
+- **`update_or_create`** como padrão de upsert: cria se não existe, atualiza se existe — idempotente por design.
+- **`FormView` com instância pré-populada via `get_initial()`:** em vez de usar `instance=` (que exigiria get_object), preenche os valores iniciais manualmente — mais flexível quando a instância pode não existir.
+- **`unique_together` em modelos de produção:** garante integridade no banco quando a regra de negócio é "uma entrada por par de entidades".
+- **Dataclass com `@property`:** `ChapterCompletionStatus.is_fully_done` como propriedade calculada mantém o dataclass imutável e sem lógica de persistência.
+
+## Perguntas de entrevista
+
+**P1. Por que `update_or_create` em vez de dois caminhos separados (create/update)?**
+R: `update_or_create` é atômico no banco — não há janela de corrida entre verificar a existência e criar. O código fica mais simples, e o comportamento é idempotente: chamar duas vezes com os mesmos dados produz o mesmo resultado.
+
+**P2. Por que `get_initial()` em vez de `get_form_kwargs()` para pré-popular o form?**
+R: `get_form_kwargs()` seria usado quando há um `instance` de model para o `ModelForm`. Aqui, a nota pode não existir — então usamos `get_initial()`, que preenche apenas os valores iniciais dos campos sem vincular uma instância ao form. O form continua funcionando para criação ou edição sem alterar a lógica.
+
+**P3. Por que o `ChapterCompleteView` redireciona para `chapter_note` em vez de `module_detail`?**
+R: Para guiar a candidata no fluxo de aprendizagem ativa imediatamente após a leitura. O tempo logo após ler é o melhor momento para consolidar o conteúdo. Redirecionar para o módulo quebraria o ciclo pedagógico.
+
+## Resumo executivo
+
+A Fase 2 implementou o ciclo completo de aprendizagem ativa: **2 models** (`ActiveLearningNote`, `GuidedReflection`), **2 forms** com validação, **2 views `FormView`** com pré-população automática, **2 templates Bootstrap** com etapas visuais e instruções pedagógicas, e **3 novos métodos no `PlanService`** (upsert via `update_or_create`, dataclass de status). O fluxo completo — Leitura → Aprendizagem Ativa → Reflexão — guia a candidata sem nenhuma etapa bloqueante. **158 testes passando, 0 falhas.** A Fase 1 não foi quebrada.
+
+---
+
+---
+
+# Fase do Plano de Estudos — Fase 3: Mini Quiz, Caderno de Erros e Questões Sugeridas
+
+## Objetivo
+
+Fechar o ciclo de aprendizagem ativo: após ler, registrar nota e reflexão, a candidata pratica com questões reais do banco e tem seus erros centralizados automaticamente.
+
+## Problema que a fase resolve
+
+Sem prática imediata após a leitura, o conteúdo estudado é esquecido rapidamente. Sem um caderno de erros, a candidata não sabe o que errou e onde focar a revisão. Esta fase conecta o conteúdo estudado (Fases 1 e 2) às questões do banco existente.
+
+## Arquivos criados
+
+| Arquivo | Descrição |
+|---|---|
+| `apps/study_plan/services/mini_quiz_service.py` | `MiniQuizService`: seleção e criação de mini quiz com fallback em 3 níveis |
+| `apps/study_plan/services/error_notebook_service.py` | `ErrorNotebookService`: sync de erros, filtros, anotações, revisão |
+| `apps/study_plan/migrations/0003_errornotebookentry.py` | Migration do `ErrorNotebookEntry` |
+| `apps/exams/migrations/0002_errornotebookentry.py` | Migration: `Quiz.MINI` + `Quiz.chapter` |
+| `templates/study_plan/chapter_mini_quiz.html` | Template do mini quiz (2 estados: disponível/insuficiente) |
+| `templates/study_plan/error_notebook.html` | Template do caderno de erros com filtros e paginação |
+| `tests/unit/test_mini_quiz_service.py` | 7 testes unitários do MiniQuizService |
+| `tests/unit/test_error_notebook_service.py` | 9 testes unitários do ErrorNotebookService |
+| `tests/integration/test_phase3_views.py` | 12 testes de integração das novas views |
+| `docs/PHASE_3_IMPLEMENTATION_PLAN.md` | Plano pré-código |
+| `docs/PHASE_3_IMPLEMENTATION.md` | Este relatório |
+
+## Arquivos modificados
+
+| Arquivo | Mudança |
+|---|---|
+| `apps/study_plan/models.py` | +`ErrorNotebookEntry`; +import de `Question` e `timezone` |
+| `apps/exams/models.py` | +`Quiz.MINI` em `TYPE_CHOICES`; +campo `chapter` (FK nullable) |
+| `apps/exams/services/quiz_service.py` | +hook `ErrorNotebookService.sync_errors()` ao final de `submit_answers()` |
+| `apps/study_plan/views.py` | +`ChapterMiniQuizView`, `ErrorNotebookView`, `ErrorNoteView`, `ErrorReviewView`; redirect de `ChapterReflectionView` → `chapter_mini_quiz` |
+| `apps/study_plan/urls.py` | +4 rotas: `mini-quiz/`, `caderno-de-erros/`, `/nota/`, `/revisar/` |
+| `apps/study_plan/admin.py` | +`ErrorNotebookEntryAdmin` |
+| `templates/base.html` | +link "Caderno de Erros" na navbar |
+
+## Models criados
+
+### `ErrorNotebookEntry`
+
+- **Função:** centraliza questões erradas de todos os quizzes (treino, simulado, mini quiz).
+- **Campos-chave:** `user`, `question`, `last_user_answer`, `wrong_count`, `last_wrong_at`, `next_review_at`, `personal_note`, `is_reviewed`.
+- **Constraint:** `unique_together = [("user", "question")]` — uma entrada por questão; `wrong_count` incrementa a cada novo erro.
+- **`next_review_at`** calculado no service: 1 erro → D+1, 2 → D+3, 3 → D+7, ≥4 → D+14 (revisão espaçada simplificada).
+
+### Alteração no `Quiz`
+
+- `MINI = "mini"` adicionado a `TYPE_CHOICES`
+- `chapter = FK(StudyChapter, SET_NULL, null=True)` — liga o mini quiz ao capítulo que o originou
+
+## Services criados
+
+### `MiniQuizService`
+
+Seleção de questões com **fallback em 3 níveis**:
+1. Por `Topic` matching as `tags` do capítulo (mais preciso)
+2. Por `module.subject` (fallback de disciplina)
+3. Por `related_subjects` (fallback alternativo)
+
+Retorna `None` se não encontrar ao menos 3 questões — view exibe mensagem amigável.
+
+### `ErrorNotebookService`
+
+- `sync_errors(user, quiz)`: percorre `UserAnswer` com `is_correct=False` e `selected_alternative` não nula → `get_or_create` com upsert de `wrong_count`; idempotente.
+- `get_notebook(user, ...)`: filtros por disciplina, status de revisão e ordenação.
+- `save_personal_note`, `mark_as_reviewed`: operações de manutenção do caderno.
+
+## Fluxo completo (Fase 3)
+
+```
+Candidata conclui leitura → nota → reflexão
+  → ChapterReflectionView redireciona para ChapterMiniQuizView
+  → ChapterMiniQuizView:
+      GET: MiniQuizService.get_questions_for_chapter() → exibe contagem
+        └── Se ≥ 3 questões: "Iniciar Mini Quiz" habilitado
+        └── Se < 3: mensagem amigável + link para treino geral
+      POST: MiniQuizService.create_mini_quiz() → cria Quiz(type=MINI)
+        └── Redireciona para PlayQuizView (view existente, sem alteração)
+  → PlayQuizView: candidata responde as questões
+  → submit_answers() finaliza quiz
+        └── hook: ErrorNotebookService.sync_errors() → erros vão para o caderno
+  → ResultView (view existente): gabarito comentado
+        └── "Voltar ao plano" via quiz.chapter
+```
+
+## Decisões tomadas
+
+### Fallback de 3 níveis no MiniQuizService
+
+O banco não garante granularidade suficiente para todos os capítulos (ex.: "Raiva — Epidemiologia" pode não ter Topic). A estratégia progressiva evita que o mini quiz falhe silenciosamente: tenta o mais específico primeiro e degrada graciosamente.
+
+### Hook inline (não signal, não Celery)
+
+`sync_errors` é chamado diretamente no `submit_answers()` — simples, sem dependência de infra adicional. O custo é O(questões_erradas), geralmente < 5 operações de banco. Signal seria menos explícito; Celery seria excessivo neste escopo.
+
+### Questões puladas não vão ao caderno
+
+Pulada (`selected_alternative=None`) significa que a candidata não tentou responder. Registrá-la como erro distorceria as métricas. Apenas respostas erradas com alternativa selecionada entram no caderno.
+
+### `unique_together = [("user", "question")]` no `ErrorNotebookEntry`
+
+Garante idempotência no banco. `sync_errors` usa `get_or_create` — chamar duas vezes com o mesmo quiz não duplica, apenas incrementa `wrong_count`. A integridade vem do banco, não do código.
+
+## Estatísticas
+
+| Métrica | Valor |
+|---|---|
+| Testes anteriores | 158 |
+| Testes adicionados | +28 (16 unitários + 12 integração) |
+| **Total de testes** | **186 passando, 0 falhas** |
+| Models novos | 1 (`ErrorNotebookEntry`) |
+| Models alterados | 1 (`Quiz`: +MINI, +chapter) |
+| Services novos | 2 (`MiniQuizService`, `ErrorNotebookService`) |
+| Views novas | 4 |
+| Templates novos | 2 |
+| URLs novas | 4 |
+
+## O que aprendi nesta fase
+
+- **Fallback estratificado em service:** não assumir que o banco tem o nível de granularidade esperado — implementar degradação graciciosa progressiva.
+- **Hook inline vs signal vs Celery:** para operações O(pequeno) sem necessidade de assincronismo, o hook inline é a solução mais simples e explícita.
+- **`get_or_create` com upsert manual:** quando o ORM não oferece um upsert nativo com incremento condicional, `get_or_create` + save seletivo é idiomático e legível.
+- **Revisão espaçada simplificada:** a função `_next_review_date(wrong_count)` implementa um algoritmo de espaçamento simples sem precisar de uma biblioteca externa. O wrong_count é o proxy natural para a dificuldade percebida.
+
+## Perguntas de entrevista
+
+**P1. Como o MiniQuizService garante que há questões suficientes sem criar um quiz vazio?**
+R: O serviço tenta em 3 níveis (topic, subject, related_subjects) e só cria o Quiz se encontrar ≥ 3 questões. Se nenhum nível retornar o mínimo, retorna `None`. A view interpreta o `None` e exibe uma mensagem amigável em vez de criar um quiz inválido.
+
+**P2. O que é idempotência no `sync_errors` e por que ela importa?**
+R: Idempotente significa que chamar `sync_errors` com o mesmo quiz duas vezes produz o mesmo resultado — não duplica entradas no caderno. É garantido pelo `unique_together(user, question)` no banco: na segunda chamada, o `get_or_create` retorna a entrada existente em vez de criar outra.
+
+**P3. Por que questões puladas não vão ao caderno de erros?**
+R: Pulada (`selected_alternative=None`) indica que a candidata não tentou responder — pode ter sido por falta de tempo, não por desconhecimento. Incluí-la como erro distorceria as métricas do caderno, que deve refletir dificuldades reais, não omissões táticas.
+
+**P4. Por que `SET_NULL` no `Quiz.chapter` em vez de `CASCADE` ou `PROTECT`?**
+R: Se um capítulo for desativado ou removido, não faz sentido apagar o histórico de quizzes da candidata (CASCADE) nem impedir a remoção do capítulo (PROTECT). Com `SET_NULL`, o quiz fica órfão (`chapter=None`) mas o histórico de respostas e erros é preservado integralmente.
+
+## Resumo executivo
+
+A Fase 3 fechou o ciclo de aprendizagem: após ler e refletir (Fases 1 e 2), a candidata pratica com um **mini quiz** de 3 a 5 questões reais do banco, e seus erros são registrados automaticamente no **caderno de erros** — independente de qual tipo de quiz originou o erro (treino, simulado ou mini quiz). O `MiniQuizService` reutiliza 100% a infraestrutura de quiz existente com fallback em 3 níveis; o `ErrorNotebookService` faz upsert idempotente via `get_or_create`. **186 testes passando, 0 falhas.** Nenhum teste anterior foi quebrado.
+
+---
+---
+
+# Fase 3 do Plano de Estudos — Progresso, Calendário e Streak
+
+> **Nota de nomenclatura:** esta fase é interna do módulo `study_plan` (streak, calendário, ProgressView). Não confundir com a "Fase 3" do projeto principal (importador de questões). As duas "Fase 3" vivem em raias diferentes.
+
+## Objetivo
+
+Completar a experiência do Plano de Estudos com:
+1. **ProgressView** — página dedicada de métricas de progresso
+2. **Calendário de atividade** — grade mensal com dias estudados / não estudados
+3. **Streak aprimorado** — baseado em todas as atividades (capítulos, notas, reflexões, mini quizzes)
+4. **Dashboard aprimorado** — link para ProgressView no card de streak
+5. **Link "Progresso" na navbar**
+
+## Arquivos criados
+
+```
+templates/study_plan/
+└── progress.html                              ← nova página de progresso
+
+tests/unit/
+└── test_phase4_plan_service.py                ← 20 testes unitários
+
+tests/integration/
+└── test_phase4_views.py                       ← 11 testes de integração
+
+docs/
+├── PHASE_4_IMPLEMENTATION_PLAN.md
+└── PHASE_4_IMPLEMENTATION.md
+```
+
+## Arquivos modificados
+
+| Arquivo | Mudança |
+|---|---|
+| `apps/study_plan/services/plan_service.py` | +`ProgressStats` dataclass; +`get_all_activity_dates`, `get_max_streak`, `get_total_study_days`, `get_calendar_weeks`, `get_progress_stats`; atualizado `get_plan_streak` para usar todas as fontes de atividade |
+| `apps/study_plan/views.py` | +`ProgressView` + constante `_MONTH_NAMES_PT` |
+| `apps/study_plan/urls.py` | +rota `progresso/` → `progress` |
+| `templates/study_plan/dashboard.html` | +botão "Meu progresso", card de streak clicável com link |
+| `templates/base.html` | +link "Progresso" na navbar |
+
+## Dataclass `ProgressStats`
+
+Agrega todos os dados para a `ProgressView`:
+
+| Campo | Fonte |
+|---|---|
+| `total_modules` / `completed_modules` | `StudyModule` vs `LessonProgress` |
+| `total_chapters` / `completed_chapters` / `in_progress_chapters` | `LessonProgress` |
+| `overall_percentage` | `completed / total * 100` |
+| `notes_created` | `ActiveLearningNote.count(user)` |
+| `reflections_created` | `GuidedReflection.count(user)` |
+| `mini_quizzes_done` | `Quiz(type=MINI, status=FINISHED).count(user)` |
+| `errors_pending` / `errors_reviewed` | `ErrorNotebookEntry.count(user)` |
+| `current_streak` / `max_streak` / `total_study_days` | calculados |
+| `total_minutes_estimated` | `SUM(chapter.estimated_minutes)` dos capítulos concluídos |
+
+## Cálculo de atividade
+
+`get_all_activity_dates(user)` → `set[date]`
+
+União de datas de 4 fontes:
+1. `LessonProgress.completed_at__date` (capítulos concluídos)
+2. `ActiveLearningNote.created_at__date` (notas criadas)
+3. `GuidedReflection.created_at__date` (reflexões respondidas)
+4. `Quiz[MINI, FINISHED].finished_at__date` (mini quizzes concluídos)
+
+Qualquer uma dessas ações em um dia conta como "dia de estudo".
+
+## Calendário
+
+`get_calendar_weeks(user, year, month)` usa `calendar.Calendar(firstweekday=0)` (segunda-feira). Retorna lista de semanas, cada semana com 7 tuplas `(day: int, active: bool)`. `day=0` = padding (dia fora do mês). O template renderiza quadrados verdes / cinza.
+
+## Streak
+
+O streak usa a mesma lógica de antes (sequência consecutiva até hoje ou ontem), mas agora com `get_all_activity_dates` em vez de só capítulos — mais preciso e motivador.
+
+`get_max_streak` percorre todas as datas em ordem para encontrar a maior sequência já registrada.
+
+## ProgressView
+
+URL: `GET /plano/progresso/`  
+Suporta navegação por mês via `?year=YYYY&month=MM`.  
+Validação: `month` fora de 1–12 ou não-inteiro → cai para mês atual.
+
+## Resultado
+
+```
+216 passed, 0 failed, 94 warnings in 4.60s
+```
+
+Adicionados 30 novos testes (20 unitários + 10 integração); nenhum teste anterior foi quebrado.
+
+---

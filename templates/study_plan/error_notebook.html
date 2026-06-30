@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}Caderno de Erros{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h1 class="h3 mb-0">Caderno de Erros</h1>
+      <p class="text-muted mb-0">
+        {{ total_count }} questão{% if total_count != 1 %}s{% endif %} no caderno
+        — {{ pending_count }} pendente{% if pending_count != 1 %}s{% endif %}
+      </p>
+    </div>
+    <a href="{% url 'study_plan:dashboard' %}" class="btn btn-outline-secondary btn-sm">← Plano</a>
+  </div>
+
+  <!-- Filtros -->
+  <form method="get" class="row g-2 mb-4">
+    <div class="col-sm-4">
+      <select name="subject" class="form-select form-select-sm" onchange="this.form.submit()">
+        <option value="">Todas as disciplinas</option>
+        {% for s in subjects %}
+        <option value="{{ s.id }}" {% if filter_subject_id == s.id|stringformat:"s" %}selected{% endif %}>
+          {{ s.name }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <select name="is_reviewed" class="form-select form-select-sm" onchange="this.form.submit()">
+        <option value="" {% if filter_is_reviewed == "" %}selected{% endif %}>Todas</option>
+        <option value="0" {% if filter_is_reviewed == "0" %}selected{% endif %}>Pendentes</option>
+        <option value="1" {% if filter_is_reviewed == "1" %}selected{% endif %}>Revisadas</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <select name="order" class="form-select form-select-sm" onchange="this.form.submit()">
+        <option value="-wrong_count" {% if filter_order == "-wrong_count" %}selected{% endif %}>Mais erradas</option>
+        <option value="-last_wrong_at" {% if filter_order == "-last_wrong_at" %}selected{% endif %}>Mais recentes</option>
+        <option value="next_review_at" {% if filter_order == "next_review_at" %}selected{% endif %}>Próxima revisão</option>
+      </select>
+    </div>
+  </form>
+
+  {% if page_obj.object_list %}
+    {% for entry in page_obj %}
+    <div class="card border-0 shadow-sm mb-3" id="entry-{{ entry.id }}">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <div class="flex-grow-1">
+            <span class="badge bg-secondary me-1">{{ entry.question.subject.name }}</span>
+            {% if entry.is_reviewed %}
+            <span class="badge bg-success">Revisada</span>
+            {% else %}
+            <span class="badge bg-warning text-dark">Pendente</span>
+            {% endif %}
+          </div>
+          <div class="text-end text-nowrap ms-3">
+            <span class="badge bg-danger">{{ entry.wrong_count }} erro{% if entry.wrong_count != 1 %}s{% endif %}</span>
+            {% if entry.next_review_at and not entry.is_reviewed %}
+            <br><small class="text-muted">Revisão: {{ entry.next_review_at|date:"d/m" }}</small>
+            {% endif %}
+          </div>
+        </div>
+
+        <p class="mb-2 fw-semibold">{{ entry.question.text|truncatechars:200 }}</p>
+
+        {% if entry.last_user_answer and entry.last_user_answer.selected_alternative %}
+        <div class="row g-2 mb-2">
+          <div class="col-sm-6">
+            <small class="text-danger">
+              ✗ Você respondeu: {{ entry.last_user_answer.selected_alternative.letter }}) {{ entry.last_user_answer.selected_alternative.text|truncatechars:80 }}
+            </small>
+          </div>
+          <div class="col-sm-6">
+            <small class="text-success">
+              ✓ Correta:
+              {% for alt in entry.question.alternatives.all %}
+                {% if alt.is_correct %}{{ alt.letter }}) {{ alt.text|truncatechars:80 }}{% endif %}
+              {% endfor %}
+            </small>
+          </div>
+        </div>
+        {% endif %}
+
+        <small class="text-muted">Último erro: {{ entry.last_wrong_at|date:"d/m/Y" }}</small>
+
+        <!-- Anotação pessoal -->
+        <div class="mt-3">
+          <form method="post" action="{% url 'study_plan:error_note' entry.id %}">
+            {% csrf_token %}
+            <div class="input-group input-group-sm">
+              <input type="text" name="personal_note" class="form-control"
+                     placeholder="Anotação pessoal..."
+                     value="{{ entry.personal_note }}">
+              <button type="submit" class="btn btn-outline-secondary">Salvar nota</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Ações -->
+        {% if not entry.is_reviewed %}
+        <div class="mt-2">
+          <form method="post" action="{% url 'study_plan:error_review' entry.id %}" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-success btn-sm">
+              ✓ Marcar como revisada
+            </button>
+          </form>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- Paginação -->
+    {% if page_obj.has_other_pages %}
+    <nav class="mt-4">
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}&subject={{ filter_subject_id }}&is_reviewed={{ filter_is_reviewed }}&order={{ filter_order }}">
+            Anterior
+          </a>
+        </li>
+        {% endif %}
+        <li class="page-item disabled">
+          <span class="page-link">{{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+        </li>
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}&subject={{ filter_subject_id }}&is_reviewed={{ filter_is_reviewed }}&order={{ filter_order }}">
+            Próxima
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+
+  {% else %}
+    <!-- Estado vazio -->
+    <div class="text-center py-5">
+      <div class="fs-1 mb-3">🎉</div>
+      <h3 class="h5">Nenhum erro registrado</h3>
+      <p class="text-muted">
+        {% if filter_subject_id or filter_is_reviewed %}
+          Nenhuma questão encontrada com esses filtros.
+          <a href="{% url 'study_plan:error_notebook' %}">Limpar filtros</a>
+        {% else %}
+          Continue treinando e seus erros aparecerão aqui para revisão.
+        {% endif %}
+      </p>
+      <a href="{% url 'exams:filter' %}" class="btn btn-primary">Ir para o banco de questões</a>
+    </div>
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Módulos — Plano de Estudos{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'study_plan:dashboard' %}">Plano de Estudos</a></li>
+    <li class="breadcrumb-item active">Todos os módulos</li>
+  </ol>
+</nav>
+
+<h2 class="h4 mb-4"><i class="bi bi-list-ul me-2 text-primary"></i>Todos os Módulos</h2>
+
+<h5 class="fw-semibold text-muted mb-3">
+  <span class="badge bg-success me-2">Específicos</span>Conhecimentos Específicos
+</h5>
+<div class="row g-3 mb-5">
+  {% for mp in specific_progresses %}
+  <div class="col-md-6">
+    <a href="{% url 'study_plan:module_detail' mp.module.slug %}" class="text-decoration-none">
+      <div class="card border-0 shadow-sm card-hover h-100">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-2">
+            <span class="fs-3 me-3">{{ mp.module.icon }}</span>
+            <div>
+              <div class="fw-semibold">{{ mp.module.title }}</div>
+              <div class="small text-muted">
+                Módulo {{ mp.module.order }}
+                · Fase {{ mp.module.study_phase }}
+                · {{ mp.module.estimated_hours }}h estimadas
+              </div>
+            </div>
+          </div>
+          <p class="small text-muted mb-2">{{ mp.module.description }}</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <span class="small text-muted">{{ mp.completed }}/{{ mp.total_chapters }} capítulos</span>
+            {% if mp.percentage == 100 %}
+              <span class="badge bg-success">✅ Concluído</span>
+            {% elif mp.in_progress > 0 %}
+              <span class="badge bg-warning text-dark">Em andamento</span>
+            {% else %}
+              <span class="badge bg-secondary">Não iniciado</span>
+            {% endif %}
+          </div>
+          <div class="progress mt-2" style="height:6px">
+            <div class="progress-bar
+              {% if mp.percentage == 100 %}bg-success
+              {% elif mp.percentage >= 50 %}bg-primary
+              {% else %}bg-secondary{% endif %}"
+              style="width:{{ mp.percentage }}%"></div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% empty %}
+  <p class="text-muted">Nenhum módulo específico encontrado.</p>
+  {% endfor %}
+</div>
+
+<h5 class="fw-semibold text-muted mb-3">
+  <span class="badge bg-primary me-2">Básicas</span>Conhecimentos Básicos
+</h5>
+<div class="row g-3">
+  {% for mp in basic_progresses %}
+  <div class="col-md-6 col-lg-3">
+    <a href="{% url 'study_plan:module_detail' mp.module.slug %}" class="text-decoration-none">
+      <div class="card border-0 shadow-sm card-hover h-100">
+        <div class="card-body text-center">
+          <div class="fs-2 mb-2">{{ mp.module.icon }}</div>
+          <div class="fw-semibold">{{ mp.module.title }}</div>
+          <div class="small text-muted mb-2">{{ mp.module.estimated_hours }}h estimadas</div>
+          <div class="small text-muted">{{ mp.completed }}/{{ mp.total_chapters }} capítulos</div>
+          <div class="progress mt-2" style="height:5px">
+            <div class="progress-bar" style="width:{{ mp.percentage }}%"></div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% empty %}
+  <p class="text-muted">Nenhum módulo básico encontrado.</p>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  .card-hover { transition: transform .15s, box-shadow .15s; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.12) !important; }
+</style>
+{% endblock %}

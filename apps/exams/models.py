@@ -8,7 +8,8 @@ from apps.questions.models import Alternative, Question, Subject, Topic
 class Quiz(BaseModel):
     PRACTICE = "practice"
     SIMULATED = "simulated"
-    TYPE_CHOICES = [(PRACTICE, "Treino"), (SIMULATED, "Simulado")]
+    MINI = "mini"
+    TYPE_CHOICES = [(PRACTICE, "Treino"), (SIMULATED, "Simulado"), (MINI, "Mini Quiz")]
 
     IN_PROGRESS = "in_progress"
     FINISHED = "finished"
@@ -26,6 +27,13 @@ class Quiz(BaseModel):
     quiz_type = models.CharField(max_length=15, choices=TYPE_CHOICES, default=PRACTICE)
     status = models.CharField(
         max_length=15, choices=STATUS_CHOICES, default=IN_PROGRESS
+    )
+    chapter = models.ForeignKey(
+        "study_plan.StudyChapter",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="mini_quizzes",
     )
     quantity = models.PositiveSmallIntegerField()
     started_at = models.DateTimeField(auto_now_add=True)
