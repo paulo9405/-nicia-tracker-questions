@@ -109,7 +109,7 @@ def test_mini_quiz_get_sem_questoes(client_logged, chapter_sem_questoes):
 
 @pytest.mark.django_db
 def test_mini_quiz_post_cria_quiz_e_redireciona(client_logged, chapter, questions):
-    url = reverse("study_plan:chapter_mini_quiz", kwargs={"module_slug": module.slug, "slug": chapter.slug})
+    url = reverse("study_plan:chapter_mini_quiz", kwargs={"module_slug": chapter.module.slug, "slug": chapter.slug})
     r = client_logged.post(url)
     assert r.status_code == 302
     assert "/questoes/treino/" in r.url
