@@ -359,6 +359,15 @@ class Command(BaseCommand):
         if dry_run:
             self.stdout.write(self.style.WARNING("Modo --dry-run: nenhum dado será gravado.\n"))
 
+        expected_modules = len(STUDY_PLAN_MAP)
+        expected_chapters = sum(len(m.chapters) for m in STUDY_PLAN_MAP)
+        if (
+            StudyModule.objects.count() >= expected_modules
+            and StudyChapter.objects.count() >= expected_chapters
+        ):
+            self.stdout.write("Plano de estudos já populado — pulando.")
+            return
+
         created_modules = 0
         updated_modules = 0
         created_chapters = 0

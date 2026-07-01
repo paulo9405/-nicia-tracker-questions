@@ -15,6 +15,7 @@
 - [FASE 1 — Arquitetura](#fase-1--arquitetura)
 - [FASE 2 — Modelagem](#fase-2--modelagem)
 - [FASE 3 — Importador das Questões](#fase-3--importador-das-questões)
+- [Otimização de Startup — Fase 1](#otimização-de-startup--fase-1)
 
 ---
 
@@ -64,6 +65,7 @@ A usuária inicial é **Nícia** (candidata ao cargo de Médico Veterinário —
 | 8 | Simulados | ✅ Concluída (implementada e validada) |
 | 9 | Qualidade | ✅ Concluída (auditoria + correções) |
 | 10 | Deploy | ✅ Concluída (implementada e validada) |
+| — | Otimização de Startup (Fase 1) | ✅ Fast path implementado |
 
 ---
 ---
@@ -3197,5 +3199,101 @@ Validação: `month` fora de 1–12 ou não-inteiro → cai para mês atual.
 ```
 
 Adicionados 30 novos testes (20 unitários + 10 integração); nenhum teste anterior foi quebrado.
+
+---
+---
+
+# Otimização de Startup — Fase 1
+
+## Problema identificado
+
+Após investigação documentada em `STARTUP_INVESTIGATION.md`, identificou-se que o `CMD` do `Dockerfile` executava uma cadeia completa de seed de dados a cada inicialização do container — incluindo wake-ups após hibernação do Render Free:
+
+```
+migrate → import_study_plan → populate_chapter_content → import_questions → create_admin → gunicorn
+```
+
+O container hibernado acordava, reprocessava dados já existentes no banco (~1.230+ queries, parsing de 242 KB, 800 transações individuais) e só então iniciava o Gunicorn. Resultado: **primeiro acesso após hibernação: 3–5 minutos**.
+
+Os três comandos de seed eram declarados idempotentes, mas ainda custavam tempo cada vez que rodavam — mesmo quando todos os dados já estavam no banco.
+
+## Alterações realizadas
+
+| Arquivo | O que mudou |
+|---------|------------|
+| `apps/study_plan/management/commands/import_study_plan.py` | Fast path no início do `handle()`: conta módulos e capítulos; retorna imediatamente se já populados |
+| `apps/study_plan/management/commands/populate_chapter_content.py` | Fast path no início do `handle()`: conta capítulos com conteúdo; retorna imediatamente se todos preenchidos |
+| `apps/questions/management/commands/import_questions.py` | Fast path no início do `handle()`: conta questões; retorna imediatamente se `>= 800` |
+
+Nenhum outro arquivo foi modificado. Models, views, templates, services e fluxos de negócio permanecem intactos.
+
+## Estratégia utilizada
+
+Cada comando recebeu uma **verificação de estado** com 1–2 queries de contagem antes de qualquer processamento:
+
+```python
+# import_study_plan
+expected_modules = len(STUDY_PLAN_MAP)        # 14
+expected_chapters = sum(len(m.chapters) for m in STUDY_PLAN_MAP)  # 98
+if (StudyModule.objects.count() >= expected_modules
+        and StudyChapter.objects.count() >= expected_chapters):
+    self.stdout.write("Plano de estudos já populado — pulando.")
+    return
+```
+
+```python
+# populate_chapter_content
+expected_chapters = len(CHAPTER_MAP)          # 98
+populated = StudyChapter.objects.filter(content__gt='').count()
+if populated >= expected_chapters:
+    self.stdout.write("Conteúdo dos capítulos já populado — pulando.")
+    return
+```
+
+```python
+# import_questions
+_EXPECTED_QUESTION_COUNT = 800
+if not dry_run and Question.objects.count() >= _EXPECTED_QUESTION_COUNT:
+    self.stdout.write("Banco de questões já importado — pulando.")
+    return
+```
+
+Se o banco estiver completo, cada comando custa **1 query** em vez de centenas. Se algo estiver faltando, o comando roda normalmente.
+
+## Cenários cobertos
+
+| Cenário | Comportamento |
+|---------|--------------|
+| Banco completo (wake-up normal) | Fast path ativa → todos os 3 comandos pulam → startup rápido |
+| Primeiro deploy (banco vazio) | Fast path não ativa → seed roda completo normalmente |
+| Banco parcial (ex.: 750 questões) | Fast path não ativa → seed roda para completar os dados |
+| Banco parcial (ex.: 90 capítulos com conteúdo) | Fast path não ativa → populate_chapter_content roda para os 8 restantes |
+| `--dry-run` em import_questions | Fast path não interfere (verificação só ocorre fora de dry_run) |
+
+## Resultado
+
+```
+216 passed, 0 failed, 94 warnings in 3.53s
+```
+
+Nenhum teste quebrado. A lógica existente de importação permanece intacta.
+
+| Métrica | Antes | Depois |
+|---------|-------|--------|
+| Queries no wake-up | ~1.246+ | ~14 |
+| Tempo estimado (wake-up) | 3–5 min | 15–20 s |
+| Tempo estimado (deploy novo) | 3–5 min | 60–90 s |
+
+## Riscos e limitações
+
+- **Contagem como proxy:** o fast path assume que "N registros no banco = dados íntegros". Não verifica se o conteúdo é o correto — apenas que a quantidade esperada existe.
+- **Questões hardcoded (800):** se o banco de questões crescer, `_EXPECTED_QUESTION_COUNT` precisa ser atualizado manualmente.
+- **Dados corrompidos invisíveis:** se os 800 registros existirem mas com conteúdo errado, o fast path pula e os dados errados permanecem. Para corrigir, seria necessário forçar a reimportação (ex.: via `--force` flag, ainda não implementado).
+
+## Próximos passos (não implementados nesta fase)
+
+**Correção 2** (`populate_chapter_content`): comparar o conteúdo antes de salvar, evitando 98 UPDATEs desnecessários mesmo quando o fast path não ativa.
+
+**Correção 3** (`import_questions`): substituir 800 transações individuais por um único SELECT de todos os hashes existentes, só abrindo transações para questões novas ou alteradas.
 
 ---

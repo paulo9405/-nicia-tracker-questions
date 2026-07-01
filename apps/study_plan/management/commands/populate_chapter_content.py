@@ -155,6 +155,12 @@ class Command(BaseCommand):
         if dry_run:
             self.stdout.write(self.style.WARNING('=== DRY RUN — nada será salvo ===\n'))
 
+        expected_chapters = len(CHAPTER_MAP)
+        populated = StudyChapter.objects.filter(content__gt='').count()
+        if populated >= expected_chapters:
+            self.stdout.write("Conteúdo dos capítulos já populado — pulando.")
+            return
+
         # Cache module objects and file contents
         modules = {m.order: m for m in StudyModule.objects.all()}
         file_cache: dict[int, str] = {}
